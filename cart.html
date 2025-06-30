@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - GT86Partz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="page-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo" class="logo-img">
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Parts <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="engine-drivetrain.html">Engine & Drivetrain</a>
+                            <a href="suspension-handling.html">Suspension & Handling</a>
+                            <a href="brakes-wheels.html">Brakes & Wheels</a>
+                            <a href="exterior-aerodynamics.html">Exterior & Aerodynamics</a>
+                            <a href="interior-electronics.html">Interior & Electronics</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Accessories <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="interior-accessories.html">Interior Accessories</a>
+                            <a href="exterior-accessories.html">Exterior Accessories</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="hamburger" id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <a href="index.html" class="mobile-link">Home</a>
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-btn">Parts <i class="fas fa-chevron-down"></i></button>
+                    <div class="mobile-dropdown-content">
+                        <a href="engine-drivetrain.html">Engine & Drivetrain</a>
+                        <a href="suspension-handling.html">Suspension & Handling</a>
+                        <a href="brakes-wheels.html">Brakes & Wheels</a>
+                        <a href="exterior-aerodynamics.html">Exterior & Aerodynamics</a>
+                        <a href="interior-electronics.html">Interior & Electronics</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-btn">Accessories <i class="fas fa-chevron-down"></i></button>
+                    <div class="mobile-dropdown-content">
+                        <a href="interior-accessories.html">Interior Accessories</a>
+                        <a href="exterior-accessories.html">Exterior Accessories</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="mobile-link">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title animate-fade-up">Shopping Cart</h1>
+                <p class="page-description animate-fade-up delay-1">Review your selected items</p>
+            </div>
+        </section>
+
+        <!-- Cart Content -->
+        <section class="cart-page">
+            <div class="container">
+                <div class="cart-container">
+                    <div id="cartItems">
+                        <!-- Cart items will be loaded here -->
+                    </div>
+                    
+                    <div id="cartTotal" style="display: none;">
+                        <div class="cart-total">
+                            <h3>Order Summary</h3>
+                            <div class="total-amount" id="totalAmount">$0.00</div>
+                            <button class="btn btn-primary" onclick="placeOrder()">Place Order</button>
+                            <a href="index.html" class="btn btn-outline" style="margin-top: 1rem; display: inline-block;">Continue Shopping</a>
+                        </div>
+                    </div>
+
+                    <div id="emptyCart" class="empty-cart">
+                        <div class="empty-cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>Your cart is empty</h3>
+                        <p>Add some amazing parts to get started!</p>
+                        <a href="index.html" class="btn btn-primary">Start Shopping</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo" class="footer-logo-img">
+                    </div>
+                    <p class="footer-description">
+                        Your trusted source for high-quality automotive parts and accessories since 1998.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="reviews.html">Reviews</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="engine-drivetrain.html">Engine Parts</a></li>
+                        <li><a href="brakes-wheels.html">Brake System</a></li>
+                        <li><a href="suspension-handling.html">Suspension</a></li>
+                        <li><a href="exterior-aerodynamics.html">Exterior</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Newsletter</h3>
+                    <p class="newsletter-text">Subscribe to receive updates, access to exclusive deals, and more.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input">
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 GT86Partz. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+   
+    <script src="cart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

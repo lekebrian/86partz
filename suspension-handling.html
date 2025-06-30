@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suspension & Handling Parts - GT86Partz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="page-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo" class="logo-img">
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link active">Parts <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="engine-drivetrain.html">Engine & Drivetrain</a>
+                            <a href="suspension-handling.html">Suspension & Handling</a>
+                            <a href="brakes-wheels.html">Brakes & Wheels</a>
+                            <a href="exterior-aerodynamics.html">Exterior & Aerodynamics</a>
+                            <a href="interior-electronics.html">Interior & Electronics</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Accessories <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="interior-accessories.html">Interior Accessories</a>
+                            <a href="exterior-accessories.html">Exterior Accessories</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="hamburger" id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <a href="index.html" class="mobile-link">Home</a>
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-btn">Parts <i class="fas fa-chevron-down"></i></button>
+                    <div class="mobile-dropdown-content">
+                        <a href="engine-drivetrain.html">Engine & Drivetrain</a>
+                        <a href="suspension-handling.html">Suspension & Handling</a>
+                        <a href="brakes-wheels.html">Brakes & Wheels</a>
+                        <a href="exterior-aerodynamics.html">Exterior & Aerodynamics</a>
+                        <a href="interior-electronics.html">Interior & Electronics</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-btn">Accessories <i class="fas fa-chevron-down"></i></button>
+                    <div class="mobile-dropdown-content">
+                        <a href="interior-accessories.html">Interior Accessories</a>
+                        <a href="exterior-accessories.html">Exterior Accessories</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="mobile-link">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title animate-fade-up">Suspension & Handling</h1>
+                <p class="page-description animate-fade-up delay-1">Transform your ride with precision suspension and handling components</p>
+            </div>
+        </section>
+
+        <!-- Category Content -->
+        <section class="category-page">
+            <div class="container">
+                <div class="category-header">
+                    <h2 class="category-title animate-fade-up">Premium Suspension & Handling Parts</h2>
+                    <p class="category-description animate-fade-up delay-1">
+                        Enhance your vehicle's handling and ride quality with our professional-grade suspension components. 
+                        From coilovers to sway bars, achieve the perfect balance between comfort and performance.
+                    </p>
+                </div>
+
+                <div class="products-container">
+                    <div class="products-grid" id="categoryProducts">
+                        <!-- 12 hard-coded products, see below for structure -->
+                    </div>
+                    <div class="pagination" id="pagination">
+                        <button class="page-btn" id="page1">1</button>
+                        <button class="page-btn" id="page2">2</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Details Modal -->
+        <div class="product-detail" id="productDetailModal">
+            <div class="product-detail-content">
+                <button class="close-detail" id="closeDetailBtn">&times;</button>
+                <div class="product-detail-header">
+                    <h2 id="detailTitle"></h2>
+                </div>
+                <div class="product-detail-body">
+                    <div class="product-images" id="detailImages"></div>
+                    <div class="product-info">
+                        <div id="detailPrice"></div>
+                        <div id="detailDescription"></div>
+                        <button class="btn btn-secondary" id="backToCatalogBtn">Back to Catalog</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo" class="footer-logo-img">
+                    </div>
+                    <p class="footer-description">
+                        Your trusted source for high-quality automotive parts and accessories since 1998.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="reviews.html">Reviews</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="engine-drivetrain.html">Engine Parts</a></li>
+                        <li><a href="brakes-wheels.html">Brake System</a></li>
+                        <li><a href="suspension-handling.html">Suspension</a></li>
+                        <li><a href="exterior-aerodynamics.html">Exterior</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Newsletter</h3>
+                    <p class="newsletter-text">Subscribe to receive updates, access to exclusive deals, and more.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input">
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 GT86Partz. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+ 
+    <script src="script.js"></script>
+    <script src="category-products.js"></script>
+</body>
+</html>
