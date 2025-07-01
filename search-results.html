@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results - GT86Partz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+    body { background: #f8fafc; }
+    .search-results-header {
+        background: linear-gradient(90deg, #fff 60%, #e3f0ff 100%);
+        padding: 2rem 0 1rem 0;
+        text-align: center;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    }
+    .search-results-title {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #222;
+        margin-bottom: 0.5rem;
+    }
+    .search-results-query {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 1.5rem;
+    }
+    .results-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 2rem;
+        max-width: 1100px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+    .result-card {
+        background: #fff;
+        border-radius: 1.2rem;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+        padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        transition: box-shadow 0.2s;
+        position: relative;
+    }
+    .result-card:hover {
+        box-shadow: 0 4px 24px rgba(184,0,0,0.13);
+    }
+    .result-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0.4rem;
+        color: #b80000;
+        text-decoration: none;
+    }
+    .result-desc {
+        font-size: 0.98rem;
+        color: #444;
+        margin-bottom: 0.7rem;
+    }
+    .result-meta {
+        font-size: 0.93rem;
+        color: #888;
+        margin-bottom: 0.3rem;
+    }
+    .result-link {
+        margin-top: auto;
+        background: #b80000;
+        color: #fff;
+        border: none;
+        border-radius: 2rem;
+        padding: 0.5rem 1.3rem;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: background 0.2s;
+        display: inline-block;
+    }
+    .result-link:hover {
+        background: #d90000;
+    }
+    .no-results {
+        text-align: center;
+        color: #b80000;
+        font-size: 1.2rem;
+        margin-top: 3rem;
+    }
+    @media (max-width: 600px) {
+        .search-results-title { font-size: 1.2rem; }
+        .results-grid { gap: 1rem; }
+        .result-card { padding: 1rem 0.7rem; }
+    }
+    </style>
+</head>
+<body>
+    <div class="search-results-header">
+        <div class="search-results-title">Search Results</div>
+        <div class="search-results-query" id="searchQuery"></div>
+    </div>
+    <div class="results-grid" id="resultsGrid"></div>
+    <div class="no-results" id="noResults" style="display:none;">No results found. Try a different search term.</div>
+    <script src="search-data.js"></script>
+    <script>
+    // Parse query from URL
+    function getQuery() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('q') || '';
+    }
+    function highlight(text, query) {
+        if (!query) return text;
+        return text.replace(new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')', 'ig'), '<mark>$1</mark>');
+    }
+    // Render results
+    function renderResults(results, query) {
+        const grid = document.getElementById('resultsGrid');
+        grid.innerHTML = '';
+        if (results.length === 0) {
+            document.getElementById('noResults').style.display = '';
+            return;
+        }
+        document.getElementById('noResults').style.display = 'none';
+        results.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'result-card';
+            card.innerHTML = `
+                <a class="result-title" href="${item.page}#${item.id}" target="_blank">${highlight(item.name, query)}</a>
+                <div class="result-meta">${highlight(item.car, query)} &bull; ${highlight(item.year, query)}</div>
+                <div class="result-desc">${highlight(item.description, query)}</div>
+                <a class="result-link" href="${item.page}#${item.id}" target="_blank">View Product <i class="fas fa-arrow-right"></i></a>
+            `;
+            grid.appendChild(card);
+        });
+    }
+    // Main
+    const query = getQuery();
+    document.getElementById('searchQuery').innerHTML = query ? `for "<b>${query}</b>"` : '';
+    // Search logic
+    function searchProducts(query) {
+        if (!query) return [];
+        const q = query.toLowerCase();
+        return window.SEARCH_INDEX.filter(item =>
+            item.name.toLowerCase().includes(q) ||
+            item.description.toLowerCase().includes(q) ||
+            item.car.toLowerCase().includes(q) ||
+            item.year.toLowerCase().includes(q) ||
+            (item.keywords && item.keywords.toLowerCase().includes(q))
+        );
+    }
+    renderResults(searchProducts(query), query);
+    </script>
+</body>
+</html>
