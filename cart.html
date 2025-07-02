@@ -8,6 +8,20 @@
     <link rel="stylesheet" href="page-styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .logo-img {
+            height: 80px;
+            width: auto;
+            max-width: 220px;
+            transition: all 0.2s;
+        }
+        @media (max-width: 600px) {
+            .logo-img {
+                height: 56px;
+                max-width: 160px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -172,5 +186,17 @@
    
     <script src="cart.js"></script>
     <script src="script.js"></script>
+    <script>
+    // Hamburger menu toggle for mobile
+    document.addEventListener('DOMContentLoaded', function() {
+        var hamburger = document.getElementById('hamburger');
+        var mobileMenu = document.getElementById('mobileMenu');
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+            });
+        }
+    });
+    </script>
 </body>
 </html>

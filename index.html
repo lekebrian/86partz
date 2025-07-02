@@ -85,11 +85,16 @@ window.smartsupp||(function(d) {
                 font-size: 1.3rem;
             }
         }
+        @media (max-width: 600px) {
+            .hero-bg-img {
+                transition: opacity 1s;
+            }
+        }
 
         /* Main Search Bar Styling */
     .main-search-bar {
         width: 100%;
-        background: #fff;
+        background: rgba(0,0,0,0.0);
         box-shadow: 0 4px 24px rgba(0,0,0,0.07);
         padding: 0.7rem 0 0.7rem 0;
         display: flex;
@@ -161,6 +166,34 @@ window.smartsupp||(function(d) {
         .main-search-title {
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
+        }
+    }
+
+    /* Logo Styling */
+    .logo-img {
+        height: 80px;
+        width: auto;
+        max-width: 220px;
+        transition: all 0.2s;
+    }
+    @media (max-width: 600px) {
+        .logo-img {
+            height: 56px;
+            max-width: 160px;
+        }
+    }
+
+    /* Move search bar to top of hero section with spacing below */
+    .hero-search-bar {
+        margin-top: -1.5rem !important;
+        margin-bottom: 1.5rem !important;
+        position: relative;
+        z-index: 5;
+    }
+    @media (max-width: 600px) {
+        .hero-search-bar {
+            margin-top: -1.5rem !important;
+            margin-bottom: 0.7rem !important;
         }
     }
     </style>
@@ -239,22 +272,23 @@ window.smartsupp||(function(d) {
   
 
     <main>
-          <div class="main-search-bar">
-        <div class="main-search-content">
-            <h2 class="main-search-title">Find the Perfect Part or Accessory</h2>
-            <form id="mainSearchForm" class="main-search-form" autocomplete="off">
-                <input type="text" id="mainSearchInput" class="main-search-input" placeholder="Search Part(s) or Keywords" required>
-                <button type="submit" class="main-search-btn"><i class="fas fa-search"></i></button>
-            </form>
-        </div>
-    </div>
+        
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-background">
-                <img src="bg.jpg" alt="Hero Background" class="hero-bg-img">
+                <img src="bg.jpg" alt="Hero Background" class="hero-bg-img" id="heroBgImg">
                 <div class="hero-overlay"></div>
             </div>
             <div class="hero-content">
+                <!-- Move search bar closer to the top of hero section -->
+                <div class="main-search-bar hero-search-bar">
+                    <div class="main-search-content">
+                        <form id="mainSearchForm" class="main-search-form" autocomplete="off">
+                            <input type="text" id="mainSearchInput" class="main-search-input" placeholder="Search Part(s) or Keywords" required>
+                            <button type="submit" class="main-search-btn"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
                 <div class="container">
                     <h1 class="hero-title animate-fade-up">
                         Elevate Your Driving Experience With 
@@ -280,13 +314,13 @@ window.smartsupp||(function(d) {
             <div class="container">
                 <div class="about-content">
                     <div class="about-text animate-slide-right">
-                        <span class="section-tag">About GT86Partz</span>
+                        <span class="section-tag">About 86Partz</span>
                         <h2 class="section-title">Your Trusted Source for Premium Car Parts</h2>
                         <p class="about-description">
-                            Since 1998, GT86Partz has been serving automotive enthusiasts and repair professionals with the highest quality replacement and performance parts. Our mission is to provide exceptional products, competitive prices, and outstanding customer service.
+                            Since 2021, 86Partz has been serving automotive enthusiasts and repair professionals with the highest quality replacement and performance parts. Our mission is to provide exceptional products, competitive prices, and outstanding customer service.
                         </p>
                         <p class="about-description">
-                            With over 50,000 parts in stock and partnerships with leading manufacturers, we offer an unmatched selection for virtually every make and model.
+                            With partnerships with leading manufacturers, we offer an unmatched selection for virtually every make and model.
                         </p>
                         <div class="experience-badge">
                             <span class="experience-number">4+</span>
@@ -441,32 +475,58 @@ window.smartsupp||(function(d) {
             window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
         }
     });
-    </script>
-   
 
-</body>
-</html>
-                    </div>
-                </div>
-                
-                <div class="footer-bottom">
-                    <p>&copy; 2025 GT86Partz. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
-    </main>
-
-    <script src="script.js"></script>
-    <script src="search-data.js"></script>
-    <script>
-    // Search bar logic
-    document.getElementById('mainSearchForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const query = document.getElementById('mainSearchInput').value.trim();
-        if(query.length > 0) {
-            window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+    // Mobile hero background image alternation with smooth fade and slower interval
+    (function() {
+        const images = ['86.jpg', 'brz.jpg', 'frs.jpg'];
+        let idx = 0;
+        const heroImg = document.getElementById('heroBgImg');
+        if (!heroImg) return;
+        let intervalId = null;
+        function isMobile() {
+            return window.innerWidth <= 600;
         }
-    });
+        function setHeroImage(i) {
+            heroImg.style.transition = "opacity 1.2s";
+            heroImg.style.opacity = 0;
+            setTimeout(() => {
+                heroImg.src = images[i];
+                heroImg.onload = function() {
+                    heroImg.style.opacity = 1;
+                };
+            }, 700);
+        }
+        function startAlternating() {
+            setHeroImage(idx);
+            intervalId = setInterval(() => {
+                idx = (idx + 1) % images.length;
+                setHeroImage(idx);
+            }, 10000); // 10 seconds per image
+        }
+        function stopAlternating() {
+            if (intervalId) clearInterval(intervalId);
+        }
+        if (isMobile()) {
+            startAlternating();
+        }
+        window.addEventListener('resize', function() {
+            if (isMobile()) {
+                stopAlternating();
+                setHeroImage(idx);
+                startAlternating();
+            } else {
+                stopAlternating();
+                heroImg.style.transition = "opacity 0.7s";
+                heroImg.style.opacity = 0;
+                setTimeout(() => {
+                    heroImg.src = 'bg.jpg';
+                    heroImg.onload = function() {
+                        heroImg.style.opacity = 1;
+                    };
+                }, 400);
+            }
+        });
+    })();
     </script>
    
 
