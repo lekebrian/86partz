@@ -25,15 +25,11 @@ window.smartsupp||(function(d) {
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: 1;
             overflow: hidden;
+            /* Remove image, use wow background color */
+            background: linear-gradient(135deg, #f44336 0%, #ff9800 100%);
         }
         .hero-bg-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            position: absolute;
-            top: 0; left: 0;
-            z-index: 1;
+            display: none !important; /* Hide the image */
         }
         .hero-overlay {
             position: absolute;
@@ -196,6 +192,41 @@ window.smartsupp||(function(d) {
             margin-bottom: 0.7rem !important;
         }
     }
+
+    /* Brand logo at bottom corner of hero */
+    .hero-brand-logo {
+        position: absolute;
+        right: 2vw;
+        bottom: 2vw;
+        z-index: 20;
+        background: #fff;
+        border: 4px solid #b80000;
+        border-radius: 50%;
+        padding: 0.5rem;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .hero-brand-logo img {
+        height: 100px;
+        width: auto;
+        max-width: 160px;
+        border-radius: 50%;
+        display: block;
+    }
+    @media (max-width: 600px) {
+        .hero-brand-logo {
+            right: 1vw;
+            bottom: 1vw;
+            padding: 0.25rem;
+            border-width: 2.5px;
+        }
+        .hero-brand-logo img {
+            height: 60px;
+            max-width: 90px;
+        }
+    }
     </style>
 </head>
 <body>
@@ -276,11 +307,11 @@ window.smartsupp||(function(d) {
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-background">
-                <img src="bg.jpg" alt="Hero Background" class="hero-bg-img" id="heroBgImg">
+                <!-- Remove <img> and use background color only -->
+                <!-- <img src="bg.jpg" ...> -->
                 <div class="hero-overlay"></div>
             </div>
             <div class="hero-content">
-                <!-- Move search bar closer to the top of hero section -->
                 <div class="main-search-bar hero-search-bar">
                     <div class="main-search-content">
                         <form id="mainSearchForm" class="main-search-form" autocomplete="off">
@@ -305,6 +336,10 @@ window.smartsupp||(function(d) {
                         <span>Scroll to explore</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
+                </div>
+                <!-- Brand logo at bottom corner -->
+                <div class="hero-brand-logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo">
                 </div>
             </div>
         </section>
