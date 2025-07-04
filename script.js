@@ -40,7 +40,7 @@ const products = [
     name: "Sport Suspension Kit",
     price: 449.99,
     image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-06-30%20095619-HU1Marh9RnUaFif1f88Gcglr9IKt3V.png",
+      "one.jpg",
     category: "suspension",
     description:
       "Complete sport suspension kit with adjustable coilovers. Perfect balance between comfort and performance for street and track use.",
@@ -55,7 +55,7 @@ const products = [
     name: "LED Headlight Set",
     price: 159.99,
     image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-06-30%20095707-9KFl9PRl1G7eF2ec54aQDze5sgqf8n.png",
+      "two.jpg",
     category: "exterior",
     description:
       "Advanced LED headlight set with superior brightness and longevity. Plug-and-play installation with modern styling.",
@@ -70,7 +70,7 @@ const products = [
     name: "Turbo Upgrade Kit",
     price: 899.99,
     image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-06-30%20095548-cdxFVAKSIVU7Amr4ijKKLZHpk71tne.png",
+      "one.jpg",
     category: "engine",
     description:
       "Complete turbo upgrade kit for significant power gains. Includes all necessary components and detailed installation instructions.",
