@@ -25,11 +25,11 @@ window.smartsupp||(function(d) {
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: 1;
             overflow: hidden;
-            /* Remove image, use background color instead */
-            background: linear-gradient(135deg, #e52d27 0%, #b31217 100%);
+            /* Use dark gradient similar to screenshot */
+            background: linear-gradient(120deg, #000 0%, #232323 100%);
         }
         .hero-bg-img {
-            display: none !important; /* Hide the image */
+            display: none !important;
         }
         .hero-overlay {
             position: absolute;
@@ -179,23 +179,24 @@ window.smartsupp||(function(d) {
         }
     }
 
-    /* Move search bar to top of hero section with spacing below */
+    /* Move search bar just below header in hero section */
     .hero-search-bar {
-        margin-top: -1.5rem !important;
-        margin-bottom: 1.5rem !important;
-        position: relative;
+        margin-top: 0 !important;
+        margin-bottom: 2rem !important;
+        position: static;
         z-index: 5;
     }
     @media (max-width: 600px) {
         .hero-search-bar {
-            margin-top: -1.5rem !important;
-            margin-bottom: 0.7rem !important;
+            margin-top: 0 !important;
+            margin-bottom: 1rem !important;
         }
     }
 
+    /* Brand logo at bottom left */
     .hero-logo-brand {
             position: absolute;
-            right: 2.5vw;
+            left: 2.5vw;
             bottom: 2.5vw;
             z-index: 20;
             background: #fff;
@@ -222,7 +223,7 @@ window.smartsupp||(function(d) {
         }
         @media (max-width: 600px) {
             .hero-logo-brand {
-                right: 1vw;
+                left: 1vw;
                 bottom: 1vw;
                 padding: 0.25rem;
                 border-width: 2.5px;
@@ -315,13 +316,13 @@ window.smartsupp||(function(d) {
                 <!-- Remove <img> for bg, now handled by background color -->
                 <!-- <img src="bg.jpg" ... > -->
                 <div class="hero-overlay"></div>
-                <!-- Brand logo at bottom corner -->
+                <!-- Brand logo at bottom left -->
                 <div class="hero-logo-brand">
                     <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo">
                 </div>
             </div>
             <div class="hero-content">
-                <!-- Move search bar closer to the top of hero section -->
+                <!-- Move search bar to immediately below header in hero section -->
                 <div class="main-search-bar hero-search-bar">
                     <div class="main-search-content">
                         <form id="mainSearchForm" class="main-search-form" autocomplete="off">
