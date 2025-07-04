@@ -456,75 +456,6 @@ window.smartsupp||(function(d) {
             </div>
         </section>
 
-        <!-- Features Section -->
-        <section class="features-section">
-            <div class="container">
-                <div class="features-grid">
-                    <div class="feature-card animate-fade-up">
-                        <div class="feature-icon" style="background: #1e293b;">
-                            <i class="fa-solid fa-award" style="font-size:1.6rem;"></i>
-                        </div>
-                        <h3 class="feature-title">Certified Quality</h3>
-                        <p class="feature-description">All products are sourced from ISO-certified manufacturers and rigorously tested for reliability and safety.</p>
-                    </div>
-                    <div class="feature-card animate-fade-up delay-1">
-                        <div class="feature-icon" style="background: #0e7490;">
-                            <i class="fa-solid fa-truck-fast" style="font-size:1.6rem;"></i>
-                        </div>
-                        <h3 class="feature-title">Express Logistics</h3>
-                        <p class="feature-description">Enjoy fast, trackable shipping with real-time updates and secure packaging for every order.</p>
-                    </div>
-                    <div class="feature-card animate-fade-up delay-2">
-                        <div class="feature-icon" style="background: #059669;">
-                            <i class="fa-solid fa-handshake-angle" style="font-size:1.6rem;"></i>
-                        </div>
-                        <h3 class="feature-title">Trusted Partnerships</h3>
-                        <p class="feature-description">We collaborate with leading brands and suppliers to guarantee authentic, high-performance parts.</p>
-                    </div>
-                    <div class="feature-card animate-fade-up delay-3">
-                        <div class="feature-icon" style="background: #b91c1c;">
-                            <i class="fa-solid fa-user-tie" style="font-size:1.6rem;"></i>
-                        </div>
-                        <h3 class="feature-title">Expert Consultation</h3>
-                        <p class="feature-description">Our automotive specialists provide tailored advice and technical support for your unique needs.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Reviews Section -->
-        <section class="reviews-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title animate-fade-up">Customer Reviews</h2>
-                    <p class="section-description animate-fade-up delay-1">See what our customers are saying about our products and service.</p>
-                </div>
-                
-                <div class="reviews-stats animate-fade-up delay-2">
-                    <div class="stat-item">
-                        <span class="stat-number">21</span>
-                        <span class="stat-label">Total Reviews</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">4.8</span>
-                        <span class="stat-label">Average Rating</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">95%</span>
-                        <span class="stat-label">5-Star Reviews</span>
-                    </div>
-                </div>
-
-                <div class="reviews-grid" id="reviewsGrid">
-                    <!-- Reviews will be loaded by JavaScript -->
-                </div>
-
-                <div class="reviews-actions">
-                    <a href="reviews.html" class="btn btn-outline">See More Reviews</a>
-                </div>
-            </div>
-        </section>
-
         <!-- Trusted Brands Section -->
         <section class="trusted-brands-section">
             <div class="container">
@@ -548,6 +479,75 @@ window.smartsupp||(function(d) {
                         <span>86 Speed</span>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo" class="footer-logo-img">
+                        </div>
+                        <p class="footer-description">
+                            Your trusted source for high-quality automotive parts and accessories since 1998.
+                        </p>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3 class="footer-title">Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="reviews.html">Reviews</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3 class="footer-title">Categories</h3>
+                        <ul class="footer-links">
+                            <li><a href="engine-drivetrain.html">Engine Parts</a></li>
+                            <li><a href="brakes-wheels.html">Brake System</a></li>
+                            <li><a href="suspension-handling.html">Suspension</a></li>
+                            <li><a href="exterior-aerodynamics.html">Exterior</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3 class="footer-title">Newsletter</h3>
+                        <p class="newsletter-text">Subscribe to receive updates, access to exclusive deals, and more.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Enter your email" class="newsletter-input">
+                            <button type="submit" class="newsletter-btn">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2025 GT86Partz. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="search-data.js"></script>
+    <script>
+    // Search bar logic
+    document.getElementById('mainSearchForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const query = document.getElementById('mainSearchInput').value.trim();
+        if(query.length > 0) {
+            window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+        }
+    });
+    </script>
+   
+
+</body>
+</html>
             </div>
         </section>
 
