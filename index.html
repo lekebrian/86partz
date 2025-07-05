@@ -1081,22 +1081,239 @@ window.smartsupp||(function(d) {
     <script src="script.js"></script>
     <script src="search-data.js"></script>
     <script>
-    // Search bar logic
-    document.getElementById('mainSearchForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const query = document.getElementById('mainSearchInput').value.trim();
-        if(query.length > 0) {
-            window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
-        }
-    });
-    // Ensure See Details and Add to Cart work for all product cards
+// Centralized product data for all sections
+const productDetails = [
+    {
+        id: 1,
+        title: "Apple CarPlay & Android 13 Headunit",
+        price: "$270.00",
+        images: ["one.jpg", "one2.jpg", "one3.jpg"],
+        description: "Upgrade your driving experience with our advanced Apple CarPlay & Android 13 Headunit. Features a high-resolution touchscreen, seamless smartphone integration, and enhanced audio quality."
+    },
+    {
+        id: 2,
+        title: "GT86 BRZ FRS BAT MIRROR CAP",
+        price: "$99.99",
+        images: ["two.jpg", "two2.jpg", "two3.jpg"],
+        description: "Premium BAT mirror caps for GT86, BRZ, and FRS. Durable, stylish, and easy to install for a custom look."
+    },
+    {
+        id: 3,
+        title: "GT86/BRZ/FRS steering wheel",
+        price: "$550.00",
+        images: ["one.jpg", "one2.jpg", "one3.jpg"],
+        description: "Enhance your grip and style with our GT86/BRZ/FRS steering wheel. Designed for performance and comfort."
+    },
+    {
+        id: 4,
+        title: "GT86 BRZ FRS VER3 WING",
+        price: "$1,800.00",
+        images: ["two.jpg", "two2.jpg", "two3.jpg"],
+        description: "Aggressive styling and improved aerodynamics with the GT86 BRZ FRS VER3 WING. Made from high-quality materials."
+    },
+    {
+        id: 5,
+        title: "High-Performance Brake Kit",
+        price: "$299.99",
+        images: ["one.jpg", "one2.jpg", "one3.jpg"],
+        description: "Complete brake kit for maximum stopping power. Includes rotors, pads, and hardware."
+    },
+    {
+        id: 6,
+        title: "Ceramic Brake Pads",
+        price: "$89.99",
+        images: ["two.jpg", "two2.jpg", "two3.jpg"],
+        description: "Upgrade to ceramic brake pads for better performance and less dust. Compatible with GT86, BRZ, FRS."
+    },
+    {
+        id: 7,
+        title: "Slotted Brake Rotors",
+        price: "$199.99",
+        images: ["one.jpg", "one2.jpg", "one3.jpg"],
+        description: "Slotted brake rotors for improved heat dissipation and performance. Ideal for spirited driving."
+    },
+    {
+        id: 8,
+        title: "Stainless Steel Brake Lines",
+        price: "$79.99",
+        images: ["two.jpg", "two2.jpg", "two3.jpg"],
+        description: "Durable stainless steel brake lines for better braking performance and reliability."
+    },
+    {
+        id: 9,
+        title: "Synthetic Engine Oil 5W-30",
+        price: "$39.99",
+        images: ["one.jpg", "one2.jpg", "one3.jpg"],
+        description: "High-quality synthetic engine oil for optimal engine performance and protection."
+    },
+    {
+        id: 10,
+        title: "High-Performance Oil Filter",
+        price: "$19.99",
+        images: ["two.jpg", "two2.jpg", "two3.jpg"],
+        description: "Ensure your engine's longevity with our high-performance oil filter. Easy to install."
+    },
+    {
+        id: 11,
+        title: "High-Flow Air Filter",
+        price: "$29.99",
+        images: ["one.jpg", "one2.jpg", "one3.jpg"],
+        description: "Increase your engine's airflow and performance with our high-flow air filter."
+    },
+    {
+        id: 12,
+        title: "High-Performance Fuel Pump",
+        price: "$89.99",
+        images: ["two.jpg", "two2.jpg", "two3.jpg"],
+        description: "Upgrade your fuel system with our high-performance fuel pump. Reliable and efficient."
+    },
+    {
+        id: 13,
+        title: "Adjustable Coilovers",
+        price: "$699.99",
+        images: ["one.jpg", "one2.jpg", "one3.jpg"],
+        description: "Customizable coilovers for improved handling and ride comfort. Perfect for track and street use."
+    },
+    {
+        id: 14,
+        title: "Front & Rear Sway Bars",
+        price: "$249.99",
+        images: ["two.jpg", "two2.jpg", "two3.jpg"],
+        description: "Enhance your vehicle's stability and handling with our front and rear sway bars."
+    },
+    {
+        id: 15,
+        title: "Front Strut Brace",
+        price: "$119.99",
+        images: ["one.jpg", "one2.jpg", "one3.jpg"],
+        description: "Improve your suspension's response and reduce flex with our front strut brace."
+    },
+    {
+        id: 16,
+        title: "Camber Adjustment Kit",
+        price: "$79.99",
+        images: ["two.jpg", "two2.jpg", "two3.jpg"],
+        description: "Achieve the perfect alignment and improve tire wear with our camber adjustment kit."
+    },
+    {
+        id: 17,
+        title: "Full Body Kit",
+        price: "$1,299.99",
+        images: ["one.jpg", "one2.jpg", "one3.jpg"],
+        description: "Transform your car's appearance with our complete body kit. Includes front bumper, rear bumper, side skirts, and more."
+    },
+    {
+        id: 18,
+        title: "Carbon Fiber Spoiler",
+        price: "$399.99",
+        images: ["two.jpg", "two2.jpg", "two3.jpg"],
+        description: "Lightweight and durable carbon fiber spoiler for enhanced aerodynamics and style."
+    },
+    {
+        id: 19,
+        title: "Side Skirts",
+        price: "$249.99",
+        images: ["one.jpg", "one2.jpg", "one3.jpg"],
+        description: "Add a sporty touch to your car with our stylish side skirts. Easy to install."
+    },
+    {
+        id: 20,
+        title: "Rear Diffuser",
+        price: "$179.99",
+        images: ["two.jpg", "two2.jpg", "two3.jpg"],
+        description: "Improve your car's aerodynamics and rear-end stability with our rear diffuser."
+    },
+    {
+        id: 21,
+        title: "Custom Seat Covers",
+        price: "$199.99",
+        images: ["one.jpg", "one2.jpg", "one3.jpg"],
+        description: "Protect your seats and enhance interior style with our custom seat covers."
+    },
+    {
+        id: 22,
+        title: "Leather Steering Wheel",
+        price: "$149.99",
+        images: ["two.jpg", "two2.jpg", "two3.jpg"],
+        description: "Upgrade your interior with our premium leather steering wheel. Comfortable and stylish."
+    },
+    {
+        id: 23,
+        title: "All-Weather Floor Mats",
+        price: "$89.99",
+        images: ["one.jpg", "one2.jpg", "one3.jpg"],
+        description: "Keep your car clean and protected with our all-weather floor mats. Easy to clean."
+    },
+    {
+        id: 24,
+        title: "HD Dash Cam",
+        price: "$129.99",
+        images: ["two.jpg", "two2.jpg", "two3.jpg"],
+        description: "Capture every moment on the road with our HD dash cam. High-quality video and easy installation."
+    },
+    {
+        id: 25,
+        title: "Premium Car Cover",
+        price: "$59.99",
+        images: ["one.jpg", "one2.jpg", "one3.jpg"],
+        description: "Protect your vehicle from the elements with our premium car cover. Durable and weather-resistant."
+    },
+    {
+        id: 26,
+        title: "Window Tint Film",
+        price: "$39.99",
+        images: ["two.jpg", "two2.jpg", "two3.jpg"],
+        description: "Enhance privacy and reduce heat inside your car with our high-quality window tint film."
+    },
+    {
+        id: 27,
+        title: "Stainless Steel License Plate Frame",
+        price: "$19.99",
+        images: ["one.jpg", "one2.jpg", "one3.jpg"],
+        description: "Add a touch of elegance to your car with our stainless steel license plate frame."
+    },
+    {
+        id: 28,
+        title: "Custom Mud Flaps",
+        price: "$49.99",
+        images: ["two.jpg", "two2.jpg", "two3.jpg"],
+        description: "Protect your car's paint and reduce mud splatter with our custom mud flaps."
+    },
+    {
+        id: 29,
+        title: "Leather Steering Wheel Cover",
+        price: "$29.99",
+        images: ["one.jpg", "one2.jpg", "one3.jpg"],
+        description: "Enhance your grip and protect your steering wheel with our leather steering wheel cover."
+    },
+    {
+        id: 30,
+        title: "Aluminum Gear Shift Knob",
+        price: "$19.99",
+        images: ["two.jpg", "two2.jpg", "two3.jpg"],
+        description: "Upgrade your interior with our stylish aluminum gear shift knob. Easy to install."
+    },
+    {
+        id: 31,
+        title: "Custom Fit Sunshade",
+        price: "$24.99",
+        images: ["one.jpg", "one2.jpg", "one3.jpg"],
+        description: "Keep your car cool and protect your interior with our custom fit sunshade."
+    },
+    {
+        id: 32,
+        title: "Luxury Floor Mats",
+        price: "$89.99",
+        images: ["two.jpg", "two2.jpg", "two3.jpg"],
+        description: "Add a touch of luxury to your car's interior with our premium floor mats."
+    }
+];
+
+// Show product detail modal (unified for all sections)
 function showProductDetail(id) {
-    // Open a modal with product details instead of navigating to a missing page
-    // Find the product card and clone its info for the modal
-    const productCard = document.querySelector(
-        '.homepage-product-card:nth-child(' + id + ')'
-    );
-    if (!productCard) return;
+    const product = productDetails.find(p => p.id === id);
+    if (!product) return;
+
     let modal = document.getElementById('productDetailModal');
     if (!modal) {
         modal = document.createElement('div');
@@ -1112,47 +1329,57 @@ function showProductDetail(id) {
         modal.style.justifyContent = 'center';
         modal.style.zIndex = '9999';
         modal.innerHTML = `
-            <div style="background:#fff;max-width:420px;width:95vw;padding:2rem 1.5rem;border-radius:8px;position:relative;text-align:center;">
-                <button id="closeProductModal" style="position:absolute;top:0.5rem;right:0.7rem;font-size:2rem;background:none;border:none;cursor:pointer;">&times;</button>
-                <div id="modalProductImgs" style="display:flex;gap:0.5rem;justify-content:center;margin-bottom:1rem;"></div>
-                <div id="modalProductTitle" style="font-weight:700;font-size:1.2rem;margin:1rem 0 0.5rem 0;"></div>
-                <div id="modalProductPrice" style="color:#b80000;font-size:1.1rem;margin-bottom:0.5rem;"></div>
-                <div id="modalProductDesc" style="font-size:0.98rem;color:#444;margin-bottom:1rem;"></div>
-                <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.2rem;">
-                    <button id="qtyDec" style="font-size:1.3rem;width:2.2em;height:2.2em;">-</button>
-                    <span id="qtyVal" style="font-size:1.2rem;min-width:2em;display:inline-block;">1</span>
-                    <button id="qtyInc" style="font-size:1.3rem;width:2.2em;height:2.2em;">+</button>
+            <div id="modalContent" style="background:#fff;max-width:370px;width:95vw;padding:2.2rem 1.5rem 2rem 1.5rem;border-radius:12px;position:relative;text-align:left;box-sizing:border-box;">
+                <button id="closeProductModal" style="position:absolute;top:0.7rem;right:1rem;font-size:2rem;background:none;border:none;cursor:pointer;">&times;</button>
+                <div id="modalProductTitle" style="font-size:1.4rem;font-weight:700;margin-bottom:1.2rem;"></div>
+                <div id="modalProductImgs" style="display:flex;flex-direction:column;gap:1rem;align-items:center;margin-bottom:1.2rem;"></div>
+                <div id="modalProductPrice" style="color:#b80000;font-size:1.3rem;font-weight:700;margin-bottom:0.7rem;"></div>
+                <div id="modalProductDesc" style="font-size:1.05rem;color:#222;margin-bottom:1.2rem;white-space:pre-line;"></div>
+                <div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:1.2rem;">
+                    <button id="qtyDec" style="font-size:1.3rem;width:2.2em;height:2.2em;border-radius:50%;border:1px solid #ddd;background:#fafafa;cursor:pointer;">-</button>
+                    <span id="qtyVal" style="font-size:1.2rem;min-width:2em;display:inline-block;text-align:center;">1</span>
+                    <button id="qtyInc" style="font-size:1.3rem;width:2.2em;height:2.2em;border-radius:50%;border:1px solid #ddd;background:#fafafa;cursor:pointer;">+</button>
                 </div>
-                <button class="btn btn-primary btn-small" id="modalAddToCartBtn" style="margin-bottom:1rem;">
-                    <svg viewBox="0 0 32 32" style="width:1.3em;height:1.3em;vertical-align:middle;fill:#fff;"><g><path d="M10 28a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm12 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM8.2 22l.94-2H23a1 1 0 0 0 .96-.73l3-11A1 1 0 0 0 26 7H7.21l-.94-2A1 1 0 0 0 5.34 4H2a1 1 0 1 0 0 2h2.34l5.6 12.59-1.35 2.44A1 1 0 0 0 9 23h16a1 1 0 1 0 0-2H8.2zm2.16-4l1.1-2h9.48l-1.1 2H10.36zm2.1-4l1.1-2h5.48l-1.1 2h-5.48z"/><rect x="21" y="10" width="2" height="6" rx="1"/><rect x="19" y="12" width="6" height="2" rx="1"/></g></svg>
-                    <span style="margin-left:0.5em;">Add to Cart</span>
+                <button class="btn btn-primary btn-small" id="modalAddToCartBtn" style="width:100%;padding:1rem 0;font-size:1.1rem;background:#b80000;color:#fff;border:none;border-radius:8px;display:block;margin-top:0.5rem;">
+                    Add to Cart
                 </button>
             </div>
         `;
         document.body.appendChild(modal);
     }
     // Fill modal with product info
+    modal.querySelector('#modalProductTitle').textContent = product.title;
+    modal.querySelector('#modalProductPrice').textContent = product.price;
+    modal.querySelector('#modalProductDesc').textContent = product.description;
+    // Images: show all 3 vertically centered
     const imgsDiv = modal.querySelector('#modalProductImgs');
-    imgsDiv.innerHTML = productCard.querySelector('.homepage-product-img').outerHTML;
-    modal.querySelector('#modalProductTitle').textContent = productCard.querySelector('.homepage-product-title').textContent;
-    modal.querySelector('#modalProductPrice').textContent = productCard.querySelector('.homepage-product-price').textContent;
-    // Show modal
-    modal.style.display = 'flex';
+    imgsDiv.innerHTML = product.images.map(img =>
+        `<img src="${img}" style="width:140px;height:90px;object-fit:contain;border-radius:8px;background:#f7f7f7;border:1px solid #eee;">`
+    ).join('');
+    // Quantity controls
+    let qty = 1;
+    const qtyVal = modal.querySelector('#qtyVal');
+    qtyVal.textContent = qty;
+    modal.querySelector('#qtyDec').onclick = function() {
+        if (qty > 1) qty--;
+        qtyVal.textContent = qty;
+    };
+    modal.querySelector('#qtyInc').onclick = function() {
+        qty++;
+        qtyVal.textContent = qty;
+    };
+    // Add to cart
+    modal.querySelector('#modalAddToCartBtn').onclick = function() {
+        let count = parseInt(document.querySelector('.cart-count').textContent, 10) || 0;
+        document.querySelector('.cart-count').textContent = count + qty;
+        alert('Added ' + qty + ' "' + product.title + '" to cart!');
+        modal.style.display = 'none';
+    };
     // Close modal
     modal.querySelector('#closeProductModal').onclick = function() {
         modal.style.display = 'none';
     };
-    // Add to cart from modal
-    modal.querySelector('#modalAddToCartBtn').onclick = function() {
-        addToCart(id);
-        modal.style.display = 'none';
-    };
-}
-function addToCart(id) {
-    // Simple cart count increment
-    let count = parseInt(document.querySelector('.cart-count').textContent, 10) || 0;
-    document.querySelector('.cart-count').textContent = count + 1;
-    // Optionally, persist cart to localStorage or backend here
+    modal.style.display = 'flex';
 }
     </script>
    
