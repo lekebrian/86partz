@@ -433,11 +433,16 @@ window.smartsupp||(function(d) {
         color: #fff;
     }
     .homepage-product-actions .btn-primary.btn-small::before {
-        content: "🛒➕";
-        font-size: 1.45rem;
-        color: #fff !important;
-        filter: drop-shadow(0 0 2px #000);
+        /* Use SVG for pure white cart+plus icon for best cross-browser color */
+        content: "";
         display: inline-block;
+        width: 1.6em;
+        height: 1.6em;
+        background: none;
+        background-image: url('data:image/svg+xml;utf8,<svg width="32" height="32" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg"><g><path d="M10 28a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm12 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM8.2 22l.94-2H23a1 1 0 0 0 .96-.73l3-11A1 1 0 0 0 26 7H7.21l-.94-2A1 1 0 0 0 5.34 4H2a1 1 0 1 0 0 2h2.34l5.6 12.59-1.35 2.44A1 1 0 0 0 9 23h16a1 1 0 1 0 0-2H8.2zm2.16-4l1.1-2h9.48l-1.1 2H10.36zm2.1-4l1.1-2h5.48l-1.1 2h-5.48z"/><rect x="21" y="10" width="2" height="6" rx="1"/><rect x="19" y="12" width="6" height="2" rx="1"/></g></svg>');
+        background-size: contain;
+        background-repeat: no-repeat;
+        vertical-align: middle;
     }
 }
 @media (min-width: 701px) {
@@ -576,26 +581,7 @@ window.smartsupp||(function(d) {
             </div>
         </section>
 
-        <!-- Review Stats Section -->
-        <section class="review-stats-section">
-            <div class="container review-stats-container">
-                <div class="review-stats">
-                    <div class="review-stat">
-                        <div class="stat-number">61</div>
-                        <div class="stat-label">Total Reviews</div>
-                    </div>
-                    <div class="review-stat">
-                        <div class="stat-number">4.8</div>
-                        <div class="stat-label">Average Rating</div>
-                    </div>
-                    <div class="review-stat">
-                        <div class="stat-number">96%</div>
-                        <div class="stat-label">5-Star Reviews</div>
-                    </div>
-                </div>
-                <a href="reviews.html" class="see-reviews-link">See Reviews</a>
-            </div>
-        </section>
+      
 
         <!-- Best Sellers Section -->
         <section class="homepage-section">
@@ -1015,7 +1001,26 @@ window.smartsupp||(function(d) {
                 <a href="interior-accessories.html" class="homepage-viewall-btn">VIEW ALL</a>
             </div>
         </section>
-
+  <!-- Review Stats Section -->
+        <section class="review-stats-section">
+            <div class="container review-stats-container">
+                <div class="review-stats">
+                    <div class="review-stat">
+                        <div class="stat-number">61</div>
+                        <div class="stat-label">Total Reviews</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="stat-number">4.8</div>
+                        <div class="stat-label">Average Rating</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="stat-number">96%</div>
+                        <div class="stat-label">5-Star Reviews</div>
+                    </div>
+                </div>
+                <a href="reviews.html" class="see-reviews-link">See Reviews</a>
+            </div>
+        </section>
         <!-- About Section -->
         <section id="about" class="about-section">
             <div class="container">
