@@ -290,7 +290,7 @@ window.smartsupp||(function(d) {
         }
         .homepage-product-card {
             background: #fff;
-            border-radius: 12px;
+            border-radius: 0 !important; /* sharp edges */
             box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             overflow: hidden;
             display: flex;
@@ -433,7 +433,6 @@ window.smartsupp||(function(d) {
         color: #fff;
     }
     .homepage-product-actions .btn-primary.btn-small::before {
-        /* Use SVG for pure white cart+plus icon for best cross-browser color */
         content: "";
         display: inline-block;
         width: 1.6em;
@@ -1131,6 +1130,17 @@ window.smartsupp||(function(d) {
             window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
         }
     });
+    // Ensure See Details and Add to Cart work for all product cards
+function showProductDetail(id) {
+    // Implement your modal logic here
+    // Example: openProductModal(id);
+    alert('Show details for product ID: ' + id);
+}
+function addToCart(id) {
+    // Implement your add to cart logic here
+    // Example: addToCartById(id);
+    alert('Added product ID ' + id + ' to cart!');
+}
     </script>
    
 
