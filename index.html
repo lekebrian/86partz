@@ -1374,13 +1374,13 @@ function showProductDetail(id) {
         let cart = JSON.parse(localStorage.getItem('cart') || '[]');
         const existing = cart.find(item => item.id === product.id);
         if (existing) {
-            existing.qty += qty;
+            existing.qty = Number(existing.qty || 0) + Number(qty || 1);
         } else {
-            cart.push({ id: product.id, title: product.title, price: product.price, qty, image: product.images[0] });
+            cart.push({ id: product.id, title: product.title, price: product.price, qty: Number(qty || 1), image: product.images[0] });
         }
         localStorage.setItem('cart', JSON.stringify(cart));
         // Update cart count in header
-        let totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+        let totalCount = cart.reduce((sum, item) => Number(sum) + Number(item.qty || 0), 0);
         document.querySelector('.cart-count').textContent = totalCount;
 
         // --- Styled confirmation message (not alert) ---
@@ -1420,7 +1420,7 @@ function showProductDetail(id) {
 // On page load, update cart count from localStorage
 document.addEventListener('DOMContentLoaded', function() {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    let totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+    let totalCount = cart.reduce((sum, item) => Number(sum) + Number(item.qty || 0), 0);
     document.querySelector('.cart-count').textContent = totalCount;
 });
     </script>
