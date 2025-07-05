@@ -188,35 +188,69 @@
     <script src="cart.js"></script>
     <script src="script.js"></script>
     <script>
+document.addEventListener('DOMContentLoaded', function() {
     // Hamburger menu toggle for mobile
-    document.addEventListener('DOMContentLoaded', function() {
-        var hamburger = document.getElementById('hamburger');
-        var mobileMenu = document.getElementById('mobileMenu');
-        if (hamburger && mobileMenu) {
-            hamburger.addEventListener('click', function() {
-                mobileMenu.classList.toggle('active');
-            });
-        }
-
-        // --- Fix cart count and cart item quantity parsing ---
-        // Update cart count in header
-        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-        let totalCount = cart.reduce((sum, item) => Number(sum) + Number(item.qty || 0), 0);
-        document.querySelector('.cart-count').textContent = totalCount;
-
-        // If you render cart items and totals here, ensure all qty and price are parsed as numbers:
-        // Example (if you have code like this in cart.js, ensure similar logic):
-        /*
-        let total = 0;
-        cart.forEach(item => {
-            let qty = Number(item.qty || 0);
-            let price = parseFloat((item.price || "0").replace(/[^0-9.]/g, ""));
-            total += qty * price;
-            // ...render item...
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobileMenu');
+    if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
         });
-        document.getElementById('totalAmount').textContent = "$" + total.toFixed(2);
-        */
-    });
+    }
+
+    // --- Cart count in header ---
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    let totalCount = cart.reduce((sum, item) => {
+        let qty = Number(item.qty);
+        return sum + (isNaN(qty) ? 0 : qty);
+    }, 0);
+    document.querySelector('.cart-count').textContent = totalCount;
+
+    // --- Render cart items and order summary ---
+    let cartItemsDiv = document.getElementById('cartItems');
+    let cartTotalDiv = document.getElementById('cartTotal');
+    let emptyCartDiv = document.getElementById('emptyCart');
+    let totalAmountDiv = document.getElementById('totalAmount');
+
+    if (cart.length === 0) {
+        cartItemsDiv.innerHTML = '';
+        cartTotalDiv.style.display = 'none';
+        emptyCartDiv.style.display = 'block';
+    } else {
+        let total = 0;
+        let html = '';
+        cart.forEach(item => {
+            let qty = Number(item.qty);
+            if (isNaN(qty) || qty < 1) qty = 1;
+            // Remove all except digits, dot, and minus from price string
+            let priceNum = 0;
+            if (typeof item.price === 'number') {
+                priceNum = item.price;
+            } else if (typeof item.price === 'string') {
+                let cleaned = item.price.replace(/[^0-9.\-]/g, '');
+                priceNum = parseFloat(cleaned);
+                if (isNaN(priceNum)) priceNum = 0;
+            }
+            let lineTotal = qty * priceNum;
+            total += lineTotal;
+            html += `
+                <div class="cart-item">
+                    <div class="cart-item-img"><img src="${item.image || ''}" alt="${item.title || ''}" style="width:60px;height:60px;object-fit:cover;border-radius:6px;"></div>
+                    <div class="cart-item-info">
+                        <div class="cart-item-title">${item.title || ''}</div>
+                        <div class="cart-item-price">Price: $${priceNum.toFixed(2)}</div>
+                        <div class="cart-item-qty">Qty: ${qty}</div>
+                        <div class="cart-item-line-total">Subtotal: $${lineTotal.toFixed(2)}</div>
+                    </div>
+                </div>
+            `;
+        });
+        cartItemsDiv.innerHTML = html;
+        totalAmountDiv.textContent = "$" + total.toFixed(2);
+        cartTotalDiv.style.display = 'block';
+        emptyCartDiv.style.display = 'none';
+    }
+});
     </script>
 </body>
 </html>
