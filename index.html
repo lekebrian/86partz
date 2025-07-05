@@ -428,15 +428,18 @@ window.smartsupp||(function(d) {
         display: flex;
         align-items: center;
         justify-content: center;
+        background: #b80000;
+        border: none;
+        color: #fff;
     }
     .homepage-product-actions .btn-primary.btn-small::before {
         content: "🛒➕";
-        font-size: 1.25rem;
-        color: #fff;
+        font-size: 1.45rem;
+        color: #fff !important;
+        filter: drop-shadow(0 0 2px #000);
         display: inline-block;
     }
 }
-/* Desktop: restore normal Add to Cart text */
 @media (min-width: 701px) {
     .homepage-product-actions .btn-primary.btn-small::before {
         content: "";
@@ -446,6 +449,11 @@ window.smartsupp||(function(d) {
         min-width: unset;
         min-height: unset;
         padding: 0.5rem 1.2rem;
+    }
+    .homepage-product-actions .btn-primary.btn-small:empty::after {
+        content: "Add to Cart";
+        font-size: 1rem;
+        color: #fff;
     }
 }
     </style>
@@ -568,53 +576,73 @@ window.smartsupp||(function(d) {
             </div>
         </section>
 
+        <!-- Review Stats Section -->
+        <section class="review-stats-section">
+            <div class="container review-stats-container">
+                <div class="review-stats">
+                    <div class="review-stat">
+                        <div class="stat-number">61</div>
+                        <div class="stat-label">Total Reviews</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="stat-number">4.8</div>
+                        <div class="stat-label">Average Rating</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="stat-number">96%</div>
+                        <div class="stat-label">5-Star Reviews</div>
+                    </div>
+                </div>
+                <a href="reviews.html" class="see-reviews-link">See Reviews</a>
+            </div>
+        </section>
+
         <!-- Best Sellers Section -->
         <section class="homepage-section">
             <div class="container">
                 <h2 class="section-title" style="text-align:center; margin-bottom:2rem;">Best Sellers</h2>
                 <div class="homepage-products-grid">
-                    <!-- Sample product cards -->
                     <div class="homepage-product-card">
-                        <img src="one.jpg" alt="Product 1" class="homepage-product-img">
+                        <img src="one.jpg" alt="Apple CarPlay & Android 13 Headunit" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Apple CarPlay & Android 13 Headunit</div>
                             <div class="homepage-product-price">from $270.00</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(1)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(1)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(1)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="two.jpg" alt="Product 2" class="homepage-product-img">
+                        <img src="two.jpg" alt="GT86 BRZ FRS BAT MIRROR CAP" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">GT86 BRZ FRS BAT MIRROR CAP</div>
                             <div class="homepage-product-price">from $99.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(2)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(2)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(2)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="one.jpg" alt="Product 3" class="homepage-product-img">
+                        <img src="one.jpg" alt="GT86/BRZ/FRS steering wheel" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">GT86/BRZ/FRS steering wheel</div>
                             <div class="homepage-product-price"><span style="color:#dc2626;font-weight:700;">$550.00</span> <span style="text-decoration:line-through;color:#888;">$800.00</span></div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(3)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(3)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(3)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="two.jpg" alt="Product 4" class="homepage-product-img">
+                        <img src="two.jpg" alt="GT86 BRZ FRS VER3 WING" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">GT86 BRZ FRS VER3 WING</div>
                             <div class="homepage-product-price">from $1,800.00</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(4)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(4)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(4)"></button>
                             </div>
                         </div>
                     </div>
@@ -623,53 +651,51 @@ window.smartsupp||(function(d) {
         </section>
 
         <!-- Category Sections -->
-        <!-- Repeat this block for each category, changing the title, products, and view all link -->
         <section class="homepage-section">
             <div class="container">
                 <h2 class="section-title" style="text-align:center; margin-bottom:2rem;">Brakes & Wheels</h2>
                 <div class="homepage-products-grid">
-                    <!-- 4 sample products for Brakes & Wheels -->
                     <div class="homepage-product-card">
-                        <img src="one.jpg" alt="Brake Kit" class="homepage-product-img">
+                        <img src="one.jpg" alt="High-Performance Brake Kit" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">High-Performance Brake Kit</div>
                             <div class="homepage-product-price">$299.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(5)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(5)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(5)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="two.jpg" alt="Brake Pads" class="homepage-product-img">
+                        <img src="two.jpg" alt="Ceramic Brake Pads" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Ceramic Brake Pads</div>
                             <div class="homepage-product-price">$89.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(6)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(6)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(6)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="one.jpg" alt="Brake Rotors" class="homepage-product-img">
+                        <img src="one.jpg" alt="Slotted Brake Rotors" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Slotted Brake Rotors</div>
                             <div class="homepage-product-price">$199.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(7)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(7)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(7)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="two.jpg" alt="Brake Lines" class="homepage-product-img">
+                        <img src="two.jpg" alt="Stainless Steel Brake Lines" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Stainless Steel Brake Lines</div>
                             <div class="homepage-product-price">$79.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(8)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(8)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(8)"></button>
                             </div>
                         </div>
                     </div>
@@ -681,48 +707,47 @@ window.smartsupp||(function(d) {
             <div class="container">
                 <h2 class="section-title" style="text-align:center; margin-bottom:2rem;">Engine & Drivetrain</h2>
                 <div class="homepage-products-grid">
-                    <!-- 4 sample products for Engine & Drivetrain -->
                     <div class="homepage-product-card">
-                        <img src="one.jpg" alt="Engine Oil" class="homepage-product-img">
+                        <img src="one.jpg" alt="Synthetic Engine Oil 5W-30" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Synthetic Engine Oil 5W-30</div>
                             <div class="homepage-product-price">$39.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(9)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(9)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(9)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="two.jpg" alt="Oil Filter" class="homepage-product-img">
+                        <img src="two.jpg" alt="High-Performance Oil Filter" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">High-Performance Oil Filter</div>
                             <div class="homepage-product-price">$19.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(10)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(10)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(10)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="one.jpg" alt="Air Filter" class="homepage-product-img">
+                        <img src="one.jpg" alt="High-Flow Air Filter" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">High-Flow Air Filter</div>
                             <div class="homepage-product-price">$29.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(11)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(11)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(11)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="two.jpg" alt="Fuel Pump" class="homepage-product-img">
+                        <img src="two.jpg" alt="High-Performance Fuel Pump" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">High-Performance Fuel Pump</div>
                             <div class="homepage-product-price">$89.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(12)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(12)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(12)"></button>
                             </div>
                         </div>
                     </div>
@@ -734,48 +759,47 @@ window.smartsupp||(function(d) {
             <div class="container">
                 <h2 class="section-title" style="text-align:center; margin-bottom:2rem;">Suspension & Handling</h2>
                 <div class="homepage-products-grid">
-                    <!-- 4 sample products for Suspension & Handling -->
                     <div class="homepage-product-card">
-                        <img src="one.jpg" alt="Coilovers" class="homepage-product-img">
+                        <img src="one.jpg" alt="Adjustable Coilovers" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Adjustable Coilovers</div>
                             <div class="homepage-product-price">$699.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(13)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(13)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(13)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="two.jpg" alt="Sway Bars" class="homepage-product-img">
+                        <img src="two.jpg" alt="Front & Rear Sway Bars" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Front & Rear Sway Bars</div>
                             <div class="homepage-product-price">$249.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(14)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(14)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(14)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="one.jpg" alt="Strut Braces" class="homepage-product-img">
+                        <img src="one.jpg" alt="Front Strut Brace" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Front Strut Brace</div>
                             <div class="homepage-product-price">$119.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(15)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(15)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(15)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="two.jpg" alt="Camber Kits" class="homepage-product-img">
+                        <img src="two.jpg" alt="Camber Adjustment Kit" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Camber Adjustment Kit</div>
                             <div class="homepage-product-price">$79.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(16)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(16)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(16)"></button>
                             </div>
                         </div>
                     </div>
@@ -787,26 +811,25 @@ window.smartsupp||(function(d) {
             <div class="container">
                 <h2 class="section-title" style="text-align:center; margin-bottom:2rem;">Exterior & Aerodynamics</h2>
                 <div class="homepage-products-grid">
-                    <!-- 4 sample products for Exterior & Aerodynamics -->
                     <div class="homepage-product-card">
-                        <img src="one.jpg" alt="Body Kit" class="homepage-product-img">
+                        <img src="one.jpg" alt="Full Body Kit" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Full Body Kit</div>
                             <div class="homepage-product-price">$1,299.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(17)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(17)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(17)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="two.jpg" alt="Spoiler" class="homepage-product-img">
+                        <img src="two.jpg" alt="Carbon Fiber Spoiler" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Carbon Fiber Spoiler</div>
                             <div class="homepage-product-price">$399.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(18)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(18)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(18)"></button>
                             </div>
                         </div>
                     </div>
@@ -817,18 +840,18 @@ window.smartsupp||(function(d) {
                             <div class="homepage-product-price">$249.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(19)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(19)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(19)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="two.jpg" alt="Diffuser" class="homepage-product-img">
+                        <img src="two.jpg" alt="Rear Diffuser" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Rear Diffuser</div>
                             <div class="homepage-product-price">$179.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(20)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(20)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(20)"></button>
                             </div>
                         </div>
                     </div>
@@ -840,48 +863,47 @@ window.smartsupp||(function(d) {
             <div class="container">
                 <h2 class="section-title" style="text-align:center; margin-bottom:2rem;">Interior & Electronics</h2>
                 <div class="homepage-products-grid">
-                    <!-- 4 sample products for Interior & Electronics -->
                     <div class="homepage-product-card">
-                        <img src="one.jpg" alt="Seat Covers" class="homepage-product-img">
+                        <img src="one.jpg" alt="Custom Seat Covers" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Custom Seat Covers</div>
                             <div class="homepage-product-price">$199.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(21)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(21)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(21)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="two.jpg" alt="Steering Wheel" class="homepage-product-img">
+                        <img src="two.jpg" alt="Leather Steering Wheel" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Leather Steering Wheel</div>
                             <div class="homepage-product-price">$149.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(22)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(22)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(22)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="one.jpg" alt="Floor Mats" class="homepage-product-img">
+                        <img src="one.jpg" alt="All-Weather Floor Mats" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">All-Weather Floor Mats</div>
                             <div class="homepage-product-price">$89.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(23)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(23)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(23)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="two.jpg" alt="Dash Cam" class="homepage-product-img">
+                        <img src="two.jpg" alt="HD Dash Cam" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">HD Dash Cam</div>
                             <div class="homepage-product-price">$129.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(24)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(24)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(24)"></button>
                             </div>
                         </div>
                     </div>
@@ -893,48 +915,47 @@ window.smartsupp||(function(d) {
             <div class="container">
                 <h2 class="section-title" style="text-align:center; margin-bottom:2rem;">Exterior Accessories</h2>
                 <div class="homepage-products-grid">
-                    <!-- 4 sample products for Exterior Accessories -->
                     <div class="homepage-product-card">
-                        <img src="one.jpg" alt="Car Cover" class="homepage-product-img">
+                        <img src="one.jpg" alt="Premium Car Cover" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Premium Car Cover</div>
                             <div class="homepage-product-price">$59.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(25)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(25)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(25)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="two.jpg" alt="Window Tint" class="homepage-product-img">
+                        <img src="two.jpg" alt="Window Tint Film" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Window Tint Film</div>
                             <div class="homepage-product-price">$39.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(26)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(26)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(26)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="one.jpg" alt="License Plate Frame" class="homepage-product-img">
+                        <img src="one.jpg" alt="Stainless Steel License Plate Frame" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Stainless Steel License Plate Frame</div>
                             <div class="homepage-product-price">$19.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(27)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(27)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(27)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="two.jpg" alt="Mud Flaps" class="homepage-product-img">
+                        <img src="two.jpg" alt="Custom Mud Flaps" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Custom Mud Flaps</div>
                             <div class="homepage-product-price">$49.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(28)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(28)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(28)"></button>
                             </div>
                         </div>
                     </div>
@@ -946,48 +967,47 @@ window.smartsupp||(function(d) {
             <div class="container">
                 <h2 class="section-title" style="text-align:center; margin-bottom:2rem;">Interior Accessories</h2>
                 <div class="homepage-products-grid">
-                    <!-- 4 sample products for Interior Accessories -->
                     <div class="homepage-product-card">
-                        <img src="one.jpg" alt="Steering Wheel Cover" class="homepage-product-img">
+                        <img src="one.jpg" alt="Leather Steering Wheel Cover" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Leather Steering Wheel Cover</div>
                             <div class="homepage-product-price">$29.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(29)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(29)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(29)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="two.jpg" alt="Gear Shift Knob" class="homepage-product-img">
+                        <img src="two.jpg" alt="Aluminum Gear Shift Knob" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Aluminum Gear Shift Knob</div>
                             <div class="homepage-product-price">$19.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(30)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(30)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(30)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="one.jpg" alt="Sunshade" class="homepage-product-img">
+                        <img src="one.jpg" alt="Custom Fit Sunshade" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Custom Fit Sunshade</div>
                             <div class="homepage-product-price">$24.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(31)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(31)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(31)"></button>
                             </div>
                         </div>
                     </div>
                     <div class="homepage-product-card">
-                        <img src="two.jpg" alt="Floor Mats" class="homepage-product-img">
+                        <img src="two.jpg" alt="Luxury Floor Mats" class="homepage-product-img">
                         <div class="homepage-product-info">
                             <div class="homepage-product-title">Luxury Floor Mats</div>
                             <div class="homepage-product-price">$89.99</div>
                             <div class="homepage-product-actions">
                                 <button class="btn btn-outline btn-small" onclick="showProductDetail(32)">See Details</button>
-                                <button class="btn btn-primary btn-small" onclick="addToCart(32)">Add to Cart</button>
+                                <button class="btn btn-primary btn-small" onclick="addToCart(32)"></button>
                             </div>
                         </div>
                     </div>
