@@ -4,10 +4,10 @@ window.CategoryProducts = {
   products: [
     {
       id: 101,
-      name: 'Turbocharger Kit',
-      price: 899,
-      image: 'logo.jpg',
-      images: ['logo.jpg', 'logo.jpg'],
+      name: 'FA24 Engine',
+      price: 4300,
+      image: '1a.jpg',
+      images: ['1b.jpg', '1c.jpg'],
       description: 'Boost your engine performance with this premium turbocharger kit. Includes all necessary hardware for installation.'
     },
     {
