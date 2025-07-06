@@ -14,11 +14,15 @@ Meticulously maintained and garage-kept, this engine has been serviced regularly
     },
     {
       id: 302,
-      name: 'Performance Clutch',
-      price: 399,
-      image: 'clutch1.jpg',
-      images: ['clutch1a.jpg', 'clutch1b.jpg'],
-      description: 'High-grip clutch for improved power transfer and durability.'
+      name: 'Subaru BRZ Engine',
+      price: 4000,
+      image: '2a.jpg',
+      images: ['2b.jpg', '2c.jpg'],
+      description: `2023 Subaru BRZ 2.4L Engine – Only 8,000 Miles | Manual Transmission | $5,000 Shipped
+
+For sale: A 2.4L FA24 engine removed from a 2023 Subaru BRZ with only 8,000 miles. This engine is paired with a manual transmission and is in perfect condition, offering a like-new powertrain ideal for a performance build or replacement.
+
+Price includes shipping within the U.S.—an excellent deal for a low-mileage, well-maintained engine.`
     },
     {
       id: 303,
