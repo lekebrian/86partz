@@ -633,13 +633,28 @@ function addToCartWithQuantity(productId) {
   closeProductDetail()
 }
 
+// Always update cart count in header safely (prevents NaN)
 function updateCartCount() {
-  const cartCount = document.querySelector(".cart-count")
-  if (cartCount) {
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0)
-    cartCount.textContent = totalItems
-  }
+    let cart = [];
+    try {
+        cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        if (!Array.isArray(cart)) cart = [];
+    } catch (e) {
+        cart = [];
+    }
+    let totalCount = 0;
+    for (let i = 0; i < cart.length; i++) {
+        let qty = Number(cart[i].qty);
+        if (!isNaN(qty) && qty > 0) totalCount += qty;
+    }
+    var cartCountElem = document.querySelector('.cart-count');
+    if (cartCountElem) cartCountElem.textContent = totalCount;
 }
+
+// Call on DOMContentLoaded and after any cart update
+document.addEventListener('DOMContentLoaded', updateCartCount);
+
+// If you have add-to-cart logic in this file, always call updateCartCount() after updating localStorage
 
 function showNotification(message) {
   // Create notification element
