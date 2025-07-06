@@ -109,512 +109,512 @@
                 </div>
                 <!-- All Reviews -->
                 <div class="reviews-grid" id="allReviewsGrid">
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">MR</div>
-                            <div class="reviewer-info">
-                                <h4>Michael Rodriguez</h4>
-                                <div class="review-date">January 15, 2025</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">High-Performance Turbo Kit</h5>
-                        <p class="review-text">"Absolutely incredible! The power gains are massive and the quality is top-notch. Installation was straightforward with excellent instructions."</p>
+                    <!-- Reviews will be paginated and rendered here -->
+                </div>
+                <div class="reviews-pagination" style="text-align:center;margin-top:2.5rem;">
+                    <button class="page-btn" id="reviewPage1">1</button>
+                    <button class="page-btn" id="reviewPage2">2</button>
+                    <button class="page-btn" id="reviewPage3">3</button>
+                </div>
+                <div class="reviews-actions">
+                    <a href="index.html#best-sellers" class="btn btn-primary">Shop and Leave a Review</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo" class="footer-logo-img">
                     </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">SC</div>
-                            <div class="reviewer-info">
-                                <h4>Sarah Chen</h4>
-                                <div class="review-date">December 28, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Carbon Fiber Cold Air Intake</h5>
-                        <p class="review-text">"Amazing product! Noticeable power increase and the sound is perfect. The carbon fiber finish looks stunning in the engine bay."</p>
+                    <p class="footer-description">
+                        Your trusted source for high-quality automotive parts and accessories since 1998.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="reviews.html">Reviews</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="engine-drivetrain.html">Engine Parts</a></li>
+                        <li><a href="brakes-wheels.html">Brake System</a></li>
+                        <li><a href="suspension-handling.html">Suspension</a></li>
+                        <li><a href="exterior-aerodynamics.html">Exterior</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Newsletter</h3>
+                    <p class="newsletter-text">Subscribe to receive updates, access to exclusive deals, and more.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input">
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 GT86Partz. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    const reviewsData = [
+        {
+            reviewer: "Michael Rodriguez",
+            initials: "MR",
+            date: "January 15, 2025",
+            rating: 5,
+            product: "High-Performance Turbo Kit",
+            text: "Absolutely incredible! The power gains are massive and the quality is top-notch. Installation was straightforward with excellent instructions."
+        },
+        {
+            reviewer: "Sarah Chen",
+            initials: "SC",
+            date: "December 28, 2024",
+            rating: 5,
+            product: "Carbon Fiber Cold Air Intake",
+            text: "Amazing product! Noticeable power increase and the sound is perfect. The carbon fiber finish looks stunning in the engine bay."
+        },
+        {
+            reviewer: "David Thompson",
+            initials: "DT",
+            date: "December 20, 2024",
+            rating: 4,
+            product: "Adjustable Coilover Suspension",
+            text: "Great suspension setup. The adjustability is fantastic and the ride quality is excellent. Installation took some time but worth it."
+        },
+        {
+            reviewer: "Emma Wilson",
+            initials: "EW",
+            date: "December 15, 2024",
+            rating: 5,
+            product: "Big Brake Kit 6-Piston",
+            text: "These brakes are phenomenal! Stopping power is incredible and they look amazing behind the wheels. Professional installation recommended."
+        },
+        {
+            reviewer: "James Martinez",
+            initials: "JM",
+            date: "December 10, 2024",
+            rating: 5,
+            product: "LED Headlight Assembly",
+            text: "Perfect upgrade! The LED lights are super bright and the sequential turn signals look amazing. Easy plug-and-play installation."
+        },
+        {
+            reviewer: "Lisa Anderson",
+            initials: "LA",
+            date: "December 5, 2024",
+            rating: 4,
+            product: "Carbon Fiber Front Splitter",
+            text: "Excellent quality carbon fiber and the fitment is perfect. Really transforms the front end appearance. Installation was straightforward."
+        },
+        {
+            reviewer: "Robert Kim",
+            initials: "RK",
+            date: "November 30, 2024",
+            rating: 5,
+            product: "Performance Exhaust System",
+            text: "Love the sound! Deep and aggressive without being too loud. The titanium tips look fantastic and the performance gains are noticeable."
+        },
+        {
+            reviewer: "Amanda Foster",
+            initials: "AF",
+            date: "November 25, 2024",
+            rating: 5,
+            product: "Racing Steering Wheel",
+            text: "Perfect for track days! The grip is excellent and the carbon fiber details are beautiful. Really enhances the driving experience."
+        },
+        {
+            reviewer: "Chris Johnson",
+            initials: "CJ",
+            date: "November 20, 2024",
+            rating: 4,
+            product: "High-Performance Turbo Kit",
+            text: "Solid turbo kit with great power gains. Installation requires expertise but the results are worth it. Quality components throughout."
+        },
+        {
+            reviewer: "Jennifer Lee",
+            initials: "JL",
+            date: "November 15, 2024",
+            rating: 5,
+            product: "Adjustable Coilover Suspension",
+            text: "Best suspension upgrade I've made! The handling improvement is dramatic and the adjustability allows perfect tuning for any situation."
+        },
+        {
+            reviewer: "Mark Davis",
+            initials: "MD",
+            date: "November 10, 2024",
+            rating: 5,
+            product: "Carbon Fiber Cold Air Intake",
+            text: "Excellent product with noticeable performance gains. The carbon fiber construction is top quality and the installation was simple."
+        },
+        {
+            reviewer: "Rachel Brown",
+            initials: "RB",
+            date: "November 5, 2024",
+            rating: 4,
+            product: "LED Headlight Assembly",
+            text: "Great upgrade from stock headlights. Much brighter and the styling is modern. Installation took about 2 hours but very manageable."
+        },
+        {
+            reviewer: "Kevin Taylor",
+            initials: "KT",
+            date: "October 30, 2024",
+            rating: 5,
+            product: "Big Brake Kit 6-Piston",
+            text: "Outstanding brake performance! The stopping power is incredible and they handle track use perfectly. Highly recommended for serious drivers."
+        },
+        {
+            reviewer: "Nicole Garcia",
+            initials: "NG",
+            date: "October 25, 2024",
+            rating: 5,
+            product: "Performance Exhaust System",
+            text: "Perfect exhaust note! Not too loud for daily driving but sounds amazing under acceleration. The build quality is exceptional."
+        },
+        {
+            reviewer: "Steven White",
+            initials: "SW",
+            date: "October 20, 2024",
+            rating: 4,
+            product: "Carbon Fiber Front Splitter",
+            text: "High quality carbon fiber with perfect fitment. Really changes the look of the car and the aerodynamic benefits are noticeable at speed."
+        },
+        {
+            reviewer: "Michelle Clark",
+            initials: "MC",
+            date: "October 15, 2024",
+            rating: 5,
+            product: "Racing Steering Wheel",
+            text: "Amazing steering wheel! The feel is incredible and it looks fantastic. Perfect for both street and track use. Highly recommended!"
+        },
+        {
+            reviewer: "Alex Peterson",
+            initials: "AP",
+            date: "October 10, 2024",
+            rating: 5,
+            product: "Performance Air Filter",
+            text: "A simple but effective upgrade. I can feel the engine breathing better, and it was a breeze to install. Great value for the price."
+        },
+        {
+            reviewer: "Brian Gomez",
+            initials: "BG",
+            date: "October 5, 2024",
+            rating: 5,
+            product: "Vented Fenders",
+            text: "These fenders look absolutely stunning on the car. The fitment was spot on and they give the car such an aggressive look. Worth every penny."
+        },
+        {
+            reviewer: "Christina Hall",
+            initials: "CH",
+            date: "September 28, 2024",
+            rating: 5,
+            product: "Tow Hook Strap",
+            text: "Great quality tow strap that adds a nice touch of motorsport flair to the car. It feels very durable and was easy to install."
+        },
+        {
+            reviewer: "Daniel Miller",
+            initials: "DM",
+            date: "September 22, 2024",
+            rating: 4,
+            product: "Side Skirts",
+            text: "The side skirts completely transformed the look of my car. The quality is excellent and they were surprisingly easy to install. Highly recommend."
+        },
+        {
+            reviewer: "Emily Garcia",
+            initials: "EG",
+            date: "September 15, 2024",
+            rating: 5,
+            product: "Bucket Racing Seats",
+            text: "These seats are a game-changer. The support they provide is incredible, especially on the track. They also look fantastic in the car."
+        },
+        {
+            reviewer: "Alex A.",
+            initials: "AA",
+            date: "September 1, 2024",
+            rating: 5,
+            product: "Performance Oil Filter",
+            text: "Great quality and fast shipping. Will buy again!"
+        },
+        {
+            reviewer: "Ben B.",
+            initials: "BB",
+            date: "August 28, 2024",
+            rating: 5,
+            product: "Aluminum Shift Knob",
+            text: "Feels great in hand and looks awesome."
+        },
+        {
+            reviewer: "Cathy C.",
+            initials: "CC",
+            date: "August 15, 2024",
+            rating: 5,
+            product: "Stainless Steel Brake Lines",
+            text: "Significant improvement in brake feel and response. Highly recommend for any performance build."
+        },
+        {
+            reviewer: "Daniel D.",
+            initials: "DD",
+            date: "August 1, 2024",
+            rating: 5,
+            product: "LED Fog Lights",
+            text: "Bright and stylish fog lights. They make a big difference in visibility and look great on the car."
+        },
+        {
+            reviewer: "Emily E.",
+            initials: "EE",
+            date: "July 15, 2024",
+            rating: 5,
+            product: "Short Shifter Kit",
+            text: "The short shifter is amazing! Precise shifts and the throw is significantly shorter. A must-have for enthusiasts."
+        },
+        {
+            reviewer: "Frank F.",
+            initials: "FF",
+            date: "July 1, 2024",
+            rating: 5,
+            product: "High-Performance Spark Plugs",
+            text: "These spark plugs are top quality. Improved my engine's performance and fuel efficiency. Highly recommend!"
+        },
+        {
+            reviewer: "Grace G.",
+            initials: "GG",
+            date: "June 15, 2024",
+            rating: 5,
+            product: "Oil Catch Can",
+            text: "Great product! Easy to install and works as advertised. No more oil leaks!"
+        },
+        {
+            reviewer: "Henry H.",
+            initials: "HH",
+            date: "May 15, 2024",
+            rating: 5,
+            product: "Throttle Controller",
+            text: "This throttle controller is fantastic. The response is much sharper and it was easy to install."
+        },
+        {
+            reviewer: "Jack J.",
+            initials: "JJ",
+            date: "April 15, 2024",
+            rating: 5,
+            product: "Radiator Cooling Plate",
+            text: "Noticed a drop in engine temperature and the install was a breeze. Highly recommend for track cars."
+        },
+        {
+            reviewer: "Karen K.",
+            initials: "KK",
+            date: "March 15, 2024",
+            rating: 5,
+            product: "Engine Bay Dress Up Bolts",
+            text: "These dress up bolts are a great addition to my engine bay. They look fantastic and are high quality."
+        },
+        {
+            reviewer: "Liam L.",
+            initials: "LL",
+            date: "February 15, 2024",
+            rating: 5,
+            product: "Battery Relocation Kit",
+            text: "This kit is awesome! Made relocating my battery a breeze and the quality is top-notch."
+        },
+        {
+            reviewer: "Mia M.",
+            initials: "MM",
+            date: "January 15, 2024",
+            rating: 5,
+            product: "Fuel Pressure Regulator",
+            text: "Easy to install and works perfectly. My engine runs so much smoother now."
+        },
+        {
+            reviewer: "Noah N.",
+            initials: "NN",
+            date: "December 15, 2023",
+            rating: 5,
+            product: "Wideband O2 Sensor",
+            text: "Great product for tuning! The wideband sensor is very responsive and the install kit had everything I needed."
+        },
+        {
+            reviewer: "Penny P.",
+            initials: "PP",
+            date: "November 15, 2023",
+            rating: 5,
+            product: "Oil Filter Relocation Kit",
+            text: "This kit is a lifesaver! Made oil changes so much easier and the quality is excellent."
+        },
+        {
+            reviewer: "Quinn Q.",
+            initials: "QQ",
+            date: "October 15, 2023",
+            rating: 5,
+            product: "Silicone Radiator Hoses",
+            text: "High quality hoses that fit perfectly. They look great and improved my cooling system."
+        },
+        {
+            reviewer: "Rachel R.",
+            initials: "RR",
+            date: "September 15, 2023",
+            rating: 5,
+            product: "Stainless Steel Exhaust Tips",
+            text: "These exhaust tips are beautiful and add a perfect finishing touch to my exhaust system."
+        },
+        {
+            reviewer: "Sam S.",
+            initials: "SS",
+            date: "August 15, 2023",
+            rating: 5,
+            product: "Adjustable Fuel Pressure Regulator",
+            text: "Awesome product! Easy to adjust and the quality is top-notch. My car runs so much better."
+        },
+        {
+            reviewer: "Tina T.",
+            initials: "TT",
+            date: "July 15, 2023",
+            rating: 5,
+            product: "High-Performance Ignition Coils",
+            text: "These ignition coils are fantastic. They improved my throttle response and overall engine performance."
+        },
+        {
+            reviewer: "Uma U.",
+            initials: "UU",
+            date: "June 15, 2023",
+            rating: 5,
+            product: "Performance Brake Pads",
+            text: "These brake pads are amazing! Great stopping power and they don't produce much dust."
+        },
+        {
+            reviewer: "Victor V.",
+            initials: "VV",
+            date: "May 15, 2023",
+            rating: 5,
+            product: "LED Interior Lights",
+            text: "These LED lights are super bright and really improve the interior look of the car."
+        },
+        {
+            reviewer: "Will W.",
+            initials: "WW",
+            date: "April 15, 2023",
+            rating: 5,
+            product: "Carbon Fiber Rear Spoiler",
+            text: "This spoiler looks fantastic and was easy to install. It really enhances the sporty look of the car."
+        },
+        {
+            reviewer: "Xena X.",
+            initials: "XX",
+            date: "March 15, 2023",
+            rating: 5,
+            product: "Racing Harness Bar",
+            text: "High quality and very sturdy. The installation was straightforward and it looks great in the car."
+        },
+        {
+            reviewer: "Yara Y.",
+            initials: "YY",
+            date: "February 15, 2023",
+            rating: 5,
+            product: "Adjustable Rear Camber Arms",
+            text: "These camber arms are excellent. They allowed me to dial in the perfect camber for my setup."
+        },
+        {
+            reviewer: "Zane Z.",
+            initials: "ZZ",
+            date: "January 15, 2023",
+            rating: 5,
+            product: "Performance Strut Tower Brace",
+            text: "This strut tower brace is top quality and really stiffens up the front end. Noticeable improvement in handling."
+        }
+    ];
+
+    function renderReviewsPage(page) {
+        const reviewsPerPage = Math.ceil(reviewsData.length / 3); // 21 per page for 61 reviews
+        const start = (page - 1) * reviewsPerPage;
+        const end = start + reviewsPerPage;
+        const reviews = reviewsData.slice(start, end);
+
+        const grid = document.getElementById('allReviewsGrid');
+        grid.innerHTML = reviews.map(r => `
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-avatar">${r.initials}</div>
+                    <div class="reviewer-info">
+                        <h4>${r.reviewer}</h4>
+                        <div class="review-date">${r.date}</div>
                     </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">DT</div>
-                            <div class="reviewer-info">
-                                <h4>David Thompson</h4>
-                                <div class="review-date">December 20, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Adjustable Coilover Suspension</h5>
-                        <p class="review-text">"Great suspension setup. The adjustability is fantastic and the ride quality is excellent. Installation took some time but worth it."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">EW</div>
-                            <div class="reviewer-info">
-                                <h4>Emma Wilson</h4>
-                                <div class="review-date">December 15, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Big Brake Kit 6-Piston</h5>
-                        <p class="review-text">"These brakes are phenomenal! Stopping power is incredible and they look amazing behind the wheels. Professional installation recommended."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">JM</div>
-                            <div class="reviewer-info">
-                                <h4>James Martinez</h4>
-                                <div class="review-date">December 10, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">LED Headlight Assembly</h5>
-                        <p class="review-text">"Perfect upgrade! The LED lights are super bright and the sequential turn signals look amazing. Easy plug-and-play installation."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">LA</div>
-                            <div class="reviewer-info">
-                                <h4>Lisa Anderson</h4>
-                                <div class="review-date">December 5, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Carbon Fiber Front Splitter</h5>
-                        <p class="review-text">"Excellent quality carbon fiber and the fitment is perfect. Really transforms the front end appearance. Installation was straightforward."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">RK</div>
-                            <div class="reviewer-info">
-                                <h4>Robert Kim</h4>
-                                <div class="review-date">November 30, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Performance Exhaust System</h5>
-                        <p class="review-text">"Love the sound! Deep and aggressive without being too loud. The titanium tips look fantastic and the performance gains are noticeable."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">AF</div>
-                            <div class="reviewer-info">
-                                <h4>Amanda Foster</h4>
-                                <div class="review-date">November 25, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Racing Steering Wheel</h5>
-                        <p class="review-text">"Perfect for track days! The grip is excellent and the carbon fiber details are beautiful. Really enhances the driving experience."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">CJ</div>
-                            <div class="reviewer-info">
-                                <h4>Chris Johnson</h4>
-                                <div class="review-date">November 20, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                        </div>
-                        <h5 class="review-product">High-Performance Turbo Kit</h5>
-                        <p class="review-text">"Solid turbo kit with great power gains. Installation requires expertise but the results are worth it. Quality components throughout."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">JL</div>
-                            <div class="reviewer-info">
-                                <h4>Jennifer Lee</h4>
-                                <div class="review-date">November 15, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Adjustable Coilover Suspension</h5>
-                        <p class="review-text">"Best suspension upgrade I've made! The handling improvement is dramatic and the adjustability allows perfect tuning for any situation."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">MD</div>
-                            <div class="reviewer-info">
-                                <h4>Mark Davis</h4>
-                                <div class="review-date">November 10, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Carbon Fiber Cold Air Intake</h5>
-                        <p class="review-text">"Excellent product with noticeable performance gains. The carbon fiber construction is top quality and the installation was simple."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">RB</div>
-                            <div class="reviewer-info">
-                                <h4>Rachel Brown</h4>
-                                <div class="review-date">November 5, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                        </div>
-                        <h5 class="review-product">LED Headlight Assembly</h5>
-                        <p class="review-text">"Great upgrade from stock headlights. Much brighter and the styling is modern. Installation took about 2 hours but very manageable."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">KT</div>
-                            <div class="reviewer-info">
-                                <h4>Kevin Taylor</h4>
-                                <div class="review-date">October 30, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Big Brake Kit 6-Piston</h5>
-                        <p class="review-text">"Outstanding brake performance! The stopping power is incredible and they handle track use perfectly. Highly recommended for serious drivers."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">NG</div>
-                            <div class="reviewer-info">
-                                <h4>Nicole Garcia</h4>
-                                <div class="review-date">October 25, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Performance Exhaust System</h5>
-                        <p class="review-text">"Perfect exhaust note! Not too loud for daily driving but sounds amazing under acceleration. The build quality is exceptional."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">SW</div>
-                            <div class="reviewer-info">
-                                <h4>Steven White</h4>
-                                <div class="review-date">October 20, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Carbon Fiber Front Splitter</h5>
-                        <p class="review-text">"High quality carbon fiber with perfect fitment. Really changes the look of the car and the aerodynamic benefits are noticeable at speed."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">MC</div>
-                            <div class="reviewer-info">
-                                <h4>Michelle Clark</h4>
-                                <div class="review-date">October 15, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Racing Steering Wheel</h5>
-                        <p class="review-text">"Amazing steering wheel! The feel is incredible and it looks fantastic. Perfect for both street and track use. Highly recommended!"</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">AP</div>
-                            <div class="reviewer-info">
-                                <h4>Alex Peterson</h4>
-                                <div class="review-date">October 10, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Performance Air Filter</h5>
-                        <p class="review-text">"A simple but effective upgrade. I can feel the engine breathing better, and it was a breeze to install. Great value for the price."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">BG</div>
-                            <div class="reviewer-info">
-                                <h4>Brian Gomez</h4>
-                                <div class="review-date">October 5, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Vented Fenders</h5>
-                        <p class="review-text">"These fenders look absolutely stunning on the car. The fitment was spot on and they give the car such an aggressive look. Worth every penny."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">CH</div>
-                            <div class="reviewer-info">
-                                <h4>Christina Hall</h4>
-                                <div class="review-date">September 28, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Tow Hook Strap</h5>
-                        <p class="review-text">"Great quality tow strap that adds a nice touch of motorsport flair to the car. It feels very durable and was easy to install."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">DM</div>
-                            <div class="reviewer-info">
-                                <h4>Daniel Miller</h4>
-                                <div class="review-date">September 22, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Side Skirts</h5>
-                        <p class="review-text">"The side skirts completely transformed the look of my car. The quality is excellent and they were surprisingly easy to install. Highly recommend."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">EG</div>
-                            <div class="reviewer-info">
-                                <h4>Emily Garcia</h4>
-                                <div class="review-date">September 15, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Bucket Racing Seats</h5>
-                        <p class="review-text">"These seats are a game-changer. The support they provide is incredible, especially on the track. They also look fantastic in the car."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">AA</div>
-                            <div class="reviewer-info">
-                                <h4>Alex A.</h4>
-                                <div class="review-date">September 1, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Performance Oil Filter</h5>
-                        <p class="review-text">"Great quality and fast shipping. Will buy again!"</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">BB</div>
-                            <div class="reviewer-info">
-                                <h4>Ben B.</h4>
-                                <div class="review-date">August 28, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Aluminum Shift Knob</h5>
-                        <p class="review-text">"Feels great in hand and looks awesome."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">CC</div>
-                            <div class="reviewer-info">
-                                <h4>Cathy C.</h4>
-                                <div class="review-date">August 15, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Stainless Steel Brake Lines</h5>
-                        <p class="review-text">"Significant improvement in brake feel and response. Highly recommend for any performance build."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">DD</div>
-                            <div class="reviewer-info">
-                                <h4>Daniel D.</h4>
-                                <div class="review-date">August 1, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">LED Fog Lights</h5>
-                        <p class="review-text">"Bright and stylish fog lights. They make a big difference in visibility and look great on the car."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">EE</div>
-                            <div class="reviewer-info">
-                                <h4>Emily E.</h4>
-                                <div class="review-date">July 15, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Short Shifter Kit</h5>
-                        <p class="review-text">"The short shifter is amazing! Precise shifts and the throw is significantly shorter. A must-have for enthusiasts."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">FF</div>
-                            <div class="reviewer-info">
-                                <h4>Frank F.</h4>
-                                <div class="review-date">July 1, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">High-Performance Spark Plugs</h5>
-                        <p class="review-text">"These spark plugs are top quality. Improved my engine's performance and fuel efficiency. Highly recommend!"</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">GG</div>
-                            <div class="reviewer-info">
-                                <h4>Grace G.</h4>
-                                <div class="review-date">June 15, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Oil Catch Can</h5>
-                        <p class="review-text">"Great product! Easy to install and works as advertised. No more oil leaks!"</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">HH</div>
-                            <div class="reviewer-info">
-                                <h4>Henry H.</h4>
-                                <div class="review-date">May 15, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Throttle Controller</h5>
-                        <p class="review-text">"This throttle controller is fantastic. The response is much sharper and it was easy to install."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">JJ</div>
-                            <div class="reviewer-info">
-                                <h4>Jack J.</h4>
-                                <div class="review-date">April 15, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Radiator Cooling Plate</h5>
-                        <p class="review-text">"Noticed a drop in engine temperature and the install was a breeze. Highly recommend for track cars."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">KK</div>
-                            <div class="reviewer-info">
-                                <h4>Karen K.</h4>
-                                <div class="review-date">March 15, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Engine Bay Dress Up Bolts</h5>
-                        <p class="review-text">"These dress up bolts are a great addition to my engine bay. They look fantastic and are high quality."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">LL</div>
-                            <div class="reviewer-info">
-                                <h4>Liam L.</h4>
-                                <div class="review-date">February 15, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Battery Relocation Kit</h5>
-                        <p class="review-text">"This kit is awesome! Made relocating my battery a breeze and the quality is top-notch."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">MM</div>
-                            <div class="reviewer-info">
-                                <h4>Mia M.</h4>
-                                <div class="review-date">January 15, 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Fuel Pressure Regulator</h5>
-                        <p class="review-text">"Easy to install and works perfectly. My engine runs so much smoother now."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">NN</div>
-                            <div class="reviewer-info">
-                                <h4>Noah N.</h4>
-                                <div class="review-date">December 15, 2023</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Wideband O2 Sensor</h5>
-                        <p class="review-text">"Great product for tuning! The wideband sensor is very responsive and the install kit had everything I needed."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">PP</div>
-                            <div class="reviewer-info">
-                                <h4>Penny P.</h4>
-                                <div class="review-date">November 15, 2023</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Oil Filter Relocation Kit</h5>
-                        <p class="review-text">"This kit is a lifesaver! Made oil changes so much easier and the quality is excellent."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">QQ</div>
-                            <div class="reviewer-info">
-                                <h4>Quinn Q.</h4>
-                                <div class="review-date">October 15, 2023</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Silicone Radiator Hoses</h5>
-                        <p class="review-text">"High quality hoses that fit perfectly. They look great and improved my cooling system."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
+                </div>
+                <div class="review-rating">
+                    ${'<i class="fas fa-star"></i>'.repeat(r.rating)}${'<i class="far fa-star"></i>'.repeat(5 - r.rating)}
+                </div>
+                <h5 class="review-product">${r.product}</h5>
+                <p class="review-text">"${r.text}"</p>
+            </div>
+        `).join('');
+        // Highlight active page button
+        for (let i = 1; i <= 3; i++) {
+            const btn = document.getElementById('reviewPage' + i);
+            if (btn) btn.classList.toggle('active', i === page);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Hamburger toggle
+        document.getElementById('hamburger').onclick = function() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        };
+
+        // Dropdowns in mobile menu
+        document.querySelectorAll('.mobile-dropdown-btn').forEach(function(btn) {
+            btn.onclick = function() {
+                const content = this.nextElementSibling;
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                    this.querySelector('i').classList.remove('fa-chevron-up');
+                    this.querySelector('i').classList.add('fa-chevron-down');
+                } else {
+                    // Close other dropdowns
+                    document.querySelectorAll('.mobile-dropdown-content').forEach(function(other) {
+                        other.style.display = 'none';
+                    });
+                    document.querySelectorAll('.mobile-dropdown-btn i').forEach(function(icon) {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    });
+                    // Open this one
+                    content.style.display = 'block';
+                    this.querySelector('i').classList.remove('fa-chevron-down');
+                    this.querySelector('i').classList.add('fa-chevron-up');
+                }
+            };
+        });
+
+        // Pagination logic
+        let currentPage = 1;
+        renderReviewsPage(currentPage);
+        for (let i = 1; i <= 3; i++) {
+            const btn = document.getElementById('reviewPage' + i);
+            if (btn) {
+                btn.onclick = function() {
+                    currentPage = i;
+                    renderReviewsPage(currentPage);
+                    window.scrollTo({ top: document.getElementById('allReviewsGrid').offsetTop - 80, behavior: 'smooth' });
+                };
+            }
+        }
+    });
+    </script>
+</body>
+</html>
                             <div class="reviewer-avatar">RR</div>
                             <div class="reviewer-info">
                                 <h4>Rachel R.</h4>
