@@ -4,9 +4,13 @@ window.CategoryProducts = {
       id: 301,
       name: 'FA24 Engine',
       price: 4300,
-      image: 'engine1.jpg',
-      images: ['engine1a.jpg', 'engine1b.jpg'],
-      description: 'Brand new FA24 engine for maximum reliability and power.'
+      image: '1a.jpg',
+      images: ['1b.jpg', 'engine1c.jpg'],
+      description: `2023 FA24 Engine with Headers & Carbon Covers – 14,992 Miles
+
+This 2023 FA24 engine is in excellent condition with only 14,992 miles. It comes equipped with high-quality headers and carbon fiber engine covers, enhancing both performance and aesthetics.
+
+Meticulously maintained and garage-kept, this engine has been serviced regularly and driven sparingly. A great opportunity for anyone looking to upgrade with a clean, low-mileage powertrain setup`
     },
     {
       id: 302,
