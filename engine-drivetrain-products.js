@@ -18,7 +18,7 @@ Meticulously maintained and garage-kept, this engine has been serviced regularly
       price: 4000,
       image: '2a.jpg',
       images: ['2b.jpg', '2c.jpg'],
-      description: `2023 Subaru BRZ 2.4L Engine – Only 8,000 Miles | Manual Transmission | $5,000 Shipped
+      description: `2023 Subaru BRZ 2.4L Engine – Only 8,000 Miles | Manual Transmission | $4,000 Shipped
 
 For sale: A 2.4L FA24 engine removed from a 2023 Subaru BRZ with only 8,000 miles. This engine is paired with a manual transmission and is in perfect condition, offering a like-new powertrain ideal for a performance build or replacement.
 
@@ -26,19 +26,31 @@ Price includes shipping within the U.S.—an excellent deal for a low-mileage, w
     },
     {
       id: 303,
-      name: 'Short Shifter',
-      price: 149,
-      image: 'shifter1.jpg',
-      images: ['shifter1a.jpg', 'shifter1b.jpg'],
-      description: 'Reduce shift throw and enjoy crisp gear changes.'
+      name: 'Subaru FA2OD Engine(FRS/BRZ/GT86)',
+      price: 3800,
+      image: '3a.jpg',
+      images: ['3b.jpg', '3c.jpg'],
+      description: `Subaru FA20D Engine (FR-S / BRZ / GT86) – $3,000 Shipped
+
+Offered for sale is a Subaru FA20D engine, compatible with Scion FR-S, Subaru BRZ, and Toyota GT86 models. This engine is in perfect condition with no issues, making it a great option for a replacement or performance project.
+
+Price includes shipping within the U.S..`
     },
     {
       id: 304,
-      name: 'Lightweight Flywheel',
-      price: 299,
-      image: 'flywheel1.jpg',
-      images: ['flywheel1a.jpg', 'flywheel1b.jpg'],
-      description: 'Faster revs and improved throttle response.'
+      name: 'FRS/BRZ Injen SP Series Short Ram Intake',
+      price: 259,
+      image: '4a.jpg',
+      images: ['4b.jpg', '4c.jpg'],
+      description: `Injen SP Series Short Ram Intake – FR-S / BRZ | $250 Shipped
+
+For sale: Injen SP Series Short Ram Intake for Scion FR-S, Subaru BRZ, and Toyota GT86. The intake is in good condition and comes with all necessary hardware for installation.
+
+The filter is clean, and the intake box has no scratches—ready to install and improve both performance and engine sound.
+
+Shipping included in the price.
+
+`
     },
     {
       id: 305,
