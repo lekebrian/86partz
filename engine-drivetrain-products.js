@@ -42,79 +42,98 @@ Price includes shipping within the U.S..`
       price: 259,
       image: '4a.jpg',
       images: ['4b.jpg'],
-      description: `Injen SP Series Short Ram Intake – FR-S / BRZ | $250 Shipped
+      description: `Injen SP Series Short Ram Intake – FR-S / BRZ 
 
 For sale: Injen SP Series Short Ram Intake for Scion FR-S, Subaru BRZ, and Toyota GT86. The intake is in good condition and comes with all necessary hardware for installation.
 
 The filter is clean, and the intake box has no scratches—ready to install and improve both performance and engine sound.
 
-Shipping included in the price.
+Shipping inclusive
 
 `
     },
     {
       id: 305,
-      name: 'Limited Slip Differential',
-      price: 799,
-      image: 'lsd1.jpg',
-      images: ['lsd1a.jpg', 'lsd1b.jpg'],
-      description: 'Enhance traction and cornering with a high-quality LSD.'
+      name: 'Fuel Injectors',
+      price: 299,
+      image: '5a.jpg',
+      images: ['5b.jpg', '5d.jpg'],
+      description: `Fuel Injector Clinic 1200cc Injectors – FR-S / BRZ / 86 
+
+For sale: FIC (Fuel Injector Clinic) 1200cc injectors, specifically designed for the Scion FR-S, Subaru BRZ, and Toyota 86 platforms.
+
+These high-performance injectors are ideal for boosted or high-horsepower builds
+
+Ready to install and a great upgrade for your fuel system.`
     },
     {
       id: 306,
-      name: 'Cold Air Intake',
-      price: 199,
-      image: 'intake1.jpg',
-      images: ['intake1a.jpg', 'intake1b.jpg'],
-      description: 'Increase horsepower and engine sound with this cold air intake system.'
+      name: '2013-2020 Red Aluminum Manifold FRS BRZ 86',
+      price: 350,
+      image: '6a.jpg',
+      images: ['6b.jpg', '6c.jpg'],
+      description: `Red Aluminum Intake Manifold – 2013–2020 FR-S / BRZ / Toyota 86 | For Sale
+Up for sale is a red aluminum intake manifold in good condition, removed from a 2017 Toyota 86. This is a direct OEM upgrade for 2013–2016 Scion FR-S and Subaru BRZ models, offering improved airflow and a clean, sporty look.
+
+Fits all 2013–2020 FR-S, BRZ, and Toyota 86 models.
+
+Ready to install—perfect for a performance upgrade or engine bay refresh.
+
+`
     },
     {
       id: 307,
-      name: 'Oil Cooler Kit',
-      price: 249,
-      image: 'oilcooler1.jpg',
-      images: ['oilcooler1a.jpg', 'oilcooler1b.jpg'],
-      description: 'Keep your engine temps in check with this efficient oil cooler kit.'
+      name: 'Frs brz 86 oil cooler',
+      price: 290,
+      image: '7a.jpg',
+      images: ['7b.jpg', '7c.jpg'],
+      description: `Oil Cooler – FR-S / BRZ / GT86
+
+Up for sale is an aftermarket oil cooler kit for Scion FR-S, Subaru BRZ, and Toyota GT86. While not a Mishimoto brand, it performs reliably and has been used for approximately 5,000 miles with no issues.
+
+The included adapter/sandwich plate features three ports for sensors or additional lines, making it ideal for performance setups or monitoring upgrades.
+
+Everything is in good working condition and ready for installation.`
     },
     {
       id: 308,
-      name: 'Aluminum Radiator',
-      price: 279,
-      image: 'radiator1.jpg',
-      images: ['radiator1a.jpg', 'radiator1b.jpg'],
-      description: 'Improved cooling capacity for track and street use.'
+      name: '2013-24 FR-S/GR86/BRZ Dual Radiator/Oil Cooler',
+      price: 499,
+      image: '8a.jpg',
+      images: ['8b.jpg', '8c.jpg'],
+      description: `Jackson Racing Dual Radiator/Oil Cooler – 2013–2024 FR-S / BRZ / GR86
+
+For sale is a Jackson Racing dual radiator and oil cooler setup, compatible with 2013–2024 Scion FR-S, Subaru BRZ, and Toyota GR86 models.
+
+The kit is in almost new condition, offering enhanced cooling performance for both the engine and oil system—ideal for track use or high-performance street builds.
+
+Complete and ready for installation.`
     },
     {
       id: 309,
-      name: 'Catback Exhaust',
-      price: 599,
-      image: 'exhaust1.jpg',
-      images: ['exhaust1a.jpg', 'exhaust1b.jpg'],
-      description: 'Aggressive sound and performance gains with this catback exhaust.'
+      name: 'Performance Camshaft',
+      price: 1300,
+      image: '9.jpg',
+      
+      description: `Camshafts – Precision Performance for Your Build
+
+Engineered to optimize valve timing, increase airflow, and unlock hidden power in your engine. Whether you're building for the street or track, our camshafts deliver improved throttle response, higher RPM potential, and enhanced overall performance.
+
+Perfect for naturally aspirated or forced induction setups—reliability and performance you can trust.`
     },
     {
       id: 310,
-      name: 'Engine Mounts',
-      price: 129,
-      image: 'mounts1.jpg',
-      images: ['mounts1a.jpg', 'mounts1b.jpg'],
-      description: 'Reduce engine movement and improve response with stiffer mounts.'
-    },
-    {
-      id: 311,
-      name: 'Spark Plug Set',
-      price: 49,
-      image: 'spark1.jpg',
-      images: ['spark1a.jpg', 'spark1b.jpg'],
-      description: 'High-performance spark plugs for reliable ignition.'
-    },
-    {
-      id: 312,
-      name: 'Fuel Pump Upgrade',
-      price: 179,
-      image: 'fuelpump1.jpg',
-      images: ['fuelpump1a.jpg', 'fuelpump1b.jpg'],
-      description: 'Support higher power levels with this upgraded fuel pump.'
+      name: 'Crankshaft',
+      price: 550,
+      image: '10.jpg',
+      
+      description: `Crankshafts for Subaru BRZ / Scion FR-S / Toyota 86 – Built for Boxer Performance
+
+Designed specifically for the FA20/FA24 Boxer engines, our high-performance crankshafts deliver the strength, balance, and durability needed for BRZ, FR-S, and 86 builds pushing beyond factory limits. Whether you're upgrading for forced induction, high-revving NA setups, or a full race engine, these crankshafts are engineered to handle the increased stress without compromise.
+
+Forged from premium materials and precision-machined for perfect fitment, these crankshafts form the core of any reliable high-performance build for your Subaru or Toyota platform.
+
+`
     }
   ],
   productsPerPage: 5,
