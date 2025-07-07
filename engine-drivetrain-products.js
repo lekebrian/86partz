@@ -41,7 +41,7 @@ Price includes shipping within the U.S..`
       name: 'FRS/BRZ Injen SP Series Short Ram Intake',
       price: 259,
       image: '4a.jpg',
-      images: ['4b.jpg', '4c.jpg'],
+      images: ['4b.jpg'],
       description: `Injen SP Series Short Ram Intake – FR-S / BRZ | $250 Shipped
 
 For sale: Injen SP Series Short Ram Intake for Scion FR-S, Subaru BRZ, and Toyota GT86. The intake is in good condition and comes with all necessary hardware for installation.
