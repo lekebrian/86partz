@@ -156,6 +156,9 @@ window.CategoryProducts = {
     if (!product) return;
     const modal = document.getElementById('productDetailModal');
     if (!modal) return;
+    modal.style.overflowY = 'auto';
+    modal.style.maxHeight = '90vh';
+
     document.getElementById('detailTitle').textContent = product.name;
     document.getElementById('detailPrice').textContent = "$" + product.price;
     document.getElementById('detailDescription').textContent = product.description;
