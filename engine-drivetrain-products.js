@@ -2,7 +2,7 @@ window.CategoryProducts = {
   products: [
     {
       id: 301,
-      name: 'FA24 Engine',
+      name: 'Subaru BRZ|FRS|86 FA24 Engine',
       price: 4300,
       image: '1a.jpg',
       images: ['1b.jpg', '1c.jpg'],
