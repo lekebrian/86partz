@@ -1,14 +1,12 @@
 window.CategoryProducts = {
   products: [
     {
-      id: 207,
-      name: 'Set of 4x XR performance wheels with tyres',
-      price: 1299,
-      image: '11a.jpg',
-      images: ['11b.jpg', '11c.jpg'],
-      description: `For sale is a set of 4 Rays GramLights XR Series performance wheels, sized 18x8.5 with a dual stud pattern of 5x114.3 and 5x112. They come fitted with 235/40ZR18 tyres, which still have approximately 95% tread remaining. Previously mounted on a Toyota 86, this set is in excellent condition and ready for installation—perfect for performance-oriented setups.
-
-`
+      id: 201,
+      name: 'Set of Circuit CSF1 wheels in matte bronze',
+      price: 1190,
+      image: '17a.jpg',
+      images: ['17b.jpg', '17c.jpg'],
+      description: `Selling a like-new set of Circuit CSF1 wheels in matte bronze, sized 18x9.5 with a +38 offset and 5x100 bolt pattern. Wrapped in Falken Ziex 225/40 tyres, this setup offers a clean, aggressive fitment perfect for 5x100 platforms. Lightly used and in excellent condition. Shipping available upon request.`
     },
     {
       id: 202,
@@ -55,12 +53,14 @@ For sale is a set of TE37-style rep wheels in 18x10.5 with a +20 offset and 5x10
 `
     },
     {
-      id: 201,
-      name: 'Set of Circuit CSF1 wheels in matte bronze',
-      price: 1190,
-      image: '17a.jpg',
-      images: ['17b.jpg', '17c.jpg'],
-      description: `Selling a like-new set of Circuit CSF1 wheels in matte bronze, sized 18x9.5 with a +38 offset and 5x100 bolt pattern. Wrapped in Falken Ziex 225/40 tyres, this setup offers a clean, aggressive fitment perfect for 5x100 platforms. Lightly used and in excellent condition. Shipping available upon request.`
+      id: 207,
+      name: 'Set of 4x XR performance wheels with tyres',
+      price: 1299,
+      image: '11a.jpg',
+      images: ['11b.jpg', '11c.jpg'],
+      description: `For sale is a set of 4 Rays GramLights XR Series performance wheels, sized 18x8.5 with a dual stud pattern of 5x114.3 and 5x112. They come fitted with 235/40ZR18 tyres, which still have approximately 95% tread remaining. Previously mounted on a Toyota 86, this set is in excellent condition and ready for installation—perfect for performance-oriented setups.
+
+`
     },
     {
       id: 208,
