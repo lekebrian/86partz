@@ -2,100 +2,117 @@ window.CategoryProducts = {
   products: [
     {
       id: 501,
-      name: 'Full Body Kit',
-      price: 1599,
-      image: 'aero1.jpg',
-      images: ['aero1a.jpg', 'aero1b.jpg'],
-      description: 'Transform your car with a complete body kit.'
+      name: 'Set of front fenders compatible with Scion FRS|Toyota 86|Subaru BRZ',
+      price: 450,
+      image: '31a.jpg',
+      images: ['31b.jpg', '31c.jpg'],
+      description: `A clean set of front fenders compatible with Scion FR-S, Toyota 86, and Subaru BRZ. These fenders are in excellent condition with no cracks, dents, or structural damage—perfect for restoration projects or OEM replacements.
+
+Ideal for anyone looking to maintain a factory look or replace worn or damaged panels with original-fit parts.
+
+`
     },
     {
       id: 502,
-      name: 'Carbon Fiber Spoiler',
-      price: 399,
-      image: 'aero2.jpg',
-      images: ['aero2a.jpg', 'aero2b.jpg'],
-      description: 'Lightweight and stylish carbon fiber spoiler.'
+      name: 'Authentic JDM BRZ tS Rear Wing',
+      price: 259,
+      image: '32a.jpg',
+      images: ['32b.jpg', '32c.jpg'],
+      description: `Genuine JDM-spec Subaru BRZ tS rear wing, offering a sleek and functional upgrade for your build. This original piece is in excellent 9.5/10 condition with minimal signs of use.
+
+A perfect addition for enthusiasts looking to enhance both the aesthetic and aerodynamic profile of their BRZ with authentic JDM styling.`
     },
     {
       id: 503,
-      name: 'Side Skirts',
-      price: 249,
-      image: 'aero3.jpg',
-      images: ['aero3a.jpg', 'aero3b.jpg'],
-      description: 'Aggressive side skirts for a lower look.'
+      name: 'Toyota GR86 Genuine Front Bumper – Black Silica',
+      price: 600,
+      image: '33a.jpg',
+      images: ['33b.jpg', '33c.jpg'],
+      description: `Toyota GR86 Genuine Front Bumper – Black Silica
+Factory-original Toyota GR86 front bumper in Black Silica finish. This is a brand-new, unused OEM part in flawless condition, ready for installation.
+
+Ideal for direct replacement or for those seeking a clean, factory look with genuine Toyota quality and fitment.
+
+`
     },
     {
       id: 504,
-      name: 'Rear Diffuser',
-      price: 179,
-      image: 'aero4.jpg',
-      images: ['aero4a.jpg', 'aero4b.jpg'],
-      description: 'Improve rear-end stability and looks.'
+      name: 'FA Style Carbon Fiber Hood',
+      price: 699,
+      image: '34a.jpg',
+      images: ['34b.jpg'],
+      description:`Sleek and lightweight FA Style carbon fiber hood designed for aggressive styling and improved performance. Crafted with precision, this hood offers a perfect blend of form and function—ideal for enthusiasts looking to enhance the look and reduce the weight of their build.
+
+Premium quality construction ensures durability and proper fitment.`
     },
     {
       id: 505,
-      name: 'Front Lip Spoiler',
+      name: 'BRZ / 86 / FR-S Rear & Side Window Louvers',
       price: 149,
-      image: 'aero5.jpg',
-      images: ['aero5a.jpg', 'aero5b.jpg'],
-      description: 'Add downforce and style to your front bumper.'
+      image: '35a.jpg',
+      images: ['35b.jpg', '35c.jpg'],
+      description: `Add a bold, retro-inspired touch to your build with this set of rear and side window louvers designed for the Subaru BRZ, Toyota 86, and Scion FR-S.
+
+Lightly used and in like-new condition, these louvers offer easy installation and a unique aesthetic upgrade without compromising rear visibility.`
     },
     {
       id: 506,
-      name: 'Canard Set',
-      price: 89,
-      image: 'aero6.jpg',
-      images: ['aero6a.jpg', 'aero6b.jpg'],
-      description: 'Increase front-end grip with these canards.'
+      name: 'OEM Front Fenders – GR86 / BRZ',
+      price: 399,
+      image: '36a.jpg',
+      images: ['36b.jpg', '36c.jpg'],
+      description: `Genuine OEM front fenders for Toyota GR86 and Subaru BRZ. These fenders are in perfect condition and currently vinyl-wrapped, with the original factory color underneath being gray.
+
+Ideal for anyone looking for a clean OEM replacement or ready-to-wrap panels with no bodywork needed.
+
+`
     },
     {
       id: 507,
-      name: 'Rear Wing',
-      price: 499,
-      image: 'aero7.jpg',
-      images: ['aero7a.jpg', 'aero7b.jpg'],
-      description: 'Track-inspired rear wing for maximum downforce.'
+      name: '2013–2020 Scion FR-S / Toyota 86 / Subaru BRZ Alfa Style Fiberglass Front Bumper',
+      price: 599,
+      image: '37a.jpg',
+      images: ['37b.jpg', '37c.jpg'],
+      description: `Upgrade your ride with this Alfa Style fiberglass front bumper, designed to fit 2013–2020 models of the Scion FR-S, Toyota 86, and Subaru BRZ. Crafted from lightweight, durable fiberglass, this bumper offers an aggressive and sporty look while maintaining quality fitment.
+
+Perfect for enthusiasts seeking a distinctive style upgrade that stands out on the road.`
     },
     {
       id: 508,
-      name: 'Hood Vents',
-      price: 129,
-      image: 'aero8.jpg',
-      images: ['aero8a.jpg', 'aero8b.jpg'],
-      description: 'Reduce under-hood temps and add aggression.'
+      name: 'FR-S / BRZ Verus Aero Package',
+      price: 1600,
+      image: '38a.jpg',
+      images: ['38b.jpg', '38c.jpg'],
+      description:`Complete Verus Aero body kit for Scion FR-S and Subaru BRZ, including:
+
+Verus two-piece front splitter,
+
+Aggressive Verus rear diffuser,
+
+Verus UCW wing and trunk components
+
+This package offers a perfect blend of aerodynamic performance and aggressive styling, crafted from high-quality materials for durability and precise fitment. Ideal for enthusiasts looking to enhance both the look and downforce of their vehicle.`
     },
     {
       id: 509,
-      name: 'Wide Fenders',
-      price: 399,
-      image: 'aero9.jpg',
-      images: ['aero9a.jpg', 'aero9b.jpg'],
-      description: 'Fit wider wheels and tires with these fenders.'
+      name: 'FRS / BRZ / 86 Bayson R Kit and Bumpers Package',
+      price: 999,
+      image: '39a.jpg',
+      images: ['39b.jpg', '39c.jpg'],
+      description: `This complete Bayson R kit and bumpers package is designed for the Scion FR-S, Subaru BRZ, and Toyota 86. It includes a 2017+ BRZ front bumper with Futago sidemarker deletes and a 2013 Scion FR-S rear bumper featuring a clear fourth brake light. The kit also comes with matching side skirts, a rear spoiler, and rear spats. Together, these components offer a sleek and aggressive upgrade that enhances the vehicle’s overall appearance with high-quality styling elements`
     },
     {
       id: 510,
-      name: 'Roof Spoiler',
-      price: 99,
-      image: 'aero10.jpg',
-      images: ['aero10a.jpg', 'aero10b.jpg'],
-      description: 'Subtle roof spoiler for a unique look.'
+      name: 'VIS Carbon Fiber Trunk for First-Gen FR-S / BRZ / GT86',
+      price: 349,
+      image: '40a.jpg',
+      images: ['40b.jpg', '40c.jpg'],
+      description: `Vis Carbon Fiber Trunk Frs Brz Gt86
+$600 shipped
+carbon trunk for the first gen frs Brz gt86 for sale Perfect fitment
+No clear coat damage`
     },
-    {
-      id: 511,
-      name: 'Mirror Covers',
-      price: 59,
-      image: 'aero11.jpg',
-      images: ['aero11a.jpg', 'aero11b.jpg'],
-      description: 'Carbon-look mirror covers for a premium touch.'
-    },
-    {
-      id: 512,
-      name: 'Aero Undertray',
-      price: 299,
-      image: 'aero12.jpg',
-      images: ['aero12a.jpg', 'aero12b.jpg'],
-      description: 'Reduce drag and improve underbody airflow.'
-    }
+    
   ],
   productsPerPage: 5,
   currentPage: 1,
@@ -115,9 +132,31 @@ window.CategoryProducts = {
           <h3 class="product-title">${product.name}</h3>
           <div class="product-price">$${product.price}</div>
           <button class="btn btn-small see-details-btn" data-id="${product.id}">See Details</button>
+          <div class="product-card-controls">
+            <button class="quantity-btn" data-action="dec">-</button>
+            <input type="number" value="1" min="1" class="quantity-input" style="width:2.2em;">
+            <button class="quantity-btn" data-action="inc">+</button>
+            <button class="add-to-cart-btn" data-id="${product.id}">Add to Cart</button>
+          </div>
         </div>
       `;
       grid.appendChild(card);
+    });
+    // Add event listeners for quantity and add to cart
+    grid.querySelectorAll('.product-card').forEach((card, idx) => {
+      const qtyInput = card.querySelector('.quantity-input');
+      card.querySelector('[data-action="dec"]').onclick = () => {
+        let v = parseInt(qtyInput.value) || 1;
+        if (v > 1) qtyInput.value = v - 1;
+      };
+      card.querySelector('[data-action="inc"]').onclick = () => {
+        let v = parseInt(qtyInput.value) || 1;
+        qtyInput.value = v + 1;
+      };
+      card.querySelector('.add-to-cart-btn').onclick = () => {
+        let v = parseInt(qtyInput.value) || 1;
+        window.CategoryProducts.addToCart(productsToShow[idx], v);
+      };
     });
   },
   setupPagination: function() {
@@ -151,101 +190,100 @@ window.CategoryProducts = {
     closeBtn.onclick = this.hideProductDetail;
     backBtn.onclick = this.hideProductDetail;
   },
+  addToCart: function(product, qty) {
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const existing = cart.find(item => item.id === product.id);
+    if (existing) {
+      existing.qty = Number(existing.qty || 0) + Number(qty || 1);
+    } else {
+      cart.push({ id: product.id, title: product.name, price: product.price, qty: Number(qty || 1), image: product.image });
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    // Update cart count in header if present
+    let totalCount = cart.reduce((sum, item) => Number(sum) + Number(item.qty || 0), 0);
+    let cartCount = document.querySelector('.cart-count');
+    if (cartCount) cartCount.textContent = totalCount;
+    // Confirmation message
+    let conf = document.getElementById('cartConfirmMsg');
+    if (!conf) {
+      conf = document.createElement('div');
+      conf.id = 'cartConfirmMsg';
+      conf.style.position = 'fixed';
+      conf.style.top = '24px';
+      conf.style.left = '50%';
+      conf.style.transform = 'translateX(-50%)';
+      conf.style.background = '#fff';
+      conf.style.color = '#222';
+      conf.style.border = '1.5px solid #b80000';
+      conf.style.borderRadius = '8px';
+      conf.style.boxShadow = '0 4px 24px rgba(0,0,0,0.13)';
+      conf.style.padding = '1.1em 2.2em';
+      conf.style.fontSize = '1.08rem';
+      conf.style.fontWeight = '600';
+      conf.style.zIndex = '10000';
+      conf.style.display = 'none';
+      document.body.appendChild(conf);
+    }
+    conf.innerHTML = `<i class="fas fa-check-circle" style="color:#b80000;margin-right:0.6em;"></i> ${qty} × <b>${product.name}</b> added to cart!`;
+    conf.style.display = 'block';
+    setTimeout(() => { conf.style.display = 'none'; }, 2200);
+  },
   showProductDetail: function(productId) {
     const product = this.products.find(p => p.id === productId);
     if (!product) return;
     const modal = document.getElementById('productDetailModal');
     if (!modal) return;
-    modal.style.overflowY = 'auto';
-    modal.style.maxHeight = '90vh';
-
-    document.getElementById('detailTitle').textContent = product.name;
-    document.getElementById('detailPrice').textContent = "$" + product.price;
-    document.getElementById('detailDescription').textContent = product.description;
-    document.getElementById('detailImages').innerHTML = product.images.map(img =>
-      `<img src="${img}" alt="${product.name}" style="width:100px;height:70px;object-fit:cover;margin-right:8px;border-radius:6px;">`
-    ).join('');
-    // Add quantity controls and Add to Cart button
-    let infoDiv = document.getElementById('detailDescription').parentElement;
-    let oldControls = document.getElementById('productDetailControls');
-    if (oldControls) oldControls.remove();
-    const controls = document.createElement('div');
-    controls.id = 'productDetailControls';
-    controls.style.margin = '1.2em 0 0.7em 0';
-    controls.innerHTML = `
-      <div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:1.2rem;">
-        <button id="qtyDec" style="font-size:1.3rem;width:2.2em;height:2.2em;border-radius:50%;border:1px solid #ddd;background:#fafafa;cursor:pointer;">-</button>
-        <span id="qtyVal" style="font-size:1.2rem;min-width:2em;display:inline-block;text-align:center;">1</span>
-        <button id="qtyInc" style="font-size:1.3rem;width:2.2em;height:2.2em;border-radius:50%;border:1px solid #ddd;background:#fafafa;cursor:pointer;">+</button>
+    modal.innerHTML = `
+      <div class="product-detail-content">
+          <button class="close-detail" onclick="window.CategoryProducts.hideProductDetail()">&times;</button>
+          <div class="product-detail-header">
+              <h2>${product.name}</h2>
+          </div>
+          <div class="product-detail-body">
+              <div class="product-images" id="modalProductImgs">
+                  ${product.images.map(img => `<img src="${img}" alt="${product.name}" class="modal-img-thumb" style="width:160px;height:110px;object-fit:contain;margin:0.5em;cursor:pointer;border-radius:8px;background:#f7f7f7;border:1px solid #eee;">`).join("")}
+              </div>
+              <div class="product-info">
+                  <div class="product-price">$${product.price.toFixed(2)}</div>
+                  <div class="product-description">${product.description}</div>
+                  <div class="quantity-controls" style="display:flex;align-items:center;gap:0.7rem;margin-bottom:1.2rem;">
+                      <button class="quantity-btn" id="qtyDecModal">-</button>
+                      <input type="number" value="1" min="1" class="quantity-input" id="qtyValModal" style="width:2.2em;">
+                      <button class="quantity-btn" id="qtyIncModal">+</button>
+                  </div>
+                  <button class="add-to-cart-btn" id="modalAddToCartBtn" style="width:100%;margin-bottom:0.7rem;">Add to Cart</button>
+                  <button class="btn btn-secondary" onclick="window.CategoryProducts.hideProductDetail()">Back to Catalog</button>
+              </div>
+          </div>
       </div>
-      <button class="btn btn-primary btn-small" id="modalAddToCartBtn" style="width:100%;padding:1rem 0;font-size:1.1rem;background:#b80000;color:#fff;border:none;border-radius:8px;display:block;margin-bottom:0.7rem;">
-        Add to Cart
-      </button>
     `;
-    infoDiv.appendChild(controls);
-
-    // Quantity logic
-    let qty = 1;
-    const qtyVal = document.getElementById('qtyVal');
-    document.getElementById('qtyDec').onclick = function() {
-      if (qty > 1) qty--;
-      qtyVal.textContent = qty;
-    };
-    document.getElementById('qtyInc').onclick = function() {
-      qty++;
-      qtyVal.textContent = qty;
-    };
-
-    // Add to Cart logic
-    document.getElementById('modalAddToCartBtn').onclick = function() {
-      if (typeof addToCart === 'function') {
-        addToCart({
-          id: product.id,
-          title: product.name,
-          price: product.price,
-          qty: qty,
-          image: product.image
-        });
-      } else {
-        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-        const existing = cart.find(item => item.id === product.id);
-        if (existing) {
-          existing.qty = Number(existing.qty || 0) + qty;
-        } else {
-          cart.push({ id: product.id, title: product.name, price: product.price, qty: qty, image: product.image });
-        }
-        localStorage.setItem('cart', JSON.stringify(cart));
-        if (typeof updateCartCount === 'function') updateCartCount();
-      }
-      let conf = document.getElementById('cartConfirmMsg');
-      if (!conf) {
-        conf = document.createElement('div');
-        conf.id = 'cartConfirmMsg';
-        conf.style.position = 'fixed';
-        conf.style.top = '24px';
-        conf.style.left = '50%';
-        conf.style.transform = 'translateX(-50%)';
-        conf.style.background = '#fff';
-        conf.style.color = '#222';
-        conf.style.border = '1.5px solid #b80000';
-        conf.style.borderRadius = '8px';
-        conf.style.boxShadow = '0 4px 24px rgba(0,0,0,0.13)';
-        conf.style.padding = '1.1em 2.2em';
-        conf.style.fontSize = '1.08rem';
-        conf.style.fontWeight = '600';
-        conf.style.zIndex = '10000';
-        conf.style.display = 'none';
-        document.body.appendChild(conf);
-      }
-      conf.innerHTML = `<i class="fas fa-check-circle" style="color:#b80000;margin-right:0.6em;"></i> ${qty} × <b>${product.name}</b> added to cart!`;
-      conf.style.display = 'block';
-      setTimeout(() => { conf.style.display = 'none'; }, 2200);
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    };
-
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+    // Modal quantity logic
+    const qtyInput = modal.querySelector('#qtyValModal');
+    modal.querySelector('#qtyDecModal').onclick = () => {
+      let v = parseInt(qtyInput.value) || 1;
+      if (v > 1) qtyInput.value = v - 1;
+    };
+    modal.querySelector('#qtyIncModal').onclick = () => {
+      let v = parseInt(qtyInput.value) || 1;
+      qtyInput.value = v + 1;
+    };
+    modal.querySelector('#modalAddToCartBtn').onclick = () => {
+      let v = parseInt(qtyInput.value) || 1;
+      window.CategoryProducts.addToCart(product, v);
+    };
+    // Lightbox logic
+    modal.querySelectorAll('.modal-img-thumb').forEach(img => {
+      img.onclick = function() {
+        const lightbox = document.createElement('div');
+        lightbox.className = 'lightbox-modal';
+        lightbox.innerHTML = `<button class='close-lightbox'>&times;</button><img src='${img.src}' style='max-width:90vw;max-height:85vh;'>`;
+        document.body.appendChild(lightbox);
+        lightbox.querySelector('.close-lightbox').onclick = () => lightbox.remove();
+        lightbox.onclick = (e) => { if (e.target === lightbox) lightbox.remove(); };
+      };
+    });
   },
   hideProductDetail: function() {
     const modal = document.getElementById('productDetailModal');
