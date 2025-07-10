@@ -29,7 +29,7 @@ window.CategoryProducts = {
       name: 'Set of Air Demand air struts',
       price: 1099,
       image: '24a.jpg',
-      images: ['24b.jpg', '24c.jpg'],
+      images: ['24b.jpg', '24a.jpg'],
       description: `For sale is a full set of Air Demand air struts, including front and rear air suspension. The setup is in excellent condition and ready for install. Shipping available upon request.`
     },
     {
