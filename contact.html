@@ -29,14 +29,12 @@
                             <a href="brakes-wheels.html">Brakes & Wheels</a>
                             <a href="exterior-aerodynamics.html">Exterior & Aerodynamics</a>
                             <a href="interior-electronics.html">Interior & Electronics</a>
+                            <a href="lighting-electrical.html">Lighting & Electrical</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link">Accessories <i class="fas fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href="interior-accessories.html">Interior Accessories</a>
-                            <a href="exterior-accessories.html">Exterior Accessories</a>
-                        </div>
+                        <a href="accessories.html" class="nav-link">Accessories </a>
+                        
                     </li>
                     <li class="nav-item"><a href="contact.html" class="nav-link active">Contact Us</a></li>
                 </ul>
@@ -67,14 +65,12 @@
                         <a href="brakes-wheels.html">Brakes & Wheels</a>
                         <a href="exterior-aerodynamics.html">Exterior & Aerodynamics</a>
                         <a href="interior-electronics.html">Interior & Electronics</a>
+                        <a href="lighting-electrical.html">Lighting & Electrical</a>
                     </div>
                 </div>
                 <div class="mobile-dropdown">
-                    <button class="mobile-dropdown-btn">Accessories <i class="fas fa-chevron-down"></i></button>
-                    <div class="mobile-dropdown-content">
-                        <a href="interior-accessories.html">Interior Accessories</a>
-                        <a href="exterior-accessories.html">Exterior Accessories</a>
-                    </div>
+                    <a href="accessories.html" class="nav-link">Accessories </a>
+                   
                 </div>
                 <a href="contact.html" class="mobile-link">Contact Us</a>
             </div>
@@ -229,8 +225,37 @@
         document.addEventListener('DOMContentLoaded', () => {
             updateCartCount();
             setupAnimations();
-            setupEventListeners();
-            
+            // Hamburger toggle
+            const hamburger = document.getElementById('hamburger');
+            if (hamburger) {
+                hamburger.onclick = function() {
+                    document.getElementById('mobileMenu').classList.toggle('open');
+                };
+            }
+            // Dropdowns in mobile menu
+            document.querySelectorAll('.mobile-dropdown-btn').forEach(function(btn) {
+                btn.onclick = function() {
+                    const content = this.nextElementSibling;
+                    if (content.style.display === 'block') {
+                        content.style.display = 'none';
+                        this.querySelector('i').classList.remove('fa-chevron-up');
+                        this.querySelector('i').classList.add('fa-chevron-down');
+                    } else {
+                        // Close other dropdowns
+                        document.querySelectorAll('.mobile-dropdown-content').forEach(function(other) {
+                            other.style.display = 'none';
+                        });
+                        document.querySelectorAll('.mobile-dropdown-btn i').forEach(function(icon) {
+                            icon.classList.remove('fa-chevron-up');
+                            icon.classList.add('fa-chevron-down');
+                        });
+                        // Open this one
+                        content.style.display = 'block';
+                        this.querySelector('i').classList.remove('fa-chevron-down');
+                        this.querySelector('i').classList.add('fa-chevron-up');
+                    }
+                };
+            });
             // Contact form submission
             document.getElementById('contactForm').addEventListener('submit', function(e) {
                 e.preventDefault();

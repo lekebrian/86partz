@@ -28,13 +28,14 @@
                             <a href="brakes-wheels.html">Brakes & Wheels</a>
                             <a href="exterior-aerodynamics.html">Exterior & Aerodynamics</a>
                             <a href="interior-electronics.html">Interior & Electronics</a>
+                            <a href="lighting-electrical.html">Lighting & Electrical</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link">Accessories <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
-                            <a href="interior-accessories.html">Interior Accessories</a>
-                            <a href="exterior-accessories.html">Exterior Accessories</a>
+                            <a href="accessories.html">Interior & Exterior Accessories</a>
+                           
                         </div>
                     </li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
@@ -66,13 +67,14 @@
                         <a href="brakes-wheels.html">Brakes & Wheels</a>
                         <a href="exterior-aerodynamics.html">Exterior & Aerodynamics</a>
                         <a href="interior-electronics.html">Interior & Electronics</a>
+                        <a href="lighting-electrical.html">Lighting & Electrical</a>
                     </div>
                 </div>
                 <div class="mobile-dropdown">
                     <button class="mobile-dropdown-btn">Accessories <i class="fas fa-chevron-down"></i></button>
                     <div class="mobile-dropdown-content">
-                        <a href="interior-accessories.html">Interior Accessories</a>
-                        <a href="exterior-accessories.html">Exterior Accessories</a>
+                        <a href="accessories.html">Interior & Exterior Accessories</a>
+                       
                     </div>
                 </div>
                 <a href="reviews.html" class="mobile-link">Reviews</a>
@@ -132,7 +134,7 @@
                         <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo" class="footer-logo-img">
                     </div>
                     <p class="footer-description">
-                        Your trusted source for high-quality automotive parts and accessories since 1998.
+                        Your trusted source for high-quality automotive parts and accessories since 2021.
                     </p>
                 </div>
                 
@@ -569,10 +571,12 @@
 
     document.addEventListener('DOMContentLoaded', function() {
         // Hamburger toggle
-        document.getElementById('hamburger').onclick = function() {
-            document.getElementById('mobileMenu').classList.toggle('open');
-        };
-
+        const hamburger = document.getElementById('hamburger');
+        if (hamburger) {
+            hamburger.onclick = function() {
+                document.getElementById('mobileMenu').classList.toggle('open');
+            };
+        }
         // Dropdowns in mobile menu
         document.querySelectorAll('.mobile-dropdown-btn').forEach(function(btn) {
             btn.onclick = function() {
@@ -597,8 +601,7 @@
                 }
             };
         });
-
-        // Pagination logic
+        // Reviews pagination logic
         let currentPage = 1;
         renderReviewsPage(currentPage);
         for (let i = 1; i <= 3; i++) {
@@ -611,224 +614,6 @@
                 };
             }
         }
-    });
-    </script>
-</body>
-</html>
-                            <div class="reviewer-avatar">RR</div>
-                            <div class="reviewer-info">
-                                <h4>Rachel R.</h4>
-                                <div class="review-date">September 15, 2023</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Stainless Steel Exhaust Tips</h5>
-                        <p class="review-text">"These exhaust tips are beautiful and add a perfect finishing touch to my exhaust system."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">SS</div>
-                            <div class="reviewer-info">
-                                <h4>Sam S.</h4>
-                                <div class="review-date">August 15, 2023</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Adjustable Fuel Pressure Regulator</h5>
-                        <p class="review-text">"Awesome product! Easy to adjust and the quality is top-notch. My car runs so much better."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">TT</div>
-                            <div class="reviewer-info">
-                                <h4>Tina T.</h4>
-                                <div class="review-date">July 15, 2023</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">High-Performance Ignition Coils</h5>
-                        <p class="review-text">"These ignition coils are fantastic. They improved my throttle response and overall engine performance."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">UU</div>
-                            <div class="reviewer-info">
-                                <h4>Uma U.</h4>
-                                <div class="review-date">June 15, 2023</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Performance Brake Pads</h5>
-                        <p class="review-text">"These brake pads are amazing! Great stopping power and they don't produce much dust."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">VV</div>
-                            <div class="reviewer-info">
-                                <h4>Victor V.</h4>
-                                <div class="review-date">May 15, 2023</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">LED Interior Lights</h5>
-                        <p class="review-text">"These LED lights are super bright and really improve the interior look of the car."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">WW</div>
-                            <div class="reviewer-info">
-                                <h4>Will W.</h4>
-                                <div class="review-date">April 15, 2023</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Carbon Fiber Rear Spoiler</h5>
-                        <p class="review-text">"This spoiler looks fantastic and was easy to install. It really enhances the sporty look of the car."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">XX</div>
-                            <div class="reviewer-info">
-                                <h4>Xena X.</h4>
-                                <div class="review-date">March 15, 2023</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Racing Harness Bar</h5>
-                        <p class="review-text">"High quality and very sturdy. The installation was straightforward and it looks great in the car."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">YY</div>
-                            <div class="reviewer-info">
-                                <h4>Yara Y.</h4>
-                                <div class="review-date">February 15, 2023</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Adjustable Rear Camber Arms</h5>
-                        <p class="review-text">"These camber arms are excellent. They allowed me to dial in the perfect camber for my setup."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">ZZ</div>
-                            <div class="reviewer-info">
-                                <h4>Zane Z.</h4>
-                                <div class="review-date">January 15, 2023</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="review-product">Performance Strut Tower Brace</h5>
-                        <p class="review-text">"This strut tower brace is top quality and really stiffens up the front end. Noticeable improvement in handling."</p>
-                    </div>
-                </div>
-                <div class="reviews-actions">
-                    <a href="index.html#best-sellers" class="btn btn-primary">Shop and Leave a Review</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo" class="footer-logo-img">
-                    </div>
-                    <p class="footer-description">
-                        Your trusted source for high-quality automotive parts and accessories since 1998.
-                    </p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3 class="footer-title">Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#about">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="reviews.html">Reviews</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3 class="footer-title">Categories</h3>
-                    <ul class="footer-links">
-                        <li><a href="engine-drivetrain.html">Engine Parts</a></li>
-                        <li><a href="brakes-wheels.html">Brake System</a></li>
-                        <li><a href="suspension-handling.html">Suspension</a></li>
-                        <li><a href="exterior-aerodynamics.html">Exterior</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3 class="footer-title">Newsletter</h3>
-                    <p class="newsletter-text">Subscribe to receive updates, access to exclusive deals, and more.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Enter your email" class="newsletter-input">
-                        <button type="submit" class="newsletter-btn">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 GT86Partz. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-    <script>
-    // Hamburger menu dropdown for mobile
-    document.addEventListener('DOMContentLoaded', function() {
-        // Hamburger toggle
-        document.getElementById('hamburger').onclick = function() {
-            document.getElementById('mobileMenu').classList.toggle('open');
-        };
-
-        // Dropdowns in mobile menu
-        document.querySelectorAll('.mobile-dropdown-btn').forEach(function(btn) {
-            btn.onclick = function() {
-                const content = this.nextElementSibling;
-                if (content.style.display === 'block') {
-                    content.style.display = 'none';
-                    this.querySelector('i').classList.remove('fa-chevron-up');
-                    this.querySelector('i').classList.add('fa-chevron-down');
-                } else {
-                    // Close other dropdowns
-                    document.querySelectorAll('.mobile-dropdown-content').forEach(function(other) {
-                        other.style.display = 'none';
-                    });
-                    document.querySelectorAll('.mobile-dropdown-btn i').forEach(function(icon) {
-                        icon.classList.remove('fa-chevron-up');
-                        icon.classList.add('fa-chevron-down');
-                    });
-                    // Open this one
-                    content.style.display = 'block';
-                    this.querySelector('i').classList.remove('fa-chevron-down');
-                    this.querySelector('i').classList.add('fa-chevron-up');
-                }
-            };
-        });
     });
     </script>
 </body>
