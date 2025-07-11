@@ -232,9 +232,10 @@
             setupAnimations();
             // Hamburger toggle
             const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
             if (hamburger) {
                 hamburger.onclick = function() {
-                    document.getElementById('mobileMenu').classList.toggle('open');
+                    mobileMenu.classList.toggle('open');
                 };
             }
             // Dropdowns in mobile menu
@@ -261,6 +262,14 @@
                     }
                 };
             });
+            // Close mobile menu when clicking outside the menu content
+            if (mobileMenu) {
+                mobileMenu.addEventListener('click', function(e) {
+                    if (e.target === mobileMenu) {
+                        mobileMenu.classList.remove('open');
+                    }
+                });
+            }
             // Contact form submission
             document.getElementById('contactForm').addEventListener('submit', function(e) {
                 e.preventDefault();
