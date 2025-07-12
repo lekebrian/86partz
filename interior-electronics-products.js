@@ -2,100 +2,92 @@ window.CategoryProducts = {
   products: [
     {
       id: 601,
-      name: 'Custom Seat Covers',
-      price: 199,
-      image: 'int1.jpg',
-      images: ['int1a.jpg', 'int1b.jpg'],
-      description: 'Protect and style your seats with custom covers.'
+      name: 'Subaru BRZ Sport Performance Steering Wheel (Blue & Black)',
+      price: 329,
+      image: '41a.jpg',
+      images: ['41b.jpg', '41c.jpg'],
+      description: `Elevate the interior aesthetics and driving experience of your Subaru BRZ with this striking sport performance steering wheel. Expertly finished in a premium two-tone blue and black design, this wheel offers a distinctive visual upgrade and an enhanced tactile feel. Crafted from high-quality, durable materials, it provides a comfortable and secure grip, designed to improve hand placement and foster a more engaging connection to the road. This steering wheel is engineered for seamless installation into your Subaru BRZ, integrating perfectly with your vehicle's existing setup. It represents an ideal enhancement for enthusiasts seeking to personalize their vehicle's cockpit with a touch of unique style and a significant upgrade in driving dynamics.`
     },
     {
       id: 602,
-      name: 'Leather Steering Wheel',
-      price: 149,
-      image: 'int2.jpg',
-      images: ['int2a.jpg', 'int2b.jpg'],
-      description: 'Upgrade your interior with a premium wheel.'
+      name: 'Greddy limited edition steering wheel',
+      price: 380,
+      image: '42a.jpg',
+      images: ['42b.jpg', '42c.jpg'],
+      description:`
+Enhance your driving experience and elevate your vehicle's interior with this comprehensive Greddy Limited Edition steering wheel package. This exclusive set features a premium Greddy Limited Edition Alcantara Momo steering wheel, meticulously paired with a Works Bell 540S short boss for precise fitment. Designed specifically for the Subaru BRZ, Toyota 86, or Scion FR-S, this package ensures seamless integration and optimal driving ergonomics. Further elevating its functionality, the ensemble includes a Greddy/Works Bell collaboration quick disconnect hub, allowing for rapid and secure steering wheel removal. All components are in excellent condition, promising reliability and peak performance. For a complete installation, two Works Bell airbag resistors are included, as required for proper system functionality. This is an unparalleled opportunity for enthusiasts seeking a top-tier steering solution that combines iconic design with advanced engineering.`
     },
     {
       id: 603,
-      name: 'All-Weather Floor Mats',
-      price: 89,
-      image: 'int3.jpg',
-      images: ['int3a.jpg', 'int3b.jpg'],
-      description: 'Keep your car clean with durable floor mats.'
+      name: 'Carbon Fiber Steering Wheel for Subaru BRZ, Scion FR-S, and Toyota 86',
+      price: 299,
+      image: '43a.jpg',
+      images: ['43b.jpg', '43c.jpg'],
+      description: `Elevate the interior of your sport compact with this distinctive carbon fiber steering wheel. Offered in good, used condition, this wheel provides a significant aesthetic and tactile upgrade for the Subaru BRZ, Scion FR-S, and Toyota 86 platforms. Its premium carbon fiber construction delivers a sophisticated, performance-oriented look and feel, enhancing your connection to the vehicle. This accessory is designed for direct compatibility with all listed models, ensuring a straightforward upgrade. Installation assistance is available to facilitate a smooth transition.`
     },
     {
       id: 604,
-      name: 'HD Dash Cam',
-      price: 129,
-      image: 'int4.jpg',
-      images: ['int4a.jpg', 'int4b.jpg'],
-      description: 'Record every drive with this high-definition dash cam.'
+      name: 'Link ECU AIM MXS Strada Dash',
+      price: 950,
+      image: '44a.jpg',
+      images: ['44b.jpg', '44c.jpg'],
+      description: `Experience unparalleled data visualization and control with this brand-new, never-installed Link ECU AIM MXS Strada Dash. This advanced digital display is designed for seamless integration with Link ECUs, offering a crystal-clear, high-contrast screen that presents vital engine and vehicle information with exceptional clarity. Included with this pristine unit is a custom dash insert, ensuring a perfect and professional fit within your vehicle's interior. To further enhance its comprehensive functionality, a high-precision GPS module is also provided, enabling accurate speed, lap timing, and track mapping capabilities without the need for additional sensors. This complete package represents a premier solution for enthusiasts and racers demanding precise monitoring and an elevated cockpit experience, ready for immediate installation and operation.`
     },
     {
       id: 605,
-      name: 'Ambient Lighting Kit',
-      price: 59,
-      image: 'int5.jpg',
-      images: ['int5a.jpg', 'int5b.jpg'],
-      description: 'Create a unique cabin atmosphere with LED lighting.'
+      name: 'PCI Racing Slider Seat Mount – Driver Side for GR86, BRZ, FR-S, and 86',
+      price: 250,
+      image: '45a.jpg',
+      images: ['45b.jpg', '45c.jpg'],
+      description: `Optimize your driving position and enhance safety with this high-quality PCI Racing Slider Seat Mount, specifically designed for the driver's side of the GR86, BRZ, FR-S, and 86 platforms. This robust seat mount incorporates a smooth-operating slider mechanism, allowing for precise and easy adjustment of your seating position to achieve optimal ergonomics and control. Manufactured to exacting standards, this component ensures a secure and stable foundation for your aftermarket seat. It is offered in excellent condition, free from any issues, ready to provide a direct and reliable upgrade to your vehicle's interior. This mount is an essential component for enthusiasts looking to install performance seating while maintaining convenient adjustability.
+
+`
     },
     {
       id: 606,
-      name: 'Wireless Charger',
-      price: 39,
-      image: 'int6.jpg',
-      images: ['int6a.jpg', 'int6b.jpg'],
-      description: 'Charge your phone wirelessly while you drive.'
+      name: 'RECARO Japan SR-6 GK100S Recliner Set (Black/Red Glass Mesh)',
+      price: 1200,
+      image: '46a.jpg',
+      images: ['46b.jpg', '46c.jpg'],
+      description:`Acquire a highly sought-after and now discontinued set of RECARO Japan SR-6 GK100S Recliner seats. This exclusive pair, designed for both driver and passenger, features a distinctive black and red color scheme with breathable glass mesh fabric, combining iconic RECARO aesthetics with superior comfort and support. The SR-6 series is renowned for its excellent lateral support, making it ideal for performance driving while retaining the convenience of a reclining mechanism for daily usability. These seats represent a unique chance to enhance your vehicle's interior with genuine, high-performance RECARO components that are no longer in production, offering both exceptional ergonomics and a significant upgrade in cabin appeal.`
     },
     {
       id: 607,
-      name: 'Touchscreen Headunit',
-      price: 399,
-      image: 'int7.jpg',
-      images: ['int7a.jpg', 'int7b.jpg'],
-      description: 'Modernize your dash with a new touchscreen system.'
+      name: 'Custom Carbon Fiber and Alcantara D-Shape Steering Wheel for FR-S/BRZ',
+      price: 280,
+      image: '48a.jpg',
+      images: ['48b.jpg'],
+      description: `Elevate your driving experience and the interior aesthetic of your FR-S or BRZ with this exquisite, brand-new custom steering wheel. Meticulously crafted, this wheel features a sophisticated carbon fiber weave, complemented by luxurious Alcantara on the sides and bolsters for an enhanced grip and premium tactile feel. A vibrant yellow stripe at the 12 o'clock position provides a sporty visual cue, while its modern D-shape design offers improved legroom and a distinct racing-inspired look. Though never installed, its pristine condition ensures a flawless upgrade for your vehicle. Included with this exceptional wheel is a custom Alcantara steering wheel cover, providing protection and maintaining its pristine appearance. This is an unparalleled opportunity to personalize your cockpit with a truly bespoke and high-performance component.
+
+`
     },
     {
       id: 608,
-      name: 'Backup Camera',
-      price: 79,
-      image: 'int8.jpg',
-      images: ['int8a.jpg', 'int8b.jpg'],
-      description: 'Park with confidence using a clear backup camera.'
+      name: '2020 Subaru BRZ Door Cards and Alcantara Dash Piece ',
+      price: 300,
+      image: '47a.jpg',
+      images: ['47b.jpg', '47c.jpg'],
+      description: `Elevate the interior of your BRZ with this exceptionally well-preserved set of 2020 Subaru BRZ door cards, complemented by a luxurious Alcantara dash piece. These components, removed from a BRZ, are in perfect condition, showing no signs of wear or issues, ensuring a seamless and high-quality upgrade for your vehicle's cabin. The Alcantara dash piece specifically adds a touch of sophisticated texture and premium feel to your dashboard, perfectly matching the sporty elegance of the BRZ interior. This complete package offers an ideal opportunity for enthusiasts to restore or enhance their vehicle's aesthetic with genuine, unblemished OEM-quality components, ready for immediate installation.`
     },
     {
       id: 609,
-      name: 'Performance ECU',
-      price: 499,
-      image: 'int9.jpg',
-      images: ['int9a.jpg', 'int9b.jpg'],
-      description: 'Unlock more power and features with a programmable ECU.'
+      name: 'Toyota 86 / Subaru BRZ (2017+) OEM Head Unit',
+      price: 199,
+      image: '49a.jpg',
+      images: ['49b.jpg', '49c.jpg'],
+      description: `Upgrade or replace your vehicle's audio and infotainment system with this genuine OEM head unit, specifically designed for 2017 and newer Toyota 86 and Subaru BRZ models. This unit is in perfect, unblemished condition, ensuring seamless functionality and a like-new appearance for your dashboard. It offers a direct-fit solution, providing all the standard features and connectivity you expect from an original equipment component. This is an ideal opportunity for enthusiasts seeking a flawless replacement or an upgrade to the refreshed infotainment system found in later models, ready for immediate installation`
     },
     {
       id: 610,
-      name: 'Gauge Cluster',
-      price: 299,
-      image: 'int10.jpg',
-      images: ['int10a.jpg', 'int10b.jpg'],
-      description: 'Monitor your car\'s vitals with a digital gauge cluster.'
+      name: 'Authentic Recaro RS-GS Red Bucket Seats with PCI Sliding Rails (Pair)',
+      price: 1000,
+      image: '50a.jpg',
+      images: ['50b.jpg', '50c.jpg'],
+      description: `Experience unparalleled support and iconic style with this exceptional pair of authentic Recaro RS-GS red bucket seats, offered in great condition. These highly regarded fixed-back seats are engineered to provide superior lateral support and feedback, making them ideal for performance driving while significantly enhancing your vehicle's interior aesthetic. This set includes PCI sliding rails for both the driver and passenger sides, specifically designed for seamless installation into FR-S and BRZ models. The integrated upgraded safety hardware ensures secure mounting and peace of mind. Designed to comfortably accommodate individuals with waists ranging from 30 to 34 inches, this package offers a complete, ready-to-install solution for enthusiasts seeking a definitive upgrade in both cabin presence and driving dynamics.
+
+`
     },
-    {
-      id: 611,
-      name: 'Push Button Start Kit',
-      price: 89,
-      image: 'int11.jpg',
-      images: ['int11a.jpg', 'int11b.jpg'],
-      description: 'Upgrade to a modern push-button start system.'
-    },
-    {
-      id: 612,
-      name: 'Bluetooth Adapter',
-      price: 29,
-      image: 'int12.jpg',
-      images: ['int12a.jpg', 'int12b.jpg'],
-      description: 'Add Bluetooth connectivity to your factory stereo.'
-    }
+   
   ],
   productsPerPage: 5,
   currentPage: 1,
