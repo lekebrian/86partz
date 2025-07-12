@@ -451,6 +451,80 @@ window.smartsupp||(function(d) {
         color: #fff;
     }
 }
+
+/* General Inventory Showcase Styles */
+.general-inventory-showcase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.showcase-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.showcase-image-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.showcase-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.showcase-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: #f8f8f8;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dot.active {
+    background: #b80000;
+}
+
+.dot:hover {
+    background: #b80000;
+    opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+    .showcase-container {
+        max-width: 320px;
+    }
+    
+    .showcase-image-container {
+        height: 250px;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
     </style>
 </head>
 <body>
@@ -573,6 +647,27 @@ window.smartsupp||(function(d) {
         </section>
 
       
+
+        <!-- General Inventory Section -->
+        <section class="homepage-section">
+            <div class="container">
+                <h2 class="section-title" style="text-align:center; margin-bottom:2rem;">General Inventory</h2>
+                <div class="general-inventory-showcase">
+                    <div class="showcase-container">
+                        <div class="showcase-image-container">
+                            <img id="showcaseImage" src="1a.jpg" alt="General Inventory Product" class="showcase-image">
+                        </div>
+                        <div class="showcase-dots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot" data-index="1"></span>
+                            <span class="dot" data-index="2"></span>
+                            <span class="dot" data-index="3"></span>
+                        </div>
+                    </div>
+                    <a href="general.html" class="homepage-viewall-btn">VIEW INVENTORY</a>
+                </div>
+            </div>
+        </section>
 
         <!-- Best Sellers Section -->
         <section class="homepage-section">
@@ -1503,11 +1598,75 @@ function showProductDetail(id) {
     modal.style.display = 'flex';
 }
 
+// General Inventory Showcase functionality
+const showcaseImages = ['1a.jpg', '4a.jpg', '6a.jpg', '7a.jpg']; // First images from first 4 products
+let currentShowcaseIndex = 0;
+
+function updateShowcase() {
+    const showcaseImage = document.getElementById('showcaseImage');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (showcaseImage) {
+        showcaseImage.src = showcaseImages[currentShowcaseIndex];
+        showcaseImage.style.opacity = '0';
+        setTimeout(() => {
+            showcaseImage.style.opacity = '1';
+        }, 50);
+    }
+    
+    // Update dots
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentShowcaseIndex);
+    });
+}
+
+function nextShowcase() {
+    currentShowcaseIndex = (currentShowcaseIndex + 1) % showcaseImages.length;
+    updateShowcase();
+}
+
+// Auto-rotate showcase every 3 seconds
+let showcaseInterval;
+
+function startShowcaseRotation() {
+    showcaseInterval = setInterval(nextShowcase, 3000);
+}
+
+function stopShowcaseRotation() {
+    if (showcaseInterval) {
+        clearInterval(showcaseInterval);
+    }
+}
+
+// Manual dot navigation
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('dot')) {
+        const index = parseInt(e.target.getAttribute('data-index'));
+        currentShowcaseIndex = index;
+        updateShowcase();
+        // Restart auto-rotation
+        stopShowcaseRotation();
+        startShowcaseRotation();
+    }
+});
+
 // On page load, update cart count from localStorage
 document.addEventListener('DOMContentLoaded', function() {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
     let totalCount = cart.reduce((sum, item) => Number(sum) + Number(item.qty || 0), 0);
     document.querySelector('.cart-count').textContent = totalCount;
+    
+    // Initialize showcase
+    updateShowcase();
+    startShowcaseRotation();
+    
+    // Pause rotation on hover
+    const showcaseContainer = document.querySelector('.showcase-container');
+    if (showcaseContainer) {
+        showcaseContainer.addEventListener('mouseenter', stopShowcaseRotation);
+        showcaseContainer.addEventListener('mouseleave', startShowcaseRotation);
+    }
+    
     const mobileMenu = document.getElementById('mobileMenu');
     if (mobileMenu) {
         mobileMenu.addEventListener('click', function(e) {
