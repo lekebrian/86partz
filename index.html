@@ -454,45 +454,28 @@ window.smartsupp||(function(d) {
 
 /* General Inventory Showcase Styles */
 .general-inventory-section {
-    background-color: #fff;
+    background: #f9f9f9;
     position: relative;
-    overflow: hidden;
-}
-
-.general-inventory-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="%23ffffff" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-    pointer-events: none;
 }
 
 .general-inventory-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .general-inventory-header .section-title {
-    color: #fff;
-    font-size: 3rem;
-    font-weight: 800;
+    color: #222;
+    font-size: 2.5rem;
+    font-weight: 700;
     margin-bottom: 1rem;
-    text-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    background: linear-gradient(45deg, #fff, #f0f0f0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    text-align: center;
 }
 
 .section-subtitle {
-    color: #b80000;
-    font-size: 1.2rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    color: #666;
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-align: center;
     margin: 0;
 }
 
@@ -500,156 +483,77 @@ window.smartsupp||(function(d) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
-    position: relative;
-    z-index: 2;
+    gap: 2rem;
 }
 
 .showcase-container {
     position: relative;
     width: 100%;
-    max-width: 500px;
-    background: linear-gradient(145deg, #fff, #f8f8f8);
-    border-radius: 20px;
-    box-shadow: 
-        0 20px 40px rgba(0,0,0,0.2),
-        0 0 0 1px rgba(255,255,255,0.1),
-        inset 0 1px 0 rgba(255,255,255,0.8);
+    max-width: 400px;
+    background: #fff;
+    border-radius: 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     overflow: hidden;
     margin: 0 auto;
-    transform: perspective(1000px) rotateX(5deg);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: box-shadow 0.2s;
 }
 
 .showcase-container:hover {
-    transform: perspective(1000px) rotateX(0deg) scale(1.02);
-    box-shadow: 
-        0 30px 60px rgba(0,0,0,0.3),
-        0 0 0 1px rgba(255,255,255,0.2),
-        inset 0 1px 0 rgba(255,255,255,0.9);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.13);
 }
 
 .showcase-image-container {
     position: relative;
     width: 100%;
-    height: 350px;
+    height: 300px;
     overflow: hidden;
-}
-
-.showcase-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(184,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 2;
-}
-
-.showcase-container:hover .showcase-overlay {
-    opacity: 1;
-}
-
-.showcase-content {
-    text-align: center;
-    color: #fff;
-    padding: 2rem;
-}
-
-.showcase-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-}
-
-.showcase-description {
-    font-size: 1rem;
-    opacity: 0.9;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
 .showcase-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: all 0.5s ease-in-out;
-    filter: brightness(0.9) contrast(1.1);
+    transition: opacity 0.5s ease-in-out;
 }
 
-.showcase-container:hover .showcase-image {
-    filter: brightness(1.1) contrast(1.2) saturate(1.1);
-    transform: scale(1.05);
+.showcase-product-info {
+    padding: 1rem 1.2rem;
+    background: #fff;
+    border-top: 1px solid #eee;
 }
 
-.showcase-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: linear-gradient(45deg, #b80000, #dc2626);
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    font-size: 0.8rem;
+.showcase-product-title {
+    font-size: 1.05rem;
     font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    box-shadow: 0 4px 12px rgba(184,0,0,0.3);
-    z-index: 3;
-}
-
-.showcase-badge i {
-    color: #ffd700;
-    font-size: 0.7rem;
+    color: #222;
+    margin: 0;
+    text-align: center;
 }
 
 .showcase-dots {
     display: flex;
     justify-content: center;
-    gap: 0.8rem;
-    padding: 1.5rem;
-    background: linear-gradient(135deg, #f8f8f8, #fff);
-    border-top: 1px solid rgba(0,0,0,0.1);
+    gap: 0.5rem;
+    padding: 1rem;
+    background: #f8f8f8;
 }
 
 .dot {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background: #ddd;
     cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    transition: background 0.3s ease;
 }
 
-.dot::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
+.dot.active {
     background: #b80000;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.3s ease;
-}
-
-.dot.active::before {
-    width: 100%;
-    height: 100%;
 }
 
 .dot:hover {
-    transform: scale(1.2);
-    box-shadow: 0 2px 8px rgba(184,0,0,0.3);
+    background: #b80000;
+    opacity: 0.8;
 }
 
 .showcase-actions {
@@ -658,75 +562,30 @@ window.smartsupp||(function(d) {
     align-items: center;
     gap: 2rem;
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
 }
 
 .showcase-btn {
-    background: linear-gradient(45deg, #b80000, #dc2626);
+    background: #dc2626;
     border: none;
-    padding: 1.2rem 2.5rem;
-    border-radius: 50px;
+    padding: 0.9rem 2.2rem;
+    border-radius: 6px;
     font-size: 1.1rem;
-    font-weight: 700;
-    text-transform: uppercase;
+    font-weight: 600;
     letter-spacing: 1px;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 24px rgba(184,0,0,0.3);
-    position: relative;
-    overflow: hidden;
-}
-
-.showcase-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s ease;
-}
-
-.showcase-btn:hover::before {
-    left: 100%;
-}
-
-.showcase-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(184,0,0,0.4);
-    background: linear-gradient(45deg, #dc2626, #b80000);
-}
-
-.showcase-stats {
-    display: flex;
-    gap: 3rem;
-    justify-content: center;
-}
-
-.stat {
-    text-align: center;
+    gap: 0.5rem;
+    transition: background 0.2s;
+    text-decoration: none;
     color: #fff;
 }
 
-.stat-number {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #b80000;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    margin-bottom: 0.3rem;
+.showcase-btn:hover {
+    background: #b80000;
 }
 
-.stat-label {
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.8;
-}
+
 
 @media (max-width: 768px) {
     .general-inventory-header .section-title {
@@ -735,23 +594,10 @@ window.smartsupp||(function(d) {
     
     .showcase-container {
         max-width: 400px;
-        transform: none;
-    }
-    
-    .showcase-container:hover {
-        transform: scale(1.02);
     }
     
     .showcase-image-container {
         height: 300px;
-    }
-    
-    .showcase-stats {
-        gap: 2rem;
-    }
-    
-    .stat-number {
-        font-size: 2rem;
     }
 }
 
@@ -768,21 +614,9 @@ window.smartsupp||(function(d) {
         height: 250px;
     }
     
-    .showcase-title {
-        font-size: 1.5rem;
-    }
-    
-    .showcase-stats {
-        gap: 1.5rem;
-    }
-    
-    .stat-number {
-        font-size: 1.8rem;
-    }
-    
     .dot {
-        width: 12px;
-        height: 12px;
+        width: 10px;
+        height: 10px;
     }
 }
     </style>
@@ -895,7 +729,7 @@ window.smartsupp||(function(d) {
                         We offer a wide selection of high-quality automotive parts designed to enhance performance, reliability, and style. From engine components to exterior accessories, find everything you need for your vehicle.
                     </p>
                     <div class="hero-actions animate-fade-up delay-2">
-                        <a href="#Best-sellers" class="btn btn-primary">Shop Now <i class="fas fa-arrow-right"></i></a>
+                        <a href="#general-inventory" class="btn btn-primary">Shop Now <i class="fas fa-arrow-right"></i></a>
                         <a href="#about" class="btn btn-secondary">Learn More</a>
                     </div>
                     <div class="scroll-indicator animate-bounce">
@@ -909,32 +743,26 @@ window.smartsupp||(function(d) {
       
 
         <!-- General Inventory Section -->
-        <section class="homepage-section general-inventory-section">
+        <section id="general-inventory" class="homepage-section general-inventory-section">
             <div class="container">
                 <div class="general-inventory-header">
-                    <h2 class="gen-title" style="font-size: 40px; font-weight: 900; white-space: nowrap;">General Inventory</h2>
-                    <p class="section-subtitle animate-fade-up delay-1">Discover our premium collection of automotive excellence</p>
+                    <h2 class="section-title animate-fade-up">New Arrivals</h2>
+                    <p class="section-subtitle animate-fade-up delay-1">Discover the latest parts freshly added to our inventory. Updated regularly with new stock and rare finds.</p>
                 </div>
                 <div class="general-inventory-showcase">
                     <div class="showcase-container">
                         <div class="showcase-image-container">
-                            <div class="showcase-overlay">
-                                <div class="showcase-content">
-                                    <h3 class="showcase-title">Premium Parts Collection</h3>
-                                    <p class="showcase-description">Handpicked for performance enthusiasts</p>
-                                </div>
-                            </div>
                             <img id="showcaseImage" src="1a.jpg" alt="General Inventory Product" class="showcase-image">
-                            <div class="showcase-badge">
-                                <i class="fas fa-star"></i>
-                                <span>Premium</span>
-                            </div>
+                        </div>
+                        <div class="showcase-product-info">
+                            <h3 id="showcaseProductName" class="showcase-product-title">Premium Carbon Fiber Hood</h3>
                         </div>
                         <div class="showcase-dots">
                             <span class="dot active" data-index="0"></span>
                             <span class="dot" data-index="1"></span>
                             <span class="dot" data-index="2"></span>
                             <span class="dot" data-index="3"></span>
+                            <span class="dot" data-index="4"></span>
                         </div>
                     </div>
                     <div class="showcase-actions">
@@ -1877,18 +1705,30 @@ function showProductDetail(id) {
 }
 
 // General Inventory Showcase functionality
-const showcaseImages = ['1a.jpg', '4a.jpg', '6a.jpg', '7a.jpg']; // First images from first 4 products
+const showcaseData = [
+    { image: '1a.jpg', name: 'Premium Carbon Fiber Hood' },
+    { image: '4a.jpg', name: 'High-Performance Exhaust System' },
+    { image: '6a.jpg', name: 'Performance Air Intake System' },
+    { image: '7a.jpg', name: 'Racing Brake Pads Set' },
+    { image: '13a.jpg', name: 'Adjustable Coilover Suspension Kit' }
+];
 let currentShowcaseIndex = 0;
 
 function updateShowcase() {
     const showcaseImage = document.getElementById('showcaseImage');
+    const showcaseProductName = document.getElementById('showcaseProductName');
     const dots = document.querySelectorAll('.dot');
     
-    if (showcaseImage) {
-        showcaseImage.src = showcaseImages[currentShowcaseIndex];
+    if (showcaseImage && showcaseProductName) {
+        const currentData = showcaseData[currentShowcaseIndex];
+        showcaseImage.src = currentData.image;
+        showcaseProductName.textContent = currentData.name;
+        
         showcaseImage.style.opacity = '0';
+        showcaseProductName.style.opacity = '0';
         setTimeout(() => {
             showcaseImage.style.opacity = '1';
+            showcaseProductName.style.opacity = '1';
         }, 50);
     }
     
@@ -1899,7 +1739,7 @@ function updateShowcase() {
 }
 
 function nextShowcase() {
-    currentShowcaseIndex = (currentShowcaseIndex + 1) % showcaseImages.length;
+    currentShowcaseIndex = (currentShowcaseIndex + 1) % showcaseData.length;
     updateShowcase();
 }
 
