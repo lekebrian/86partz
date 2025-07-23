@@ -8,6 +8,83 @@
     <link rel="stylesheet" href="page-styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Social Media Links Styles for Contact Page */
+        .social-links-contact {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .social-link-contact {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #b80000;
+            color: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .social-link-contact:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(184,0,0,0.3);
+        }
+        
+        .social-link-contact i {
+            font-size: 1rem;
+        }
+        
+        /* Footer Social Links */
+        .social-links {
+            margin-top: 1.5rem;
+        }
+        
+        .social-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 0.8rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #b80000;
+            color: #fff;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .social-link:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(184,0,0,0.3);
+        }
+        
+        .social-link i {
+            transition: transform 0.3s ease;
+        }
+        
+        .social-link:hover i {
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -100,24 +177,11 @@
                         <p>Have questions about our products or need expert advice? Our team is here to help you find the perfect parts for your vehicle.</p>
                         
                         <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <h4>Address</h4>
-                                <p>123 Auto Parts Street<br>Performance City, PC 12345</p>
-                            </div>
+                           
+                         
                         </div>
                         
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div>
-                                <h4>Phone</h4>
-                                <p>+1 (555) 123-4567</p>
-                            </div>
-                        </div>
+                       
                         
                         <div class="contact-item">
                             <div class="contact-icon">
@@ -125,7 +189,7 @@
                             </div>
                             <div>
                                 <h4>Email</h4>
-                                <p>info@gt86partz.com</p>
+                                <p>info@86partz.com</p>
                             </div>
                         </div>
                         
@@ -136,6 +200,25 @@
                             <div>
                                 <h4>Business Hours</h4>
                                 <p>Mon - Fri: 9:00 AM - 6:00 PM<br>Sat: 9:00 AM - 4:00 PM<br>Sun: Closed</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-share-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Follow Us</h4>
+                                <div class="social-links-contact">
+                                    <a href="https://www.facebook.com/share/1FhLq4eraq/?mibextid=wwXIfr" target="_blank" class="social-link-contact">
+                                        <i class="fab fa-facebook-f"></i>
+                                        <span>Facebook</span>
+                                    </a>
+                                    <a href="https://www.instagram.com/86partz_official?igsh=MTFhNmEyb3N2Mzc4cg%3D%3D&utm_source=qr" target="_blank" class="social-link-contact">
+                                        <i class="fab fa-instagram"></i>
+                                        <span>Instagram</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -185,7 +268,7 @@
                         <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo" class="footer-logo-img">
                     </div>
                     <p class="footer-description">
-                        Your trusted source for high-quality automotive parts and accessories since 1998.
+                        Your trusted source for high-quality automotive parts and accessories since 2021.
                     </p>
                 </div>
                 
@@ -216,6 +299,17 @@
                         <input type="email" placeholder="Enter your email" class="newsletter-input">
                         <button type="submit" class="newsletter-btn">Subscribe</button>
                     </form>
+                    <div class="social-links">
+                        <h4 class="social-title">Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/share/1FhLq4eraq/?mibextid=wwXIfr" target="_blank" class="social-link">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/86partz_official?igsh=MTFhNmEyb3N2Mzc4cg%3D%3D&utm_source=qr" target="_blank" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             
