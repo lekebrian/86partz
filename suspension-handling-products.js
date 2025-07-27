@@ -94,6 +94,7 @@ window.CategoryProducts = {
     productsToShow.forEach((product, idx) => {
       const card = document.createElement('div');
       card.className = 'product-card';
+      card.setAttribute('data-product-id', product.id);
       card.innerHTML = `
         <img src="${product.image}" alt="${product.name}" class="product-image">
         <div class="product-info">

@@ -101,6 +101,7 @@ Enhance your driving experience and elevate your vehicle's interior with this co
     productsToShow.forEach((product, idx) => {
       const card = document.createElement('div');
       card.className = 'product-card';
+      card.setAttribute('data-product-id', product.id);
       card.innerHTML = `
         <img src="${product.image}" alt="${product.name}" class="product-image">
         <div class="product-info">
