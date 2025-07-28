@@ -35,23 +35,11 @@ class ProductSharing {
                 z-index: 10;
             `;
 
-            // Instagram share button
-            const instagramBtn = this.createShareButton('instagram', 'fab fa-instagram', () => {
-                this.shareToInstagram(productId);
-            });
-
-            // Facebook share button
-            const facebookBtn = this.createShareButton('facebook', 'fab fa-facebook-f', () => {
-                this.shareToFacebook(productId);
-            });
-
-            // Copy link button
+            // Copy link button only
             const copyBtn = this.createShareButton('copy', 'fas fa-link', () => {
                 this.copyProductLink(productId);
             });
 
-            shareContainer.appendChild(instagramBtn);
-            shareContainer.appendChild(facebookBtn);
             shareContainer.appendChild(copyBtn);
 
             // Add to product card
@@ -95,28 +83,7 @@ class ProductSharing {
         return button;
     }
 
-    // Share to Instagram
-    shareToInstagram(productId) {
-        const productUrl = this.getProductUrl(productId);
-        const product = this.getProductById(productId);
-        
-        if (product) {
-            // Instagram doesn't support direct sharing via URL, so we'll copy the link
-            this.copyProductLink(productId);
-            this.showNotification('Product link copied! Share it on Instagram', 'success');
-        }
-    }
 
-    // Share to Facebook
-    shareToFacebook(productId) {
-        const productUrl = this.getProductUrl(productId);
-        const product = this.getProductById(productId);
-        
-        if (product) {
-            const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(productUrl)}`;
-            window.open(shareUrl, '_blank', 'width=600,height=400');
-        }
-    }
 
     // Copy product link to clipboard
     copyProductLink(productId) {
@@ -198,20 +165,10 @@ class ProductSharing {
                                 margin-top: 15px;
                             `;
 
-                            const instagramBtn = this.createShareButton('instagram', 'fab fa-instagram', () => {
-                                this.shareToInstagram(id);
-                            });
-
-                            const facebookBtn = this.createShareButton('facebook', 'fab fa-facebook-f', () => {
-                                this.shareToFacebook(id);
-                            });
-
                             const copyBtn = this.createShareButton('copy', 'fas fa-link', () => {
                                 this.copyProductLink(id);
                             });
 
-                            newShareContainer.appendChild(instagramBtn);
-                            newShareContainer.appendChild(facebookBtn);
                             newShareContainer.appendChild(copyBtn);
 
                             const modalContent = modal.querySelector('#modalContent');

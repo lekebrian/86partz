@@ -5,10 +5,10 @@ This document describes the social media sharing functionality implemented acros
 ## Overview
 
 The social sharing system allows users to:
-- Share individual products on social media platforms (Instagram, Facebook)
 - Copy direct links to specific products
 - Navigate to specific products via shared links
 - See visual feedback when products are shared
+- Share links on any platform (Instagram, Facebook, WhatsApp, etc.)
 
 ## Implementation Details
 
@@ -27,9 +27,7 @@ The social sharing system allows users to:
 ### Features
 
 #### 1. Share Buttons
-- **Instagram**: Copies product link to clipboard (Instagram doesn't support direct URL sharing)
-- **Facebook**: Opens Facebook share dialog with product URL
-- **Copy Link**: Copies direct product URL to clipboard
+- **Copy Link**: Copies direct product URL to clipboard for sharing on any platform
 
 #### 2. Visual Design
 - Share buttons appear in top-right corner of each product card
@@ -53,10 +51,9 @@ The social sharing system allows users to:
 ### For Users:
 
 1. **Sharing Products**:
-   - Hover over any product card to see share buttons
-   - Click Instagram button to copy link (then paste in Instagram)
-   - Click Facebook button to share directly to Facebook
-   - Click link button to copy product URL
+   - Hover over any product card to see the copy link button
+   - Click the link button to copy product URL to clipboard
+   - Paste the link anywhere (Instagram, Facebook, WhatsApp, etc.)
 
 2. **Accessing Shared Products**:
    - Click on a shared product link
@@ -98,8 +95,6 @@ The share buttons are automatically added to all elements with:
 
 Share buttons use these CSS classes:
 - `.share-btn` - Individual button styling
-- `.share-btn-instagram` - Instagram-specific styling
-- `.share-btn-facebook` - Facebook-specific styling
 - `.share-btn-copy` - Copy link button styling
 
 ## Technical Implementation
@@ -108,9 +103,7 @@ Share buttons use these CSS classes:
 
 1. **ProductSharing Class**:
    - `initializeSharing()` - Sets up share buttons
-   - `addShareButtonsToProducts()` - Adds buttons to product cards
-   - `shareToInstagram()` - Handles Instagram sharing
-   - `shareToFacebook()` - Handles Facebook sharing
+   - `addShareButtonsToProducts()` - Adds copy link buttons to product cards
    - `copyProductLink()` - Copies product URL to clipboard
    - `handleURLParameters()` - Processes URL parameters
    - `highlightProduct()` - Highlights specific products

@@ -76,12 +76,6 @@
         
         <div class="product-card" data-product-id="1">
             <div class="share-buttons">
-                <button class="share-btn" onclick="shareToInstagram(1)">
-                    <i class="fab fa-instagram"></i>
-                </button>
-                <button class="share-btn" onclick="shareToFacebook(1)">
-                    <i class="fab fa-facebook-f"></i>
-                </button>
                 <button class="share-btn" onclick="copyProductLink(1)">
                     <i class="fas fa-link"></i>
                 </button>
@@ -93,12 +87,6 @@
         
         <div class="product-card" data-product-id="2">
             <div class="share-buttons">
-                <button class="share-btn" onclick="shareToInstagram(2)">
-                    <i class="fab fa-instagram"></i>
-                </button>
-                <button class="share-btn" onclick="shareToFacebook(2)">
-                    <i class="fab fa-facebook-f"></i>
-                </button>
                 <button class="share-btn" onclick="copyProductLink(2)">
                     <i class="fas fa-link"></i>
                 </button>
@@ -120,17 +108,7 @@
 
     <script src="social-sharing.js"></script>
     <script>
-        // Test functions
-        function shareToInstagram(productId) {
-            const productUrl = `${window.location.origin}${window.location.pathname}?product=${productId}`;
-            showNotification(`Product ${productId} link copied! Share it on Instagram`);
-        }
-        
-        function shareToFacebook(productId) {
-            const productUrl = `${window.location.origin}${window.location.pathname}?product=${productId}`;
-            const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(productUrl)}`;
-            window.open(shareUrl, '_blank', 'width=600,height=400');
-        }
+
         
         function copyProductLink(productId) {
             const productUrl = `${window.location.origin}${window.location.pathname}?product=${productId}`;
