@@ -16,9 +16,11 @@ class ProductSharing {
 
     // Add share buttons to product cards
     addShareButtonsToProducts() {
-        // Find all product cards
-        const productCards = document.querySelectorAll('.product-card, .homepage-product-card');
+        // Find all product cards except homepage best sellers
+        const productCards = document.querySelectorAll('.product-card');
+        const homepageCards = document.querySelectorAll('.homepage-product-card');
         
+        // Add share buttons to category page product cards
         productCards.forEach(card => {
             const productId = card.getAttribute('data-product-id');
             if (!productId) return;
@@ -46,6 +48,11 @@ class ProductSharing {
             card.style.position = 'relative';
             card.appendChild(shareContainer);
         });
+        
+        // Don't add share buttons to homepage product cards (they have share in modal)
+        // homepageCards.forEach(card => {
+        //     // Skip adding share buttons to homepage cards
+        // });
     }
 
     // Create individual share button
