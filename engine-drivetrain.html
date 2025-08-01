@@ -320,6 +320,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+function attachProductDetailListeners() {
+    document.querySelectorAll('.btn.btn-outline.btn-small').forEach(btn => {
+        btn.onclick = function() {
+            const card = this.closest('[data-product-id]');
+            if (card) {
+                const id = parseInt(card.getAttribute('data-product-id'));
+                if (typeof showProductDetail === 'function') showProductDetail(id);
+            }
+        };
+    });
+}
+// Call this after rendering products for each page
+if (typeof renderProducts === 'function') {
+    const origRenderProducts = renderProducts;
+    window.renderProducts = function(page) {
+        origRenderProducts(page);
+        attachProductDetailListeners();
+    };
+}
+// Initial attach on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', attachProductDetailListeners);
 </script>
 </body>
 </html>

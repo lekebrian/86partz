@@ -159,6 +159,15 @@ Forged from premium materials and precision-machined for perfect fitment, these 
       `;
       grid.appendChild(card);
     });
+    this.attachProductDetailListeners();
+  },
+  attachProductDetailListeners: function() {
+    document.querySelectorAll('.btn.btn-small.see-details-btn').forEach(btn => {
+      btn.onclick = function() {
+        const id = parseInt(this.closest('.product-card').getAttribute('data-product-id'));
+        window.CategoryProducts.showProductDetail(id);
+      };
+    });
   },
   setupPagination: function() {
     const page1 = document.getElementById('page1');

@@ -310,9 +310,30 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
-    <script src="script.js"></script>
     <script src="brakes-wheels-products.js"></script>
+    <script src="script.js"></script>
     <script src="social-sharing.js"></script>
     <script src="dynamic-meta-tags.js"></script>
+    <script>
+    function attachProductDetailListeners() {
+        document.querySelectorAll('.btn.btn-outline.btn-small').forEach(btn => {
+            btn.onclick = function() {
+                const card = this.closest('[data-product-id]');
+                if (card) {
+                    const id = parseInt(card.getAttribute('data-product-id'));
+                    if (typeof showProductDetail === 'function') showProductDetail(id);
+                }
+            };
+        });
+    }
+    if (typeof renderProducts === 'function') {
+        const origRenderProducts = renderProducts;
+        window.renderProducts = function(page) {
+            origRenderProducts(page);
+            attachProductDetailListeners();
+        };
+    }
+    document.addEventListener('DOMContentLoaded', attachProductDetailListeners);
+    </script>
 </body>
 </html>
