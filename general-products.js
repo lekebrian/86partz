@@ -141,83 +141,203 @@ Known as RAYS’ most popular Gramlights design, the 57CR blends style, performa
     },
     {
       id: 806,
-      name: 'LED Headlight Conversion Kit',
-      price: 450,
-      image: '18a.jpg',
-      images: ['18b.jpg', '18c.jpg'],
-      description: `Upgrade your lighting with this complete LED headlight conversion kit. Featuring high-output LED bulbs and advanced optics, this kit provides superior illumination and a modern appearance. Includes all necessary components for a professional installation and improved nighttime visibility.`
+      name: `OBX Stainless Steel Catback Exhaust – For 2013–2022 BRZ, 2013–2021 FR-S, 2012–2021 Toyota FT86 / GT86
+`,
+      price: 600,
+      image: '76a.jpg',
+      images: ['76b.jpg', '76c.jpg'],
+      description: `
+Enhance both the sound and performance of your 86-platform car with the OBX Stainless Steel Catback Exhaust, engineered for a perfect fit on the Subaru BRZ (2013–2022), Scion FR-S (2013–2021), and Toyota FT86/GT86 (2012–2021). Crafted from high-quality stainless steel, this exhaust system offers a clean, aggressive tone while improving exhaust flow and reducing backpressure.
+
+Designed as a bolt-on upgrade, this catback exhaust delivers noticeable performance gains and a more engaging driving experience — all while maintaining daily drivability.
+
+Key Features:
+
+Direct-fit catback exhaust system for BRZ, FR-S, and GT86 platforms
+
+Constructed from polished stainless steel for durability and corrosion resistance
+
+Improved exhaust flow for increased power and throttle response
+
+Aggressive, refined tone without excessive drone
+
+Bolt-on installation using factory mounting points
+
+Ideal for street builds, daily drivers, and spirited weekend use
+
+Whether you're looking to improve performance or just want a more satisfying exhaust note, the OBX stainless catback offers a great balance of sound, looks, and value.`
     },
     {
       id: 807,
-      name: 'Performance Clutch Kit',
-      price: 680,
-      image: '19a.jpg',
-      images: ['19b.jpg', '19c.jpg'],
-      description: `Enhance your drivetrain with this performance clutch kit. Designed for increased torque capacity and improved pedal feel, this kit features a lightweight flywheel and high-friction clutch disc. Perfect for modified vehicles or those seeking improved shifting performance.`
+      name: 'Invidia N1 Catback Exhaust System – For Toyota 86 / Subaru BRZ / Scion FR-S',
+      price: 580,
+      image: '77a.jpg',
+      images: ['77b.jpg', '77c.jpg'],
+      description: `
+
+Bring aggressive sound and track-inspired styling to your 86-platform build with the Invidia N1 Catback Exhaust System, designed for the Subaru BRZ, Scion FR-S, and Toyota 86. Known for its deep, refined tone and excellent build quality, the N1 catback is a favorite among enthusiasts looking to balance performance and aesthetics.
+
+This system is in good condition, with no functional issues. It has been cleaned, sanded, and polished to restore its appearance, and it's ready for immediate installation.
+
+Key Features:
+
+Compatible with Subaru BRZ, Scion FR-S, and Toyota 86 (all model years)
+
+Dual-exit Invidia N1 muffler design for an aggressive, race-inspired sound
+
+High-quality stainless steel construction
+
+Recently polished and restored — clean and ready to install
+
+Includes brand new gasket and bolts for mounting
+
+This is a well-maintained, performance-proven exhaust system ideal for drivers who want more character from their car without going over the top.`
     },
     {
       id: 808,
-      name: 'Carbon Fiber Side Skirts',
-      price: 420,
-      image: '14a.jpg',
-      images: ['14b.jpg', '14c.jpg'],
-      description: `Add aggressive styling to your vehicle with these carbon fiber side skirts. Crafted from premium carbon fiber, these skirts provide aerodynamic benefits while enhancing the vehicle's visual appeal. Features a perfect fit and professional finish for a seamless installation.`
+      name: `TRD x Bride Stradia II Semi-Bucket Seats – Premium Reclining Seats for Street & Track
+`,
+      price: 1200,
+      image: '78a.jpg',
+      images: ['78b.jpg', '78c.jpg'],
+      description: `
+Elevate your interior and driving experience with a rare set of TRD x Bride Stradia II semi-bucket seats. These premium reclining seats blend the aggressive styling and lateral support of a fixed-back bucket with the comfort and adjustability of a reclining seat — making them ideal for both spirited street driving and weekend track use.
+
+Featuring TRD branding and Bride’s signature high-grip materials, this collaboration model delivers iconic JDM aesthetics with ergonomic support that enhances driver feedback and control.
+
+Key Features:
+
+Genuine TRD x Bride Stradia II semi-bucket seat pair
+
+Reclining functionality for daily comfort with sport bucket support
+
+High-side bolsters for secure seating under hard cornering
+
+Premium materials with TRD branding — ideal for JDM builds
+
+Suitable for both driver and passenger side setups
+
+Lightweight design, compatible with standard aftermarket seat rails (rails not included)
+
+A rare opportunity to own a highly sought-after set of seats that balance track-ready support with daily driving comfort — a must-have for TRD and JDM enthusiasts.`
     },
     {
       id: 809,
-      name: 'Performance ECU Tune',
+      name: `Skunk2 Racing 4-1 Equal Length Headers – For 2013–2020 BRZ / FR-S / 86`,
       price: 550,
-      image: '21a.jpg',
-      images: ['21b.jpg', '21c.jpg'],
-      description: `Unlock your engine's full potential with this performance ECU tune. Optimized for maximum power and torque while maintaining reliability, this tune provides significant performance gains across the entire RPM range. Includes dyno testing and professional installation support.`
+      image: '79a.jpg',
+      images: ['79b.jpg', '79c.jpg'],
+      description: `
+
+Maximize exhaust flow and power delivery with Skunk2 Racing’s 4-1 Equal Length (EL) Headers, designed for the 2013–2020 Subaru BRZ, Scion FR-S, and Toyota 86. Featuring a high-performance 4-1 design and merge collector, these headers are engineered for top-end horsepower gains and smooth throttle response — ideal for naturally aspirated builds or as part of a full exhaust upgrade.
+
+This set has been professionally ceramic coated for improved heat resistance and durability and has never been installed since coating. The 2.5" outlet is ready to connect to most aftermarket overpipes or exhaust setups.
+
+Key Features:
+
+Equal length 4-1 header design for optimized power and efficiency
+
+2.5" merge collector outlet for maximum flow
+
+Professionally ceramic coated for reduced heat soak and enhanced durability
+
+Direct fit for 2013–2020 BRZ / FR-S / 86
+
+Never mounted after coating — like-new condition
+
+A perfect upgrade for drivers seeking performance, sound, and reliability from a trusted brand in motorsports.`
     },
     {
       id: 810,
-      name: 'Racing Steering Wheel',
-      price: 380,
-      image: '23a.jpg',
-      images: ['23b.jpg', '23c.jpg'],
-      description: `Upgrade your driving experience with this racing steering wheel. Featuring a compact diameter and ergonomic design, this wheel provides improved control and feedback. Made from premium materials with a comfortable grip for extended driving sessions.`
+      name: 'Valenti REVO Jewel LED Tail Lights – Light Smoke / Black Chrome – For 2013–2020 BRZ, FR-S & 86',
+      price: 450,
+      image: '80a.jpg',
+      images: ['80b.jpg', '80c.jpg'],
+      description: `
+
+Transform the rear-end look of your 86-platform with a set of Valenti REVO Jewel LED Tail Lights in the sought-after Light Smoke / Black Chrome finish. Known for their bold styling and premium construction, these taillights offer a sleek, high-end look while maintaining OEM+ appeal.
+
+Featuring full LED operation, sequential turn signals, and distinctive LED light bars, the REVO series gives your car a head-turning signature both day and night. This set is lightly used, in excellent condition, and includes all mounting tabs — ready for plug-and-play installation.
+
+Key Features:
+
+Compatible with 2013–2020 BRZ / FR-S / Toyota 86
+
+Light Smoke / Black Chrome housing for a modern, refined look
+
+110 individual LEDs + dual LED light bars for brilliant illumination
+
+Sequential or standard blinkers (switchable)
+
+Built-in resistors — no hyperflash issues
+
+Euro-style LED clear side markers
+
+Plug-and-play installation – no modifications required
+
+Fully DOT / SAE / E-mark compliant
+
+Condition:
+
+Lightly used – no cracks, chips, or damage
+
+All mounting tabs intact
+
+Fully functional – ready to install
+
+One of the most desirable taillight upgrades available for the 86 platform — perfect for those looking to enhance both form and function.
+
+`
     },
     {
       id: 811,
-      name: 'Performance Intercooler',
-      price: 720,
-      image: '24a.jpg',
-      images: ['24b.jpg', '24c.jpg'],
-      description: `Improve your turbocharged performance with this high-efficiency intercooler. Designed for maximum heat rejection and minimal pressure drop, this intercooler helps maintain optimal intake air temperatures for consistent power output. Perfect for forced induction applications.`
+      name: 'Subaru BRZ|FRS|86 FA24 Engine',
+      price: 4300,
+      image: '1a.jpg',
+      images: ['1b.jpg', '1c.jpg'],
+      description: `2023 FA24 Engine with Headers & Carbon Covers – 14,992 Miles
+
+This 2023 FA24 engine is in excellent condition with only 14,992 miles. It comes equipped with high-quality headers and carbon fiber engine covers, enhancing both performance and aesthetics.
+
+Meticulously maintained and garage-kept, this engine has been serviced regularly and driven sparingly. A great opportunity for anyone looking to upgrade with a clean, low-mileage powertrain setup`
     },
     {
       id: 812,
-      name: 'Carbon Fiber Rear Wing',
-      price: 890,
-      image: '27a.jpg',
-      images: ['27b.jpg', '27c.jpg'],
-      description: `Add downforce and style with this carbon fiber rear wing. Aerodynamically designed to provide significant downforce at high speeds, this wing enhances stability and cornering performance. Features an adjustable design for fine-tuning aerodynamic balance.`
+      name: 'Set of front fenders compatible with Scion FRS|Toyota 86|Subaru BRZ',
+      price: 450,
+      image: '31a.jpg',
+      images: ['31b.jpg', '31c.jpg'],
+      description: `A clean set of front fenders compatible with Scion FR-S, Toyota 86, and Subaru BRZ. These fenders are in excellent condition with no cracks, dents, or structural damage—perfect for restoration projects or OEM replacements.
+
+Ideal for anyone looking to maintain a factory look or replace worn or damaged panels with original-fit parts.`
     },
     {
       id: 813,
-      name: 'Performance Oil Cooler Kit',
-      price: 480,
-      image: '31a.jpg',
-      images: ['31b.jpg', '31c.jpg'],
-      description: `Protect your engine with this performance oil cooler kit. Designed to maintain optimal oil temperatures under demanding conditions, this kit includes a high-capacity cooler and all necessary mounting hardware. Essential for track use and high-performance applications.`
+      name: '2013–2020 Scion FR-S / Toyota 86 / Subaru BRZ Alfa Style Fiberglass Front Bumper',
+      price: 599,
+      image: '37a.jpg',
+      images: ['37b.jpg', '37c.jpg'],
+      description: `Upgrade your ride with this Alfa Style fiberglass front bumper, designed to fit 2013–2020 models of the Scion FR-S, Toyota 86, and Subaru BRZ. Crafted from lightweight, durable fiberglass, this bumper offers an aggressive and sporty look while maintaining quality fitment.
+
+Perfect for enthusiasts seeking a distinctive style upgrade that stands out on the road.`
     },
     {
       id: 814,
-      name: 'Racing Seat Set',
-      price: 950,
-      image: '35a.jpg',
-      images: ['35b.jpg', '35c.jpg'],
-      description: `Upgrade your interior with this racing seat set. Featuring aggressive bolstering and lightweight construction, these seats provide excellent support during spirited driving. Includes mounting brackets and all necessary hardware for a complete installation.`
+      name: 'VLAND Smoked Clear Sequential Taillights for FR-S, BRZ, and 86',
+      price: 355,
+      image: '53a.jpg',
+      images: ['53b.jpg', '53c.jpg'],
+      description: `Update the rear look of your FR-S, BRZ, or 86 with a brand-new set of VLAND Smoked Clear Sequential Taillights. These lights are still in their original box, only opened briefly for pictures, meaning they're absolutely pristine and ready for installation.
+
+Once in place, you'll immediately notice the full LED upgrade, providing brighter and crisper illumination than stock. But the real showstopper? Those dynamic sequential turn signals that sweep across, giving your car a truly modern and high-end feel. Plus, the integrated boomerang daytime running light adds a sharp, distinctive signature whenever your lights are on. It's a complete visual transformation that brings contemporary style and enhanced visibility to your vehicle.`
     },
     {
       id: 815,
-      name: 'Performance Fuel Pump',
-      price: 320,
-      image: '38a.jpg',
-      images: ['38b.jpg', '38c.jpg'],
-      description: `Ensure adequate fuel delivery with this high-flow performance fuel pump. Designed for increased fuel flow capacity, this pump supports higher horsepower applications and forced induction setups. Features reliable construction and easy installation.`
+      name: 'OEM Reverse Light / Third Brake Light for Scion FR-S, Toyota 86, and Subaru BRZ',
+      price: 170,
+      image: '59a.jpg',
+      images: ['59b.jpg', '59c.jpg'],
+      description: `Acquire an authentic OEM reverse light, also functioning as the third brake light, for your sport compact. This unit originally came from a 2013 Scion FR-S, and it's fully compatible with all 2012 to 2016 Subaru BRZ and Toyota 86 models, ensuring a perfect fit and seamless integration. It's an ideal choice for anyone looking to replace a damaged unit or simply seeking a genuine, reliable component to maintain their vehicle's original integrity and safety features.`
     }
   ],
   productsPerPage: 5,
