@@ -2,43 +2,142 @@ window.CategoryProducts = {
   products: [
     {
       id: 801,
-      name: 'Premium Carbon Fiber Hood for GT86/BRZ/FRS',
-      price: 1200,
-      image: '1a.jpg',
-      images: ['1b.jpg', '1c.jpg'],
-      description: `Upgrade your vehicle's appearance and performance with this premium carbon fiber hood. Crafted from high-quality carbon fiber, this hood offers significant weight reduction while maintaining structural integrity. The aggressive design enhances aerodynamics and provides a modern, sporty look that will make your vehicle stand out. Perfect for enthusiasts looking to combine style with performance improvements.`
+      name: 'HKS GTIII-RS Turbo Pro Kit with Cat Extension ',
+      price: 1700,
+      image: '71a.jpg',
+      images: ['71b.jpg', '71c.jpg'],
+      description: `HKS GTIII-RS Turbo Pro Kit with Cat Extension – For 2013+ BRZ, FR-S & 86
+
+Unlock serious performance with the HKS GTIII-RS Turbo Pro Kit (Part No. 11001-AT005), engineered specifically for the 2013+ Subaru BRZ, Scion FR-S, and Toyota 86 platforms. This complete bolt-on turbo kit includes the high-efficiency GTIII-RS turbocharger and cat extension, making it the perfect solution for enthusiasts aiming for substantial horsepower gains with reliable, track-tested components.
+
+Key Features:
+
+Genuine HKS GTIII-RS Turbocharger for quick spool and high-output power
+
+Direct-fit Pro Kit designed for FA20-powered BRZ/FR-S/86 (2013 and newer)
+
+Includes cat extension for proper exhaust alignment
+
+Brand new, never installed – ready for your next build
+
+Ideal for serious power upgrades while maintaining daily drivability
+
+Whether you're building a street machine or a dedicated track car, this turbo kit offers the performance, quality, and reliability HKS is known for`
     },
     {
       id: 802,
-      name: 'High-Performance Exhaust System',
-      price: 850,
-      image: '4a.jpg',
-      images: ['4b.jpg', '4c.jpg'],
-      description: `Experience enhanced performance and sound with this high-performance exhaust system. Designed for optimal flow and reduced backpressure, this system delivers improved horsepower and torque while producing an aggressive, sporty exhaust note. Made from premium stainless steel for durability and corrosion resistance.`
+      name: 'Airlift V3 Complete Air Suspension Kit',
+      price: 1750,
+      image: '72a.jpg',
+      images: ['72b.jpg', '72c.jpg'],
+      description: `
+Take your stance to the next level with this complete Airlift V3 Air Suspension Kit, designed for the Scion FR-S, Subaru BRZ, Toyota 86, and GR86 platforms. This kit was previously installed on a customer’s vehicle and removed after approximately 10,000 miles to return to a stock setup. It has since been fully cleaned, tested, and is ready for a new build.
+
+This is a fully functional, used system including Airlift V3 3P management, dual compressors, and all major components required for a proper install. The front struts have received new pillow ball bearings, and although there is minor cosmetic rubbing on the front bags (pictured), the system has been leak-tested and confirmed to be in perfect working order.
+
+Key Features:
+
+Complete Airlift V3 3P air suspension system for BRZ, FR-S, 86 & GR86
+
+Front and rear Airlift air struts included
+
+Dual compressors for faster air-up times
+
+4-gallon polished air tank + remote & full wiring harness
+
+Front end links and auto-drain water trap included
+
+Recently replaced pillow ball bearings (front)
+
+Cleaned, tested, and ready to install
+
+Extra airlines included for flexible routing options`
     },
     {
       id: 803,
-      name: 'Performance Air Intake System',
-      price: 320,
-      image: '6a.jpg',
-      images: ['6b.jpg', '6c.jpg'],
-      description: `Maximize your engine's potential with this performance air intake system. Engineered for increased airflow and improved throttle response, this system delivers noticeable power gains and enhanced engine sound. Features a high-flow air filter and heat shield for optimal performance in all conditions.`
+      name: 'Nine Lives Racing “Big Wang” 69" Wing Kit – For FRS, BRZ & 86 (Gen 1 & Gen 2)',
+      price: 710,
+      image: '73a.jpg',
+      images: ['73b.jpg', '73c.jpg'],
+      description: `
+
+Enhance downforce and track performance with the Nine Lives Racing 69" Big Wang Kit, built for both Gen 1 and Gen 2 Subaru BRZ, Scion FR-S, and Toyota 86 models. This package includes premium upgrades such as the MEGGA endplates, custom chassis mount, and a sleek Anthracite powder coat finish, giving you both function and form.
+
+Designed for serious aero performance, this wing delivers proven results on and off the track. The included custom chassis mount provides increased rigidity but does require cutting slots in the trunk for proper installation. For those preferring a less invasive install, standard trunk mounts are available from Nine Lives Racing.
+
+Key Features:
+
+Genuine Nine Lives Racing 69" Big Wang Kit
+
+Compatible with Gen 1 & Gen 2 BRZ / FR-S / 86
+
+Includes MEGGA endplates ($192 upgrade) for added stability and style
+
+Finished in Anthracite powder coat ($129 option)
+
+Custom chassis mount for maximum strength (trunk modification required)
+
+No gurney flap included (available separately)
+
+Race-proven aero performance for serious drivers
+
+Whether you're shaving seconds off lap times or dialing in your car’s look, this high-downforce wing setup gives you a competitive edge — with the premium upgrades already included`
     },
     {
       id: 804,
-      name: 'Racing Brake Pads Set',
-      price: 180,
-      image: '7a.jpg',
-      images: ['7b.jpg', '7c.jpg'],
-      description: `Upgrade your braking performance with these high-performance racing brake pads. Designed for aggressive driving and track use, these pads provide excellent stopping power and fade resistance. Perfect for enthusiasts who demand maximum braking performance in demanding conditions.`
+      name: 'Blitz Induction Kit',
+      price: 320,
+      image: '74a.jpg',
+      images: ['74b.jpg', '74c.jpg'],
+      description: `
+
+Upgrade your engine’s breathing with the Blitz Induction Kit, designed to improve airflow and boost throttle response for a noticeable performance gain. This high-quality aftermarket air intake system is engineered for easy installation and enhanced engine efficiency, making it a popular choice among tuners and enthusiasts.
+
+Key Features:
+
+Improves airflow for better combustion and increased power
+
+Precision-engineered for a direct-fit replacement of the factory intake
+
+High-performance air filter designed for maximum filtration and flow
+
+Durable construction built to withstand heat and harsh conditions
+
+Easy to install with all necessary components included
+
+Ideal for street and track use, the Blitz Induction Kit helps your engine breathe better, enhancing throttle response and overall driving experience`
     },
     {
       id: 805,
-      name: 'Adjustable Coilover Suspension Kit',
-      price: 1400,
-      image: '13a.jpg',
-      images: ['13b.jpg', '13c.jpg'],
-      description: `Transform your vehicle's handling with this adjustable coilover suspension kit. Featuring 32-way adjustable dampers and height-adjustable springs, this kit allows for precise tuning of your suspension setup. Perfect for both street and track use, providing excellent ride quality and cornering performance.`
+      name: 'RAYS Gramlights 57CR Wheels ',
+      price: 2400,
+      image: '75a.jpg',
+      images: ['75b.jpg', '75c.jpg'],
+      description: `
+
+Upgrade your 5x100 platform with this mint condition set of RAYS Gramlights 57CR wheels in the popular Ceramic White Pearl finish. These iconic 5-spoke wheels are a top choice for street and occasional track use, prized for their lightweight strength, precise fitment, and timeless design.
+
+Originally mounted on a customer’s car for just one month before switching setups, this set is practically like new. The wheels have been thoroughly deep-cleaned and ceramic-coated for long-lasting protection and an exceptional glossy shine. They come complete with original RAYS Japan boxes, decals, and documentation, making this set perfect for enthusiasts and collectors alike.
+
+Key Specifications:
+
+Wheel Size: 18x9.5 +38 (Squared setup)
+
+Bolt Pattern: 5x100
+
+Finish: Ceramic White Pearl
+
+Tires: Brand new 225/40/18 — freshly mounted and never driven on
+
+Condition Highlights:
+
+No cracks, bends, or curb rash — true mint condition
+
+Professionally deep cleaned and ceramic coated
+
+Includes all original RAYS packaging and documentation
+
+Known as RAYS’ most popular Gramlights design, the 57CR blends style, performance, and heritage — a must-have upgrade for your build.`
     },
     {
       id: 806,
