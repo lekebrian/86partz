@@ -1361,6 +1361,167 @@ window.smartsupp||(function(d) {
     <script src="update-homepage-products.js"></script>
     <script src="dynamic-meta-tags.js"></script>
     <script>
+// --- GLOBAL PRODUCT SEARCH FUNCTIONALITY ---
+// 1. Aggregate all products from all product JS files (assume each exposes window.CategoryProducts or similar)
+// 2. Search by name, description, and year (including year ranges)
+// 3. Show results in a dropdown overlay
+
+// Helper: Get all products from all known product JS modules
+function getAllProducts() {
+    let all = [];
+    const sources = [
+        window.CategoryProducts,
+        window.EngineDrivetrainProducts,
+        window.SuspensionHandlingProducts,
+        window.BrakesWheelsProducts,
+        window.ExteriorAeroProducts,
+        window.InteriorElectronicsProducts,
+        window.LightingElectricalProducts,
+        window.AccessoriesProducts
+    ];
+    sources.forEach(src => {
+        if (src && Array.isArray(src.products)) {
+            all = all.concat(src.products.map(p => ({
+                ...p,
+                _source: src
+            })));
+        }
+    });
+    // Also add homepage productDetails if available
+    if (window.productDetails && Array.isArray(window.productDetails)) {
+        all = all.concat(window.productDetails.map((p, i) => ({
+            ...p,
+            id: p.id || (10000 + i),
+            name: p.title || '',
+            description: p.description || '',
+            _source: 'homepage'
+        })));
+    }
+    return all;
+}
+
+// Helper: Check if a string contains a year or a year range that includes a given year
+function matchesYear(str, year) {
+    if (!str) return false;
+    // Match single year (2015)
+    if (str.match(new RegExp('\\b' + year + '\\b'))) return true;
+    // Match ranges like 2013-2021, 2012–2016, 2013–20, etc.
+    const rangeRegex = /(20\d{2})\s*[–-]\s*(20\d{2}|\d{2})/g;
+    let m;
+    while ((m = rangeRegex.exec(str)) !== null) {
+        let start = parseInt(m[1], 10);
+        let end = m[2].length === 2 ? parseInt('20' + m[2], 10) : parseInt(m[2], 10);
+        if (year >= start && year <= end) return true;
+    }
+    return false;
+}
+
+// Main search function
+function searchProducts(query) {
+    const allProducts = getAllProducts();
+    if (!query || !allProducts.length) return [];
+    query = query.trim();
+    let year = null;
+    if (/^\d{4}$/.test(query)) year = parseInt(query, 10);
+    const q = query.toLowerCase();
+    return allProducts.filter(p => {
+        const name = (p.name || p.title || '').toLowerCase();
+        const desc = (p.description || '').toLowerCase();
+        if (year) {
+            return matchesYear(p.name, year) || matchesYear(p.description, year);
+        }
+        return name.includes(q) || desc.includes(q);
+    });
+}
+
+// UI: Show results in a dropdown overlay
+function showSearchResults(results, query) {
+    let overlay = document.getElementById('searchResultsOverlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = 'searchResultsOverlay';
+        overlay.style.position = 'absolute';
+        overlay.style.left = '50%';
+        overlay.style.top = '70px';
+        overlay.style.transform = 'translateX(-50%)';
+        overlay.style.background = '#fff';
+        overlay.style.boxShadow = '0 4px 24px rgba(0,0,0,0.13)';
+        overlay.style.borderRadius = '10px';
+        overlay.style.zIndex = '10001';
+        overlay.style.width = 'min(95vw, 600px)';
+        overlay.style.maxHeight = '60vh';
+        overlay.style.overflowY = 'auto';
+        overlay.style.padding = '0.7em 0.5em';
+        overlay.style.fontSize = '1.08rem';
+        overlay.style.display = 'none';
+        document.body.appendChild(overlay);
+    }
+    if (!results.length) {
+        overlay.innerHTML = `<div style='padding:1.2em;text-align:center;color:#888;'>No products found for "${query}"</div>`;
+    } else {
+        overlay.innerHTML = results.map(p => {
+            // Try to build a link to the product page
+            let link = '#';
+            if (p._source && p._source !== 'homepage') {
+                // Try to guess page from _source
+                let page = '';
+                if (p._source.pageName) page = p._source.pageName;
+                else if (p._source === window.CategoryProducts) page = 'general';
+                else if (p._source === window.EngineDrivetrainProducts) page = 'engine-drivetrain';
+                else if (p._source === window.SuspensionHandlingProducts) page = 'suspension-handling';
+                else if (p._source === window.BrakesWheelsProducts) page = 'brakes-wheels';
+                else if (p._source === window.ExteriorAeroProducts) page = 'exterior-aerodynamics';
+                else if (p._source === window.InteriorElectronicsProducts) page = 'interior-electronics';
+                else if (p._source === window.LightingElectricalProducts) page = 'lighting-electrical';
+                else if (p._source === window.AccessoriesProducts) page = 'accessories';
+                if (page) link = `/${page}?product=${p.id}`;
+            }
+            return `<div style='padding:0.7em 1em;border-bottom:1px solid #eee;display:flex;align-items:center;gap:1em;'>
+                <img src='${p.image || (p.images && p.images[0]) || ''}' style='width:54px;height:38px;object-fit:cover;border-radius:6px;background:#f7f7f7;border:1px solid #eee;margin-right:0.7em;'>
+                <div style='flex:1;'>
+                    <a href='${link}' style='font-weight:600;color:#b80000;text-decoration:none;font-size:1.08em;'>${p.name || p.title || 'Product'}</a>
+                    <div style='color:#444;font-size:0.98em;margin-top:0.2em;'>${(p.description||'').slice(0,110)}${(p.description||'').length>110?'...':''}</div>
+                </div>
+            </div>`;
+        }).join('');
+    }
+    overlay.style.display = 'block';
+    // Hide on click outside
+    setTimeout(() => {
+        document.addEventListener('mousedown', function hideOverlay(e) {
+            if (!overlay.contains(e.target)) {
+                overlay.style.display = 'none';
+                document.removeEventListener('mousedown', hideOverlay);
+            }
+        });
+    }, 0);
+}
+
+// Attach to search bar
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.querySelector('.main-search-input');
+    if (!searchInput) return;
+    let lastQuery = '';
+    searchInput.addEventListener('input', function(e) {
+        const q = e.target.value.trim();
+        if (q.length < 2) {
+            let overlay = document.getElementById('searchResultsOverlay');
+            if (overlay) overlay.style.display = 'none';
+            return;
+        }
+        lastQuery = q;
+        const results = searchProducts(q);
+        showSearchResults(results, q);
+    });
+    // Optional: submit on enter
+    searchInput.form && searchInput.form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const q = searchInput.value.trim();
+        if (q.length < 2) return;
+        const results = searchProducts(q);
+        showSearchResults(results, q);
+    });
+});
 // Centralized product data for all sections
 const productDetails = [
     {
