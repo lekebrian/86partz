@@ -99,20 +99,30 @@ function showSearchResults(results, query) {
 // Attach to search bar
 window.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.querySelector('.main-search-input');
-    if (!searchInput) return;
-    let lastQuery = '';
-    searchInput.addEventListener('input', function(e) {
-        const q = e.target.value.trim();
+    // Try to find a button or icon next to the search input
+    let searchBtn = null;
+    // Try common selectors
+    searchBtn = document.querySelector('.main-search-btn, .search-btn, button[type="submit"]');
+    if (!searchBtn && searchInput && searchInput.nextElementSibling) {
+        // Fallback: next sibling if it's a button
+        if (searchInput.nextElementSibling.tagName === 'BUTTON') {
+            searchBtn = searchInput.nextElementSibling;
+        }
+    }
+    if (!searchInput || !searchBtn) return;
+    // Only trigger search on click of the search icon/button
+    searchBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const q = searchInput.value.trim();
         if (q.length < 2) {
             let overlay = document.getElementById('searchResultsOverlay');
             if (overlay) overlay.style.display = 'none';
             return;
         }
-        lastQuery = q;
         const results = searchProducts(q);
         showSearchResults(results, q);
     });
-    // Prevent page refresh on submit and search
+    // Prevent page refresh on submit
     if (searchInput.form) {
         searchInput.form.addEventListener('submit', function(e) {
             e.preventDefault();
