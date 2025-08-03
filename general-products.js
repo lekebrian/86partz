@@ -358,7 +358,10 @@ Once in place, you'll immediately notice the full LED upgrade, providing brighte
           .replace(/^-+|-+$/g, '').replace(/--+/g, '-');
       }
       const slug = slugify(product.name);
-      const shareUrl = `${window.location.origin}${window.location.pathname}?product=${product.id}&slug=${slug}`;
+      // Remove .html from pathname for pretty URLs
+      let basePath = window.location.pathname.replace(/\.html$/, '');
+      if (basePath === '/' || basePath === '') basePath = '/general';
+      const shareUrl = `${window.location.origin}${basePath}?product=${product.id}&slug=${slug}`;
       card.innerHTML = `
         <img src="${product.image}" alt="${product.name}" class="product-image">
         <div class="product-info">
@@ -497,7 +500,10 @@ Once in place, you'll immediately notice the full LED upgrade, providing brighte
         .replace(/^-+|-+$/g, '').replace(/--+/g, '-');
     }
     const slug = slugify(product.name);
-    const shareUrl = `${window.location.origin}${window.location.pathname}?product=${product.id}&slug=${slug}`;
+    // Remove .html from pathname for pretty URLs
+    let basePath = window.location.pathname.replace(/\.html$/, '');
+    if (basePath === '/' || basePath === '') basePath = '/general';
+    const shareUrl = `${window.location.origin}${basePath}?product=${product.id}&slug=${slug}`;
     modal.innerHTML = `
       <div class="product-detail-content">
           <button class="close-detail" onclick="window.CategoryProducts.hideProductDetail()">&times;</button>
