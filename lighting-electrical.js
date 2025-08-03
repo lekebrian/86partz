@@ -1,3 +1,11 @@
+// Helper to create a slug from product name
+function createSlug(name) {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-+/g, '-');
+}
 window.CategoryProducts = {
   products: [
     {
@@ -140,14 +148,14 @@ You'll appreciate the full LED upgrade, delivering brighter and crisper illumina
         let v = parseInt(qtyInput.value) || 1;
         window.CategoryProducts.addToCart(productsToShow[idx], v);
       };
-      // Copy Link button logic (standardized)
+      // Copy Link button logic (pretty URL)
       card.querySelector('.copy-link-btn').onclick = function(e) {
         e.preventDefault();
         const productId = this.getAttribute('data-id');
-        let url = window.location.origin + window.location.pathname;
-        if (productId) {
-          url += '?product=' + encodeURIComponent(productId);
-        }
+        const product = productsToShow[idx];
+        let slug = createSlug(product.name);
+        let base = window.location.origin + window.location.pathname.replace(/\.html.*/, '');
+        let url = base + '/' + productId + '-' + slug;
         navigator.clipboard.writeText(url).then(function() {
           let conf = document.getElementById('copyLinkConfirmMsg');
           if (!conf) {
@@ -277,15 +285,14 @@ You'll appreciate the full LED upgrade, delivering brighter and crisper illumina
           </div>
       </div>
     `;
-    // Copy Link button logic for modal (standardized, only once)
+    // Copy Link button logic for modal (pretty URL)
     const copyBtnModal = modal.querySelector('.copy-link-btn-modal');
     if (copyBtnModal) {
       copyBtnModal.onclick = function(e) {
         e.preventDefault();
-        let url = window.location.origin + window.location.pathname;
-        if (product.id) {
-          url += '?product=' + encodeURIComponent(product.id);
-        }
+        let slug = createSlug(product.name);
+        let base = window.location.origin + window.location.pathname.replace(/\.html.*/, '');
+        let url = base + '/' + product.id + '-' + slug;
         navigator.clipboard.writeText(url).then(function() {
           let conf = document.getElementById('copyLinkConfirmMsg');
           if (!conf) {
@@ -357,5 +364,15 @@ document.addEventListener('DOMContentLoaded', function() {
     window.CategoryProducts.setupDetailsModal();
     const page1 = document.getElementById('page1');
     if (page1) page1.classList.add('active');
+
+    // Pretty URL: open product modal if /[id]-[slug] is in the path
+    const pathMatch = window.location.pathname.match(/(?:\/|^)(\d+)-[a-z0-9-]+$/);
+    if (pathMatch && pathMatch[1]) {
+      const prodId = parseInt(pathMatch[1]);
+      // Wait for DOM and products to render, then show modal
+      setTimeout(function() {
+        window.CategoryProducts.showProductDetail(prodId);
+      }, 200);
+    }
   }
 });

@@ -346,5 +346,14 @@ document.addEventListener('DOMContentLoaded', function() {
     window.CategoryProducts.setupDetailsModal();
     const page1 = document.getElementById('page1');
     if (page1) page1.classList.add('active');
+
+    // Pretty URL: open product modal if /[id]-[slug] is in the path
+    const pathMatch = window.location.pathname.match(/(?:\/|^)(\d+)-[a-z0-9-]+$/);
+    if (pathMatch && pathMatch[1]) {
+      const prodId = parseInt(pathMatch[1]);
+      setTimeout(function() {
+        window.CategoryProducts.showProductDetail(prodId);
+      }, 200);
+    }
   }
 });

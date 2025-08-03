@@ -352,7 +352,13 @@ Once in place, you'll immediately notice the full LED upgrade, providing brighte
     productsToShow.forEach((product, idx) => {
       const card = document.createElement('div');
       card.className = 'product-card';
-      const shareUrl = `${window.location.origin}${window.location.pathname}?product=${product.id}`;
+      // Generate pretty URL slug
+      function slugify(str) {
+        return str.toString().toLowerCase().replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-+|-+$/g, '').replace(/--+/g, '-');
+      }
+      const slug = slugify(product.name);
+      const shareUrl = `${window.location.origin}${window.location.pathname}?product=${product.id}&slug=${slug}`;
       card.innerHTML = `
         <img src="${product.image}" alt="${product.name}" class="product-image">
         <div class="product-info">
@@ -485,7 +491,13 @@ Once in place, you'll immediately notice the full LED upgrade, providing brighte
     if (!product) return;
     const modal = document.getElementById('productDetailModal');
     if (!modal) return;
-    const shareUrl = `${window.location.origin}${window.location.pathname}?product=${product.id}`;
+    // Generate pretty URL slug
+    function slugify(str) {
+      return str.toString().toLowerCase().replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '').replace(/--+/g, '-');
+    }
+    const slug = slugify(product.name);
+    const shareUrl = `${window.location.origin}${window.location.pathname}?product=${product.id}&slug=${slug}`;
     modal.innerHTML = `
       <div class="product-detail-content">
           <button class="close-detail" onclick="window.CategoryProducts.hideProductDetail()">&times;</button>
@@ -561,15 +573,29 @@ Once in place, you'll immediately notice the full LED upgrade, providing brighte
 
 document.addEventListener('DOMContentLoaded', function() {
   if (document.getElementById('categoryProducts')) {
-    // Check for ?product=ID in URL
+    // Check for ?product=ID or pretty URL slug
     const urlParams = new URLSearchParams(window.location.search);
-    const productIdParam = urlParams.get('product');
+    let productIdParam = urlParams.get('product');
+    let slugParam = urlParams.get('slug');
     let initialPage = 1;
+    let openProductId = null;
     if (productIdParam) {
-      // Find the product index to determine the page
+      // If slug is present, verify it matches, else fallback to ID
       const idx = window.CategoryProducts.products.findIndex(p => String(p.id) === String(productIdParam));
       if (idx !== -1) {
         initialPage = Math.floor(idx / window.CategoryProducts.productsPerPage) + 1;
+        openProductId = window.CategoryProducts.products[idx].id;
+      }
+    } else if (slugParam) {
+      // If only slug is present, find by slug
+      function slugify(str) {
+        return str.toString().toLowerCase().replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-+|-+$/g, '').replace(/--+/g, '-');
+      }
+      const idx = window.CategoryProducts.products.findIndex(p => slugify(p.name) === slugParam);
+      if (idx !== -1) {
+        initialPage = Math.floor(idx / window.CategoryProducts.productsPerPage) + 1;
+        openProductId = window.CategoryProducts.products[idx].id;
       }
     }
     window.CategoryProducts.renderProducts(initialPage);
@@ -579,22 +605,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const pageBtn = document.getElementById('page' + initialPage);
     if (pageBtn) pageBtn.classList.add('active');
     // After rendering, scroll to product if needed
-    if (productIdParam) {
+    if (openProductId) {
       setTimeout(() => {
         const card = Array.from(document.querySelectorAll('.product-card')).find(card => {
           const seeBtn = card.querySelector('.see-details-btn');
-          return seeBtn && String(seeBtn.getAttribute('data-id')) === String(productIdParam);
+          return seeBtn && String(seeBtn.getAttribute('data-id')) === String(openProductId);
         });
         if (card) {
           card.scrollIntoView({ behavior: 'smooth', block: 'center' });
           card.classList.add('highlight-product');
           setTimeout(() => card.classList.remove('highlight-product'), 2200);
         }
+        // Auto-open modal for pretty URL
+        window.CategoryProducts.showProductDetail(openProductId);
       }, 200);
     }
   }
-// Add highlight style for auto-scroll
-const style = document.createElement('style');
-style.innerHTML = `.highlight-product { box-shadow: 0 0 0 4px #b8000099, 0 4px 24px rgba(0,0,0,0.13); transition: box-shadow 0.3s; }`;
-document.head.appendChild(style);
-}); 
+  // Add highlight style for auto-scroll
+  const style = document.createElement('style');
+  style.innerHTML = `.highlight-product { box-shadow: 0 0 0 4px #b8000099, 0 4px 24px rgba(0,0,0,0.13); transition: box-shadow 0.3s; }`;
+  document.head.appendChild(style);
+});
