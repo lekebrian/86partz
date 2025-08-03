@@ -199,7 +199,10 @@ This kit offers a seamless K-swap solution, making installation straightforward 
         <div class="product-info">
           <h3 class="product-title">${product.name}</h3>
           <div class="product-price">$${product.price}</div>
-          <button class="btn btn-small see-details-btn" data-id="${product.id}">See Details</button>
+          <div style="display:flex;gap:0.5em;align-items:center;margin-bottom:0.5em;">
+            <button class="btn btn-small see-details-btn" data-id="${product.id}">See Details</button>
+            <button class="btn btn-small copy-link-btn" data-id="${product.id}"><i class="fas fa-link"></i> Copy Link</button>
+          </div>
           <div class="product-card-controls">
             <button class="quantity-btn" data-action="dec">-</button>
             <input type="number" value="1" min="1" class="quantity-input" style="width:2.2em;">
@@ -210,7 +213,7 @@ This kit offers a seamless K-swap solution, making installation straightforward 
       `;
       grid.appendChild(card);
     });
-    // Add event listeners for quantity and add to cart
+    // Add event listeners for quantity, add to cart, and copy link (standardized)
     grid.querySelectorAll('.product-card').forEach((card, idx) => {
       const qtyInput = card.querySelector('.quantity-input');
       card.querySelector('[data-action="dec"]').onclick = () => {
@@ -224,6 +227,40 @@ This kit offers a seamless K-swap solution, making installation straightforward 
       card.querySelector('.add-to-cart-btn').onclick = () => {
         let v = parseInt(qtyInput.value) || 1;
         window.CategoryProducts.addToCart(productsToShow[idx], v);
+      };
+      // Copy Link button logic (standardized)
+      card.querySelector('.copy-link-btn').onclick = function(e) {
+        e.preventDefault();
+        const productId = this.getAttribute('data-id');
+        let url = window.location.origin + window.location.pathname;
+        if (productId) {
+          url += '?product=' + encodeURIComponent(productId);
+        }
+        navigator.clipboard.writeText(url).then(function() {
+          let conf = document.getElementById('copyLinkConfirmMsg');
+          if (!conf) {
+            conf = document.createElement('div');
+            conf.id = 'copyLinkConfirmMsg';
+            conf.style.position = 'fixed';
+            conf.style.top = '24px';
+            conf.style.left = '50%';
+            conf.style.transform = 'translateX(-50%)';
+            conf.style.background = '#fff';
+            conf.style.color = '#222';
+            conf.style.border = '1.5px solid #b80000';
+            conf.style.borderRadius = '8px';
+            conf.style.boxShadow = '0 4px 24px rgba(0,0,0,0.13)';
+            conf.style.padding = '1.1em 2.2em';
+            conf.style.fontSize = '1.08rem';
+            conf.style.fontWeight = '600';
+            conf.style.zIndex = '10000';
+            conf.style.display = 'none';
+            document.body.appendChild(conf);
+          }
+          conf.innerHTML = '<i class="fas fa-link" style="color:#b80000;margin-right:0.6em;"></i> Product link copied!';
+          conf.style.display = 'block';
+          setTimeout(() => { conf.style.display = 'none'; }, 1800);
+        });
       };
     });
   },
@@ -314,6 +351,9 @@ This kit offers a seamless K-swap solution, making installation straightforward 
               <div class="product-info">
                   <div class="product-price">$${product.price.toFixed(2)}</div>
                   <div class="product-description">${product.description}</div>
+                  <div style="display:flex;gap:0.5em;align-items:center;margin-bottom:0.7em;">
+                    <button class="btn btn-small copy-link-btn-modal" data-id="${product.id}"><i class="fas fa-link"></i> Copy Link</button>
+                  </div>
                   <div class="quantity-controls" style="display:flex;align-items:center;gap:0.7rem;margin-bottom:1.2rem;">
                       <button class="quantity-btn" id="qtyDecModal">-</button>
                       <input type="number" value="1" min="1" class="quantity-input" id="qtyValModal" style="width:2.2em;">
@@ -325,6 +365,42 @@ This kit offers a seamless K-swap solution, making installation straightforward 
           </div>
       </div>
     `;
+    // Copy Link button logic for modal (standardized, only once)
+    const copyBtnModal = modal.querySelector('.copy-link-btn-modal');
+    if (copyBtnModal) {
+      copyBtnModal.onclick = function(e) {
+        e.preventDefault();
+        let url = window.location.origin + window.location.pathname;
+        if (product.id) {
+          url += '?product=' + encodeURIComponent(product.id);
+        }
+        navigator.clipboard.writeText(url).then(function() {
+          let conf = document.getElementById('copyLinkConfirmMsg');
+          if (!conf) {
+            conf = document.createElement('div');
+            conf.id = 'copyLinkConfirmMsg';
+            conf.style.position = 'fixed';
+            conf.style.top = '24px';
+            conf.style.left = '50%';
+            conf.style.transform = 'translateX(-50%)';
+            conf.style.background = '#fff';
+            conf.style.color = '#222';
+            conf.style.border = '1.5px solid #b80000';
+            conf.style.borderRadius = '8px';
+            conf.style.boxShadow = '0 4px 24px rgba(0,0,0,0.13)';
+            conf.style.padding = '1.1em 2.2em';
+            conf.style.fontSize = '1.08rem';
+            conf.style.fontWeight = '600';
+            conf.style.zIndex = '10000';
+            conf.style.display = 'none';
+            document.body.appendChild(conf);
+          }
+          conf.innerHTML = '<i class="fas fa-link" style="color:#b80000;margin-right:0.6em;"></i> Product link copied!';
+          conf.style.display = 'block';
+          setTimeout(() => { conf.style.display = 'none'; }, 1800);
+        });
+      };
+    }
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     // Modal quantity logic
