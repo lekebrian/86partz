@@ -74,52 +74,103 @@ function showSearchResults(results, query) {
     if (!results.length) {
         overlay.innerHTML = `<div style='padding:1.2em;text-align:center;color:#888;'>No products found for "${query}"</div>`;
     } else {
-        overlay.innerHTML = `<div style="display: flex; flex-wrap: wrap; gap: 1.5em; justify-content: center;">` +
+        overlay.innerHTML = `<div class="products-grid" id="searchProductsGrid">` +
             results.map(p => {
-                let link = p.page ? `/${p.page}?product=${p.id}` : '#';
                 let img = p.image || (p.images && p.images[0]) || '';
                 let price = p.price ? (typeof p.price === 'string' ? p.price : `$${p.price}`) : '';
-                // Card UI
+                let slug = (p.name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').replace(/-+/g, '-');
+                let prettyUrl = window.location.origin + window.location.pathname.replace(/\.html.*/, '') + '/' + p.id + '-' + slug;
                 return `
-                <div class="search-product-card" style="background:#fff;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,0.08);width:270px;max-width:95vw;display:flex;flex-direction:column;align-items:center;padding:1.1em 1em 1.3em 1em;position:relative;">
-                    <img src="${img}" alt="${p.name}" style="width:100%;height:140px;object-fit:cover;border-radius:8px;background:#f7f7f7;border:1px solid #eee;margin-bottom:0.7em;">
-                    <div style="font-weight:700;font-size:1.08em;text-align:center;margin-bottom:0.5em;">${p.name || 'Product'}</div>
-                    <div style="color:#b80000;font-weight:600;font-size:1.05em;margin-bottom:0.4em;">${price}</div>
-                    <div style="color:#444;font-size:0.98em;margin-bottom:0.7em;text-align:center;min-height:2.5em;">${(p.description||'').slice(0,110)}${(p.description||'').length>110?'...':''}</div>
-                    <div style="display:flex;gap:0.5em;justify-content:center;">
-                        <a href="${link}" target="_blank" class="btn btn-primary btn-small" style="background:#b80000;color:#fff;padding:0.5em 1.1em;border-radius:6px;font-size:0.98em;text-decoration:none;">See Details</a>
-                        <button class="btn btn-secondary btn-small copy-link-btn" data-link="${window.location.origin}${link}" style="background:#eee;color:#b80000;padding:0.5em 1.1em;border-radius:6px;font-size:0.98em;border:1px solid #b80000;cursor:pointer;">Copy Link</button>
+                <div class="product-card" data-product-id="${p.id}">
+                    <img src="${img}" alt="${p.name}" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">${p.name || 'Product'}</h3>
+                        <div class="product-price">${price}</div>
+                        <div class="product-actions" style="margin-bottom:0.7em;">
+                            <button class="btn btn-small btn-outline see-details-btn" data-id="${p.id}">See Details</button>
+                            <button class="btn btn-small btn-social copy-link-btn" data-link="${prettyUrl}"><i class="fas fa-share-alt" style="margin-right:0.4em;"></i>Copy Link</button>
+                        </div>
+                        <button class="btn btn-primary btn-small order-btn" data-id="${p.id}" style="width:100%;">Place Order</button>
                     </div>
-                    <button class="btn btn-primary btn-small order-btn" data-id="${p.id}" style="margin-top:0.8em;width:100%;background:#222;color:#fff;padding:0.7em 0;border-radius:6px;font-size:1.05em;">Place Order</button>
                 </div>
                 `;
             }).join('') + `</div>`;
     }
     overlay.style.display = 'block';
+
     // Copy Link functionality
     overlay.querySelectorAll('.copy-link-btn').forEach(btn => {
         btn.onclick = function() {
             const link = btn.getAttribute('data-link');
             navigator.clipboard.writeText(link).then(() => {
-                btn.textContent = 'Copied!';
-                setTimeout(() => { btn.textContent = 'Copy Link'; }, 1200);
+                btn.innerHTML = '<i class="fas fa-share-alt" style="margin-right:0.4em;"></i>Link Copied!';
+                setTimeout(() => { btn.innerHTML = '<i class="fas fa-share-alt" style="margin-right:0.4em;"></i>Copy Link'; }, 1400);
             });
         };
     });
-    // Place Order functionality (simple modal or redirect)
+
+    // See Details modal logic
+    overlay.querySelectorAll('.see-details-btn').forEach(btn => {
+        btn.onclick = function() {
+            const id = parseInt(btn.getAttribute('data-id'));
+            const product = (window.SEARCH_INDEX || []).find(p => p.id === id);
+            if (!product) return;
+            let modal = document.getElementById('searchProductDetailModal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.className = 'product-detail';
+                modal.id = 'searchProductDetailModal';
+                modal.innerHTML = `
+                    <div class="product-detail-content">
+                        <button class="close-detail" id="closeSearchDetailBtn">&times;</button>
+                        <div class="product-detail-header">
+                            <h2 id="searchDetailTitle"></h2>
+                        </div>
+                        <div class="product-detail-body">
+                            <div class="product-images" id="searchDetailImages"></div>
+                            <div class="product-info">
+                                <div id="searchDetailPrice"></div>
+                                <div id="searchDetailDescription"></div>
+                                <button class="btn btn-secondary" id="backToSearchResultsBtn">Back to Results</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            }
+            // Fill modal content
+            document.getElementById('searchDetailTitle').textContent = product.name;
+            document.getElementById('searchDetailPrice').textContent = "$" + product.price;
+            document.getElementById('searchDetailDescription').textContent = product.description;
+            document.getElementById('searchDetailImages').innerHTML = (product.images||[]).map(img =>
+                `<img src="${img}" alt="${product.name}" style="width:100px;height:70px;object-fit:cover;margin-right:8px;border-radius:6px;">`
+            ).join('');
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            // Close logic
+            document.getElementById('closeSearchDetailBtn').onclick = function() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+            document.getElementById('backToSearchResultsBtn').onclick = function() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+        };
+    });
+
+    // Place Order functionality (open details modal for now)
     overlay.querySelectorAll('.order-btn').forEach(btn => {
         btn.onclick = function() {
-            const id = btn.getAttribute('data-id');
-            // You can customize this: for now, just open the details page in a new tab for ordering
-            const card = btn.closest('.search-product-card');
-            const detailsBtn = card.querySelector('a.btn-primary');
-            if (detailsBtn && detailsBtn.href) {
-                window.open(detailsBtn.href, '_blank');
-            }
+            const seeDetailsBtn = btn.parentElement.querySelector('.see-details-btn');
+            if (seeDetailsBtn) seeDetailsBtn.click();
         };
     });
     setTimeout(() => {
         document.addEventListener('mousedown', function hideOverlay(e) {
+            const modal = document.getElementById('searchProductDetailModal');
+            if (modal && modal.classList.contains('active')) return;
             if (!overlay.contains(e.target)) {
                 overlay.style.display = 'none';
                 document.removeEventListener('mousedown', hideOverlay);
