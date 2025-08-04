@@ -63,10 +63,10 @@ function showSearchResults(results, query) {
         overlay.style.boxShadow = '0 4px 24px rgba(0,0,0,0.13)';
         overlay.style.borderRadius = '10px';
         overlay.style.zIndex = '10001';
-        overlay.style.width = 'min(95vw, 600px)';
-        overlay.style.maxHeight = '60vh';
+        overlay.style.width = 'min(95vw, 900px)';
+        overlay.style.maxHeight = '80vh';
         overlay.style.overflowY = 'auto';
-        overlay.style.padding = '0.7em 0.5em';
+        overlay.style.padding = '1.2em 1em';
         overlay.style.fontSize = '1.08rem';
         overlay.style.display = 'none';
         document.body.appendChild(overlay);
@@ -74,18 +74,50 @@ function showSearchResults(results, query) {
     if (!results.length) {
         overlay.innerHTML = `<div style='padding:1.2em;text-align:center;color:#888;'>No products found for "${query}"</div>`;
     } else {
-        overlay.innerHTML = results.map(p => {
-            let link = '#';
-            if (p.page) link = `/${p.page}?product=${p.id}`;
-            return `<div style='padding:0.7em 1em;border-bottom:1px solid #eee;display:flex;align-items:center;gap:1em;'>\
-                <div style='flex:1;'>\
-                    <a href='${link}' style='font-weight:600;color:#b80000;text-decoration:none;font-size:1.08em;'>${p.name || 'Product'}</a>\
-                    <div style='color:#444;font-size:0.98em;margin-top:0.2em;'>${(p.description||'').slice(0,110)}${(p.description||'').length>110?'...':''}</div>\
-                </div>\
-            </div>`;
-        }).join('');
+        overlay.innerHTML = `<div style="display: flex; flex-wrap: wrap; gap: 1.5em; justify-content: center;">` +
+            results.map(p => {
+                let link = p.page ? `/${p.page}?product=${p.id}` : '#';
+                let img = p.image || (p.images && p.images[0]) || '';
+                let price = p.price ? (typeof p.price === 'string' ? p.price : `$${p.price}`) : '';
+                // Card UI
+                return `
+                <div class="search-product-card" style="background:#fff;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,0.08);width:270px;max-width:95vw;display:flex;flex-direction:column;align-items:center;padding:1.1em 1em 1.3em 1em;position:relative;">
+                    <img src="${img}" alt="${p.name}" style="width:100%;height:140px;object-fit:cover;border-radius:8px;background:#f7f7f7;border:1px solid #eee;margin-bottom:0.7em;">
+                    <div style="font-weight:700;font-size:1.08em;text-align:center;margin-bottom:0.5em;">${p.name || 'Product'}</div>
+                    <div style="color:#b80000;font-weight:600;font-size:1.05em;margin-bottom:0.4em;">${price}</div>
+                    <div style="color:#444;font-size:0.98em;margin-bottom:0.7em;text-align:center;min-height:2.5em;">${(p.description||'').slice(0,110)}${(p.description||'').length>110?'...':''}</div>
+                    <div style="display:flex;gap:0.5em;justify-content:center;">
+                        <a href="${link}" target="_blank" class="btn btn-primary btn-small" style="background:#b80000;color:#fff;padding:0.5em 1.1em;border-radius:6px;font-size:0.98em;text-decoration:none;">See Details</a>
+                        <button class="btn btn-secondary btn-small copy-link-btn" data-link="${window.location.origin}${link}" style="background:#eee;color:#b80000;padding:0.5em 1.1em;border-radius:6px;font-size:0.98em;border:1px solid #b80000;cursor:pointer;">Copy Link</button>
+                    </div>
+                    <button class="btn btn-primary btn-small order-btn" data-id="${p.id}" style="margin-top:0.8em;width:100%;background:#222;color:#fff;padding:0.7em 0;border-radius:6px;font-size:1.05em;">Place Order</button>
+                </div>
+                `;
+            }).join('') + `</div>`;
     }
     overlay.style.display = 'block';
+    // Copy Link functionality
+    overlay.querySelectorAll('.copy-link-btn').forEach(btn => {
+        btn.onclick = function() {
+            const link = btn.getAttribute('data-link');
+            navigator.clipboard.writeText(link).then(() => {
+                btn.textContent = 'Copied!';
+                setTimeout(() => { btn.textContent = 'Copy Link'; }, 1200);
+            });
+        };
+    });
+    // Place Order functionality (simple modal or redirect)
+    overlay.querySelectorAll('.order-btn').forEach(btn => {
+        btn.onclick = function() {
+            const id = btn.getAttribute('data-id');
+            // You can customize this: for now, just open the details page in a new tab for ordering
+            const card = btn.closest('.search-product-card');
+            const detailsBtn = card.querySelector('a.btn-primary');
+            if (detailsBtn && detailsBtn.href) {
+                window.open(detailsBtn.href, '_blank');
+            }
+        };
+    });
     setTimeout(() => {
         document.addEventListener('mousedown', function hideOverlay(e) {
             if (!overlay.contains(e.target)) {
