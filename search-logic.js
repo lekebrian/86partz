@@ -197,13 +197,8 @@ window.addEventListener('DOMContentLoaded', function() {
     searchBtn.addEventListener('click', function(e) {
         e.preventDefault();
         const q = searchInput.value.trim();
-        if (q.length < 2) {
-            let overlay = document.getElementById('searchResultsOverlay');
-            if (overlay) overlay.style.display = 'none';
-            return;
-        }
-        const results = searchProducts(q);
-        showSearchResults(results, q);
+        if (q.length < 2) return;
+        window.location.href = 'search.html?q=' + encodeURIComponent(q);
     });
     // Prevent page refresh on submit
     if (searchInput.form) {
@@ -211,8 +206,7 @@ window.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const q = searchInput.value.trim();
             if (q.length < 2) return;
-            const results = searchProducts(q);
-            showSearchResults(results, q);
+            window.location.href = 'search.html?q=' + encodeURIComponent(q);
         });
     }
 });
