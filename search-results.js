@@ -25,6 +25,8 @@ function matchesYear(str, year) {
 // Main search function
 function searchProducts(query) {
     const allProducts = getAllProducts();
+    console.log('SEARCH_INDEX loaded:', Array.isArray(window.SEARCH_INDEX), 'Count:', allProducts.length);
+    console.log('Search query:', query);
     if (!query || !allProducts.length) return [];
     query = query.trim();
     let year = null;
