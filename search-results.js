@@ -30,15 +30,22 @@ function searchProducts(query) {
     let year = null;
     if (/^\d{4}$/.test(query)) year = parseInt(query, 10);
     const q = query.toLowerCase();
+    // If searching for a year, prioritize year/range logic
+    if (year) {
+        return allProducts.filter(p => {
+            const name = (p.name || '').toLowerCase();
+            const desc = (p.description || '').toLowerCase();
+            // Check for year in ranges in name/desc
+            return matchesYear(name, year) || matchesYear(desc, year);
+        });
+    }
+    // For non-year queries, match whole words in name/desc only (not partials)
+    const wordRegex = new RegExp('(^|\\W)' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(\\W|$)');
     return allProducts.filter(p => {
         const name = (p.name || '').toLowerCase();
         const desc = (p.description || '').toLowerCase();
-        const prodYear = (p.year || '').toLowerCase();
-        if (year) {
-            if (matchesYear(prodYear, year) || matchesYear(name, year) || matchesYear(desc, year)) return true;
-            return false;
-        }
-        return name.includes(q) || desc.includes(q) || prodYear.includes(q);
+        // Only match if query is a whole word in name or description
+        return wordRegex.test(name) || wordRegex.test(desc);
     });
 }
 
@@ -129,85 +136,48 @@ function renderSearchResults(results, query) {
                 let cart = JSON.parse(localStorage.getItem('cart') || '[]');
                 const existing = cart.find(item => item.id === product.id);
                 if (existing) {
-                    existing.qty = Number(existing.qty || 0) + qty;
-                } else {
-                    cart.push({ id: product.id, title: product.name, price: product.price, qty: qty, image: product.image });
-                }
-                localStorage.setItem('cart', JSON.stringify(cart));
-                if (typeof updateCartCount === 'function') updateCartCount();
-            }
-            // Confirmation message
-            let conf = document.getElementById('cartConfirmMsg');
-            if (!conf) {
-                conf = document.createElement('div');
-                conf.id = 'cartConfirmMsg';
-                conf.style.position = 'fixed';
-                conf.style.top = '24px';
-                conf.style.left = '50%';
-                conf.style.transform = 'translateX(-50%)';
-                conf.style.background = '#fff';
-                conf.style.color = '#222';
-                conf.style.border = '1.5px solid #b80000';
-                conf.style.borderRadius = '8px';
-                conf.style.boxShadow = '0 4px 24px rgba(0,0,0,0.13)';
-                conf.style.padding = '1.1em 2.2em';
-                conf.style.fontSize = '1.08rem';
-                conf.style.fontWeight = '600';
-                conf.style.zIndex = '10000';
-                conf.style.display = 'none';
-                document.body.appendChild(conf);
-            }
-            conf.innerHTML = `<i class=\"fas fa-check-circle\" style=\"color:#b80000;margin-right:0.6em;\"></i> ${qty} × <b>${product.name}</b> added to cart!`;
-            conf.style.display = 'block';
-            setTimeout(() => { conf.style.display = 'none'; }, 2200);
-        };
-    });
-
     // See Details modal logic
     container.querySelectorAll('.see-details-btn').forEach(btn => {
         btn.onclick = function() {
             const id = parseInt(btn.getAttribute('data-id'));
             const product = (window.SEARCH_INDEX || []).find(p => p.id === id);
             if (!product) return;
-            let modal = document.getElementById('searchProductDetailModal');
-            if (!modal) {
-                modal = document.createElement('div');
-                modal.className = 'product-detail';
-                modal.id = 'searchProductDetailModal';
-                document.body.appendChild(modal);
-            }
+            // Always create a new modal to avoid stale content
+            let modal = document.createElement('div');
+            modal.className = 'product-detail';
+            modal.id = 'searchProductDetailModal';
             let slug = (product.name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').replace(/-+/g, '-');
             let base = window.location.origin + window.location.pathname.replace(/\/search\.html.*/, '');
             let prettyUrl = base + '/' + product.id + '-' + slug;
             modal.innerHTML = `
-                <div class="product-detail-content">
-                    <button class="close-detail" id="closeSearchDetailBtn">&times;</button>
-                    <div class="product-detail-header">
-                        <h2 id="searchDetailTitle">${product.name}</h2>
+                <div class=\"product-detail-content\">
+                    <button class=\"close-detail\" id=\"closeSearchDetailBtn\">&times;</button>
+                    <div class=\"product-detail-header\">
+                        <h2 id=\"searchDetailTitle\">${product.name}</h2>
                     </div>
-                    <div class="product-detail-body">
-                        <div class="product-images" id="searchDetailImages">${(product.images||[]).map(img =>
-                            `<img src="${img}" alt="${product.name}" style="width:100px;height:70px;object-fit:cover;margin-right:8px;border-radius:6px;">`
+                    <div class=\"product-detail-body\">
+                        <div class=\"product-images\" id=\"searchDetailImages\">${(product.images||[]).map(img =>
+                            `<img src=\"${img}\" alt=\"${product.name}\" style=\"width:100px;height:70px;object-fit:cover;margin-right:8px;border-radius:6px;\">`
                         ).join('')}</div>
-                        <div class="product-info">
-                            <div id="searchDetailPrice">$${product.price}</div>
-                            <div id="searchDetailDescription">${product.description}</div>
-                            <button class="btn btn-social copy-link-btn-modal" data-link="${prettyUrl}" style="margin:0.7em 0 1.1em 0;padding:0.3em 0.8em;font-size:1em;width:100%;"><i class=\"fas fa-share-alt\" style=\"margin-right:0.4em;\"></i>Copy Link to This Product</button>
-                            <div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:1.2rem;">
-                                <button id="qtyDecModal" style="font-size:1.3rem;width:2.2em;height:2.2em;border-radius:50%;border:1px solid #ddd;background:#fafafa;cursor:pointer;">-</button>
-                                <span id="qtyValModal" style="font-size:1.2rem;min-width:2em;display:inline-block;text-align:center;">1</span>
-                                <button id="qtyIncModal" style="font-size:1.3rem;width:2.2em;height:2.2em;border-radius:50%;border:1px solid #ddd;background:#fafafa;cursor:pointer;">+</button>
+                        <div class=\"product-info\">
+                            <div id=\"searchDetailPrice\">$${product.price}</div>
+                            <div id=\"searchDetailDescription\">${product.description}</div>
+                            <button class=\"btn btn-social copy-link-btn-modal\" data-link=\"${prettyUrl}\" style=\"margin:0.7em 0 1.1em 0;padding:0.3em 0.8em;font-size:1em;width:100%;\"><i class=\\"fas fa-share-alt\\" style=\\"margin-right:0.4em;\\"></i>Copy Link to This Product</button>
+                            <div style=\"display:flex;align-items:center;gap:0.7rem;margin-bottom:1.2rem;\">
+                                <button id=\"qtyDecModal\" style=\"font-size:1.3rem;width:2.2em;height:2.2em;border-radius:50%;border:1px solid #ddd;background:#fafafa;cursor:pointer;\">-</button>
+                                <span id=\"qtyValModal\" style=\"font-size:1.2rem;min-width:2em;display:inline-block;text-align:center;\">1</span>
+                                <button id=\"qtyIncModal\" style=\"font-size:1.3rem;width:2.2em;height:2.2em;border-radius:50%;border:1px solid #ddd;background:#fafafa;cursor:pointer;\">+</button>
                             </div>
-                            <button class="btn btn-primary btn-small" id="modalAddToCartBtn" style="width:100%;padding:1rem 0;font-size:1.1rem;background:#b80000;color:#fff;border:none;border-radius:8px;display:block;margin-bottom:0.7rem;">Add to Cart</button>
-                            <button class="btn btn-secondary" id="backToSearchResultsBtn">Back to Results</button>
+                            <button class=\"btn btn-primary btn-small\" id=\"modalAddToCartBtn\" style=\"width:100%;padding:1rem 0;font-size:1.1rem;background:#b80000;color:#fff;border:none;border-radius:8px;display:block;margin-bottom:0.7rem;\">Add to Cart</button>
+                            <button class=\"btn btn-secondary\" id=\"backToSearchResultsBtn\">Back to Results</button>
                         </div>
                     </div>
                 </div>
             `;
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            document.body.appendChild(modal);
+            setTimeout(() => { modal.classList.add('active'); document.body.style.overflow = 'hidden'; }, 10);
             // Copy link in modal
-            const copyBtnModal = document.getElementById('searchProductDetailModal').querySelector('.copy-link-btn-modal');
+            const copyBtnModal = modal.querySelector('.copy-link-btn-modal');
             if (copyBtnModal) {
                 copyBtnModal.onclick = function() {
                     const link = copyBtnModal.getAttribute('data-link');
@@ -219,17 +189,17 @@ function renderSearchResults(results, query) {
             }
             // Quantity logic in modal
             let qty = 1;
-            const qtyVal = document.getElementById('qtyValModal');
-            document.getElementById('qtyDecModal').onclick = function() {
+            const qtyVal = modal.querySelector('#qtyValModal');
+            modal.querySelector('#qtyDecModal').onclick = function() {
                 if (qty > 1) qty--;
                 qtyVal.textContent = qty;
             };
-            document.getElementById('qtyIncModal').onclick = function() {
+            modal.querySelector('#qtyIncModal').onclick = function() {
                 qty++;
                 qtyVal.textContent = qty;
             };
             // Add to Cart in modal
-            document.getElementById('modalAddToCartBtn').onclick = function() {
+            modal.querySelector('#modalAddToCartBtn').onclick = function() {
                 let modalQty = parseInt(qtyVal.textContent) || 1;
                 if (typeof addToCart === 'function') {
                     addToCart({
@@ -252,6 +222,43 @@ function renderSearchResults(results, query) {
                 }
                 let conf = document.getElementById('cartConfirmMsg');
                 if (!conf) {
+                    conf = document.createElement('div');
+                    conf.id = 'cartConfirmMsg';
+                    conf.style.position = 'fixed';
+                    conf.style.top = '24px';
+                    conf.style.left = '50%';
+                    conf.style.transform = 'translateX(-50%)';
+                    conf.style.background = '#fff';
+                    conf.style.color = '#222';
+                    conf.style.border = '1.5px solid #b80000';
+                    conf.style.borderRadius = '8px';
+                    conf.style.boxShadow = '0 4px 24px rgba(0,0,0,0.13)';
+                    conf.style.padding = '1.1em 2.2em';
+                    conf.style.fontSize = '1.08rem';
+                    conf.style.fontWeight = '600';
+                    conf.style.zIndex = '10000';
+                    conf.style.display = 'none';
+                    document.body.appendChild(conf);
+                }
+                conf.innerHTML = `<i class=\"fas fa-check-circle\" style=\"color:#b80000;margin-right:0.6em;\"></i> ${modalQty} × <b>${product.name}</b> added to cart!`;
+                conf.style.display = 'block';
+                setTimeout(() => { conf.style.display = 'none'; }, 2200);
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                setTimeout(() => { if (modal.parentNode) modal.parentNode.removeChild(modal); }, 300);
+            };
+            modal.querySelector('#closeSearchDetailBtn').onclick = function() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                setTimeout(() => { if (modal.parentNode) modal.parentNode.removeChild(modal); }, 300);
+            };
+            modal.querySelector('#backToSearchResultsBtn').onclick = function() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                setTimeout(() => { if (modal.parentNode) modal.parentNode.removeChild(modal); }, 300);
+            };
+        };
+    });
                     conf = document.createElement('div');
                     conf.id = 'cartConfirmMsg';
                     conf.style.position = 'fixed';
