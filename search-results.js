@@ -39,12 +39,17 @@ function searchProducts(query) {
             return matchesYear(name, year) || matchesYear(desc, year);
         });
     }
-    // For non-year queries, match if query is a substring of any word in name/desc (case-insensitive)
+    // For non-year queries, match if query is a substring of a whole word in name/desc (case-insensitive)
+    // This prevents 'light' from matching 'lightweight', but allows 'light' to match 'light', 'lights', etc.
+    const wordMatch = (text, q) => {
+        if (!text) return false;
+        // Split on non-word boundaries, check if any word contains the query as a substring
+        return text.split(/\W+/).some(word => word && word.includes(q));
+    };
     return allProducts.filter(p => {
         const name = (p.name || '').toLowerCase();
         const desc = (p.description || '').toLowerCase();
-        // Match if query is a substring of any word in name or description
-        return name.includes(q) || desc.includes(q);
+        return wordMatch(name, q) || wordMatch(desc, q);
     });
 }
 
@@ -183,6 +188,10 @@ function renderSearchResults(results, query) {
             let slug = (product.name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').replace(/-+/g, '-');
             let base = window.location.origin + window.location.pathname.replace(/\/search\.html.*/, '');
             let prettyUrl = base + '/' + product.id + '-' + slug;
+            // Main image (first image or image field)
+            let mainImg = product.image || (product.images && product.images[0]) || '';
+            // All images (main + additional)
+            let allImgs = [mainImg].concat((product.images||[]).filter(img => img !== mainImg));
             modal.innerHTML = `
                 <div class=\"product-detail-content\">
                     <button class=\"close-detail\" id=\"closeSearchDetailBtn\">&times;</button>
@@ -190,9 +199,14 @@ function renderSearchResults(results, query) {
                         <h2 id=\"searchDetailTitle\">${product.name}</h2>
                     </div>
                     <div class=\"product-detail-body\">
-                        <div class=\"product-images\" id=\"searchDetailImages\">${(product.images||[]).map(img =>
-                            `<img src=\"${img}\" alt=\"${product.name}\" style=\"width:100px;height:70px;object-fit:cover;margin-right:8px;border-radius:6px;\">`
-                        ).join('')}</div>
+                        <div class=\"product-images\" id=\"searchDetailImages\">
+                            <img id=\"mainDetailImg\" src=\"${mainImg}\" alt=\"${product.name}\" style=\"width:320px;height:220px;object-fit:cover;margin-bottom:10px;border-radius:8px;display:block;margin-left:auto;margin-right:auto;box-shadow:0 2px 12px rgba(0,0,0,0.13);\">
+                            <div style=\"display:flex;gap:8px;justify-content:center;margin-top:10px;\">
+                                ${allImgs.map(img =>
+                                    `<img src=\"${img}\" alt=\"${product.name}\" class=\"thumbDetailImg\" style=\"width:70px;height:50px;object-fit:cover;border-radius:6px;cursor:pointer;border:2px solid #eee;transition:border 0.2s;\">`
+                                ).join('')}
+                            </div>
+                        </div>
                         <div class=\"product-info\">
                             <div id=\"searchDetailPrice\">$${product.price}</div>
                             <div id=\"searchDetailDescription\">${product.description}</div>
@@ -221,6 +235,21 @@ function renderSearchResults(results, query) {
                     });
                 };
             }
+            // Image click-to-enlarge/gallery logic
+            const mainImgEl = modal.querySelector('#mainDetailImg');
+            modal.querySelectorAll('.thumbDetailImg').forEach(thumb => {
+                thumb.onclick = function() {
+                    if (mainImgEl) mainImgEl.src = thumb.src;
+                };
+                // Optional: highlight selected thumb
+                thumb.addEventListener('click', function() {
+                    modal.querySelectorAll('.thumbDetailImg').forEach(t => t.style.border = '2px solid #eee');
+                    thumb.style.border = '2px solid #b80000';
+                });
+            });
+            // Start with first thumb highlighted
+            const firstThumb = modal.querySelector('.thumbDetailImg');
+            if (firstThumb) firstThumb.style.border = '2px solid #b80000';
             // Quantity logic in modal
             let qty = 1;
             const qtyVal = modal.querySelector('#qtyValModal');
