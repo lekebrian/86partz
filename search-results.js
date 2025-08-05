@@ -39,12 +39,12 @@ function searchProducts(query) {
             return matchesYear(name, year) || matchesYear(desc, year);
         });
     }
-    // For non-year queries, match if query is a substring of a whole word in name/desc (case-insensitive)
-    // This prevents 'light' from matching 'lightweight', but allows 'light' to match 'light', 'lights', etc.
+    // For non-year queries, match if query is a prefix of a whole word in name/desc (case-insensitive)
+    // This prevents 'light' from matching 'slightly' or 'lightweight', but allows 'light' to match 'light', 'lights', etc.
     const wordMatch = (text, q) => {
         if (!text) return false;
-        // Split on non-word boundaries, check if any word contains the query as a substring
-        return text.split(/\W+/).some(word => word && word.includes(q));
+        // Split on non-word boundaries, check if any word starts with the query
+        return text.split(/\W+/).some(word => word && word.startsWith(q));
     };
     return allProducts.filter(p => {
         const name = (p.name || '').toLowerCase();
