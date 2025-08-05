@@ -363,7 +363,7 @@ K-series style transmission mounts (compatible with stock transmission)
 Optional throttle body adapter available upon request
 
 This kit offers a seamless K-swap solution, making installation straightforward and efficient. If you need any additional parts or support for your swap, feel free to reach out.`
-    }
+    },
     //general inventory items
     {
       id: 801,
