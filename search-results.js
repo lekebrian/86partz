@@ -43,14 +43,13 @@ function searchProducts(query) {
     // but only if the word is at least as long as the query and the match is not part of a longer word (e.g. 'light' does not match 'lightly' or 'highlight')
     const wordMatch = (text, q) => {
         if (!text) return false;
-        // Split on non-word boundaries, check if any word matches exactly or is a plural, or is a substring but not part of a longer word
+        // Split on non-word boundaries, check if any word starts with the query (for partials), or is a plural
         return text.split(/\W+/).some(word => {
             if (!word) return false;
             // Exact match or plural
             if (word === q || word === q + 's') return true;
-            // Substring match, but only if the word is the same length or just plural
-            if (word.length === q.length && word.includes(q)) return true;
-            if (word.length === q.length + 1 && word.endsWith('s') && word.slice(0, -1) === q) return true;
+            // Starts with query (for partials, e.g. 'light' matches 'lights', but not 'highlight')
+            if (word.startsWith(q) && (word.length === q.length || word.length === q.length + 1 && word.endsWith('s'))) return true;
             return false;
         });
     };
