@@ -135,7 +135,40 @@ function renderSearchResults(results, query) {
                 let cart = JSON.parse(localStorage.getItem('cart') || '[]');
                 const existing = cart.find(item => item.id === product.id);
                 if (existing) {
-    // See Details modal logic
+                    existing.qty = Number(existing.qty || 0) + qty;
+                } else {
+                    cart.push({ id: product.id, title: product.name, price: product.price, qty: qty, image: product.image });
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                if (typeof updateCartCount === 'function') updateCartCount();
+            }
+            let conf = document.getElementById('cartConfirmMsg');
+            if (!conf) {
+                conf = document.createElement('div');
+                conf.id = 'cartConfirmMsg';
+                conf.style.position = 'fixed';
+                conf.style.top = '24px';
+                conf.style.left = '50%';
+                conf.style.transform = 'translateX(-50%)';
+                conf.style.background = '#fff';
+                conf.style.color = '#222';
+                conf.style.border = '1.5px solid #b80000';
+                conf.style.borderRadius = '8px';
+                conf.style.boxShadow = '0 4px 24px rgba(0,0,0,0.13)';
+                conf.style.padding = '1.1em 2.2em';
+                conf.style.fontSize = '1.08rem';
+                conf.style.fontWeight = '600';
+                conf.style.zIndex = '10000';
+                conf.style.display = 'none';
+                document.body.appendChild(conf);
+            }
+            conf.innerHTML = `<i class=\"fas fa-check-circle\" style=\"color:#b80000;margin-right:0.6em;\"></i> ${qty} × <b>${product.name}</b> added to cart!`;
+            conf.style.display = 'block';
+            setTimeout(() => { conf.style.display = 'none'; }, 2200);
+        };
+    });
+
+    // See Details modal logic (must NOT be nested inside add-to-cart logic)
     container.querySelectorAll('.see-details-btn').forEach(btn => {
         btn.onclick = function() {
             const id = parseInt(btn.getAttribute('data-id'));
