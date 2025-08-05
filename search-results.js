@@ -168,7 +168,7 @@ function renderSearchResults(results, query) {
         };
     });
 
-    // See Details modal logic (must NOT be nested inside add-to-cart logic)
+    // See Details modal logic (single, correct handler)
     container.querySelectorAll('.see-details-btn').forEach(btn => {
         btn.onclick = function() {
             const id = parseInt(btn.getAttribute('data-id'));
@@ -293,40 +293,7 @@ function renderSearchResults(results, query) {
             };
         };
     });
-                    conf = document.createElement('div');
-                    conf.id = 'cartConfirmMsg';
-                    conf.style.position = 'fixed';
-                    conf.style.top = '24px';
-                    conf.style.left = '50%';
-                    conf.style.transform = 'translateX(-50%)';
-                    conf.style.background = '#fff';
-                    conf.style.color = '#222';
-                    conf.style.border = '1.5px solid #b80000';
-                    conf.style.borderRadius = '8px';
-                    conf.style.boxShadow = '0 4px 24px rgba(0,0,0,0.13)';
-                    conf.style.padding = '1.1em 2.2em';
-                    conf.style.fontSize = '1.08rem';
-                    conf.style.fontWeight = '600';
-                    conf.style.zIndex = '10000';
-                    conf.style.display = 'none';
-                    document.body.appendChild(conf);
-                }
-                conf.innerHTML = `<i class=\"fas fa-check-circle\" style=\"color:#b80000;margin-right:0.6em;\"></i> ${modalQty} × <b>${product.name}</b> added to cart!`;
-                conf.style.display = 'block';
-                setTimeout(() => { conf.style.display = 'none'; }, 2200);
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            };
-            document.getElementById('closeSearchDetailBtn').onclick = function() {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            };
-            document.getElementById('backToSearchResultsBtn').onclick = function() {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            };
-        };
-    });
+                // ...existing code...
 }
 
 // Get query from URL
