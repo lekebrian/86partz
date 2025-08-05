@@ -182,6 +182,187 @@ You'll appreciate the full LED upgrade, delivering brighter and crisper illumina
       description: `Upgrade the front-end styling and illumination of your 2013-2021 Scion FR-S, Subaru BRZ, or Toyota 86 with a brand-new set of VLAND sequential LED headlights. These striking lights are in excellent, pristine condition and are ready to dramatically transform your vehicle's appearance. They feature dynamic sequential turn signals that sweep across, providing a truly modern and high-end visual effect, along with powerful LED headlight bulbs for superior nighttime visibility. This set offers a direct-fit solution, making it a perfect choice for enthusiasts seeking a contemporary and impactful lighting upgrade.
 
 `
+    },
+
+    //Accessories
+    {
+      id: 801,
+      name: 'Grams 72mm Throttle Body – BRZ / FRS / 86',
+      price: 349,
+      image: '61a.jpg',
+      images: ['61b.jpg', '61c.jpg'],
+      description:`Boost your throttle response and airflow with this brand-new Grams 72mm throttle body, designed specifically for the Subaru BRZ, Scion FRS, and Toyota 86. This unit is still in its original packaging and has never been installed — ideal for performance-focused builds looking to unlock more power and improved drivability.
+
+Key Features:
+
+Large 72mm bore for increased airflow
+
+Compatible with BRZ, FRS, and 86 platforms
+
+Brand new and unused – still in the box
+
+Direct bolt-on upgrade for improved throttle performance
+
+Ships ready to install.`
+    },
+    {
+      id: 802,
+      name: 'GrimmSpeed Red Engine Cover – Brand New',
+      price: 153,
+      image: '62a.jpg',
+      images: ['62b.jpg', '62c.jpg'],
+      description: `Add a bold visual upgrade to your engine bay with this red GrimmSpeed engine cover. This unit is brand new, only opened and briefly test-fitted. Perfect for enthusiasts looking to enhance both form and function under the hood.
+
+Key Features:
+
+Genuine GrimmSpeed product
+
+Striking red finish
+
+Brand new condition – opened for test fit only
+
+Direct fit for applicable Subaru platforms
+
+Ready to ship.`
+    },
+    {
+      id: 803,
+      name: 'OLM K1X Rear Spats – FRS/BRZ/86 ',
+      price: 125,
+      image: '63a.jpg',
+      images: ['63b.jpg', '63c.jpg'],
+      description: `Enhance the rear profile of your FRS, BRZ, or 86 with these used OLM K1X painted rear spats. Designed to fit seamlessly with the factory rear bumper, these spats offer a sportier appearance and subtle aerodynamic flair.
+
+Condition: Pre-owned with minor paint imperfections. Overall in good condition and ready for installation.
+
+`
+    },
+    {
+      id: 804,
+      name: 'TRD RS1.0 Fender Garnishes – 2015',
+      price: 249,
+      image: '64a.jpg',
+      images: ['64b.jpg', '64c.jpg'],
+      description:`Genuine TRD fender garnishes removed from a 2015 Scion FR-S RS1.0. These OEM pieces are rare and increasingly difficult to find, making them a great addition for collectors or those looking to complete an RS1.0 build.
+
+Condition: Used, with one minor flaw on the passenger-side garnish (barely noticeable). Overall well-preserved and ready for installation.`
+    },
+    {
+      id: 805,
+      name: 'OEM All-Weather Floor Mats & Trunk Tray – 2022+ Subaru BRZ / Toyota GR86',
+      price: 155,
+      image: '65a.jpg',
+      images: ['65b.jpg', '65c.jpg'],
+      description: `OEM All-Weather Floor Mats & Trunk Tray – 2022+ Subaru BRZ / Toyota GR86 (Used)
+Genuine OEM all-weather floor mats and trunk tray set for 2022+ BRZ and GR86 models. Perfect for protecting your interior from dirt, moisture, and daily wear.
+
+Includes front and rear floor mats + trunk tray
+
+OEM fit and quality
+
+Easy to clean, durable rubber material
+
+Used, in great condition`
+    },
+    {
+      id: 806,
+      name: 'Grams 72mm Throttle Body (+7mm Over Stock) – 2013+ FR-S / BRZ / 86',
+      price: 301,
+      image: '66a.jpg',
+      images: ['66b.jpg', '66c.jpg'],
+      description: `Upgrade your intake system with this Grams 72mm throttle body, offering increased airflow over the factory unit for improved throttle response and performance.
+
+Fits 2013+ Scion FR-S / Subaru BRZ / Toyota 86
+
+72mm bore size – +7mm over stock (65mm)
+
+CNC-machined aluminum construction
+
+Ideal for naturally aspirated or forced induction setups
+
+Direct bolt-on with factory-style connectors
+
+Perfect for performance builds looking to reduce airflow restrictions and support higher power output.`
+    },
+    {
+      id: 807,
+      name: 'IRP V3 Short Shifter – Red Lockout Button – FR-S / BRZ / 86',
+      price: 180,
+      image: '67a.jpg',
+      images: ['67b.jpg', '67c.jpg'],
+      description: `Precision-engineered for performance driving, the IRP V3 short shifter delivers a crisp, mechanical feel with significantly reduced throw for faster, more confident gear changes.
+
+Compatible with Scion FR-S, Subaru BRZ, and Toyota 86 (manual transmission)
+
+Version 3 design with improved shift engagement and durability
+
+Features anodized red reverse lockout button for added style and function
+
+Adjustable height and throw to suit your driving style
+
+CNC-machined aluminum and stainless steel components
+
+Bolt-in installation — no cutting or welding required
+
+A favorite among track enthusiasts and serious street drivers looking for sharper shifting and improved control.
+
+`
+    },
+    {
+      id: 808,
+      name: 'APR GT3 Side Mirrors – Subaru BRZ / Scion FR-S / Toyota GT86 ',
+      price: 250,
+      image: '68a.jpg',
+      images: ['68b.jpg', '68c.jpg'],
+      description: `Upgrade your ride’s aerodynamics and style with these genuine APR GT3 side mirrors. Designed specifically for the BRZ, FR-S, and GT86, they offer a sleek, race-inspired look while improving airflow.
+
+Used for approximately one month
+
+Excellent condition, like-new appearance
+
+Direct bolt-on replacement for factory mirrors
+
+Lightweight, aerodynamic design
+
+Ideal for enthusiasts seeking both performance and aesthetic enhancement`
+    },
+    {
+      id: 809,
+      name: 'DW VB40AX2 Dual Fuel Pump Voltage Booster ',
+      price: 300,
+      image: '69a.jpg',
+      images: ['69b.jpg', '69c.jpg'],
+      description: `Optimize your fuel system with the DW VB40AX2 voltage booster designed to increase fuel pump voltage for improved fuel delivery and consistent performance.
+
+Dual pump support for enhanced fuel flow
+
+Reliable and robust design from DeatschWerks (DW)
+
+Brand new, never used—removed due to change in fuel system plans
+
+Easy to install with factory wiring harness compatibility
+
+Perfect for high-performance builds requiring stable fuel pressure under demanding conditions.`
+    },
+    {
+      id: 810,
+      name: 'FRS K24 Collins K-Swap Adapter Kit',
+      price: 600,
+      image: '70a.jpg',
+      images: ['70b.jpg', '70c.jpg'],
+      description:`Complete adapter kit designed for K24 engine swaps into the Scion FR-S, Toyota 86, or Subaru BRZ, enabling a clean and reliable connection to the stock transmission.
+
+Kit Includes:
+
+Precision-machined adapter plate that bolts directly to the factory transmission
+
+Lightweight aluminum flywheel for improved performance and durability
+
+K-series style transmission mounts (compatible with stock transmission)
+
+Optional throttle body adapter available upon request
+
+This kit offers a seamless K-swap solution, making installation straightforward and efficient. If you need any additional parts or support for your swap, feel free to reach out.`
     }
     
 ];
