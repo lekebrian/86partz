@@ -39,13 +39,12 @@ function searchProducts(query) {
             return matchesYear(name, year) || matchesYear(desc, year);
         });
     }
-    // For non-year queries, match whole words in name/desc only (not partials)
-    const wordRegex = new RegExp('(^|\\W)' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(\\W|$)');
+    // For non-year queries, match if query is a substring of any word in name/desc (case-insensitive)
     return allProducts.filter(p => {
         const name = (p.name || '').toLowerCase();
         const desc = (p.description || '').toLowerCase();
-        // Only match if query is a whole word in name or description
-        return wordRegex.test(name) || wordRegex.test(desc);
+        // Match if query is a substring of any word in name or description
+        return name.includes(q) || desc.includes(q);
     });
 }
 
@@ -142,7 +141,9 @@ function renderSearchResults(results, query) {
             const id = parseInt(btn.getAttribute('data-id'));
             const product = (window.SEARCH_INDEX || []).find(p => p.id === id);
             if (!product) return;
-            // Always create a new modal to avoid stale content
+            // Remove any existing modal before creating a new one
+            let oldModal = document.getElementById('searchProductDetailModal');
+            if (oldModal && oldModal.parentNode) oldModal.parentNode.removeChild(oldModal);
             let modal = document.createElement('div');
             modal.className = 'product-detail';
             modal.id = 'searchProductDetailModal';
