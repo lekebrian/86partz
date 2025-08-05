@@ -39,13 +39,13 @@ function searchProducts(query) {
             return matchesYear(name, year) || matchesYear(desc, year);
         });
     }
-    // For non-year queries, match if query is a substring at the start of any word in name/desc (case-insensitive)
-    // e.g. 'light' matches 'light', 'lights', 'lighting', but not 'highlight' or 'slightly'
+    // For non-year queries, match if query is a substring of any word in name/desc (case-insensitive)
+    // This is the most intuitive for users: 'light' matches 'light', 'lights', 'lighting', 'highlight', etc.
     const wordMatch = (text, q) => {
         if (!text) return false;
         return text.split(/\W+/).some(word => {
             if (!word) return false;
-            return word.startsWith(q);
+            return word.includes(q);
         });
     };
     return allProducts.filter(p => {
