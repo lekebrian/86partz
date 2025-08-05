@@ -1,4 +1,5 @@
 window.SEARCH_INDEX = [
+  //brakes and wheels
     {
       id: 201,
       name: 'Set of Circuit CSF1 wheels in matte bronze',
@@ -703,5 +704,423 @@ Once in place, you'll immediately notice the full LED upgrade, providing brighte
       image: '59a.jpg',
       images: ['59b.jpg', '59c.jpg'],
       description: `Acquire an authentic OEM reverse light, also functioning as the third brake light, for your sport compact. This unit originally came from a 2013 Scion FR-S, and it's fully compatible with all 2012 to 2016 Subaru BRZ and Toyota 86 models, ensuring a perfect fit and seamless integration. It's an ideal choice for anyone looking to replace a damaged unit or simply seeking a genuine, reliable component to maintain their vehicle's original integrity and safety features.`
-    }
+    },
+    //exterior parts
+    {
+      id: 501,
+      name: 'Set of front fenders compatible with Scion FRS|Toyota 86|Subaru BRZ',
+      price: 450,
+      image: '31a.jpg',
+      images: ['31b.jpg', '31c.jpg'],
+      description: `A clean set of front fenders compatible with Scion FR-S, Toyota 86, and Subaru BRZ. These fenders are in excellent condition with no cracks, dents, or structural damage—perfect for restoration projects or OEM replacements.
+
+Ideal for anyone looking to maintain a factory look or replace worn or damaged panels with original-fit parts.
+
+`
+    },
+    {
+      id: 502,
+      name: 'Authentic JDM BRZ tS Rear Wing',
+      price: 259,
+      image: '32a.jpg',
+      images: ['32b.jpg', '32c.jpg'],
+      description: `Genuine JDM-spec Subaru BRZ tS rear wing, offering a sleek and functional upgrade for your build. This original piece is in excellent 9.5/10 condition with minimal signs of use.
+
+A perfect addition for enthusiasts looking to enhance both the aesthetic and aerodynamic profile of their BRZ with authentic JDM styling.`
+    },
+    {
+      id: 503,
+      name: 'Toyota GR86 Genuine Front Bumper – Black Silica',
+      price: 600,
+      image: '33a.jpg',
+      images: ['33b.jpg', '33c.jpg'],
+      description: `Toyota GR86 Genuine Front Bumper – Black Silica
+Factory-original Toyota GR86 front bumper in Black Silica finish. This is a brand-new, unused OEM part in flawless condition, ready for installation.
+
+Ideal for direct replacement or for those seeking a clean, factory look with genuine Toyota quality and fitment.
+
+`
+    },
+    {
+      id: 504,
+      name: 'FA Style Carbon Fiber Hood',
+      price: 699,
+      image: '34a.jpg',
+      images: ['34b.jpg'],
+      description:`Sleek and lightweight FA Style carbon fiber hood designed for aggressive styling and improved performance. Crafted with precision, this hood offers a perfect blend of form and function—ideal for enthusiasts looking to enhance the look and reduce the weight of their build.
+
+Premium quality construction ensures durability and proper fitment.`
+    },
+    {
+      id: 505,
+      name: 'BRZ / 86 / FR-S Rear & Side Window Louvers',
+      price: 149,
+      image: '35a.jpg',
+      images: ['35b.jpg', '35c.jpg'],
+      description: `Add a bold, retro-inspired touch to your build with this set of rear and side window louvers designed for the Subaru BRZ, Toyota 86, and Scion FR-S.
+
+Lightly used and in like-new condition, these louvers offer easy installation and a unique aesthetic upgrade without compromising rear visibility.`
+    },
+    {
+      id: 506,
+      name: 'OEM Front Fenders – GR86 / BRZ',
+      price: 399,
+      image: '36a.jpg',
+      images: ['36b.jpg', '36c.jpg'],
+      description: `Genuine OEM front fenders for Toyota GR86 and Subaru BRZ. These fenders are in perfect condition and currently vinyl-wrapped, with the original factory color underneath being gray.
+
+Ideal for anyone looking for a clean OEM replacement or ready-to-wrap panels with no bodywork needed.
+
+`
+    },
+    {
+      id: 507,
+      name: '2013–2020 Scion FR-S / Toyota 86 / Subaru BRZ Alfa Style Fiberglass Front Bumper',
+      price: 599,
+      image: '37a.jpg',
+      images: ['37b.jpg', '37c.jpg'],
+      description: `Upgrade your ride with this Alfa Style fiberglass front bumper, designed to fit 2013–2020 models of the Scion FR-S, Toyota 86, and Subaru BRZ. Crafted from lightweight, durable fiberglass, this bumper offers an aggressive and sporty look while maintaining quality fitment.
+
+Perfect for enthusiasts seeking a distinctive style upgrade that stands out on the road.`
+    },
+    {
+      id: 508,
+      name: 'FR-S / BRZ Verus Aero Package',
+      price: 1600,
+      image: '38a.jpg',
+      images: ['38b.jpg', '38c.jpg'],
+      description:`Complete Verus Aero body kit for Scion FR-S and Subaru BRZ, including:
+
+Verus two-piece front splitter,
+
+Aggressive Verus rear diffuser,
+
+Verus UCW wing and trunk components
+
+This package offers a perfect blend of aerodynamic performance and aggressive styling, crafted from high-quality materials for durability and precise fitment. Ideal for enthusiasts looking to enhance both the look and downforce of their vehicle.`
+    },
+    {
+      id: 509,
+      name: 'FRS / BRZ / 86 Bayson R Kit and Bumpers Package',
+      price: 999,
+      image: '39a.jpg',
+      images: ['39b.jpg', '39c.jpg'],
+      description: `This complete Bayson R kit and bumpers package is designed for the Scion FR-S, Subaru BRZ, and Toyota 86. It includes a 2017+ BRZ front bumper with Futago sidemarker deletes and a 2013 Scion FR-S rear bumper featuring a clear fourth brake light. The kit also comes with matching side skirts, a rear spoiler, and rear spats. Together, these components offer a sleek and aggressive upgrade that enhances the vehicle’s overall appearance with high-quality styling elements`
+    },
+    {
+      id: 510,
+      name: 'VIS Carbon Fiber Trunk for First-Gen FR-S / BRZ / GT86',
+      price: 349,
+      image: '40a.jpg',
+      images: ['40b.jpg', '40c.jpg'],
+      description: `Vis Carbon Fiber Trunk Frs Brz Gt86
+$600 shipped
+carbon trunk for the first gen frs Brz gt86 for sale Perfect fitment
+No clear coat damage`
+    },
+    //engine parts
+     {
+      id: 301,
+      name: 'Subaru BRZ|FRS|86 FA24 Engine',
+      price: 4300,
+      image: '1a.jpg',
+      images: ['1b.jpg', '1c.jpg'],
+      description: `2023 FA24 Engine with Headers & Carbon Covers – 14,992 Miles
+
+This 2023 FA24 engine is in excellent condition with only 14,992 miles. It comes equipped with high-quality headers and carbon fiber engine covers, enhancing both performance and aesthetics.
+
+Meticulously maintained and garage-kept, this engine has been serviced regularly and driven sparingly. A great opportunity for anyone looking to upgrade with a clean, low-mileage powertrain setup`
+    },
+    {
+      id: 302,
+      name: 'Subaru BRZ Engine',
+      price: 4000,
+      image: '2a.jpg',
+      images: ['2b.jpg', '2c.jpg'],
+      description: `2023 Subaru BRZ 2.4L Engine – Only 8,000 Miles | Manual Transmission | $4,000 Shipped
+
+For sale: A 2.4L FA24 engine removed from a 2023 Subaru BRZ with only 8,000 miles. This engine is paired with a manual transmission and is in perfect condition, offering a like-new powertrain ideal for a performance build or replacement.
+
+Price includes shipping within the U.S.—an excellent deal for a low-mileage, well-maintained engine.`
+    },
+    {
+      id: 303,
+      name: 'Subaru FA2OD Engine(FRS/BRZ/GT86)',
+      price: 3800,
+      image: '3a.jpg',
+      images: ['3b.jpg', '3c.jpg'],
+      description: `Subaru FA20D Engine (FR-S / BRZ / GT86) – $3,000 Shipped
+
+Offered for sale is a Subaru FA20D engine, compatible with Scion FR-S, Subaru BRZ, and Toyota GT86 models. This engine is in perfect condition with no issues, making it a great option for a replacement or performance project.
+
+Price includes shipping within the U.S..`
+    },
+    {
+      id: 304,
+      name: 'FRS/BRZ Injen SP Series Short Ram Intake',
+      price: 259,
+      image: '4a.jpg',
+      images: ['4b.jpg'],
+      description: `Injen SP Series Short Ram Intake – FR-S / BRZ 
+
+For sale: Injen SP Series Short Ram Intake for Scion FR-S, Subaru BRZ, and Toyota GT86. The intake is in good condition and comes with all necessary hardware for installation.
+
+The filter is clean, and the intake box has no scratches—ready to install and improve both performance and engine sound.
+
+Shipping inclusive
+
+`
+    },
+    {
+      id: 305,
+      name: 'Fuel Injectors',
+      price: 299,
+      image: '5a.jpg',
+      images: ['5b.jpg', '5d.jpg'],
+      description: `Fuel Injector Clinic 1200cc Injectors – FR-S / BRZ / 86 
+
+For sale: FIC (Fuel Injector Clinic) 1200cc injectors, specifically designed for the Scion FR-S, Subaru BRZ, and Toyota 86 platforms.
+
+These high-performance injectors are ideal for boosted or high-horsepower builds
+
+Ready to install and a great upgrade for your fuel system.`
+    },
+    {
+      id: 306,
+      name: '2013-2020 Red Aluminum Manifold FRS BRZ 86',
+      price: 350,
+      image: '6a.jpg',
+      images: ['6b.jpg', '6c.jpg'],
+      description: `Red Aluminum Intake Manifold – 2013–2020 FR-S / BRZ / Toyota 86 | For Sale
+Up for sale is a red aluminum intake manifold in good condition, removed from a 2017 Toyota 86. This is a direct OEM upgrade for 2013–2016 Scion FR-S and Subaru BRZ models, offering improved airflow and a clean, sporty look.
+
+Fits all 2013–2020 FR-S, BRZ, and Toyota 86 models.
+
+Ready to install—perfect for a performance upgrade or engine bay refresh.
+
+`
+    },
+    {
+      id: 307,
+      name: 'Frs brz 86 oil cooler',
+      price: 290,
+      image: '7a.jpg',
+      images: ['7b.jpg', '7c.jpg'],
+      description: `Oil Cooler – FR-S / BRZ / GT86
+
+Up for sale is an aftermarket oil cooler kit for Scion FR-S, Subaru BRZ, and Toyota GT86. While not a Mishimoto brand, it performs reliably and has been used for approximately 5,000 miles with no issues.
+
+The included adapter/sandwich plate features three ports for sensors or additional lines, making it ideal for performance setups or monitoring upgrades.
+
+Everything is in good working condition and ready for installation.`
+    },
+    {
+      id: 308,
+      name: '2013-24 FR-S/GR86/BRZ Dual Radiator/Oil Cooler',
+      price: 499,
+      image: '8a.jpg',
+      images: ['8b.jpg', '8c.jpg'],
+      description: `Jackson Racing Dual Radiator/Oil Cooler – 2013–2024 FR-S / BRZ / GR86
+
+For sale is a Jackson Racing dual radiator and oil cooler setup, compatible with 2013–2024 Scion FR-S, Subaru BRZ, and Toyota GR86 models.
+
+The kit is in almost new condition, offering enhanced cooling performance for both the engine and oil system—ideal for track use or high-performance street builds.
+
+Complete and ready for installation.`
+    },
+    {
+      id: 309,
+      name: 'Performance Camshaft',
+      price: 1300,
+      image: '9.jpg',
+      
+      description: `Camshafts – Precision Performance for Your Build
+
+Engineered to optimize valve timing, increase airflow, and unlock hidden power in your engine. Whether you're building for the street or track, our camshafts deliver improved throttle response, higher RPM potential, and enhanced overall performance.
+
+Perfect for naturally aspirated or forced induction setups—reliability and performance you can trust.`
+    },
+    {
+      id: 310,
+      name: 'Crankshaft',
+      price: 550,
+      image: '10.jpg',
+      
+      description: `Crankshafts for Subaru BRZ / Scion FR-S / Toyota 86 – Built for Boxer Performance
+
+Designed specifically for the FA20/FA24 Boxer engines, our high-performance crankshafts deliver the strength, balance, and durability needed for BRZ, FR-S, and 86 builds pushing beyond factory limits. Whether you're upgrading for forced induction, high-revving NA setups, or a full race engine, these crankshafts are engineered to handle the increased stress without compromise.
+
+Forged from premium materials and precision-machined for perfect fitment, these crankshafts form the core of any reliable high-performance build for your Subaru or Toyota platform.
+
+`
+    },
+    //suspension parts
+    {
+      id: 401,
+      name: 'Complete MCS 2-Way Remote Damper Set for all BRZ, 86, FR-S, and GR86 model',
+      price: 1225,
+      image: '21a.jpg',
+      images: ['21b.jpg', '21c.jpg'],
+      description:`complete Motion Control Suspension (MCS) 2-Way Remote Damper Set for 86, BRZ, FR-S, and GR86. This top-tier, double-adjustable setup was ordered in January 2025 and features Karcepts spec valving, front and rear spherical top hats, Hyperco 400lb front and 525lb rear main springs, helper springs, Delrin couplers, and extended rear hose lengths for trunk mounting. The Karcepts camber/caster plates offer precise adjustability, with current markings set at -4.8° camber (easily removable). This setup provides exceptional performance, longevity, and adjustability for both first and second gen platforms. Shipping available upon request.`
+    },
+    {
+      id: 402,
+      name: 'Set of HKS Hipermax R Coilovers for the GR86 (ZN8)',
+      price: 799,
+      image: '22a.jpg',
+      images: ['22b.jpg', '22c.jpg'],
+      description: `For sale is a set of HKS Hipermax R Coilovers for the GR86 (ZN8), installed in March 2025 and driven for less than 1,000 miles. The ride height remains at the factory default settings, and the kit includes all original hardware from HKS. Practically like new and ready to install. Shipping available upon request.`
+    },
+    {
+      id: 403,
+      name: 'Complete air suspension kit for GR86, BRZ, or FR-S',
+      price: 1349,
+      image: '23a.jpg',
+      images: ['23b.jpg', '23c.jpg'],
+      description: `A complete air suspension kit for GR86, BRZ, or FR-S. The setup was removed from a 2022 second-gen BRZ but is also compatible with first-gen models. It includes Air Lift 3P management, a trunk-mounted setup with tank and single compressor, and Truhart struts. Everything is in good working condition and ready for installation. Shipping available upon request.`
+    },
+    {
+      id: 404,
+      name: 'Set of Air Demand air struts',
+      price: 1099,
+      image: '24a.jpg',
+      images: ['24b.jpg', '24a.jpg'],
+      description: `For sale is a full set of Air Demand air struts, including front and rear air suspension. The setup is in excellent condition and ready for install. Shipping available upon request.`
+    },
+    {
+      id: 405,
+      name: 'Set of Godspeed Mono RS Coilovers for FRS, BRZ, 86, and GR86',
+      price: 849,
+      image: '25a.jpg',
+      images: ['25b.jpg', '25c.jpg'],
+      description: `Selling a clean set of Godspeed Mono RS Coilovers for FRS, BRZ, 86, and GR86. Used for under 10,000 miles with no issues—no leaks, no loose top hats, and everything functions as it should. These coilovers feature front adjustable camber plates, 32-way adjustable dampening, 8k spring rates all around, and a durable 52mm monotube shock design. A solid, high-quality option for those looking to lower their car while maintaining comfort and improved handling. Shipping available upon request.`
+    },
+    {
+      id: 406,
+      name: 'Complete Airlift V2 air suspension setup for FRS|BRZ|86',
+      price: 1399,
+      image: '26a.jpg',
+      images: ['26b.jpg', '26c.jpg'],
+      description: `Selling a complete Airlift V2 air suspension setup for FRS, BRZ, or 86. This kit includes front and rear Airlift air struts, V2 digital management, and a trunk-mounted setup with tank and single compressor. Removed from a second-gen BRZ, but fully compatible with first-gen models as well. Everything is in great working condition and ready to install—ideal for those looking to achieve adjustable ride height, smooth ride quality, and that show-ready stance with the reliability of Airlift's trusted management system. Shipping available upon request.`
+    },
+    {
+      id: 407,
+      name: ' RacerX upper control arms compatible with FRS|BRZ|86|WRX|STI models',
+      price: 329,
+      image: '27a.jpg',
+      images: ['27b.jpg', '27c.jpg'],
+      description: `Brand new RacerX upper control arms compatible with FRS, BRZ, 86, WRX, and STI models. Never used and ready to install, these control arms offer improved suspension geometry and durability for enhanced handling performance. Shipping available upon request.`
+    },
+    {
+      id: 408,
+      name: 'Pair of ISC V3 Lower Control Arms',
+      price: 319,
+      image: '28a.jpg',
+      images: ['28b.jpg', '28c.jpg'],
+      description: `For sale is a pair of ISC V3 Lower Control Arms, removed from a 2014 Subaru BRZ. They were used for approximately 25,000 miles and remain structurally solid with no play in the joints. The joint boots show some cracking but function as intended. A reliable upgrade for improved rear suspension adjustability. Shipping available upon request.`
+    },
+    {
+      id: 409,
+      name: 'Cusco Type OS carbon fiber front strut bar',
+      price: 249,
+      image: '29a.jpg',
+      images: ['29b.jpg', '29c.jpg'],
+      description:`For sale is a Cusco Type OS carbon fiber front strut bar with integrated brake master cylinder stopper, designed for left-hand drive models. Compatible with 2013–2020 BRZ, FR-S, and 86, as well as 2022+ BRZ and GR86. In excellent condition, this strut bar enhances chassis rigidity and braking feel. Shipping available upon request.`
+    },
+    {
+      id: 410,
+      name: 'Set of SPL front sway bar endlinks (short length) for 2013–2021 BRZ|FR-S|86',
+      price: 199,
+      image: '30a.jpg',
+      images: ['30b.jpg', '30c.jpg'],
+      description: `For sale is a set of SPL front sway bar endlinks (short length) for 2013–2021 BRZ, FR-S, and 86. Used for less than 1,000 miles under daily driving conditions and still in excellent shape. Includes all original hardware from the kit. A high-quality, adjustable solution for improved front-end response. Shipping available upon request.`
+    },
+    //interiorparts
+     {
+      id: 601,
+      name: 'Subaru BRZ Sport Performance Steering Wheel (Blue & Black)',
+      price: 329,
+      image: '41a.jpg',
+      images: ['41b.jpg', '41c.jpg'],
+      description: `Elevate the interior aesthetics and driving experience of your Subaru BRZ with this striking sport performance steering wheel. Expertly finished in a premium two-tone blue and black design, this wheel offers a distinctive visual upgrade and an enhanced tactile feel. Crafted from high-quality, durable materials, it provides a comfortable and secure grip, designed to improve hand placement and foster a more engaging connection to the road. This steering wheel is engineered for seamless installation into your Subaru BRZ, integrating perfectly with your vehicle's existing setup. It represents an ideal enhancement for enthusiasts seeking to personalize their vehicle's cockpit with a touch of unique style and a significant upgrade in driving dynamics.`
+    },
+    {
+      id: 602,
+      name: 'Greddy limited edition steering wheel',
+      price: 380,
+      image: '42a.jpg',
+      images: ['42b.jpg', '42c.jpg'],
+      description:`
+Enhance your driving experience and elevate your vehicle's interior with this comprehensive Greddy Limited Edition steering wheel package. This exclusive set features a premium Greddy Limited Edition Alcantara Momo steering wheel, meticulously paired with a Works Bell 540S short boss for precise fitment. Designed specifically for the Subaru BRZ, Toyota 86, or Scion FR-S, this package ensures seamless integration and optimal driving ergonomics. Further elevating its functionality, the ensemble includes a Greddy/Works Bell collaboration quick disconnect hub, allowing for rapid and secure steering wheel removal. All components are in excellent condition, promising reliability and peak performance. For a complete installation, two Works Bell airbag resistors are included, as required for proper system functionality. This is an unparalleled opportunity for enthusiasts seeking a top-tier steering solution that combines iconic design with advanced engineering.`
+    },
+    {
+      id: 603,
+      name: 'Carbon Fiber Steering Wheel for Subaru BRZ, Scion FR-S, and Toyota 86',
+      price: 299,
+      image: '43a.jpg',
+      images: ['43b.jpg', '43c.jpg'],
+      description: `Elevate the interior of your sport compact with this distinctive carbon fiber steering wheel. Offered in good, used condition, this wheel provides a significant aesthetic and tactile upgrade for the Subaru BRZ, Scion FR-S, and Toyota 86 platforms. Its premium carbon fiber construction delivers a sophisticated, performance-oriented look and feel, enhancing your connection to the vehicle. This accessory is designed for direct compatibility with all listed models, ensuring a straightforward upgrade. Installation assistance is available to facilitate a smooth transition.`
+    },
+    {
+      id: 604,
+      name: 'Link ECU AIM MXS Strada Dash',
+      price: 950,
+      image: '44a.jpg',
+      images: ['44b.jpg', '44c.jpg'],
+      description: `Experience unparalleled data visualization and control with this brand-new, never-installed Link ECU AIM MXS Strada Dash. This advanced digital display is designed for seamless integration with Link ECUs, offering a crystal-clear, high-contrast screen that presents vital engine and vehicle information with exceptional clarity. Included with this pristine unit is a custom dash insert, ensuring a perfect and professional fit within your vehicle's interior. To further enhance its comprehensive functionality, a high-precision GPS module is also provided, enabling accurate speed, lap timing, and track mapping capabilities without the need for additional sensors. This complete package represents a premier solution for enthusiasts and racers demanding precise monitoring and an elevated cockpit experience, ready for immediate installation and operation.`
+    },
+    {
+      id: 605,
+      name: 'PCI Racing Slider Seat Mount – Driver Side for GR86, BRZ, FR-S, and 86',
+      price: 250,
+      image: '45a.jpg',
+      images: ['45b.jpg', '45c.jpg'],
+      description: `Optimize your driving position and enhance safety with this high-quality PCI Racing Slider Seat Mount, specifically designed for the driver's side of the GR86, BRZ, FR-S, and 86 platforms. This robust seat mount incorporates a smooth-operating slider mechanism, allowing for precise and easy adjustment of your seating position to achieve optimal ergonomics and control. Manufactured to exacting standards, this component ensures a secure and stable foundation for your aftermarket seat. It is offered in excellent condition, free from any issues, ready to provide a direct and reliable upgrade to your vehicle's interior. This mount is an essential component for enthusiasts looking to install performance seating while maintaining convenient adjustability.
+
+`
+    },
+    {
+      id: 606,
+      name: 'RECARO Japan SR-6 GK100S Recliner Set (Black/Red Glass Mesh)',
+      price: 1200,
+      image: '46a.jpg',
+      images: ['46b.jpg', '46c.jpg'],
+      description:`Acquire a highly sought-after and now discontinued set of RECARO Japan SR-6 GK100S Recliner seats. This exclusive pair, designed for both driver and passenger, features a distinctive black and red color scheme with breathable glass mesh fabric, combining iconic RECARO aesthetics with superior comfort and support. The SR-6 series is renowned for its excellent lateral support, making it ideal for performance driving while retaining the convenience of a reclining mechanism for daily usability. These seats represent a unique chance to enhance your vehicle's interior with genuine, high-performance RECARO components that are no longer in production, offering both exceptional ergonomics and a significant upgrade in cabin appeal.`
+    },
+    {
+      id: 607,
+      name: 'Custom Carbon Fiber and Alcantara D-Shape Steering Wheel for FR-S/BRZ',
+      price: 280,
+      image: '48a.jpg',
+      images: ['48b.jpg'],
+      description: `Elevate your driving experience and the interior aesthetic of your FR-S or BRZ with this exquisite, brand-new custom steering wheel. Meticulously crafted, this wheel features a sophisticated carbon fiber weave, complemented by luxurious Alcantara on the sides and bolsters for an enhanced grip and premium tactile feel. A vibrant yellow stripe at the 12 o'clock position provides a sporty visual cue, while its modern D-shape design offers improved legroom and a distinct racing-inspired look. Though never installed, its pristine condition ensures a flawless upgrade for your vehicle. Included with this exceptional wheel is a custom Alcantara steering wheel cover, providing protection and maintaining its pristine appearance. This is an unparalleled opportunity to personalize your cockpit with a truly bespoke and high-performance component.
+
+`
+    },
+    {
+      id: 608,
+      name: '2020 Subaru BRZ Door Cards and Alcantara Dash Piece ',
+      price: 300,
+      image: '47a.jpg',
+      images: ['47b.jpg', '47c.jpg'],
+      description: `Elevate the interior of your BRZ with this exceptionally well-preserved set of 2020 Subaru BRZ door cards, complemented by a luxurious Alcantara dash piece. These components, removed from a BRZ, are in perfect condition, showing no signs of wear or issues, ensuring a seamless and high-quality upgrade for your vehicle's cabin. The Alcantara dash piece specifically adds a touch of sophisticated texture and premium feel to your dashboard, perfectly matching the sporty elegance of the BRZ interior. This complete package offers an ideal opportunity for enthusiasts to restore or enhance their vehicle's aesthetic with genuine, unblemished OEM-quality components, ready for immediate installation.`
+    },
+    {
+      id: 609,
+      name: 'Toyota 86 / Subaru BRZ (2017+) OEM Head Unit',
+      price: 199,
+      image: '49a.jpg',
+      images: ['49b.jpg', '49c.jpg'],
+      description: `Upgrade or replace your vehicle's audio and infotainment system with this genuine OEM head unit, specifically designed for 2017 and newer Toyota 86 and Subaru BRZ models. This unit is in perfect, unblemished condition, ensuring seamless functionality and a like-new appearance for your dashboard. It offers a direct-fit solution, providing all the standard features and connectivity you expect from an original equipment component. This is an ideal opportunity for enthusiasts seeking a flawless replacement or an upgrade to the refreshed infotainment system found in later models, ready for immediate installation`
+    },
+    {
+      id: 610,
+      name: 'Authentic Recaro RS-GS Red Bucket Seats with PCI Sliding Rails (Pair)',
+      price: 1000,
+      image: '50a.jpg',
+      images: ['50b.jpg', '50c.jpg'],
+      description: `Experience unparalleled support and iconic style with this exceptional pair of authentic Recaro RS-GS red bucket seats, offered in great condition. These highly regarded fixed-back seats are engineered to provide superior lateral support and feedback, making them ideal for performance driving while significantly enhancing your vehicle's interior aesthetic. This set includes PCI sliding rails for both the driver and passenger sides, specifically designed for seamless installation into FR-S and BRZ models. The integrated upgraded safety hardware ensures secure mounting and peace of mind. Designed to comfortably accommodate individuals with waists ranging from 30 to 34 inches, this package offers a complete, ready-to-install solution for enthusiasts seeking a definitive upgrade in both cabin presence and driving dynamics.
+
+`
+    },
 ];
