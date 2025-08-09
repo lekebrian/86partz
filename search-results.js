@@ -194,26 +194,39 @@ function renderSearchResults(results, query) {
             let mainImg = product.image || (product.images && product.images[0]) || '';
             // All images (main + additional)
             let allImgs = [mainImg].concat((product.images||[]).filter(img => img !== mainImg));
+            // Modal overlay for click-outside-to-close
+            let overlay = document.createElement('div');
+            overlay.style.position = 'fixed';
+            overlay.style.top = '0';
+            overlay.style.left = '0';
+            overlay.style.width = '100vw';
+            overlay.style.height = '100vh';
+            overlay.style.background = 'rgba(0,0,0,0.18)';
+            overlay.style.zIndex = '9999';
+            overlay.style.display = 'flex';
+            overlay.style.alignItems = 'center';
+            overlay.style.justifyContent = 'center';
+            overlay.appendChild(modal);
             modal.innerHTML = `
-                <div class=\"product-detail-content\">
+                <div class=\"product-detail-content\"> 
                     <button class=\"close-detail\" id=\"closeSearchDetailBtn\">&times;</button>
-                    <div class=\"product-detail-header\">
+                    <div class=\"product-detail-header\"> 
                         <h2 id=\"searchDetailTitle\">${product.name}</h2>
                     </div>
-                    <div class=\"product-detail-body\">
-                        <div class=\"product-images\" id=\"searchDetailImages\">
-                            <img id=\"mainDetailImg\" src=\"${mainImg}\" alt=\"${product.name}\" style=\"width:320px;height:220px;object-fit:cover;margin-bottom:10px;border-radius:8px;display:block;margin-left:auto;margin-right:auto;box-shadow:0 2px 12px rgba(0,0,0,0.13);\">
-                            <div style=\"display:flex;gap:8px;justify-content:center;margin-top:10px;\">
+                    <div class=\"product-detail-body\"> 
+                        <div class=\"product-images\" id=\"searchDetailImages\"> 
+                            <img id=\"mainDetailImg\" src=\"${mainImg}\" alt=\"${product.name}\" style=\"width:320px;height:220px;object-fit:cover;margin-bottom:10px;border-radius:8px;display:block;margin-left:auto;margin-right:auto;box-shadow:0 2px 12px rgba(0,0,0,0.13);\"> 
+                            <div style=\"display:flex;gap:8px;justify-content:center;margin-top:10px;\"> 
                                 ${allImgs.map(img =>
                                     `<img src=\"${img}\" alt=\"${product.name}\" class=\"thumbDetailImg\" style=\"width:70px;height:50px;object-fit:cover;border-radius:6px;cursor:pointer;border:2px solid #eee;transition:border 0.2s;\">`
                                 ).join('')}
                             </div>
                         </div>
-                        <div class=\"product-info\">
+                        <div class=\"product-info\"> 
                             <div id=\"searchDetailPrice\">$${product.price}</div>
                             <div id=\"searchDetailDescription\">${product.description}</div>
                             <button class=\"btn btn-social copy-link-btn-modal\" data-link=\"${prettyUrl}\" style=\"margin:0.7em 0 1.1em 0;padding:0.3em 0.8em;font-size:1em;width:100%;\"><i class=\\"fas fa-share-alt\\" style=\\"margin-right:0.4em;\\"></i>Copy Link to This Product</button>
-                            <div style=\"display:flex;align-items:center;gap:0.7rem;margin-bottom:1.2rem;\">
+                            <div style=\"display:flex;align-items:center;gap:0.7rem;margin-bottom:1.2rem;\"> 
                                 <button id=\"qtyDecModal\" style=\"font-size:1.3rem;width:2.2em;height:2.2em;border-radius:50%;border:1px solid #ddd;background:#fafafa;cursor:pointer;\">-</button>
                                 <span id=\"qtyValModal\" style=\"font-size:1.2rem;min-width:2em;display:inline-block;text-align:center;\">1</span>
                                 <button id=\"qtyIncModal\" style=\"font-size:1.3rem;width:2.2em;height:2.2em;border-radius:50%;border:1px solid #ddd;background:#fafafa;cursor:pointer;\">+</button>
@@ -224,8 +237,16 @@ function renderSearchResults(results, query) {
                     </div>
                 </div>
             `;
-            document.body.appendChild(modal);
+            document.body.appendChild(overlay);
             setTimeout(() => { modal.classList.add('active'); document.body.style.overflow = 'hidden'; }, 10);
+            // Click outside modal to close
+            overlay.addEventListener('mousedown', function(e) {
+                if (e.target === overlay) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                    setTimeout(() => { if (overlay.parentNode) overlay.parentNode.removeChild(overlay); }, 300);
+                }
+            });
             // Copy link in modal
             const copyBtnModal = modal.querySelector('.copy-link-btn-modal');
             if (copyBtnModal) {
