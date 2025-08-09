@@ -1,11 +1,3 @@
-// Helper to create a slug from product name
-function createSlug(name) {
-  return name
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .replace(/-+/g, '-');
-}
 window.CategoryProducts = {
   products: [
     {
@@ -157,23 +149,21 @@ Forged from premium materials and precision-machined for perfect fitment, these 
       const card = document.createElement('div');
       card.className = 'product-card';
       card.setAttribute('data-product-id', product.id);
-      let slug = createSlug(product.name);
-      let base = window.location.origin + window.location.pathname.replace(/\.html.*/, '');
-      let prettyUrl = base + '/' + product.id + '-' + slug;
+      const shareUrl = `${window.location.origin}${window.location.pathname}?product=${product.id}`;
       card.innerHTML = `
         <img src="${product.image}" alt="${product.name}" class="product-image">
         <div class="product-info">
           <h3 class="product-title">${product.name}</h3>
           <div class="product-price">$${product.price}</div>
           <button class="btn btn-small see-details-btn" data-id="${product.id}">See Details</button>
-          <button class="btn btn-social copy-link-btn" data-link="${prettyUrl}" style="margin:0.5em 0 0.5em 0;padding:0.3em 0.8em;font-size:0.98em;">
+          <button class="btn btn-social copy-link-btn" data-link="${shareUrl}" style="margin:0.5em 0 0.5em 0;padding:0.3em 0.8em;font-size:0.98em;">
             <i class="fas fa-share-alt" style="margin-right:0.4em;"></i>Copy Link
           </button>
         </div>
       `;
       grid.appendChild(card);
     });
-    // Add event listeners for copy link (pretty URL)
+    // Add event listeners for copy link
     grid.querySelectorAll('.product-card').forEach((card, idx) => {
       const copyBtn = card.querySelector('.copy-link-btn');
       if (copyBtn) {
@@ -246,11 +236,9 @@ Forged from premium materials and precision-machined for perfect fitment, these 
     const controls = document.createElement('div');
     controls.id = 'productDetailControls';
     controls.style.margin = '1.2em 0 0.7em 0';
-    let slug = createSlug(product.name);
-    let base = window.location.origin + window.location.pathname.replace(/\.html.*/, '');
-    let prettyUrl = base + '/' + product.id + '-' + slug;
+    const shareUrl = `${window.location.origin}${window.location.pathname}?product=${product.id}`;
     controls.innerHTML = `
-      <button class="btn btn-social copy-link-btn-modal" data-link="${prettyUrl}" style="margin:0.7em 0 1.1em 0;padding:0.3em 0.8em;font-size:1em;width:100%;"><i class=\"fas fa-share-alt\" style=\"margin-right:0.4em;\"></i>Copy Link to This Product</button>
+      <button class="btn btn-social copy-link-btn-modal" data-link="${shareUrl}" style="margin:0.7em 0 1.1em 0;padding:0.3em 0.8em;font-size:1em;width:100%;"><i class=\"fas fa-share-alt\" style=\"margin-right:0.4em;\"></i>Copy Link to This Product</button>
       <div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:1.2rem;">
         <button id="qtyDec" style="font-size:1.3rem;width:2.2em;height:2.2em;border-radius:50%;border:1px solid #ddd;background:#fafafa;cursor:pointer;">-</button>
         <span id="qtyVal" style="font-size:1.2rem;min-width:2em;display:inline-block;text-align:center;">1</span>
@@ -356,14 +344,5 @@ document.addEventListener('DOMContentLoaded', function() {
     window.CategoryProducts.setupDetailsModal();
     const page1 = document.getElementById('page1');
     if (page1) page1.classList.add('active');
-
-    // Pretty URL: open product modal if /[id]-[slug] is in the path
-    const pathMatch = window.location.pathname.match(/(?:\/|^)(\d+)-[a-z0-9-]+$/);
-    if (pathMatch && pathMatch[1]) {
-      const prodId = parseInt(pathMatch[1]);
-      setTimeout(function() {
-        window.CategoryProducts.showProductDetail(prodId);
-      }, 200);
-    }
   }
 });
