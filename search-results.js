@@ -36,13 +36,11 @@ function searchProducts(query) {
     if (year) {
         return allProducts.filter(p => {
             const name = (p.name || '').toLowerCase();
-            const desc = (p.description || '').toLowerCase();
-            // Check for year in ranges in name/desc
-            return matchesYear(name, year) || matchesYear(desc, year);
+            // Only check for year in name/title
+            return matchesYear(name, year);
         });
     }
-    // For non-year queries, match if query is a substring of any word in name/desc (case-insensitive)
-    // This is the most intuitive for users: 'light' matches 'light', 'lights', 'lighting', 'highlight', etc.
+    // For non-year queries, match if query is a substring of any word in name/title only (case-insensitive)
     const wordMatch = (text, q) => {
         if (!text) return false;
         return text.split(/\W+/).some(word => {
@@ -52,8 +50,7 @@ function searchProducts(query) {
     };
     return allProducts.filter(p => {
         const name = (p.name || '').toLowerCase();
-        const desc = (p.description || '').toLowerCase();
-        return wordMatch(name, q) || wordMatch(desc, q);
+        return wordMatch(name, q);
     });
 }
 
