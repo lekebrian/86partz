@@ -20,17 +20,7 @@ class DynamicMetaTags {
     updateMetaTags(product) {
         const title = product.title || product.name || 'GT86Partz - Premium Automotive Parts';
         const description = product.description || 'High-quality automotive parts and accessories for your vehicle.';
-        
-        // Use the first product image, not the logo
-        let image = '';
-        if (product.images && product.images.length > 0) {
-            image = product.images[0];
-        } else if (product.image) {
-            image = product.image;
-        } else {
-            image = 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg';
-        }
-        
+        const image = product.image || product.images?.[0] || 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg';
         const url = window.location.href;
 
         // Update Open Graph tags

@@ -6,8 +6,8 @@
     <title>Interior & Exterior Accessories - GT86Partz</title>
     
     <!-- Open Graph Meta Tags for Social Media Sharing -->
-    <meta property="og:title" content="Accessories - GT86Partz">
-    <meta property="og:description" content="Find the best accessories for your GT86. Interior and exterior upgrades available.">
+    <meta property="og:title" content="Interior & Exterior Accessories - GT86Partz">
+    <meta property="og:description" content="High-quality interior and exterior accessories for your vehicle. Browse our selection of performance parts and accessories.">
     <meta property="og:image" content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg">
     <meta property="og:url" content="">
     <meta property="og:type" content="website">
@@ -15,8 +15,8 @@
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Accessories - GT86Partz">
-    <meta name="twitter:description" content="Find the best accessories for your GT86. Interior and exterior upgrades available.">
+    <meta name="twitter:title" content="Interior & Exterior Accessories - GT86Partz">
+    <meta name="twitter:description" content="High-quality interior and exterior accessories for your vehicle. Browse our selection of performance parts and accessories.">
     <meta name="twitter:image" content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="page-styles.css">
@@ -177,7 +177,6 @@
                 <div class="products-container">
                     <div class="products-grid" id="categoryProducts">
                         <!-- 12 hard-coded products, see below for structure -->
-                        <!-- Copy Link button will be rendered by JS beside See Details button on each card -->
                     </div>
                     <div class="pagination" id="pagination">
                         <button class="page-btn" id="page1">1</button>
@@ -199,9 +198,6 @@
                     <div class="product-info">
                         <div id="detailPrice"></div>
                         <div id="detailDescription"></div>
-                        <button class="btn btn-secondary" id="copyProductLinkBtn" style="margin-bottom:0.7rem;display:flex;align-items:center;gap:0.5em;">
-                            <i class="fas fa-link"></i> Copy Link
-                        </button>
                         <button class="btn btn-secondary" id="backToCatalogBtn">Back to Catalog</button>
                     </div>
                 </div>
@@ -274,125 +270,6 @@
     <script src="script.js"></script>
     <script src="social-sharing.js"></script>
     <script src="dynamic-meta-tags.js"></script>
-<script>
-// Add Copy Link button to product cards beside See Details
-document.addEventListener('DOMContentLoaded', function() {
-    const grid = document.getElementById('categoryProducts');
-    if (!grid) return;
-    // Wait for products to be rendered (assume accessories-products.js does this on DOMContentLoaded)
-    // Use a MutationObserver to catch dynamic rendering
-    const observer = new MutationObserver(function() {
-        grid.querySelectorAll('.product-card').forEach(function(card) {
-            // Only add if not already present
-            if (!card.querySelector('.copy-link-btn')) {
-                const seeDetailsBtn = card.querySelector('.see-details-btn');
-                if (seeDetailsBtn) {
-                    // Create Copy Link button
-                    const copyBtn = document.createElement('button');
-                    copyBtn.className = 'btn btn-small copy-link-btn';
-                    copyBtn.style.marginLeft = '0.5em';
-                    copyBtn.innerHTML = '<i class="fas fa-link"></i> Copy Link';
-                    // Insert after See Details
-                    seeDetailsBtn.insertAdjacentElement('afterend', copyBtn);
-                    // Add click handler
-                    copyBtn.onclick = function(e) {
-                        e.preventDefault();
-                        // Get product id from data-id on See Details button
-                        const productId = seeDetailsBtn.getAttribute('data-id');
-                        let url = window.location.origin + window.location.pathname;
-                        if (productId) {
-                            url += '?product=' + encodeURIComponent(productId);
-                        }
-                        navigator.clipboard.writeText(url).then(function() {
-                            // Show feedback
-                            let conf = document.getElementById('copyLinkConfirmMsg');
-                            if (!conf) {
-                                conf = document.createElement('div');
-                                conf.id = 'copyLinkConfirmMsg';
-                                conf.style.position = 'fixed';
-                                conf.style.top = '24px';
-                                conf.style.left = '50%';
-                                conf.style.transform = 'translateX(-50%)';
-                                conf.style.background = '#fff';
-                                conf.style.color = '#222';
-                                conf.style.border = '1.5px solid #b80000';
-                                conf.style.borderRadius = '8px';
-                                conf.style.boxShadow = '0 4px 24px rgba(0,0,0,0.13)';
-                                conf.style.padding = '1.1em 2.2em';
-                                conf.style.fontSize = '1.08rem';
-                                conf.style.fontWeight = '600';
-                                conf.style.zIndex = '10000';
-                                conf.style.display = 'none';
-                                document.body.appendChild(conf);
-                            }
-                            conf.innerHTML = '<i class="fas fa-link" style="color:#b80000;margin-right:0.6em;"></i> Product link copied!';
-                            conf.style.display = 'block';
-                            setTimeout(() => { conf.style.display = 'none'; }, 1800);
-                        });
-                    };
-                }
-            }
-        });
-    });
-    observer.observe(grid, { childList: true, subtree: true });
-    // Initial run in case products are already rendered
-    setTimeout(() => observer.takeRecords() && observer.disconnect(), 2000);
-});
-</script>
-    <script>
-    // Copy Link button logic for modal
-    document.addEventListener('DOMContentLoaded', function() {
-        const modal = document.getElementById('productDetailModal');
-        // Delegate event since modal content is dynamic
-        modal.addEventListener('click', function(e) {
-            if (e.target && (e.target.id === 'copyProductLinkBtn' || e.target.closest('#copyProductLinkBtn'))) {
-                // Try to get the product name from the modal
-                const titleElem = modal.querySelector('#detailTitle, .product-detail-header h2');
-                let productName = titleElem ? titleElem.textContent.trim() : '';
-                // Try to get product id from the currently shown product (from window.CategoryProducts if available)
-                let productId = null;
-                if (window.CategoryProducts && window.CategoryProducts.products) {
-                    // Try to match by name
-                    const match = window.CategoryProducts.products.find(p => p.name === productName);
-                    if (match) productId = match.id;
-                }
-                // Fallback: try to get from modal attribute (if you add it in JS)
-                // Build the link
-                let url = window.location.origin + window.location.pathname;
-                if (productId) {
-                    url += '?product=' + encodeURIComponent(productId);
-                }
-                // Copy to clipboard
-                navigator.clipboard.writeText(url).then(function() {
-                    // Show feedback
-                    let conf = document.getElementById('copyLinkConfirmMsg');
-                    if (!conf) {
-                        conf = document.createElement('div');
-                        conf.id = 'copyLinkConfirmMsg';
-                        conf.style.position = 'fixed';
-                        conf.style.top = '24px';
-                        conf.style.left = '50%';
-                        conf.style.transform = 'translateX(-50%)';
-                        conf.style.background = '#fff';
-                        conf.style.color = '#222';
-                        conf.style.border = '1.5px solid #b80000';
-                        conf.style.borderRadius = '8px';
-                        conf.style.boxShadow = '0 4px 24px rgba(0,0,0,0.13)';
-                        conf.style.padding = '1.1em 2.2em';
-                        conf.style.fontSize = '1.08rem';
-                        conf.style.fontWeight = '600';
-                        conf.style.zIndex = '10000';
-                        conf.style.display = 'none';
-                        document.body.appendChild(conf);
-                    }
-                    conf.innerHTML = '<i class="fas fa-link" style="color:#b80000;margin-right:0.6em;"></i> Product link copied!';
-                    conf.style.display = 'block';
-                    setTimeout(() => { conf.style.display = 'none'; }, 1800);
-                });
-            }
-        });
-    });
-    </script>
     <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Hamburger toggle
