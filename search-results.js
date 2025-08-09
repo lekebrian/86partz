@@ -59,23 +59,23 @@ function renderSearchResults(results, query) {
     const container = document.getElementById('searchResultsContainer');
     const title = document.getElementById('searchTitle');
     if (!results.length) {
-        title.textContent = `No products found for "${query}"`;
+        title.innerHTML = `<span style="font-size:1.1rem;font-weight:500;color:#b80000;letter-spacing:0.01em;">No products found for "${query}"</span>`;
         container.innerHTML = '';
         return;
     }
-    title.textContent = `Search Results for "${query}"`;
-    container.innerHTML = `<div class="products-grid">` +
+    title.innerHTML = `<span style="font-size:1.15rem;font-weight:500;color:#222;letter-spacing:0.01em;opacity:0.85;">Search Results for <span style='color:#b80000;'>"${query}"</span></span>`;
+    container.innerHTML = `<div class="products-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.5em 1.2em;margin-top:1.2em;">` +
         results.map(p => {
             let img = p.image || (p.images && p.images[0]) || '';
             let price = p.price ? (typeof p.price === 'string' ? p.price : `$${p.price}`) : '';
             let slug = (p.name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').replace(/-+/g, '-');
             let prettyUrl = window.location.origin + window.location.pathname.replace(/\/search\.html.*/, '') + '/' + p.id + '-' + slug;
             return `
-            <div class="product-card" data-product-id="${p.id}">
-                <img src="${img}" alt="${p.name}" class="product-image">
+            <div class="product-card" data-product-id="${p.id}" style="background:#fff;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.07);padding:1.1em 1em 1.3em 1em;transition:box-shadow 0.2s;">
+                <img src="${img}" alt="${p.name}" class="product-image" style="width:100%;height:170px;object-fit:cover;border-radius:8px 8px 0 0;box-shadow:0 1px 6px rgba(0,0,0,0.08);margin-bottom:0.7em;">
                 <div class="product-info">
-                    <h3 class="product-title">${p.name || 'Product'}</h3>
-                    <div class="product-price">$${p.price}</div>
+                    <h3 class="product-title" style="font-size:1.08rem;font-weight:600;margin-bottom:0.3em;">${p.name || 'Product'}</h3>
+                    <div class="product-price" style="font-size:1.05rem;color:#b80000;font-weight:500;margin-bottom:0.5em;">$${p.price}</div>
                     <div class="product-actions" style="margin-bottom:0.7em;display:flex;gap:0.5em;">
                         <button class="btn btn-small btn-outline see-details-btn" data-id="${p.id}">See Details</button>
                         <button class="btn btn-small btn-social copy-link-btn" data-link="${prettyUrl}"><i class="fas fa-share-alt" style="margin-right:0.4em;"></i>Copy Link</button>
@@ -178,7 +178,8 @@ function renderSearchResults(results, query) {
     container.querySelectorAll('.see-details-btn').forEach(btn => {
         btn.onclick = function() {
             const id = parseInt(btn.getAttribute('data-id'));
-            const product = (window.SEARCH_INDEX || []).find(p => p.id === id);
+            // Use the current search results to find the product, not the global SEARCH_INDEX
+            const product = results.find(p => p.id === id);
             if (!product) return;
             // Remove any existing modal before creating a new one
             let oldModal = document.getElementById('searchProductDetailModal');
