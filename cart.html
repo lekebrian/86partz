@@ -1,303 +1,991 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart - GT86Partz</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="page-styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Smartsupp Live Chat script -->
-<script type="text/javascript">
-var _smartsupp = _smartsupp || {};
-_smartsupp.key = '72e8fbb11ca753483edfd639bdaa7790bfe5ff1b';
-window.smartsupp||(function(d) {
-	var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-	s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-	c.type='text/javascript';c.charset='utf-8';c.async=true;
-	c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-})(document);
-</script>
-    <style>
-        .logo-img {
-            height: 80px;
-            width: auto;
-            max-width: 220px;
-            transition: all 0.2s;
-        }
-        @media (max-width: 600px) {
-            .logo-img {
-                height: 56px;
-                max-width: 160px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo" class="logo-img">
-                </div>
-                
-                <!-- Desktop Navigation -->
-                <ul class="nav-menu">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link">Parts <i class="fas fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href="engine-drivetrain.html">Engine & Drivetrain</a>
-                            <a href="suspension-handling.html">Suspension & Handling</a>
-                            <a href="brakes-wheels.html">Brakes & Wheels</a>
-                            <a href="exterior-aerodynamics.html">Exterior & Aerodynamics</a>
-                            <a href="interior-electronics.html">Interior & Electronics</a>
-                            <a href="lighting-electrical.html">Lighting & Electrical</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link">Accessories <i class="fas fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href="accessories.html">Interior & Exterior Accessories</a>
-                            
-                        </div>
-                    </li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
-                </ul>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shopping Cart - GT86Partz</title>
 
-                <div class="nav-actions">
-                    <a href="cart.html" class="cart-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count">0</span>
-                    </a>
-                    <button class="hamburger" id="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-            </div>
-        </nav>
+   Existing styles 
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="page-styles.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-menu-content">
-                <a href="index.html" class="mobile-link">Home</a>
-                <div class="mobile-dropdown">
-                    <button class="mobile-dropdown-btn">Parts <i class="fas fa-chevron-down"></i></button>
-                    <div class="mobile-dropdown-content">
-                        <a href="engine-drivetrain.html">Engine & Drivetrain</a>
-                        <a href="suspension-handling.html">Suspension & Handling</a>
-                        <a href="brakes-wheels.html">Brakes & Wheels</a>
-                        <a href="exterior-aerodynamics.html">Exterior & Aerodynamics</a>
-                        <a href="interior-electronics.html">Interior & Electronics</a>
-                        <a href="lighting-electrical.html">Lighting & Electrical</a>
-                    </div>
-                </div>
-                <div class="mobile-dropdown">
-                    <button class="mobile-dropdown-btn">Accessories <i class="fas fa-chevron-down"></i></button>
-                    <div class="mobile-dropdown-content">
-                        <a href="accessories.html">Interior & Exterior Accessories</a>
-                       
-                    </div>
-                </div>
-                <a href="reviews.html" class="mobile-link">Reviews</a>
-                <a href="contact.html" class="mobile-link">Contact Us</a>
-            </div>
-        </div>
-    </header>
+   Smartsupp Live Chat script (keep this as you already have it set up) 
+  <script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = '72e8fbb11ca753483edfd639bdaa7790bfe5ff1b';
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+  </script>
 
-    <main>
-        <!-- Page Header -->
-        <section class="page-header">
-            <div class="container">
-                <h1 class="page-title animate-fade-up">Shopping Cart</h1>
-                <p class="page-description animate-fade-up delay-1">Review your selected items</p>
-            </div>
-        </section>
-
-        <!-- Cart Content -->
-        <section class="cart-page">
-            <div class="container">
-                <div class="cart-container">
-                    <div id="cartItems">
-                        <!-- Cart items will be loaded here -->
-                    </div>
-                    
-                    <div id="cartTotal" style="display: none;">
-                        <div class="cart-total">
-                            <h3>Order Summary</h3>
-                            <div class="total-amount" id="totalAmount">$0.00</div>
-                            <button class="btn btn-primary" onclick="placeOrder()">Place Order</button>
-                            <a href="index.html" class="btn btn-outline" style="margin-top: 1rem; display: inline-block;">Continue Shopping</a>
-                        </div>
-                        <form id="checkoutForm" style="margin-bottom:2rem;">
-                            <div class="form-group">
-                                <label for="customerName">Full Name<span style="color:#b80000;">*</span></label>
-                                <input type="text" id="customerName" name="customerName" class="form-input" required style="width:100%;padding:0.7em;margin-bottom:1em;border:1.5px solid #e0e5ee;border-radius:6px;">
-                            </div>
-                            <div class="form-group">
-                                <label for="customerEmail">Email<span style="color:#b80000;">*</span></label>
-                                <input type="email" id="customerEmail" name="customerEmail" class="form-input" required style="width:100%;padding:0.7em;margin-bottom:1em;border:1.5px solid #e0e5ee;border-radius:6px;">
-                            </div>
-                            <div class="form-group">
-                                <label for="customerPhone">Phone Number<span style="color:#b80000;">*</span></label>
-                                <input type="tel" id="customerPhone" name="customerPhone" class="form-input" required style="width:100%;padding:0.7em;margin-bottom:1em;border:1.5px solid #e0e5ee;border-radius:6px;">
-                            </div>
-                            <div class="form-group">
-                                <label for="customerAddress">Delivery Address<span style="color:#b80000;">*</span></label>
-                                <input type="text" id="customerAddress" name="customerAddress" class="form-input" required style="width:100%;padding:0.7em;margin-bottom:1em;border:1.5px solid #e0e5ee;border-radius:6px;">
-                            </div>
-                            <div class="form-group">
-                                <label for="specialInstructions">Special Delivery Instructions</label>
-                                <textarea id="specialInstructions" name="specialInstructions" class="form-input" rows="3" style="width:100%;padding:0.7em;margin-bottom:1em;border:1.5px solid #e0e5ee;border-radius:6px;"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="paymentMethod">Preferred Payment Method<span style="color:#b80000;">*</span></label>
-                                <select id="paymentMethod" name="paymentMethod" class="form-input" required style="width:100%;padding:0.7em;margin-bottom:1em;border:1.5px solid #e0e5ee;border-radius:6px;">
-                                    <option value="">Select a payment method</option>
-                                    <option value="Bank Transfer">Bank Transfer</option>
-                                    <option value="Apple Pay">Apple Pay</option>
-                                    <option value="Zelle">Zelle</option>
-                                    <option value="Cashapp">Cashapp</option>
-                                    <option value="Paypal">Paypal</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div id="emptyCart" class="empty-cart">
-                        <div class="empty-cart-icon">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <h3>Your cart is empty</h3>
-                        <p>Add some amazing parts to get started!</p>
-                        <a href="index.html" class="btn btn-primary">Start Shopping</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo" class="footer-logo-img">
-                    </div>
-                    <p class="footer-description">
-                        Your trusted source for high-quality automotive parts and accessories since 2021.
-                    </p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3 class="footer-title">Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#about">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="reviews.html">Reviews</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3 class="footer-title">Categories</h3>
-                    <ul class="footer-links">
-                        <li><a href="engine-drivetrain.html">Engine Parts</a></li>
-                        <li><a href="brakes-wheels.html">Brake System</a></li>
-                        <li><a href="suspension-handling.html">Suspension</a></li>
-                        <li><a href="exterior-aerodynamics.html">Exterior</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3 class="footer-title">Newsletter</h3>
-                    <p class="newsletter-text">Subscribe to receive updates, access to exclusive deals, and more.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Enter your email" class="newsletter-input">
-                        <button type="submit" class="newsletter-btn">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 GT86Partz. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-   
-    <script src="cart.js"></script>
-    <script src="script.js"></script>
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Hamburger menu toggle for mobile
-    var hamburger = document.getElementById('hamburger');
-    var mobileMenu = document.getElementById('mobileMenu');
-    if (hamburger && mobileMenu) {
-        hamburger.addEventListener('click', function() {
-            mobileMenu.classList.toggle('active');
-        });
+  <style>
+    /* Minor existing logo responsiveness */
+    .logo-img {
+      height: 80px;
+      width: auto;
+      max-width: 220px;
+      transition: all 0.2s;
+    }
+    @media (max-width: 600px) {
+      .logo-img {
+        height: 56px;
+        max-width: 160px;
+      }
     }
 
-    // --- Cart count in header ---
-    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    let totalCount = cart.reduce((sum, item) => {
+    /* Invoice & modal styles */
+    .invoice-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(9, 12, 17, 0.65);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 9999;
+    }
+    .invoice-modal.active { display: flex; }
+
+    .invoice-card {
+      background: #ffffff;
+      color: #0a0f1a;
+      width: 100%;
+      max-width: 900px;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+      overflow: hidden;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+    .invoice-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 24px 28px;
+      border-bottom: 1px solid #e9eef7;
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    }
+    .invoice-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .invoice-brand img {
+      height: 48px;
+      width: 48px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #e9eef7;
+    }
+    .invoice-brand .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .brand-title {
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+    .brand-sub {
+      font-size: 12px;
+      color: #6b7280;
+    }
+    .invoice-meta {
+      text-align: right;
+      font-size: 12px;
+      color: #374151;
+    }
+    .invoice-meta .invoice-id {
+      font-weight: 700;
+      font-size: 14px;
+      color: #0a0f1a;
+    }
+    .invoice-body {
+      padding: 24px 28px 8px;
+    }
+    .invoice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 640px) {
+      .invoice-grid { grid-template-columns: 1fr; }
+    }
+    .panel {
+      border: 1px solid #e9eef7;
+      border-radius: 10px;
+      padding: 16px;
+      background: #fff;
+    }
+    .panel h4 {
+      margin: 0 0 10px;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      color: #475569;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .panel p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: #111827;
+    }
+
+    .items-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #e9eef7;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .items-table thead th {
+      background: #f8fafc;
+      color: #475569;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 1px solid #e9eef7;
+      letter-spacing: 0.03em;
+    }
+    .items-table tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #eef2f7;
+      font-size: 14px;
+      color: #0a0f1a;
+      vertical-align: top;
+    }
+    .items-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .cell-muted { color: #6b7280; }
+
+    .totals {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px 24px;
+      align-items: center;
+      max-width: 420px;
+      margin-left: auto;
+      border-top: 1px dashed #dee6f2;
+      padding-top: 12px;
+    }
+    .totals .label {
+      color: #475569;
+      font-weight: 600;
+    }
+    .totals .value {
+      text-align: right;
+      font-weight: 700;
+      color: #0a0f1a;
+    }
+    .grand {
+      font-size: 18px;
+      margin-top: 2px;
+    }
+
+    .notes {
+      margin-top: 6px;
+      border: 1px dashed #dee6f2;
+      background: #f9fbff;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 13px;
+      color: #374151;
+    }
+
+    .invoice-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border-top: 1px solid #e9eef7;
+      background: #fcfdff;
+    }
+    .invoice-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .btn-ghost, .btn-primary-solid {
+      appearance: none;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .btn-ghost {
+      background: #eef2f7;
+      color: #0a0f1a;
+    }
+    .btn-ghost:hover { background: #e5ebf4; }
+    .btn-primary-solid {
+      background: #111827;
+      color: #ffffff;
+    }
+    .btn-primary-solid:hover { background: #0b1220; }
+
+    /* Small helper styles */
+    .text-right { text-align: right; }
+    .text-sm { font-size: 12px; }
+    .text-muted { color: #6b7280; }
+
+    /* Mobile adjustments for action bar */
+    @media (max-width: 420px) {
+      .invoice-footer { flex-direction: column; align-items: stretch; }
+      .invoice-actions { width: 100%; justify-content: space-between; }
+    }
+  </style>
+</head>
+<body>
+   Header 
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo" class="logo-img" />
+        </div>
+
+         Desktop Navigation 
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link">Parts <i class="fas fa-chevron-down"></i></a>
+            <div class="dropdown-content">
+              <a href="engine-drivetrain.html">Engine & Drivetrain</a>
+              <a href="suspension-handling.html">Suspension & Handling</a>
+              <a href="brakes-wheels.html">Brakes & Wheels</a>
+              <a href="exterior-aerodynamics.html">Exterior & Aerodynamics</a>
+              <a href="interior-electronics.html">Interior & Electronics</a>
+              <a href="lighting-electrical.html">Lighting & Electrical</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link">Accessories <i class="fas fa-chevron-down"></i></a>
+            <div class="dropdown-content">
+              <a href="accessories.html">Interior & Exterior Accessories</a>
+            </div>
+          </li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="cart.html" class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+          </a>
+          <button class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+     Mobile Menu 
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-content">
+        <a href="index.html" class="mobile-link">Home</a>
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-btn">Parts <i class="fas fa-chevron-down"></i></button>
+          <div class="mobile-dropdown-content">
+            <a href="engine-drivetrain.html">Engine & Drivetrain</a>
+            <a href="suspension-handling.html">Suspension & Handling</a>
+            <a href="brakes-wheels.html">Brakes & Wheels</a>
+            <a href="exterior-aerodynamics.html">Exterior & Aerodynamics</a>
+            <a href="interior-electronics.html">Interior & Electronics</a>
+            <a href="lighting-electrical.html">Lighting & Electrical</a>
+          </div>
+        </div>
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-btn">Accessories <i class="fas fa-chevron-down"></i></button>
+          <div class="mobile-dropdown-content">
+            <a href="accessories.html">Interior & Exterior Accessories</a>
+          </div>
+        </div>
+        <a href="reviews.html" class="mobile-link">Reviews</a>
+        <a href="contact.html" class="mobile-link">Contact Us</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+     Page Header 
+    <section class="page-header">
+      <div class="container">
+        <h1 class="page-title animate-fade-up">Shopping Cart</h1>
+        <p class="page-description animate-fade-up delay-1">Review your selected items</p>
+      </div>
+    </section>
+
+     Cart Content 
+    <section class="cart-page">
+      <div class="container">
+        <div class="cart-container">
+          <div id="cartItems"> Cart items will be loaded here </div>
+
+          <div id="cartTotal" style="display: none;">
+            <div class="cart-total">
+              <h3>Order Summary</h3>
+              <div class="total-amount" id="totalAmount">$0.00</div>
+              <button id="placeOrderBtn" class="btn btn-primary" onclick="placeOrder()">Place Order</button>
+              <a href="index.html" class="btn btn-outline" style="margin-top: 1rem; display: inline-block;">Continue Shopping</a>
+            </div>
+
+             Delivery/Checkout form 
+            <form id="checkoutForm" style="margin-bottom: 2rem;">
+              <div class="form-group">
+                <label for="customerName">Full Name<span style="color:#b80000;">*</span></label>
+                <input type="text" id="customerName" name="customerName" class="form-input" required
+                       style="width:100%;padding:0.7em;margin-bottom:1em;border:1.5px solid #e0e5ee;border-radius:6px;"/>
+              </div>
+              <div class="form-group">
+                <label for="customerEmail">Email<span style="color:#b80000;">*</span></label>
+                <input type="email" id="customerEmail" name="customerEmail" class="form-input" required
+                       style="width:100%;padding:0.7em;margin-bottom:1em;border:1.5px solid #e0e5ee;border-radius:6px;"/>
+              </div>
+              <div class="form-group">
+                <label for="customerPhone">Phone Number<span style="color:#b80000;">*</span></label>
+                <input type="tel" id="customerPhone" name="customerPhone" class="form-input" required
+                       style="width:100%;padding:0.7em;margin-bottom:1em;border:1.5px solid #e0e5ee;border-radius:6px;"/>
+              </div>
+              <div class="form-group">
+                <label for="customerAddress">Delivery Address<span style="color:#b80000;">*</span></label>
+                <input type="text" id="customerAddress" name="customerAddress" class="form-input" required
+                       style="width:100%;padding:0.7em;margin-bottom:1em;border:1.5px solid #e0e5ee;border-radius:6px;"/>
+              </div>
+              <div class="form-group">
+                <label for="specialInstructions">Special Delivery Instructions</label>
+                <textarea id="specialInstructions" name="specialInstructions" class="form-input" rows="3"
+                          style="width:100%;padding:0.7em;margin-bottom:1em;border:1.5px solid #e0e5ee;border-radius:6px;"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="paymentMethod">Preferred Payment Method<span style="color:#b80000;">*</span></label>
+                <select id="paymentMethod" name="paymentMethod" class="form-input" required
+                        style="width:100%;padding:0.7em;margin-bottom:1em;border:1.5px solid #e0e5ee;border-radius:6px;">
+                  <option value="">Select a payment method</option>
+                  <option value="Bank Transfer">Bank Transfer</option>
+                  <option value="Apple Pay">Apple Pay</option>
+                  <option value="Zelle">Zelle</option>
+                  <option value="Cashapp">Cashapp</option>
+                  <option value="Paypal">Paypal</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </form>
+          </div>
+
+          <div id="emptyCart" class="empty-cart">
+            <div class="empty-cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h3>Your cart is empty</h3>
+            <p>Add some amazing parts to get started!</p>
+            <a href="index.html" class="btn btn-primary">Start Shopping</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+   Footer 
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo" class="footer-logo-img" />
+          </div>
+          <p class="footer-description">
+            Your trusted source for high-quality automotive parts and accessories since 2021.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3 class="footer-title">Categories</h3>
+          <ul class="footer-links">
+            <li><a href="engine-drivetrain.html">Engine Parts</a></li>
+            <li><a href="brakes-wheels.html">Brake System</a></li>
+            <li><a href="suspension-handling.html">Suspension</a></li>
+            <li><a href="exterior-aerodynamics.html">Exterior</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3 class="footer-title">Newsletter</h3>
+          <p class="newsletter-text">Subscribe to receive updates, access to exclusive deals, and more.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" class="newsletter-input" />
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 GT86Partz. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+   INVOICE MODAL 
+  <div id="invoiceModal" class="invoice-modal" aria-hidden="true">
+    <div class="invoice-card" role="dialog" aria-modal="true" aria-labelledby="invoiceTitle">
+      <div class="invoice-header">
+        <div class="invoice-brand">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo"/>
+          <div class="brand-text">
+            <span class="brand-title">GT86Partz</span>
+            <span class="brand-sub">Performance Parts & Accessories</span>
+          </div>
+        </div>
+        <div class="invoice-meta">
+          <div id="invoiceTitle" class="invoice-id">Invoice</div>
+          <div><span class="text-muted">Order ID:</span> <span id="invoiceOrderId"></span></div>
+          <div><span class="text-muted">Date:</span> <span id="invoiceDate"></span></div>
+        </div>
+      </div>
+
+      <div class="invoice-body">
+        <div class="invoice-grid">
+          <div class="panel">
+            <h4>Bill To</h4>
+            <p id="invName"></p>
+            <p id="invEmail" class="cell-muted"></p>
+            <p id="invPhone" class="cell-muted"></p>
+            <p id="invAddress"></p>
+          </div>
+          <div class="panel">
+            <h4>Order Details</h4>
+            <p><strong>Payment Method:</strong> <span id="invPaymentMethod"></span></p>
+            <p><strong>Status:</strong> Pending Confirmation</p>
+            <p class="text-sm text-muted">A confirmation message will be sent shortly.</p>
+          </div>
+        </div>
+
+        <table class="items-table" aria-label="Order items">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Qty</th>
+              <th>Unit Price</th>
+              <th class="text-right">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="invItems"></tbody>
+        </table>
+
+        <div class="totals">
+          <div class="label">Subtotal</div>
+          <div class="value" id="invSubtotal">$0.00</div>
+
+          <div class="label">Shipping</div>
+          <div class="value" id="invShipping">$0.00</div>
+
+          <div class="label">Tax</div>
+          <div class="value" id="invTax">$0.00</div>
+
+          <div class="label grand">Total</div>
+          <div class="value grand" id="invTotal">$0.00</div>
+        </div>
+
+        <div class="notes" id="invNotes" style="display: none;"></div>
+      </div>
+
+      <div class="invoice-footer">
+        <div class="text-sm text-muted">
+          Thank you for your order with GT86Partz.
+        </div>
+        <div class="invoice-actions">
+          <button id="printInvoiceBtn" class="btn-primary-solid" type="button">
+            <i class="fa fa-print" aria-hidden="true"></i> Print / Save
+          </button>
+          <button id="closeInvoiceBtn" class="btn-ghost" type="button">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   Existing scripts 
+  <script src="cart.js"></script>
+  <script src="script.js"></script>
+
+   Existing inline script that renders cart 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Hamburger menu toggle for mobile
+      var hamburger = document.getElementById('hamburger');
+      var mobileMenu = document.getElementById('mobileMenu');
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
+          mobileMenu.classList.toggle('active');
+        });
+      }
+
+      // --- Cart count in header ---
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      let totalCount = cart.reduce((sum, item) => {
         let qty = Number(item.qty);
         return sum + (isNaN(qty) ? 0 : qty);
-    }, 0);
-    document.querySelector('.cart-count').textContent = totalCount;
+      }, 0);
+      var cartCountEl = document.querySelector('.cart-count');
+      if (cartCountEl) cartCountEl.textContent = totalCount;
 
-    // --- Render cart items and order summary ---
-    let cartItemsDiv = document.getElementById('cartItems');
-    let cartTotalDiv = document.getElementById('cartTotal');
-    let emptyCartDiv = document.getElementById('emptyCart');
-    let totalAmountDiv = document.getElementById('totalAmount');
+      // --- Render cart items and order summary ---
+      let cartItemsDiv = document.getElementById('cartItems');
+      let cartTotalDiv = document.getElementById('cartTotal');
+      let emptyCartDiv = document.getElementById('emptyCart');
+      let totalAmountDiv = document.getElementById('totalAmount');
 
-    if (cart.length === 0) {
+      if (cart.length === 0) {
         cartItemsDiv.innerHTML = '';
         cartTotalDiv.style.display = 'none';
         emptyCartDiv.style.display = 'block';
-    } else {
+      } else {
         let total = 0;
         let html = '';
         cart.forEach(item => {
-            let qty = Number(item.qty);
-            if (isNaN(qty) || qty < 1) qty = 1;
-            // Remove all except digits, dot, and minus from price string
-            let priceNum = 0;
-            if (typeof item.price === 'number') {
-                priceNum = item.price;
-            } else if (typeof item.price === 'string') {
-                let cleaned = item.price.replace(/[^0-9.\-]/g, '');
-                priceNum = parseFloat(cleaned);
-                if (isNaN(priceNum)) priceNum = 0;
-            }
-            let lineTotal = qty * priceNum;
-            total += lineTotal;
-            html += `
-                <div class="cart-item">
-                    <div class="cart-item-img"><img src="${item.image || ''}" alt="${item.title || ''}" style="width:60px;height:60px;object-fit:cover;border-radius:6px;"></div>
-                    <div class="cart-item-info">
-                        <div class="cart-item-title">${item.title || ''}</div>
-                        <div class="cart-item-price">Price: $${priceNum.toFixed(2)}</div>
-                        <div class="cart-item-qty">Qty: ${qty}</div>
-                        <div class="cart-item-line-total">Subtotal: $${lineTotal.toFixed(2)}</div>
-                    </div>
-                </div>
-            `;
+          let qty = Number(item.qty);
+          if (isNaN(qty) || qty < 1) qty = 1;
+
+          // Remove all except digits, dot, and minus from price string
+          let priceNum = 0;
+          if (typeof item.price === 'number') {
+            priceNum = item.price;
+          } else if (typeof item.price === 'string') {
+            let cleaned = item.price.replace(/[^0-9.\-]/g, '');
+            priceNum = parseFloat(cleaned);
+            if (isNaN(priceNum)) priceNum = 0;
+          }
+
+          let lineTotal = qty * priceNum;
+          total += lineTotal;
+          html += `
+            <div class="cart-item">
+              <div class="cart-item-img">
+                <img src="${item.image || '/placeholder.svg?height=60&width=60'}" alt="${item.title || 'Item'}" style="width:60px;height:60px;object-fit:cover;border-radius:6px;">
+              </div>
+              <div class="cart-item-info">
+                <div class="cart-item-title">${item.title || ''}</div>
+                <div class="cart-item-price">Price: $${priceNum.toFixed(2)}</div>
+                <div class="cart-item-qty">Qty: ${qty}</div>
+                <div class="cart-item-line-total">Subtotal: $${lineTotal.toFixed(2)}</div>
+              </div>
+            </div>
+          `;
         });
         cartItemsDiv.innerHTML = html;
         totalAmountDiv.textContent = "$" + total.toFixed(2);
         cartTotalDiv.style.display = 'block';
         emptyCartDiv.style.display = 'none';
+      }
+    });
+  </script>
+
+   New script: placeOrder + invoice + Smartsupp notification 
+  <script>
+    function formatCurrency(num) {
+      var n = Number(num) || 0;
+      return '$' + n.toFixed(2);
     }
-});
-    </script>
+
+    function getCartSafe() {
+      try {
+        return JSON.parse(localStorage.getItem('cart') || '[]');
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function parsePrice(value) {
+      if (typeof value === 'number') return value;
+      if (typeof value === 'string') {
+        var cleaned = value.replace(/[^0-9.\-]/g, '');
+        var p = parseFloat(cleaned);
+        return isNaN(p) ? 0 : p;
+      }
+      return 0;
+    }
+
+    function buildOrderSummaryText(order) {
+      const lines = [];
+      lines.push('New order placed via cart');
+      lines.push('--------------------------------');
+      lines.push('Order ID: ' + order.id);
+      lines.push('Date: ' + order.date);
+      lines.push('Customer: ' + order.customer.name);
+      lines.push('Email: ' + order.customer.email);
+      lines.push('Phone: ' + order.customer.phone);
+      lines.push('Address: ' + order.customer.address);
+      lines.push('Payment Method: ' + order.paymentMethod);
+      if (order.notes) lines.push('Notes: ' + order.notes);
+      lines.push('');
+      lines.push('Items:');
+      order.items.forEach(function (it) {
+        lines.push('- ' + it.title + ' x' + it.qty + ' @ ' + formatCurrency(it.unitPrice) + ' = ' + formatCurrency(it.subtotal));
+      });
+      lines.push('');
+      lines.push('Subtotal: ' + formatCurrency(order.subtotal));
+      lines.push('Shipping: ' + formatCurrency(order.shipping || 0));
+      lines.push('Tax: ' + formatCurrency(order.tax || 0));
+      lines.push('Total: ' + formatCurrency(order.total));
+      lines.push('--------------------------------');
+      return lines.join('\n');
+    }
+
+    function openPrintWindow(invoiceHTML) {
+      var w = window.open('', '_blank');
+      if (!w) {
+        alert('Popup blocked. Please allow popups for printing.');
+        return;
+      }
+      // Minimal, print-friendly document
+      w.document.open();
+      w.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <title>Invoice - GT86Partz</title>
+          <style>
+            html, body { margin: 0; padding: 0; font-family: Inter, Arial, sans-serif; color: #0a0f1a; }
+            .wrap { padding: 24px; max-width: 900px; margin: 0 auto; }
+            .muted { color: #6b7280; }
+            .hdr { display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #e9eef7; padding-bottom:12px; margin-bottom:16px; }
+            .brand { display:flex; align-items:center; gap:12px; }
+            .brand img { height: 44px; width: 44px; border-radius: 6px; border: 1px solid #e9eef7; object-fit: cover; }
+            .brand .t { font-weight: 800; font-size: 18px; }
+            .meta { text-align: right; font-size: 12px; }
+            .grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin: 16px 0; }
+            @media (max-width:640px){ .grid { grid-template-columns:1fr; } }
+            .panel { border:1px solid #e9eef7; border-radius:10px; padding: 12px; }
+            .panel h4 { margin:0 0 8px; font-size:12px; text-transform:uppercase; color:#475569; letter-spacing: 0.02em; }
+            table { width:100%; border-collapse: collapse; margin-top: 10px; }
+            thead th { text-align:left; font-size:12px; text-transform:uppercase; color:#475569; background:#f8fafc; border-bottom:1px solid #e9eef7; padding:10px 12px; }
+            tbody td { padding: 10px 12px; border-bottom:1px solid #eef2f7; font-size:14px; }
+            .right { text-align: right; }
+            .totals { width: 100%; margin-top: 10px; }
+            .totals .row { display:flex; justify-content: flex-end; gap: 24px; margin-top: 6px; }
+            .totals .label { color:#475569; font-weight:600; }
+            .totals .value { min-width: 140px; text-align: right; font-weight:700; }
+            .notes { border:1px dashed #dee6f2; border-radius:10px; padding:10px; background:#f9fbff; margin-top: 10px; font-size: 13px; }
+            @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+          </style>
+        </head>
+        <body>
+          <div class="wrap">
+            ${invoiceHTML}
+          </div>
+          <script>window.onload = function(){ setTimeout(function(){ window.print(); }, 200); }<\/script>
+        </body>
+        </html>
+      `);
+      w.document.close();
+    }
+
+    function renderInvoiceIntoModal(order) {
+      // Fill header meta
+      document.getElementById('invoiceOrderId').textContent = order.id;
+      document.getElementById('invoiceDate').textContent = order.date;
+
+      // Fill "Bill To"
+      document.getElementById('invName').textContent = order.customer.name;
+      document.getElementById('invEmail').textContent = order.customer.email;
+      document.getElementById('invPhone').textContent = order.customer.phone;
+      document.getElementById('invAddress').textContent = order.customer.address;
+
+      // Payment method
+      document.getElementById('invPaymentMethod').textContent = order.paymentMethod;
+
+      // Items
+      var itemsBody = document.getElementById('invItems');
+      itemsBody.innerHTML = '';
+      order.items.forEach(function(it) {
+        var tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>
+            <div style="font-weight:600">${it.title}</div>
+            ${it.subtitle ? '<div class="cell-muted" style="font-size:12px;margin-top:2px;">' + it.subtitle + '</div>' : ''}
+          </td>
+          <td>${it.qty}</td>
+          <td>${formatCurrency(it.unitPrice)}</td>
+          <td class="text-right">${formatCurrency(it.subtotal)}</td>
+        `;
+        itemsBody.appendChild(tr);
+      });
+
+      // Totals
+      document.getElementById('invSubtotal').textContent = formatCurrency(order.subtotal);
+      document.getElementById('invShipping').textContent = formatCurrency(order.shipping || 0);
+      document.getElementById('invTax').textContent = formatCurrency(order.tax || 0);
+      document.getElementById('invTotal').textContent = formatCurrency(order.total);
+
+      // Notes
+      var notesEl = document.getElementById('invNotes');
+      if (order.notes && order.notes.trim().length > 0) {
+        notesEl.style.display = 'block';
+        notesEl.textContent = 'Special Instructions: ' + order.notes.trim();
+      } else {
+        notesEl.style.display = 'none';
+      }
+
+      // Show modal
+      var modal = document.getElementById('invoiceModal');
+      modal.classList.add('active');
+
+      // Wire buttons
+      var printBtn = document.getElementById('printInvoiceBtn');
+      var closeBtn = document.getElementById('closeInvoiceBtn');
+
+      // Build a print-friendly HTML snapshot for new window printing
+      var invoiceSnapshot = (function() {
+        // Build the same content in a single HTML chunk
+        var itemsRows = order.items.map(function(it){
+          return `
+            <tr>
+              <td>
+                <div style="font-weight:600">${it.title}</div>
+                ${it.subtitle ? '<div class="muted" style="font-size:12px;margin-top:2px;">' + it.subtitle + '</div>' : ''}
+              </td>
+              <td>${it.qty}</td>
+              <td>${formatCurrency(it.unitPrice)}</td>
+              <td class="right">${formatCurrency(it.subtotal)}</td>
+            </tr>
+          `;
+        }).join('');
+
+        return `
+          <div class="hdr">
+            <div class="brand">
+              <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo" />
+              <div>
+                <div class="t">GT86Partz</div>
+                <div class="muted" style="font-size:12px;">Performance Parts & Accessories</div>
+              </div>
+            </div>
+            <div class="meta">
+              <div><strong>Invoice</strong></div>
+              <div>Order ID: ${order.id}</div>
+              <div>Date: ${order.date}</div>
+            </div>
+          </div>
+
+          <div class="grid">
+            <div class="panel">
+              <h4>Bill To</h4>
+              <div>${order.customer.name}</div>
+              <div class="muted">${order.customer.email}</div>
+              <div class="muted">${order.customer.phone}</div>
+              <div>${order.customer.address}</div>
+            </div>
+            <div class="panel">
+              <h4>Order Details</h4>
+              <div><strong>Payment Method:</strong> ${order.paymentMethod}</div>
+              <div><strong>Status:</strong> Pending Confirmation</div>
+            </div>
+          </div>
+
+          <table aria-label="Order items">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Qty</th>
+                <th>Unit Price</th>
+                <th class="right">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${itemsRows}
+            </tbody>
+          </table>
+
+          <div class="totals">
+            <div class="row">
+              <div class="label">Subtotal</div>
+              <div class="value">${formatCurrency(order.subtotal)}</div>
+            </div>
+            <div class="row">
+              <div class="label">Shipping</div>
+              <div class="value">${formatCurrency(order.shipping || 0)}</div>
+            </div>
+            <div class="row">
+              <div class="label">Tax</div>
+              <div class="value">${formatCurrency(order.tax || 0)}</div>
+            </div>
+            <div class="row" style="font-size: 18px;">
+              <div class="label">Total</div>
+              <div class="value">${formatCurrency(order.total)}</div>
+            </div>
+          </div>
+
+          ${order.notes ? '<div class="notes"><strong>Special Instructions:</strong> ' + order.notes + '</div>' : ''}
+          <div class="muted" style="margin-top:12px;font-size:12px;">Thank you for your order with GT86Partz.</div>
+        `;
+      })();
+
+      if (printBtn && !printBtn._bound) {
+        printBtn._bound = true;
+        printBtn.addEventListener('click', function() {
+          openPrintWindow(invoiceSnapshot);
+        });
+      }
+      if (closeBtn && !closeBtn._bound) {
+        closeBtn._bound = true;
+        closeBtn.addEventListener('click', function() {
+          modal.classList.remove('active');
+        });
+      }
+    }
+
+    function sendOrderToSmartsupp(order) {
+      try {
+        if (typeof window.smartsupp !== 'function') {
+          // Smartsupp loader defines a proxy function immediately, so in most cases this is available.
+          // If not, just skip silently.
+          return;
+        }
+
+        // Identify the visitor so your agents see who sent the order
+        smartsupp('name', order.customer.name || '');
+        smartsupp('email', order.customer.email || '');
+        smartsupp('phone', order.customer.phone || '');
+
+        // Post a structured, readable summary into the chat so your team gets notified
+        var summaryText = buildOrderSummaryText(order);
+        smartsupp('message', summaryText);
+
+        // Optional: attach variables (if supported in your Smartsupp plan)
+        // These can appear in the visitor details sidebar for your agents.
+        try {
+          smartsupp('variables', {
+            order: {
+              id: order.id,
+              total: order.total,
+              itemsCount: order.items.length,
+              paymentMethod: order.paymentMethod
+            }
+          });
+        } catch (e) { /* non-fatal */ }
+      } catch (err) {
+        // non-fatal
+        console.warn('Smartsupp notification error:', err);
+      }
+    }
+
+    function placeOrder() {
+      var btn = document.getElementById('placeOrderBtn');
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Placing Order...';
+      }
+
+      try {
+        var cart = getCartSafe();
+        if (!Array.isArray(cart) || cart.length === 0) {
+          alert('Your cart is empty.');
+          return;
+        }
+
+        // Collect form values
+        var name = (document.getElementById('customerName').value || '').trim();
+        var email = (document.getElementById('customerEmail').value || '').trim();
+        var phone = (document.getElementById('customerPhone').value || '').trim();
+        var address = (document.getElementById('customerAddress').value || '').trim();
+        var notes = (document.getElementById('specialInstructions').value || '').trim();
+        var paymentMethod = document.getElementById('paymentMethod').value;
+
+        if (!name || !email || !phone || !address || !paymentMethod) {
+          alert('Please complete all required fields.');
+          return;
+        }
+
+        // Normalize items and totals
+        var items = [];
+        var subtotal = 0;
+        cart.forEach(function(item) {
+          var qty = Number(item.qty);
+          if (isNaN(qty) || qty < 1) qty = 1;
+
+          var price = parsePrice(item.price);
+          var line = qty * price;
+          subtotal += line;
+
+          items.push({
+            title: item.title || 'Item',
+            subtitle: item.variant || '',
+            qty: qty,
+            unitPrice: price,
+            subtotal: line
+          });
+        });
+
+        var shipping = 0;
+        var tax = 0;
+        var total = subtotal + shipping + tax;
+
+        var order = {
+          id: 'GTP-' + Date.now().toString(36).toUpperCase(),
+          date: new Date().toLocaleString(),
+          customer: { name: name, email: email, phone: phone, address: address },
+          notes: notes,
+          paymentMethod: paymentMethod,
+          items: items,
+          subtotal: subtotal,
+          shipping: shipping,
+          tax: tax,
+          total: total
+        };
+
+        // Render and show invoice
+        renderInvoiceIntoModal(order);
+
+        // Send to Smartsupp so your team is notified in live chat
+        sendOrderToSmartsupp(order);
+
+        // Clear cart and update UI
+        localStorage.setItem('cart', JSON.stringify([]));
+        var cartCountEl = document.querySelector('.cart-count');
+        if (cartCountEl) cartCountEl.textContent = '0';
+        var cartItemsDiv = document.getElementById('cartItems');
+        var cartTotalDiv = document.getElementById('cartTotal');
+        var emptyCartDiv = document.getElementById('emptyCart');
+        if (cartItemsDiv) cartItemsDiv.innerHTML = '';
+        if (cartTotalDiv) cartTotalDiv.style.display = 'none';
+        if (emptyCartDiv) emptyCartDiv.style.display = 'block';
+
+      } catch (error) {
+        console.error('Place order error:', error);
+        alert('Something went wrong while placing your order. Please try again.');
+      } finally {
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = 'Place Order';
+        }
+      }
+    }
+  </script>
 </body>
 </html>
