@@ -36,9 +36,9 @@ class ProductSharing {
             `;
 
             // Copy link button only
-            const copyBtn = this.createShareButton('copy', 'fas fa-link', () => {
+           /* const copyBtn = this.createShareButton('copy', 'fas fa-link', () => {
                 this.copyProductLink(productId);
-            });
+            });*/
 
             shareContainer.appendChild(copyBtn);
 
