@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shopping Cart - GT86Partz</title>
 
-   Existing styles 
+   Styles you already use 
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="page-styles.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-   Smartsupp Live Chat script (keep this as you already have it set up) 
+   Smartsupp Live Chat script (keep this) 
   <script type="text/javascript">
     var _smartsupp = _smartsupp || {};
     _smartsupp.key = '72e8fbb11ca753483edfd639bdaa7790bfe5ff1b';
@@ -24,7 +24,6 @@
   </script>
 
   <style>
-    /* Minor existing logo responsiveness */
     .logo-img {
       height: 80px;
       width: auto;
@@ -32,13 +31,10 @@
       transition: all 0.2s;
     }
     @media (max-width: 600px) {
-      .logo-img {
-        height: 56px;
-        max-width: 160px;
-      }
+      .logo-img { height: 56px; max-width: 160px; }
     }
 
-    /* Invoice & modal styles */
+    /* Modal + Invoice */
     .invoice-modal {
       position: fixed;
       inset: 0;
@@ -48,8 +44,18 @@
       justify-content: center;
       padding: 16px;
       z-index: 9999;
+      /* Ensure overlay captures scroll and allows inner scroll only */
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
     }
     .invoice-modal.active { display: flex; }
+
+    /* Prevent background scroll when modal open */
+    body.modal-open {
+      overflow: hidden;
+      height: 100dvh; /* modern mobile browsers */
+      touch-action: none;
+    }
 
     .invoice-card {
       background: #ffffff;
@@ -59,6 +65,9 @@
       border-radius: 12px;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      max-height: calc(100dvh - 32px); /* fits on small screens */
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     }
     .invoice-header {
@@ -69,6 +78,7 @@
       padding: 24px 28px;
       border-bottom: 1px solid #e9eef7;
       background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      flex: 0 0 auto;
     }
     .invoice-brand {
       display: flex;
@@ -76,39 +86,23 @@
       gap: 14px;
     }
     .invoice-brand img {
-      height: 48px;
-      width: 48px;
-      object-fit: cover;
-      border-radius: 8px;
-      border: 1px solid #e9eef7;
+      height: 48px; width: 48px; object-fit: cover;
+      border-radius: 8px; border: 1px solid #e9eef7;
     }
-    .invoice-brand .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
-    }
-    .brand-title {
-      font-weight: 700;
-      font-size: 18px;
-      letter-spacing: -0.01em;
-    }
-    .brand-sub {
-      font-size: 12px;
-      color: #6b7280;
-    }
-    .invoice-meta {
-      text-align: right;
-      font-size: 12px;
-      color: #374151;
-    }
-    .invoice-meta .invoice-id {
-      font-weight: 700;
-      font-size: 14px;
-      color: #0a0f1a;
-    }
+    .invoice-brand .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .brand-title { font-weight: 700; font-size: 18px; letter-spacing: -0.01em; }
+    .brand-sub { font-size: 12px; color: #6b7280; }
+    .invoice-meta { text-align: right; font-size: 12px; color: #374151; }
+    .invoice-meta .invoice-id { font-weight: 700; font-size: 14px; color: #0a0f1a; }
+
     .invoice-body {
       padding: 24px 28px 8px;
+      overflow-y: auto;         /* scroll inside the invoice */
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      flex: 1 1 auto;
     }
+
     .invoice-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -132,11 +126,7 @@
       text-transform: uppercase;
       font-weight: 700;
     }
-    .panel p {
-      margin: 4px 0;
-      font-size: 14px;
-      color: #111827;
-    }
+    .panel p { margin: 4px 0; font-size: 14px; color: #111827; }
 
     .items-table {
       width: 100%;
@@ -147,26 +137,14 @@
       margin-bottom: 16px;
     }
     .items-table thead th {
-      background: #f8fafc;
-      color: #475569;
-      text-transform: uppercase;
-      font-size: 12px;
-      font-weight: 700;
-      text-align: left;
-      padding: 12px 14px;
-      border-bottom: 1px solid #e9eef7;
-      letter-spacing: 0.03em;
+      background: #f8fafc; color: #475569; text-transform: uppercase;
+      font-size: 12px; font-weight: 700; text-align: left;
+      padding: 12px 14px; border-bottom: 1px solid #e9eef7; letter-spacing: 0.03em;
     }
     .items-table tbody td {
-      padding: 12px 14px;
-      border-bottom: 1px solid #eef2f7;
-      font-size: 14px;
-      color: #0a0f1a;
-      vertical-align: top;
+      padding: 12px 14px; border-bottom: 1px solid #eef2f7; font-size: 14px; color: #0a0f1a; vertical-align: top;
     }
-    .items-table tbody tr:last-child td {
-      border-bottom: none;
-    }
+    .items-table tbody tr:last-child td { border-bottom: none; }
     .cell-muted { color: #6b7280; }
 
     .totals {
@@ -179,19 +157,9 @@
       border-top: 1px dashed #dee6f2;
       padding-top: 12px;
     }
-    .totals .label {
-      color: #475569;
-      font-weight: 600;
-    }
-    .totals .value {
-      text-align: right;
-      font-weight: 700;
-      color: #0a0f1a;
-    }
-    .grand {
-      font-size: 18px;
-      margin-top: 2px;
-    }
+    .totals .label { color: #475569; font-weight: 600; }
+    .totals .value { text-align: right; font-weight: 700; color: #0a0f1a; }
+    .grand { font-size: 18px; margin-top: 2px; }
 
     .notes {
       margin-top: 6px;
@@ -211,38 +179,22 @@
       padding: 14px 16px;
       border-top: 1px solid #e9eef7;
       background: #fcfdff;
+      flex: 0 0 auto;
     }
-    .invoice-actions {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
+    .invoice-actions { display: flex; gap: 8px; align-items: center; }
     .btn-ghost, .btn-primary-solid {
-      appearance: none;
-      border: none;
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 14px;
+      appearance: none; border: none; border-radius: 8px;
+      padding: 10px 14px; font-weight: 600; cursor: pointer; font-size: 14px;
     }
-    .btn-ghost {
-      background: #eef2f7;
-      color: #0a0f1a;
-    }
+    .btn-ghost { background: #eef2f7; color: #0a0f1a; }
     .btn-ghost:hover { background: #e5ebf4; }
-    .btn-primary-solid {
-      background: #111827;
-      color: #ffffff;
-    }
+    .btn-primary-solid { background: #111827; color: #ffffff; }
     .btn-primary-solid:hover { background: #0b1220; }
 
-    /* Small helper styles */
     .text-right { text-align: right; }
     .text-sm { font-size: 12px; }
     .text-muted { color: #6b7280; }
 
-    /* Mobile adjustments for action bar */
     @media (max-width: 420px) {
       .invoice-footer { flex-direction: column; align-items: stretch; }
       .invoice-actions { width: 100%; justify-content: space-between; }
@@ -387,9 +339,7 @@
           </div>
 
           <div id="emptyCart" class="empty-cart">
-            <div class="empty-cart-icon">
-              <i class="fas fa-shopping-cart"></i>
-            </div>
+            <div class="empty-cart-icon"><i class="fas fa-shopping-cart"></i></div>
             <h3>Your cart is empty</h3>
             <p>Add some amazing parts to get started!</p>
             <a href="index.html" class="btn btn-primary">Start Shopping</a>
@@ -407,9 +357,7 @@
           <div class="footer-logo">
             <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo" class="footer-logo-img" />
           </div>
-          <p class="footer-description">
-            Your trusted source for high-quality automotive parts and accessories since 2021.
-          </p>
+          <p class="footer-description">Your trusted source for high-quality automotive parts and accessories since 2021.</p>
         </div>
 
         <div class="footer-section">
@@ -499,12 +447,6 @@
           <div class="label">Subtotal</div>
           <div class="value" id="invSubtotal">$0.00</div>
 
-          <div class="label">Shipping</div>
-          <div class="value" id="invShipping">$0.00</div>
-
-          <div class="label">Tax</div>
-          <div class="value" id="invTax">$0.00</div>
-
           <div class="label grand">Total</div>
           <div class="value grand" id="invTotal">$0.00</div>
         </div>
@@ -528,14 +470,14 @@
     </div>
   </div>
 
-   Existing scripts 
+   Your existing scripts 
   <script src="cart.js"></script>
   <script src="script.js"></script>
 
    Existing inline script that renders cart 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Hamburger menu toggle for mobile
+      // Hamburger menu
       var hamburger = document.getElementById('hamburger');
       var mobileMenu = document.getElementById('mobileMenu');
       if (hamburger && mobileMenu) {
@@ -544,7 +486,7 @@
         });
       }
 
-      // --- Cart count in header ---
+      // Header cart count
       let cart = JSON.parse(localStorage.getItem('cart') || '[]');
       let totalCount = cart.reduce((sum, item) => {
         let qty = Number(item.qty);
@@ -553,7 +495,7 @@
       var cartCountEl = document.querySelector('.cart-count');
       if (cartCountEl) cartCountEl.textContent = totalCount;
 
-      // --- Render cart items and order summary ---
+      // Render cart list and totals
       let cartItemsDiv = document.getElementById('cartItems');
       let cartTotalDiv = document.getElementById('cartTotal');
       let emptyCartDiv = document.getElementById('emptyCart');
@@ -570,7 +512,6 @@
           let qty = Number(item.qty);
           if (isNaN(qty) || qty < 1) qty = 1;
 
-          // Remove all except digits, dot, and minus from price string
           let priceNum = 0;
           if (typeof item.price === 'number') {
             priceNum = item.price;
@@ -604,21 +545,16 @@
     });
   </script>
 
-   New script: placeOrder + invoice + Smartsupp notification 
+   New script: placeOrder + improved modal + Smartsupp notification 
   <script>
     function formatCurrency(num) {
       var n = Number(num) || 0;
       return '$' + n.toFixed(2);
     }
-
     function getCartSafe() {
-      try {
-        return JSON.parse(localStorage.getItem('cart') || '[]');
-      } catch (e) {
-        return [];
-      }
+      try { return JSON.parse(localStorage.getItem('cart') || '[]'); }
+      catch (e) { return []; }
     }
-
     function parsePrice(value) {
       if (typeof value === 'number') return value;
       if (typeof value === 'string') {
@@ -648,8 +584,6 @@
       });
       lines.push('');
       lines.push('Subtotal: ' + formatCurrency(order.subtotal));
-      lines.push('Shipping: ' + formatCurrency(order.shipping || 0));
-      lines.push('Tax: ' + formatCurrency(order.tax || 0));
       lines.push('Total: ' + formatCurrency(order.total));
       lines.push('--------------------------------');
       return lines.join('\n');
@@ -661,7 +595,6 @@
         alert('Popup blocked. Please allow popups for printing.');
         return;
       }
-      // Minimal, print-friendly document
       w.document.open();
       w.document.write(`
         <!DOCTYPE html>
@@ -706,6 +639,19 @@
       w.document.close();
     }
 
+    function openInvoiceModal() {
+      var modal = document.getElementById('invoiceModal');
+      if (!modal) return;
+      modal.classList.add('active');
+      document.body.classList.add('modal-open');
+    }
+    function closeInvoiceModal() {
+      var modal = document.getElementById('invoiceModal');
+      if (!modal) return;
+      modal.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    }
+
     function renderInvoiceIntoModal(order) {
       // Fill header meta
       document.getElementById('invoiceOrderId').textContent = order.id;
@@ -737,10 +683,8 @@
         itemsBody.appendChild(tr);
       });
 
-      // Totals
+      // Totals (no tax/shipping)
       document.getElementById('invSubtotal').textContent = formatCurrency(order.subtotal);
-      document.getElementById('invShipping').textContent = formatCurrency(order.shipping || 0);
-      document.getElementById('invTax').textContent = formatCurrency(order.tax || 0);
       document.getElementById('invTotal').textContent = formatCurrency(order.total);
 
       // Notes
@@ -752,155 +696,163 @@
         notesEl.style.display = 'none';
       }
 
-      // Show modal
-      var modal = document.getElementById('invoiceModal');
-      modal.classList.add('active');
-
-      // Wire buttons
+      // Wire buttons once
       var printBtn = document.getElementById('printInvoiceBtn');
       var closeBtn = document.getElementById('closeInvoiceBtn');
-
-      // Build a print-friendly HTML snapshot for new window printing
-      var invoiceSnapshot = (function() {
-        // Build the same content in a single HTML chunk
-        var itemsRows = order.items.map(function(it){
-          return `
-            <tr>
-              <td>
-                <div style="font-weight:600">${it.title}</div>
-                ${it.subtitle ? '<div class="muted" style="font-size:12px;margin-top:2px;">' + it.subtitle + '</div>' : ''}
-              </td>
-              <td>${it.qty}</td>
-              <td>${formatCurrency(it.unitPrice)}</td>
-              <td class="right">${formatCurrency(it.subtotal)}</td>
-            </tr>
-          `;
-        }).join('');
-
-        return `
-          <div class="hdr">
-            <div class="brand">
-              <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo" />
-              <div>
-                <div class="t">GT86Partz</div>
-                <div class="muted" style="font-size:12px;">Performance Parts & Accessories</div>
-              </div>
-            </div>
-            <div class="meta">
-              <div><strong>Invoice</strong></div>
-              <div>Order ID: ${order.id}</div>
-              <div>Date: ${order.date}</div>
-            </div>
-          </div>
-
-          <div class="grid">
-            <div class="panel">
-              <h4>Bill To</h4>
-              <div>${order.customer.name}</div>
-              <div class="muted">${order.customer.email}</div>
-              <div class="muted">${order.customer.phone}</div>
-              <div>${order.customer.address}</div>
-            </div>
-            <div class="panel">
-              <h4>Order Details</h4>
-              <div><strong>Payment Method:</strong> ${order.paymentMethod}</div>
-              <div><strong>Status:</strong> Pending Confirmation</div>
-            </div>
-          </div>
-
-          <table aria-label="Order items">
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th>Qty</th>
-                <th>Unit Price</th>
-                <th class="right">Subtotal</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${itemsRows}
-            </tbody>
-          </table>
-
-          <div class="totals">
-            <div class="row">
-              <div class="label">Subtotal</div>
-              <div class="value">${formatCurrency(order.subtotal)}</div>
-            </div>
-            <div class="row">
-              <div class="label">Shipping</div>
-              <div class="value">${formatCurrency(order.shipping || 0)}</div>
-            </div>
-            <div class="row">
-              <div class="label">Tax</div>
-              <div class="value">${formatCurrency(order.tax || 0)}</div>
-            </div>
-            <div class="row" style="font-size: 18px;">
-              <div class="label">Total</div>
-              <div class="value">${formatCurrency(order.total)}</div>
-            </div>
-          </div>
-
-          ${order.notes ? '<div class="notes"><strong>Special Instructions:</strong> ' + order.notes + '</div>' : ''}
-          <div class="muted" style="margin-top:12px;font-size:12px;">Thank you for your order with GT86Partz.</div>
-        `;
-      })();
-
       if (printBtn && !printBtn._bound) {
         printBtn._bound = true;
         printBtn.addEventListener('click', function() {
+          var itemsRows = order.items.map(function(it){
+            return `
+              <tr>
+                <td>
+                  <div style="font-weight:600">${it.title}</div>
+                  ${it.subtitle ? '<div class="muted" style="font-size:12px;margin-top:2px;">' + it.subtitle + '</div>' : ''}
+                </td>
+                <td>${it.qty}</td>
+                <td>${formatCurrency(it.unitPrice)}</td>
+                <td class="right">${formatCurrency(it.subtotal)}</td>
+              </tr>
+            `;
+          }).join('');
+
+          var invoiceSnapshot = `
+            <div class="hdr">
+              <div class="brand">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-TcqfBd0xwqxL4ERf3OEAf8TdxOYkYL.jpeg" alt="GT86Partz Logo" />
+                <div>
+                  <div class="t">GT86Partz</div>
+                  <div class="muted" style="font-size:12px;">Performance Parts & Accessories</div>
+                </div>
+              </div>
+              <div class="meta">
+                <div><strong>Invoice</strong></div>
+                <div>Order ID: ${order.id}</div>
+                <div>Date: ${order.date}</div>
+              </div>
+            </div>
+
+            <div class="grid">
+              <div class="panel">
+                <h4>Bill To</h4>
+                <div>${order.customer.name}</div>
+                <div class="muted">${order.customer.email}</div>
+                <div class="muted">${order.customer.phone}</div>
+                <div>${order.customer.address}</div>
+              </div>
+              <div class="panel">
+                <h4>Order Details</h4>
+                <div><strong>Payment Method:</strong> ${order.paymentMethod}</div>
+                <div><strong>Status:</strong> Pending Confirmation</div>
+              </div>
+            </div>
+
+            <table aria-label="Order items">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Qty</th>
+                  <th>Unit Price</th>
+                  <th class="right">Subtotal</th>
+                </tr>
+              </thead>
+              <tbody>${itemsRows}</tbody>
+            </table>
+
+            <div class="totals">
+              <div class="row">
+                <div class="label">Subtotal</div>
+                <div class="value">${formatCurrency(order.subtotal)}</div>
+              </div>
+              <div class="row" style="font-size: 18px;">
+                <div class="label">Total</div>
+                <div class="value">${formatCurrency(order.total)}</div>
+              </div>
+            </div>
+
+            ${order.notes ? '<div class="notes"><strong>Special Instructions:</strong> ' + order.notes + '</div>' : ''}
+            <div class="muted" style="margin-top:12px;font-size:12px;">Thank you for your order with GT86Partz.</div>
+          `;
           openPrintWindow(invoiceSnapshot);
         });
       }
       if (closeBtn && !closeBtn._bound) {
         closeBtn._bound = true;
-        closeBtn.addEventListener('click', function() {
-          modal.classList.remove('active');
-        });
+        closeBtn.addEventListener('click', closeInvoiceModal);
       }
+
+      // Open modal (locks background scroll)
+      openInvoiceModal();
     }
 
+    // Robust sender to Smartsupp after invoice is shown
     function sendOrderToSmartsupp(order) {
-      try {
-        if (typeof window.smartsupp !== 'function') {
-          // Smartsupp loader defines a proxy function immediately, so in most cases this is available.
-          // If not, just skip silently.
-          return;
-        }
+      // Build summary first
+      var summaryText = buildOrderSummaryText(order);
 
-        // Identify the visitor so your agents see who sent the order
-        smartsupp('name', order.customer.name || '');
-        smartsupp('email', order.customer.email || '');
-        smartsupp('phone', order.customer.phone || '');
-
-        // Post a structured, readable summary into the chat so your team gets notified
-        var summaryText = buildOrderSummaryText(order);
-        smartsupp('message', summaryText);
-
-        // Optional: attach variables (if supported in your Smartsupp plan)
-        // These can appear in the visitor details sidebar for your agents.
+      // Helper to attempt multiple commands
+      function trySend() {
         try {
-          smartsupp('variables', {
-            order: {
-              id: order.id,
-              total: order.total,
-              itemsCount: order.items.length,
-              paymentMethod: order.paymentMethod
-            }
-          });
-        } catch (e) { /* non-fatal */ }
-      } catch (err) {
-        // non-fatal
-        console.warn('Smartsupp notification error:', err);
+          if (typeof window.smartsupp !== 'function') return false;
+
+          // Identify the visitor
+          smartsupp('name', order.customer.name || '');
+          smartsupp('email', order.customer.email || '');
+          smartsupp('phone', order.customer.phone || '');
+
+          // Open chat so team sees it immediately
+          smartsupp('chat:open');
+
+          // Attach variables (best-effort)
+          try {
+            smartsupp('variables', {
+              order: {
+                id: order.id,
+                total: order.total,
+                itemsCount: order.items.length,
+                paymentMethod: order.paymentMethod
+              }
+            });
+          } catch (e) {}
+
+          // Try known commands to send a message (one of these should work depending on plan/widget version)
+          let sent = false;
+          try { smartsupp('message', summaryText); sent = true; } catch(e){}
+          try { smartsupp('chat:send', summaryText); sent = true; } catch(e){}
+
+          return sent;
+        } catch (err) {
+          console.warn('Smartsupp send error:', err);
+          return false;
+        }
       }
+
+      // Calls are queued by loader, but we also retry a few times to be safe
+      let attempts = 0;
+      const maxAttempts = 6; // ~3s total
+      const interval = setInterval(function() {
+        attempts++;
+        if (trySend() || attempts >= maxAttempts) {
+          clearInterval(interval);
+        }
+      }, 500);
     }
+
+    // Prevent scroll-through on iOS by consuming touchmove on overlay
+    (function attachModalTouchGuard() {
+      var modal = document.getElementById('invoiceModal');
+      if (!modal) return;
+      modal.addEventListener('touchmove', function(e) {
+        // Allow scrolling inside the card/body; prevent background scroll on overlay gaps
+        if (!e.target.closest('.invoice-card')) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+    })();
 
     function placeOrder() {
       var btn = document.getElementById('placeOrderBtn');
-      if (btn) {
-        btn.disabled = true;
-        btn.textContent = 'Placing Order...';
-      }
+      if (btn) { btn.disabled = true; btn.textContent = 'Placing Order...'; }
 
       try {
         var cart = getCartSafe();
@@ -942,9 +894,8 @@
           });
         });
 
-        var shipping = 0;
-        var tax = 0;
-        var total = subtotal + shipping + tax;
+        // No tax/shipping — total equals subtotal
+        var total = subtotal;
 
         var order = {
           id: 'GTP-' + Date.now().toString(36).toUpperCase(),
@@ -954,18 +905,17 @@
           paymentMethod: paymentMethod,
           items: items,
           subtotal: subtotal,
-          shipping: shipping,
-          tax: tax,
           total: total
         };
 
-        // Render and show invoice
+        // 1) Render & display invoice to customer
         renderInvoiceIntoModal(order);
 
-        // Send to Smartsupp so your team is notified in live chat
-        sendOrderToSmartsupp(order);
+        // 2) After invoice is shown, notify Smartsupp
+        // slight delay to ensure modal is visible first
+        setTimeout(function() { sendOrderToSmartsupp(order); }, 200);
 
-        // Clear cart and update UI
+        // 3) Clear cart and update UI
         localStorage.setItem('cart', JSON.stringify([]));
         var cartCountEl = document.querySelector('.cart-count');
         if (cartCountEl) cartCountEl.textContent = '0';
@@ -980,10 +930,7 @@
         console.error('Place order error:', error);
         alert('Something went wrong while placing your order. Please try again.');
       } finally {
-        if (btn) {
-          btn.disabled = false;
-          btn.textContent = 'Place Order';
-        }
+        if (btn) { btn.disabled = false; btn.textContent = 'Place Order'; }
       }
     }
   </script>
