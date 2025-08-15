@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Routing Test - GT86Partz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .test-link {
+            display: inline-block;
+            background: #b80000;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+        }
+        .test-link:hover {
+            background: #dc2626;
+        }
+        .url-example {
+            background: #333;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+        .success {
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .info {
+            background: #2196F3;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product Routing System Test</h1>
+    
+    <div class="test-section">
+        <h2>How It Works</h2>
+        <p>The new unified product routing system allows you to:</p>
+        <ul>
+            <li>Copy product links that work across all pages</li>
+            <li>Share links that automatically redirect to the correct product</li>
+            <li>Access products via URL parameters: <code>?product=ID&slug=SLUG</code></li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Links</h2>
+        <p>Click these links to test the routing system:</p>
+        
+        <h3>Engine & Drivetrain Products</h3>
+        <a href="engine-drivetrain.html?product=1&slug=subaru-brz-frs-86-fa24-engine" class="test-link">Product 1 - FA24 Engine</a>
+        <a href="engine-drivetrain.html?product=2&slug=injen-sp-series-intake" class="test-link">Product 2 - Injen Intake</a>
+        
+        <h3>Suspension & Handling Products</h3>
+        <a href="suspension-handling.html?product=51&slug=mcs-2-way-remote-damper" class="test-link">Product 51 - MCS Damper</a>
+        <a href="suspension-handling.html?product=52&slug=air-suspension-kit" class="test-link">Product 52 - Air Suspension</a>
+        
+        <h3>Brakes & Wheels Products</h3>
+        <a href="brakes-wheels.html?product=101&slug=gram-lights-57dr-wheels" class="test-link">Product 101 - Gram Lights</a>
+        <a href="brakes-wheels.html?product=102&slug=brembo-gts-brake-kit" class="test-link">Product 102 - Brembo Kit</a>
+        
+        <h3>Exterior & Aerodynamics Products</h3>
+        <a href="exterior-aerodynamics.html?product=151&slug=verus-aero-package" class="test-link">Product 151 - Verus Aero</a>
+        <a href="exterior-aerodynamics.html?product=152&slug=alfa-style-bumper" class="test-link">Product 152 - Alfa Bumper</a>
+        
+        <h3>Interior & Electronics Products</h3>
+        <a href="interior-electronics.html?product=201&slug=recaro-sr6-seats" class="test-link">Product 201 - RECARO Seats</a>
+        <a href="interior-electronics.html?product=202&slug=greddy-steering-wheel" class="test-link">Product 202 - Greddy Wheel</a>
+        
+        <h3>Lighting & Electrical Products</h3>
+        <a href="lighting-electrical.html?product=251&slug=vland-led-headlights" class="test-link">Product 251 - VLAND Headlights</a>
+        <a href="lighting-electrical.html?product=252&slug=hrs-tail-lights" class="test-link">Product 252 - HRS Tail Lights</a>
+        
+        <h3>Accessories Products</h3>
+        <a href="accessories.html?product=301&slug=trd-fender-garnishes" class="test-link">Product 301 - TRD Garnishes</a>
+        <a href="accessories.html?product=302&slug=apr-gt3-mirrors" class="test-link">Product 302 - APR Mirrors</a>
+    </div>
+
+    <div class="test-section">
+        <h2>URL Format Examples</h2>
+        <p>The system uses this URL format:</p>
+        <div class="url-example">
+            https://www.86partz.com/engine-drivetrain.html?product=1&slug=subaru-brz-frs-86-fa24-engine
+        </div>
+        <p>Where:</p>
+        <ul>
+            <li><strong>product</strong>: The unique product ID</li>
+            <li><strong>slug</strong>: A URL-friendly version of the product name (optional)</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>How to Use</h2>
+        <ol>
+            <li>Navigate to any product page</li>
+            <li>Click the "Copy Link" button on any product</li>
+            <li>Share the copied link with others</li>
+            <li>When someone clicks the shared link, they'll be automatically taken to the correct product</li>
+        </ol>
+    </div>
+
+    <div class="success">
+        <h3>✅ Success!</h3>
+        <p>If you can see this page and the links above, the routing system is working correctly!</p>
+    </div>
+
+    <div class="info">
+        <h3>ℹ️ Technical Details</h3>
+        <p>The system automatically:</p>
+        <ul>
+            <li>Detects product IDs from URL parameters</li>
+            <li>Finds the correct product across all pages</li>
+            <li>Redirects to the appropriate page if needed</li>
+            <li>Highlights the target product when found</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>Back to Main Site</h2>
+        <a href="index.html" class="test-link">Go to Homepage</a>
+        <a href="engine-drivetrain.html" class="test-link">Engine & Drivetrain</a>
+        <a href="suspension-handling.html" class="test-link">Suspension & Handling</a>
+    </div>
+
+    <script src="product-routing.js"></script>
+    <script>
+        // Test the routing system
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Product Routing Test Page Loaded');
+            
+            // Check if product router is available
+            if (window.productRouter) {
+                console.log('✅ Product Router is working');
+            } else {
+                console.log('❌ Product Router not found');
+            }
+            
+            // Test URL parameter handling
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('product');
+            if (productId) {
+                console.log(`Testing product ID: ${productId}`);
+            }
+        });
+    </script>
+</body>
+</html> 

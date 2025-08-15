@@ -165,35 +165,34 @@ No clear coat damage`
       card.querySelector('.copy-link-btn').onclick = function(e) {
         e.preventDefault();
         const productId = this.getAttribute('data-id');
-        let url = window.location.origin + window.location.pathname;
-        if (productId) {
-          url += '?product=' + encodeURIComponent(productId);
+        const product = productsToShow[idx];
+        if (window.productRouter && product) {
+          window.productRouter.copyProductLink(productId, product.name);
         }
-        navigator.clipboard.writeText(url).then(function() {
-          let conf = document.getElementById('copyLinkConfirmMsg');
-          if (!conf) {
-            conf = document.createElement('div');
-            conf.id = 'copyLinkConfirmMsg';
-            conf.style.position = 'fixed';
-            conf.style.top = '24px';
-            conf.style.left = '50%';
-            conf.style.transform = 'translateX(-50%)';
-            conf.style.background = '#fff';
-            conf.style.color = '#222';
-            conf.style.border = '1.5px solid #b80000';
-            conf.style.borderRadius = '8px';
-            conf.style.boxShadow = '0 4px 24px rgba(0,0,0,0.13)';
-            conf.style.padding = '1.1em 2.2em';
-            conf.style.fontSize = '1.08rem';
-            conf.style.fontWeight = '600';
-            conf.style.zIndex = '10000';
-            conf.style.display = 'none';
-            document.body.appendChild(conf);
-          }
-          conf.innerHTML = '<i class="fas fa-link" style="color:#b80000;margin-right:0.6em;"></i> Product link copied!';
-          conf.style.display = 'block';
-          setTimeout(() => { conf.style.display = 'none'; }, 1800);
-        });
+        // Show confirmation message
+        let conf = document.getElementById('copyLinkConfirmMsg');
+        if (!conf) {
+          conf = document.createElement('div');
+          conf.id = 'copyLinkConfirmMsg';
+          conf.style.position = 'fixed';
+          conf.style.top = '24px';
+          conf.style.left = '50%';
+          conf.style.transform = 'translateX(-50%)';
+          conf.style.background = '#fff';
+          conf.style.color = '#222';
+          conf.style.border = '1.5px solid #b80000';
+          conf.style.borderRadius = '8px';
+          conf.style.boxShadow = '0 4px 24px rgba(0,0,0,0.13)';
+          conf.style.padding = '1.1em 2.2em';
+          conf.style.fontSize = '1.08rem';
+          conf.style.fontWeight = '600';
+          conf.style.zIndex = '10000';
+          conf.style.display = 'none';
+          document.body.appendChild(conf);
+        }
+        conf.innerHTML = '<i class="fas fa-link" style="color:#b80000;margin-right:0.6em;"></i> Product link copied!';
+        conf.style.display = 'block';
+        setTimeout(() => { conf.style.display = 'none'; }, 1800);
       };
     });
   },
@@ -303,11 +302,10 @@ No clear coat damage`
     if (copyBtnModal) {
       copyBtnModal.onclick = function(e) {
         e.preventDefault();
-        let url = window.location.origin + window.location.pathname;
-        if (product.id) {
-          url += '?product=' + encodeURIComponent(product.id);
+        if (window.productRouter && product) {
+          window.productRouter.copyProductLink(product.id, product.name);
         }
-        navigator.clipboard.writeText(url).then(function() {
+        // Show confirmation message
           let conf = document.getElementById('copyLinkConfirmMsg');
           if (!conf) {
             conf = document.createElement('div');

@@ -1,17 +1,121 @@
-// Social Media Sharing Functionality
+// Unified URL Routing and Social Sharing System for GT86Partz
 class ProductSharing {
     constructor() {
         this.initializeSharing();
         this.handleURLParameters();
+        this.setupGlobalRouting();
     }
 
     // Initialize sharing functionality
     initializeSharing() {
-        // Add share buttons to all product cards
         this.addShareButtonsToProducts();
-        
-        // Add copy link functionality
         this.addCopyLinkFunctionality();
+    }
+
+    // Setup global routing for all pages
+    setupGlobalRouting() {
+        // Handle direct product access via URL parameters
+        this.handleDirectProductAccess();
+    }
+
+    // Handle direct product access when someone clicks a shared link
+    handleDirectProductAccess() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('product');
+        const slug = urlParams.get('slug');
+        
+        if (productId) {
+            // Wait for page to fully load, then show product
+            setTimeout(() => {
+                this.showProductFromURL(productId, slug);
+            }, 1000);
+        }
+    }
+
+    // Show product when accessed via URL
+    showProductFromURL(productId, slug) {
+        // Try to find product in current page data
+        let product = this.findProductById(productId);
+        
+        if (product) {
+            // Product found on current page - highlight and scroll to it
+            this.highlightProduct(productId);
+        } else {
+            // Product not found on current page - redirect to appropriate page
+            this.redirectToProductPage(productId, slug);
+        }
+    }
+
+    // Find product by ID in current page data
+    findProductById(productId) {
+        // Check for CategoryProducts first (category pages)
+        if (window.CategoryProducts && window.CategoryProducts.products) {
+            return window.CategoryProducts.products.find(p => p.id == productId);
+        }
+        
+        // Check for homepage product details
+        if (window.productDetails) {
+            return window.productDetails.find(p => p.id == productId);
+        }
+
+        // Check for specific page product arrays
+        if (window.engineDrivetrainProducts && window.engineDrivetrainProducts.products) {
+            return window.engineDrivetrainProducts.products.find(p => p.id == productId);
+        }
+        
+        if (window.suspensionHandlingProducts && window.suspensionHandlingProducts.products) {
+            return window.suspensionHandlingProducts.products.find(p => p.id == productId);
+        }
+        
+        if (window.brakesWheelsProducts && window.brakesWheelsProducts.products) {
+            return window.brakesWheelsProducts.products.find(p => p.id == productId);
+        }
+        
+        if (window.exteriorAeroProducts && window.exteriorAeroProducts.products) {
+            return window.exteriorAeroProducts.products.find(p => p.id == productId);
+        }
+        
+        if (window.interiorElectronicsProducts && window.interiorElectronicsProducts.products) {
+            return window.interiorElectronicsProducts.products.find(p => p.id == productId);
+        }
+        
+        if (window.lightingElectricalProducts && window.lightingElectricalProducts.products) {
+            return window.lightingElectricalProducts.products.find(p => p.id == productId);
+        }
+        
+        if (window.accessoriesProducts && window.accessoriesProducts.products) {
+            return window.accessoriesProducts.products.find(p => p.id == productId);
+        }
+        
+        return null;
+    }
+
+    // Redirect to appropriate product page
+    redirectToProductPage(productId, slug) {
+        // Determine which page the product belongs to based on product ID ranges
+        // This is a fallback method - ideally each product should have a category field
+        let targetPage = 'general.html'; // Default fallback
+        
+        // You can customize this logic based on your product ID ranges
+        if (productId >= 1 && productId <= 50) {
+            targetPage = 'engine-drivetrain.html';
+        } else if (productId >= 51 && productId <= 100) {
+            targetPage = 'suspension-handling.html';
+        } else if (productId >= 101 && productId <= 150) {
+            targetPage = 'brakes-wheels.html';
+        } else if (productId >= 151 && productId <= 200) {
+            targetPage = 'exterior-aerodynamics.html';
+        } else if (productId >= 201 && productId <= 250) {
+            targetPage = 'interior-electronics.html';
+        } else if (productId >= 251 && productId <= 300) {
+            targetPage = 'lighting-electrical.html';
+        } else if (productId >= 301 && productId <= 350) {
+            targetPage = 'accessories.html';
+        }
+        
+        // Redirect with product parameters
+        const redirectUrl = `${targetPage}?product=${productId}${slug ? '&slug=' + slug : ''}`;
+        window.location.href = redirectUrl;
     }
 
     // Add share buttons to product cards
@@ -35,10 +139,10 @@ class ProductSharing {
                 z-index: 10;
             `;
 
-            // Copy link button only
-           /* const copyBtn = this.createShareButton('copy', 'fas fa-link', () => {
+            // Copy link button
+            const copyBtn = this.createShareButton('copy', 'fas fa-link', () => {
                 this.copyProductLink(productId);
-            });*/
+            });
 
             shareContainer.appendChild(copyBtn);
 
@@ -83,8 +187,6 @@ class ProductSharing {
         return button;
     }
 
-
-
     // Copy product link to clipboard
     copyProductLink(productId) {
         const productUrl = this.getProductUrl(productId);
@@ -121,25 +223,34 @@ class ProductSharing {
         document.body.removeChild(textArea);
     }
 
-    // Get product URL
+    // Get product URL with proper format
     getProductUrl(productId) {
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        return `${window.location.origin}${window.location.pathname}?product=${productId}`;
+        const baseUrl = window.location.origin + window.location.pathname;
+        
+        // Create slug from product name if available
+        let slug = '';
+        const product = this.findProductById(productId);
+        if (product && product.name) {
+            slug = this.createSlug(product.name);
+        }
+        
+        // Return URL in format: ?product=ID&slug=SLUG
+        if (slug) {
+            return `${baseUrl}?product=${productId}&slug=${slug}`;
+        } else {
+            return `${baseUrl}?product=${productId}`;
+        }
     }
 
-    // Get product by ID
-    getProductById(productId) {
-        // Check for CategoryProducts first (category pages)
-        if (window.CategoryProducts && window.CategoryProducts.products) {
-            return window.CategoryProducts.products.find(p => p.id == productId);
-        }
-        
-        // Check for homepage product details
-        if (window.productDetails) {
-            return window.productDetails.find(p => p.id == productId);
-        }
-        
-        return null;
+    // Create URL-friendly slug from product name
+    createSlug(text) {
+        return text
+            .toLowerCase()
+            .replace(/[^a-z0-9 -]/g, '') // Remove special characters
+            .replace(/\s+/g, '-') // Replace spaces with hyphens
+            .replace(/-+/g, '-') // Replace multiple hyphens with single
+            .trim();
     }
 
     // Add copy link functionality to product detail modals
@@ -172,7 +283,9 @@ class ProductSharing {
                             newShareContainer.appendChild(copyBtn);
 
                             const modalContent = modal.querySelector('#modalContent');
-                            modalContent.appendChild(newShareContainer);
+                            if (modalContent) {
+                                modalContent.appendChild(newShareContainer);
+                            }
                         }
                     }
                 }, 100);

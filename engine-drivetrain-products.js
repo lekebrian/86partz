@@ -149,14 +149,13 @@ Forged from premium materials and precision-machined for perfect fitment, these 
       const card = document.createElement('div');
       card.className = 'product-card';
       card.setAttribute('data-product-id', product.id);
-      const shareUrl = `${window.location.origin}${window.location.pathname}?product=${product.id}`;
       card.innerHTML = `
         <img src="${product.image}" alt="${product.name}" class="product-image">
         <div class="product-info">
           <h3 class="product-title">${product.name}</h3>
           <div class="product-price">$${product.price}</div>
           <button class="btn btn-small see-details-btn" data-id="${product.id}">See Details</button>
-          <button class="btn btn-social copy-link-btn" data-link="${shareUrl}" style="margin:0.5em 0 0.5em 0;padding:0.3em 0.8em;font-size:0.98em;">
+          <button class="btn btn-social copy-link-btn" data-id="${product.id}" data-name="${product.name}" style="margin:0.5em 0 0.5em 0;padding:0.3em 0.8em;font-size:0.98em;">
             <i class="fas fa-share-alt" style="margin-right:0.4em;"></i>Copy Link
           </button>
         </div>
@@ -168,11 +167,14 @@ Forged from premium materials and precision-machined for perfect fitment, these 
       const copyBtn = card.querySelector('.copy-link-btn');
       if (copyBtn) {
         copyBtn.onclick = function() {
-          const link = copyBtn.getAttribute('data-link');
-          navigator.clipboard.writeText(link).then(() => {
-            copyBtn.textContent = 'Link Copied!';
-            setTimeout(() => { copyBtn.innerHTML = `<i class=\"fas fa-share-alt\" style=\"margin-right:0.4em;\"></i>Copy Link`; }, 1400);
-          });
+          const productId = this.getAttribute('data-id');
+          const productName = this.getAttribute('data-name');
+          if (window.productRouter) {
+            window.productRouter.copyProductLink(productId, productName);
+          }
+          // Visual feedback
+          copyBtn.textContent = 'Link Copied!';
+          setTimeout(() => { copyBtn.innerHTML = `<i class=\"fas fa-share-alt\" style=\"margin-right:0.4em;\"></i>Copy Link`; }, 1400);
         };
       }
     });
@@ -236,9 +238,8 @@ Forged from premium materials and precision-machined for perfect fitment, these 
     const controls = document.createElement('div');
     controls.id = 'productDetailControls';
     controls.style.margin = '1.2em 0 0.7em 0';
-    const shareUrl = `${window.location.origin}${window.location.pathname}?product=${product.id}`;
     controls.innerHTML = `
-      <button class="btn btn-social copy-link-btn-modal" data-link="${shareUrl}" style="margin:0.7em 0 1.1em 0;padding:0.3em 0.8em;font-size:1em;width:100%;"><i class=\"fas fa-share-alt\" style=\"margin-right:0.4em;\"></i>Copy Link to This Product</button>
+      <button class="btn btn-social copy-link-btn-modal" data-id="${product.id}" data-name="${product.name}" style="margin:0.7em 0 1.1em 0;padding:0.3em 0.8em;font-size:1em;width:100%;"><i class=\"fas fa-share-alt\" style=\"margin-right:0.4em;"></i>Copy Link to This Product</button>
       <div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:1.2rem;">
         <button id="qtyDec" style="font-size:1.3rem;width:2.2em;height:2.2em;border-radius:50%;border:1px solid #ddd;background:#fafafa;cursor:pointer;">-</button>
         <span id="qtyVal" style="font-size:1.2rem;min-width:2em;display:inline-block;text-align:center;">1</span>
@@ -254,11 +255,14 @@ Forged from premium materials and precision-machined for perfect fitment, these 
     const copyBtnModal = controls.querySelector('.copy-link-btn-modal');
     if (copyBtnModal) {
       copyBtnModal.onclick = function() {
-        const link = copyBtnModal.getAttribute('data-link');
-        navigator.clipboard.writeText(link).then(() => {
-          copyBtnModal.textContent = 'Link Copied!';
-          setTimeout(() => { copyBtnModal.innerHTML = `<i class=\"fas fa-share-alt\" style=\"margin-right:0.4em;\"></i>Copy Link to This Product`; }, 1400);
-        });
+        const productId = this.getAttribute('data-id');
+        const productName = this.getAttribute('data-name');
+        if (window.productRouter) {
+          window.productRouter.copyProductLink(productId, productName);
+        }
+        // Visual feedback
+        copyBtnModal.textContent = 'Link Copied!';
+        setTimeout(() => { copyBtnModal.innerHTML = `<i class=\"fas fa-share-alt\" style=\"margin-right:0.4em;\"></i>Copy Link to This Product`; }, 1400);
       };
     }
 
