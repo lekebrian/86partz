@@ -1725,14 +1725,29 @@ function showProductDetail(id) {
                 <button class="btn btn-primary btn-small" id="modalAddToCartBtn" style="width:100%;padding:1rem 0;font-size:1.1rem;background:#b80000;color:#fff;border:none;border-radius:8px;display:block;margin-top:0.5rem;">
                     Add to Cart
                 </button>
+                <button class="btn btn-social copy-link-btn-modal" data-id="${product.id}" data-name="${product.title}" style="margin:0.7em 0 1.1em 0;padding:0.3em 0.8em;font-size:1em;width:100%;background:#f0f0f0;color:#222;border:1px solid #ddd;"><i class="fas fa-share-alt" style="margin-right:0.4em;"></i>Copy Link to This Product</button>
             </div>
         `;
         document.body.appendChild(modal);
+    } else {
+        // Update existing modal content
+        modal.querySelector('#modalProductTitle').textContent = product.title;
+        modal.querySelector('#modalProductPrice').textContent = product.price;
+        modal.querySelector('#modalProductDesc').textContent = product.description;
+        
+        // Update copy link button
+        const copyBtn = modal.querySelector('.copy-link-btn-modal');
+        if (copyBtn) {
+            copyBtn.setAttribute('data-id', product.id);
+            copyBtn.setAttribute('data-name', product.title);
+        }
     }
+    
     // Fill modal with product info
     modal.querySelector('#modalProductTitle').textContent = product.title;
     modal.querySelector('#modalProductPrice').textContent = product.price;
     modal.querySelector('#modalProductDesc').textContent = product.description;
+    
     // Images: show all 3 vertically centered with lightbox functionality
     const imgsDiv = modal.querySelector('#modalProductImgs');
     imgsDiv.innerHTML = product.images.map(img =>
@@ -1763,6 +1778,24 @@ function showProductDetail(id) {
             lightbox.onclick = (e) => { if (e.target === lightbox) lightbox.remove(); };
         };
     });
+    
+    // Setup copy link functionality
+    const copyBtn = modal.querySelector('.copy-link-btn-modal');
+    if (copyBtn) {
+        copyBtn.onclick = function() {
+            const productId = this.getAttribute('data-id');
+            const productName = this.getAttribute('data-name');
+            if (window.productRouter) {
+                window.productRouter.copyProductLink(productId, productName);
+            }
+            // Visual feedback
+            this.innerHTML = '<i class="fas fa-check" style="margin-right:0.4em;"></i>Link Copied!';
+            setTimeout(() => { 
+                this.innerHTML = '<i class="fas fa-share-alt" style="margin-right:0.4em;"></i>Copy Link to This Product'; 
+            }, 2000);
+        };
+    }
+    
     // Quantity controls
     let qty = 1;
     const qtyVal = modal.querySelector('#qtyVal');
@@ -1775,6 +1808,7 @@ function showProductDetail(id) {
         qty++;
         qtyVal.textContent = qty;
     };
+    
     // Add to cart
     modal.querySelector('#modalAddToCartBtn').onclick = function() {
         // --- Cart logic: persist to localStorage ---
@@ -1819,12 +1853,14 @@ function showProductDetail(id) {
         document.body.style.overflow = '';
         modal.style.display = 'none';
     };
+    
     // Close modal
     modal.querySelector('#closeProductModal').onclick = function() {
         // Re-enable background scrolling when modal closes
         document.body.style.overflow = '';
         modal.style.display = 'none';
     };
+    
     // Also close modal when clicking outside of it
     modal.onclick = function(e) {
         if (e.target === modal) {
@@ -1832,6 +1868,7 @@ function showProductDetail(id) {
             modal.style.display = 'none';
         }
     };
+    
     modal.style.display = 'flex';
 }
 

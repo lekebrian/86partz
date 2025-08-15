@@ -52,10 +52,29 @@
             border-radius: 5px;
             margin: 10px 0;
         }
+        .warning {
+            background: #ff9800;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .status {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
     </style>
 </head>
 <body>
     <h1>Product Routing System Test</h1>
+    
+    <div class="test-section">
+        <h2>System Status</h2>
+        <div id="systemStatus" class="status">Checking system status...</div>
+    </div>
     
     <div class="test-section">
         <h2>How It Works</h2>
@@ -71,31 +90,36 @@
         <h2>Test Links</h2>
         <p>Click these links to test the routing system:</p>
         
-        <h3>Engine & Drivetrain Products</h3>
+        <h3>General Inventory Products (ID 800+)</h3>
+        <a href="general.html?product=801&slug=hks-gtiii-rs-turbo-pro-kit" class="test-link">Product 801 - HKS Turbo Kit</a>
+        <a href="general.html?product=802&slug=airlift-v3-air-suspension" class="test-link">Product 802 - Airlift V3</a>
+        <a href="general.html?product=803&slug=nine-lives-racing-wing" class="test-link">Product 803 - Nine Lives Wing</a>
+        
+        <h3>Engine & Drivetrain Products (ID 1-50)</h3>
         <a href="engine-drivetrain.html?product=1&slug=subaru-brz-frs-86-fa24-engine" class="test-link">Product 1 - FA24 Engine</a>
         <a href="engine-drivetrain.html?product=2&slug=injen-sp-series-intake" class="test-link">Product 2 - Injen Intake</a>
         
-        <h3>Suspension & Handling Products</h3>
+        <h3>Suspension & Handling Products (ID 51-100)</h3>
         <a href="suspension-handling.html?product=51&slug=mcs-2-way-remote-damper" class="test-link">Product 51 - MCS Damper</a>
         <a href="suspension-handling.html?product=52&slug=air-suspension-kit" class="test-link">Product 52 - Air Suspension</a>
         
-        <h3>Brakes & Wheels Products</h3>
+        <h3>Brakes & Wheels Products (ID 101-150)</h3>
         <a href="brakes-wheels.html?product=101&slug=gram-lights-57dr-wheels" class="test-link">Product 101 - Gram Lights</a>
         <a href="brakes-wheels.html?product=102&slug=brembo-gts-brake-kit" class="test-link">Product 102 - Brembo Kit</a>
         
-        <h3>Exterior & Aerodynamics Products</h3>
+        <h3>Exterior & Aerodynamics Products (ID 151-200)</h3>
         <a href="exterior-aerodynamics.html?product=151&slug=verus-aero-package" class="test-link">Product 151 - Verus Aero</a>
         <a href="exterior-aerodynamics.html?product=152&slug=alfa-style-bumper" class="test-link">Product 152 - Alfa Bumper</a>
         
-        <h3>Interior & Electronics Products</h3>
+        <h3>Interior & Electronics Products (ID 201-250)</h3>
         <a href="interior-electronics.html?product=201&slug=recaro-sr6-seats" class="test-link">Product 201 - RECARO Seats</a>
         <a href="interior-electronics.html?product=202&slug=greddy-steering-wheel" class="test-link">Product 202 - Greddy Wheel</a>
         
-        <h3>Lighting & Electrical Products</h3>
+        <h3>Lighting & Electrical Products (ID 251-300)</h3>
         <a href="lighting-electrical.html?product=251&slug=vland-led-headlights" class="test-link">Product 251 - VLAND Headlights</a>
         <a href="lighting-electrical.html?product=252&slug=hrs-tail-lights" class="test-link">Product 252 - HRS Tail Lights</a>
         
-        <h3>Accessories Products</h3>
+        <h3>Accessories Products (ID 301-350)</h3>
         <a href="accessories.html?product=301&slug=trd-fender-garnishes" class="test-link">Product 301 - TRD Garnishes</a>
         <a href="accessories.html?product=302&slug=apr-gt3-mirrors" class="test-link">Product 302 - APR Mirrors</a>
     </div>
@@ -139,9 +163,21 @@
         </ul>
     </div>
 
+    <div class="warning">
+        <h3>⚠️ Testing Notes</h3>
+        <p>When testing:</p>
+        <ul>
+            <li>Open browser console to see routing logs</li>
+            <li>Check that products are highlighted when accessed via links</li>
+            <li>Verify that redirects work correctly between pages</li>
+            <li>Test copy link functionality on actual product pages</li>
+        </ul>
+    </div>
+
     <div class="test-section">
         <h2>Back to Main Site</h2>
         <a href="index.html" class="test-link">Go to Homepage</a>
+        <a href="general.html" class="test-link">General Inventory</a>
         <a href="engine-drivetrain.html" class="test-link">Engine & Drivetrain</a>
         <a href="suspension-handling.html" class="test-link">Suspension & Handling</a>
     </div>
@@ -152,11 +188,31 @@
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Product Routing Test Page Loaded');
             
+            const statusDiv = document.getElementById('systemStatus');
+            
             // Check if product router is available
             if (window.productRouter) {
                 console.log('✅ Product Router is working');
+                statusDiv.innerHTML = '✅ Product Router: <strong>WORKING</strong><br>';
+                
+                // Check global registry
+                if (window.globalProductRegistry) {
+                    const productCount = Object.keys(window.globalProductRegistry).length;
+                    statusDiv.innerHTML += `✅ Global Registry: <strong>${productCount} products registered</strong><br>`;
+                    console.log(`Global Registry has ${productCount} products`);
+                } else {
+                    statusDiv.innerHTML += '❌ Global Registry: <strong>NOT FOUND</strong><br>';
+                    console.log('❌ Global Registry not found');
+                }
+                
+                // Check current page category
+                const currentCategory = window.productRouter.getCurrentPageCategory();
+                statusDiv.innerHTML += `✅ Current Page Category: <strong>${currentCategory}</strong><br>`;
+                console.log(`Current page category: ${currentCategory}`);
+                
             } else {
                 console.log('❌ Product Router not found');
+                statusDiv.innerHTML = '❌ Product Router: <strong>NOT FOUND</strong><br>';
             }
             
             // Test URL parameter handling
@@ -164,7 +220,14 @@
             const productId = urlParams.get('product');
             if (productId) {
                 console.log(`Testing product ID: ${productId}`);
+                statusDiv.innerHTML += `🔍 Testing Product ID: <strong>${productId}</strong><br>`;
             }
+            
+            // Show routing system info
+            statusDiv.innerHTML += '<br><strong>Routing System Status:</strong><br>';
+            statusDiv.innerHTML += '• Product Router: ' + (window.productRouter ? '✅' : '❌') + '<br>';
+            statusDiv.innerHTML += '• Global Registry: ' + (window.globalProductRegistry ? '✅' : '❌') + '<br>';
+            statusDiv.innerHTML += '• Current Category: ' + (window.productRouter ? window.productRouter.getCurrentPageCategory() : 'N/A') + '<br>';
         });
     </script>
 </body>

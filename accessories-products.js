@@ -396,9 +396,8 @@ This kit offers a seamless K-swap solution, making installation straightforward 
           conf.innerHTML = '<i class="fas fa-link" style="color:#b80000;margin-right:0.6em;"></i> Product link copied!';
           conf.style.display = 'block';
           setTimeout(() => { conf.style.display = 'none'; }, 1800);
-        });
-      };
-    }
+        };
+      }
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     // Modal quantity logic

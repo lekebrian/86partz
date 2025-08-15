@@ -118,10 +118,20 @@ No clear coat damage`
   currentPage: 1,
   renderProducts: function(page) {
     const grid = document.getElementById('categoryProducts');
-    if (!grid) return;
+    if (!grid) {
+      console.error('Category products grid not found!');
+      return;
+    }
+    
+    console.log(`Rendering products for page ${page}`);
+    console.log(`Total products: ${this.products.length}`);
+    
     const start = (page - 1) * this.productsPerPage;
     const end = start + this.productsPerPage;
     const productsToShow = this.products.slice(start, end);
+    
+    console.log(`Showing products ${start} to ${end}:`, productsToShow);
+    
     grid.innerHTML = '';
     productsToShow.forEach((product, idx) => {
       const card = document.createElement('div');
@@ -134,7 +144,7 @@ No clear coat damage`
           <div class="product-price">$${product.price}</div>
           <div style="display:flex;gap:0.5em;align-items:center;margin-bottom:0.5em;">
             <button class="btn btn-small see-details-btn" data-id="${product.id}">See Details</button>
-            <button class="btn btn-small copy-link-btn" data-id="${product.id}"><i class="fas fa-link"></i> Copy Link</button>
+            <button class="btn btn-small copy-link-btn" data-id="${product.id}" data-name="${product.name}"><i class="fas fa-share-alt" style="margin-right:0.4em;"></i>Copy Link</button>
           </div>
           <div class="product-card-controls">
             <button class="quantity-btn" data-action="dec">-</button>
@@ -165,34 +175,15 @@ No clear coat damage`
       card.querySelector('.copy-link-btn').onclick = function(e) {
         e.preventDefault();
         const productId = this.getAttribute('data-id');
-        const product = productsToShow[idx];
-        if (window.productRouter && product) {
-          window.productRouter.copyProductLink(productId, product.name);
+        const productName = this.getAttribute('data-name');
+        if (window.productRouter) {
+          window.productRouter.copyProductLink(productId, productName);
         }
-        // Show confirmation message
-        let conf = document.getElementById('copyLinkConfirmMsg');
-        if (!conf) {
-          conf = document.createElement('div');
-          conf.id = 'copyLinkConfirmMsg';
-          conf.style.position = 'fixed';
-          conf.style.top = '24px';
-          conf.style.left = '50%';
-          conf.style.transform = 'translateX(-50%)';
-          conf.style.background = '#fff';
-          conf.style.color = '#222';
-          conf.style.border = '1.5px solid #b80000';
-          conf.style.borderRadius = '8px';
-          conf.style.boxShadow = '0 4px 24px rgba(0,0,0,0.13)';
-          conf.style.padding = '1.1em 2.2em';
-          conf.style.fontSize = '1.08rem';
-          conf.style.fontWeight = '600';
-          conf.style.zIndex = '10000';
-          conf.style.display = 'none';
-          document.body.appendChild(conf);
-        }
-        conf.innerHTML = '<i class="fas fa-link" style="color:#b80000;margin-right:0.6em;"></i> Product link copied!';
-        conf.style.display = 'block';
-        setTimeout(() => { conf.style.display = 'none'; }, 1800);
+        // Visual feedback
+        this.innerHTML = '<i class="fas fa-check" style="margin-right:0.4em;"></i>Link Copied!';
+        setTimeout(() => { 
+          this.innerHTML = '<i class="fas fa-share-alt" style="margin-right:0.4em;"></i>Copy Link'; 
+        }, 2000);
       };
     });
   },
@@ -329,9 +320,8 @@ No clear coat damage`
           conf.innerHTML = '<i class="fas fa-link" style="color:#b80000;margin-right:0.6em;"></i> Product link copied!';
           conf.style.display = 'block';
           setTimeout(() => { conf.style.display = 'none'; }, 1800);
-        });
-      };
-    }
+        };
+      }
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     // Modal quantity logic
@@ -370,7 +360,11 @@ No clear coat damage`
 };
 
 document.addEventListener('DOMContentLoaded', function() {
+  console.log('Exterior Aero Products JS loaded');
+  console.log('Products count:', window.CategoryProducts.products.length);
+  
   if (document.getElementById('categoryProducts')) {
+    console.log('Category products container found, rendering products...');
     window.CategoryProducts.renderProducts(1);
     window.CategoryProducts.setupPagination();
     window.CategoryProducts.setupDetailsModal();
@@ -385,5 +379,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.CategoryProducts.showProductDetail(prodId);
       }, 200);
     }
+  } else {
+    console.error('Category products container not found!');
   }
 });

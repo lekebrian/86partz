@@ -89,6 +89,27 @@ class ProductRouter {
                 this.registerProduct(product, 'general');
             });
         }
+        
+        // Category products (used by general.html and other category pages)
+        if (window.CategoryProducts && window.CategoryProducts.products) {
+            window.CategoryProducts.products.forEach(product => {
+                // Determine category based on product ID ranges
+                let category = 'general';
+                if (product.id >= 1 && product.id <= 50) category = 'engine-drivetrain';
+                else if (product.id >= 51 && product.id <= 100) category = 'suspension-handling';
+                else if (product.id >= 101 && product.id <= 150) category = 'brakes-wheels';
+                else if (product.id >= 151 && product.id <= 200) category = 'exterior-aerodynamics';
+                else if (product.id >= 201 && product.id <= 250) category = 'interior-electronics';
+                else if (product.id >= 251 && product.id <= 300) category = 'lighting-electrical';
+                else if (product.id >= 301 && product.id <= 350) category = 'accessories';
+                else if (product.id >= 501 && product.id <= 550) category = 'exterior-aerodynamics';
+                else if (product.id >= 551 && product.id <= 600) category = 'interior-electronics';
+                else if (product.id >= 601 && product.id <= 650) category = 'accessories';
+                else if (product.id >= 801 && product.id <= 900) category = 'general';
+                
+                this.registerProduct(product, category);
+            });
+        }
     }
 
     // Register a product in the global registry
@@ -120,15 +141,20 @@ class ProductRouter {
         const product = this.findProductById(productId);
         
         if (product) {
-            if (product.category === this.getCurrentPageCategory()) {
+            const currentCategory = this.getCurrentPageCategory();
+            console.log(`Product ${productId} found in category: ${product.category}, current page: ${currentCategory}`);
+            
+            if (product.category === currentCategory) {
                 // Product is on current page - highlight it
                 this.highlightProductOnCurrentPage(productId);
             } else {
                 // Product is on different page - redirect
+                console.log(`Redirecting from ${currentCategory} to ${product.category}`);
                 this.redirectToProductPage(productId, slug, product.category);
             }
         } else {
             // Product not found - show error or redirect to search
+            console.warn(`Product ${productId} not found in global registry`);
             this.handleProductNotFound(productId);
         }
     }
@@ -195,8 +221,17 @@ class ProductRouter {
         
         targetPage = categoryPages[category] || targetPage;
         
+        // Prevent redirect loops by checking if we're already on the target page
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        if (currentPage === targetPage) {
+            console.log(`Already on target page ${targetPage}, highlighting product instead`);
+            this.highlightProductOnCurrentPage(productId);
+            return;
+        }
+        
         // Redirect with product parameters
         const redirectUrl = `${targetPage}?product=${productId}${slug ? '&slug=' + slug : ''}`;
+        console.log(`Redirecting to: ${redirectUrl}`);
         window.location.href = redirectUrl;
     }
 

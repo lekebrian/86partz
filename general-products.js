@@ -361,14 +361,14 @@ Once in place, you'll immediately notice the full LED upgrade, providing brighte
       // Remove .html from pathname for pretty URLs
       let basePath = window.location.pathname.replace(/\.html$/, '');
       if (basePath === '/' || basePath === '') basePath = '/general';
-      const shareUrl = `${window.location.origin}${basePath}?product=${product.id}&slug=${slug}`;
+
       card.innerHTML = `
         <img src="${product.image}" alt="${product.name}" class="product-image">
         <div class="product-info">
           <h3 class="product-title">${product.name}</h3>
           <div class="product-price">$${product.price}</div>
           <button class="btn btn-small see-details-btn" data-id="${product.id}">See Details</button>
-          <button class="btn btn-social copy-link-btn" data-link="${shareUrl}" style="margin:0.5em 0 0.5em 0;padding:0.3em 0.8em;font-size:0.98em;">
+          <button class="btn btn-social copy-link-btn" data-id="${product.id}" data-name="${product.name}" style="margin:0.5em 0 0.5em 0;padding:0.3em 0.8em;font-size:0.98em;">
             <i class="fas fa-share-alt" style="margin-right:0.4em;"></i>Copy Link
           </button>
           <div class="product-card-controls">
@@ -400,11 +400,14 @@ Once in place, you'll immediately notice the full LED upgrade, providing brighte
       const copyBtn = card.querySelector('.copy-link-btn');
       if (copyBtn) {
         copyBtn.onclick = function() {
-          const link = copyBtn.getAttribute('data-link');
-          navigator.clipboard.writeText(link).then(() => {
-            copyBtn.textContent = 'Link Copied!';
-            setTimeout(() => { copyBtn.innerHTML = `<i class=\"fas fa-share-alt\" style=\"margin-right:0.4em;\"></i>Copy Link`; }, 1400);
-          });
+          const productId = this.getAttribute('data-id');
+          const productName = this.getAttribute('data-name');
+          if (window.productRouter) {
+            window.productRouter.copyProductLink(productId, productName);
+          }
+          // Visual feedback
+          copyBtn.textContent = 'Link Copied!';
+          setTimeout(() => { copyBtn.innerHTML = `<i class=\"fas fa-share-alt\" style=\"margin-right:0.4em;\"></i>Copy Link`; }, 1400);
         };
       }
     });
@@ -503,7 +506,7 @@ Once in place, you'll immediately notice the full LED upgrade, providing brighte
     // Remove .html from pathname for pretty URLs
     let basePath = window.location.pathname.replace(/\.html$/, '');
     if (basePath === '/' || basePath === '') basePath = '/general';
-    const shareUrl = `${window.location.origin}${basePath}?product=${product.id}&slug=${slug}`;
+    
     modal.innerHTML = `
       <div class="product-detail-content">
           <button class="close-detail" onclick="window.CategoryProducts.hideProductDetail()">&times;</button>
@@ -517,7 +520,7 @@ Once in place, you'll immediately notice the full LED upgrade, providing brighte
               <div class="product-info">
                   <div class="product-price">$${product.price.toFixed(2)}</div>
                   <div class="product-description">${product.description}</div>
-                  <button class="btn btn-social copy-link-btn-modal" data-link="${shareUrl}" style="margin:0.7em 0 1.1em 0;padding:0.3em 0.8em;font-size:1em;width:100%;"><i class="fas fa-share-alt" style="margin-right:0.4em;"></i>Copy Link to This Product</button>
+                  <button class="btn btn-social copy-link-btn-modal" data-id="${product.id}" data-name="${product.name}" style="margin:0.7em 0 1.1em 0;padding:0.3em 0.8em;font-size:1em;width:100%;"><i class="fas fa-share-alt" style="margin-right:0.4em;"></i>Copy Link to This Product</button>
                   <div class="quantity-controls" style="display:flex;align-items:center;gap:0.7rem;margin-bottom:1.2rem;">
                       <button class="quantity-btn" id="qtyDecModal">-</button>
                       <input type="number" value="1" min="1" class="quantity-input" id="qtyValModal" style="width:2.2em;">
@@ -549,11 +552,14 @@ Once in place, you'll immediately notice the full LED upgrade, providing brighte
     const copyBtnModal = modal.querySelector('.copy-link-btn-modal');
     if (copyBtnModal) {
       copyBtnModal.onclick = function() {
-        const link = copyBtnModal.getAttribute('data-link');
-        navigator.clipboard.writeText(link).then(() => {
-          copyBtnModal.textContent = 'Link Copied!';
-          setTimeout(() => { copyBtnModal.innerHTML = `<i class=\"fas fa-share-alt\" style=\"margin-right:0.4em;\"></i>Copy Link to This Product`; }, 1400);
-        });
+        const productId = this.getAttribute('data-id');
+        const productName = this.getAttribute('data-name');
+        if (window.productRouter) {
+          window.productRouter.copyProductLink(productId, productName);
+        }
+        // Visual feedback
+        copyBtnModal.textContent = 'Link Copied!';
+        setTimeout(() => { copyBtnModal.innerHTML = `<i class=\"fas fa-share-alt\" style=\"margin-right:0.4em;\"></i>Copy Link to This Product`; }, 1400);
       };
     }
     // Lightbox logic
