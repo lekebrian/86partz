@@ -11,10 +11,10 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-   Smartsupp Live Chat script (keep this) 
+   <!-- Smartsupp Live Chat script -->
   <script type="text/javascript">
     var _smartsupp = _smartsupp || {};
-    _smartsupp.key = '72e8fbb11ca753483edfd639bdaa7790bfe5ff1b';
+    _smartsupp.key = '80d6418a3edc2522ab8492740e0780e8f05f1e13';
     window.smartsupp||(function(d) {
       var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
       s=d.getElementsByTagName('script')[0];c=d.createElement('script');
@@ -22,6 +22,12 @@
       c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
     })(document);
   </script>
+  <style>
+    /* Ensure Smartsupp chat widget is visible above page content, below modals */
+    #chat-application, [id^="smartsupp"], .smartsupp-bubble-iframe-container, iframe[src*="smartsuppchat"] {
+      z-index: 9990 !important;
+    }
+  </style>
   <!-- Favicon -->
 <link rel="icon" href="/logo.jpg" type="image/jpeg">
 
@@ -343,7 +349,7 @@
                   <option value="Apple Pay">Apple Pay</option>
                   <option value="Zelle">Zelle</option>
                   <option value="Cashapp">Cashapp</option>
-                  <option value="Paypal">Paypal</option>
+                  <option value="Chime">Chime</option>
                   <option value="Other">Other</option>
                 </select>
               </div>
@@ -486,6 +492,9 @@
    Your existing scripts 
   <script src="cart.js"></script>
   <script src="script.js"></script>
+  <!-- EmailJS for order emails to orders@86partz.com -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="emailjs-config.js"></script>
 
    Existing inline script that renders cart 
   <script>
@@ -603,53 +612,49 @@
     }
 
     function openPrintWindow(invoiceHTML) {
-      var w = window.open('', '_blank');
-      if (!w) {
-        alert('Popup blocked. Please allow popups for printing.');
-        return;
+      var iframe = document.createElement('iframe');
+      iframe.setAttribute('style', 'position:absolute;width:0;height:0;border:0;left:-9999px;top:0;');
+      document.body.appendChild(iframe);
+      var doc = iframe.contentWindow.document;
+      doc.open();
+      doc.write(
+        '<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">' +
+        '<title>Invoice - GT86Partz</title><style>' +
+        'html, body { margin: 0; padding: 0; font-family: Inter, Arial, sans-serif; color: #0a0f1a; }' +
+        '.wrap { padding: 24px; max-width: 900px; margin: 0 auto; }' +
+        '.muted { color: #6b7280; }.hdr { display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #e9eef7; padding-bottom:12px; margin-bottom:16px; }' +
+        '.brand { display:flex; align-items:center; gap:12px; }.brand img { height: 44px; width: 44px; border-radius: 6px; border: 1px solid #e9eef7; object-fit: cover; }' +
+        '.brand .t { font-weight: 800; font-size: 18px; }.meta { text-align: right; font-size: 12px; }' +
+        '.grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin: 16px 0; }' +
+        '@media (max-width:640px){ .grid { grid-template-columns:1fr; } }' +
+        '.panel { border:1px solid #e9eef7; border-radius:10px; padding: 12px; }.panel h4 { margin:0 0 8px; font-size:12px; text-transform:uppercase; color:#475569; letter-spacing: 0.02em; }' +
+        'table { width:100%; border-collapse: collapse; margin-top: 10px; }' +
+        'thead th { text-align:left; font-size:12px; text-transform:uppercase; color:#475569; background:#f8fafc; border-bottom:1px solid #e9eef7; padding:10px 12px; }' +
+        'tbody td { padding: 10px 12px; border-bottom:1px solid #eef2f7; font-size:14px; }.right { text-align: right; }' +
+        '.totals { width: 100%; margin-top: 10px; }.totals .row { display:flex; justify-content: flex-end; gap: 24px; margin-top: 6px; }' +
+        '.totals .label { color:#475569; font-weight:600; }.totals .value { min-width: 140px; text-align: right; font-weight:700; }' +
+        '.notes { border:1px dashed #dee6f2; border-radius:10px; padding:10px; background:#f9fbff; margin-top: 10px; font-size: 13px; }' +
+        '@media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }</style></head><body><div class="wrap">' +
+        invoiceHTML +
+        '</div></body></html>'
+      );
+      doc.close();
+      var printed = false;
+      function doPrint() {
+        if (printed) return;
+        printed = true;
+        try {
+          iframe.contentWindow.focus();
+          iframe.contentWindow.print();
+        } catch (e) {}
+        setTimeout(function() { if (iframe.parentNode) document.body.removeChild(iframe); }, 800);
       }
-      w.document.open();
-      w.document.write(`
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <title>Invoice - GT86Partz</title>
-          <style>
-            html, body { margin: 0; padding: 0; font-family: Inter, Arial, sans-serif; color: #0a0f1a; }
-            .wrap { padding: 24px; max-width: 900px; margin: 0 auto; }
-            .muted { color: #6b7280; }
-            .hdr { display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #e9eef7; padding-bottom:12px; margin-bottom:16px; }
-            .brand { display:flex; align-items:center; gap:12px; }
-            .brand img { height: 44px; width: 44px; border-radius: 6px; border: 1px solid #e9eef7; object-fit: cover; }
-            .brand .t { font-weight: 800; font-size: 18px; }
-            .meta { text-align: right; font-size: 12px; }
-            .grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin: 16px 0; }
-            @media (max-width:640px){ .grid { grid-template-columns:1fr; } }
-            .panel { border:1px solid #e9eef7; border-radius:10px; padding: 12px; }
-            .panel h4 { margin:0 0 8px; font-size:12px; text-transform:uppercase; color:#475569; letter-spacing: 0.02em; }
-            table { width:100%; border-collapse: collapse; margin-top: 10px; }
-            thead th { text-align:left; font-size:12px; text-transform:uppercase; color:#475569; background:#f8fafc; border-bottom:1px solid #e9eef7; padding:10px 12px; }
-            tbody td { padding: 10px 12px; border-bottom:1px solid #eef2f7; font-size:14px; }
-            .right { text-align: right; }
-            .totals { width: 100%; margin-top: 10px; }
-            .totals .row { display:flex; justify-content: flex-end; gap: 24px; margin-top: 6px; }
-            .totals .label { color:#475569; font-weight:600; }
-            .totals .value { min-width: 140px; text-align: right; font-weight:700; }
-            .notes { border:1px dashed #dee6f2; border-radius:10px; padding:10px; background:#f9fbff; margin-top: 10px; font-size: 13px; }
-            @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
-          </style>
-        </head>
-        <body>
-          <div class="wrap">
-            ${invoiceHTML}
-          </div>
-          <script>window.onload = function(){ setTimeout(function(){ window.print(); }, 200); }<\/script>
-        </body>
-        </html>
-      `);
-      w.document.close();
+      if (iframe.contentWindow.document.readyState === 'complete') {
+        doPrint();
+      } else {
+        iframe.contentWindow.onload = doPrint;
+        setTimeout(doPrint, 400);
+      }
     }
 
     function openInvoiceModal() {
@@ -798,57 +803,83 @@
       openInvoiceModal();
     }
 
-    // Robust sender to Smartsupp after invoice is shown
-    function sendOrderToSmartsupp(order) {
-      // Build summary first
+    // --- EmailJS: send order to orders@86partz.com ---
+    // Sanitize so values never break Handlebars ("corrupted dynamic variables").
+    // Strip curly braces and backslash; collapse whitespace; cap length for large fields.
+    function sanitizeEmailJSParam(val, maxLen) {
+      if (val == null || val === undefined) return '';
+      var s = String(val);
+      s = s.replace(/\\/g, ' ').replace(/\{/g, ' ').replace(/\}/g, ' ').replace(/\s+/g, ' ').trim();
+      if (maxLen && s.length > maxLen) s = s.substring(0, maxLen);
+      return s;
+    }
+    function sendOrderToEmailJS(order) {
+      var config = window.EMAILJS_ORDER_CONFIG;
+      if (!config || !config.templateId || config.templateId === 'YOUR_TEMPLATE_ID' || !config.publicKey || config.publicKey === 'YOUR_PUBLIC_KEY') {
+        console.warn('EmailJS order email skipped: set templateId and publicKey in emailjs-config.js');
+        return;
+      }
+      var itemsList = order.items.map(function(it) {
+        var title = (it.title != null && it.title !== '') ? String(it.title) : 'Item';
+        var qty = it.qty != null ? Number(it.qty) : 1;
+        var up = it.unitPrice != null ? Number(it.unitPrice) : 0;
+        var st = it.subtotal != null ? Number(it.subtotal) : (up * qty);
+        return title + ' x' + qty + ' @ $' + up.toFixed(2) + ' = $' + st.toFixed(2);
+      }).join(' | ');
+      var templateParams = {
+        to_email: sanitizeEmailJSParam((config.toEmail && config.toEmail !== '') ? config.toEmail : 'orders@86partz.com'),
+        from_email: sanitizeEmailJSParam((config.fromEmail && config.fromEmail !== '') ? config.fromEmail : 'orders@86partz.com'),
+        from_name: sanitizeEmailJSParam((config.fromName && config.fromName !== '') ? config.fromName : '86Partz Orders'),
+        reply_to: sanitizeEmailJSParam(order.customer.email),
+        order_id: sanitizeEmailJSParam(order.id),
+        order_date: sanitizeEmailJSParam(order.date),
+        customer_name: sanitizeEmailJSParam(order.customer.name),
+        customer_email: sanitizeEmailJSParam(order.customer.email),
+        customer_phone: sanitizeEmailJSParam(order.customer.phone),
+        customer_address: sanitizeEmailJSParam(order.customer.address),
+        special_instructions: sanitizeEmailJSParam(order.notes),
+        payment_method: sanitizeEmailJSParam(order.paymentMethod),
+        items_list: sanitizeEmailJSParam(itemsList, 30000),
+        subtotal: sanitizeEmailJSParam('$' + (order.subtotal != null ? Number(order.subtotal).toFixed(2) : '0.00')),
+        total: sanitizeEmailJSParam('$' + (order.total != null ? Number(order.total).toFixed(2) : '0.00'))
+      };
+      if (typeof emailjs === 'undefined') {
+        console.warn('EmailJS not loaded');
+        return;
+      }
+      emailjs.init(config.publicKey);
+      emailjs.send(config.serviceId, config.templateId, templateParams)
+        .then(function() { console.log('Order email sent to orders@86partz.com'); })
+        .catch(function(err) { console.warn('Order email failed:', err); });
+    }
+
+    // Open Smartsupp with order pre-filled (chat:show → chat:open → chat:message)
+    function openSmartsuppWithOrder(order) {
       var summaryText = buildOrderSummaryText(order);
-
-      // Helper to attempt multiple commands
-      function trySend() {
+      function openAndPrefillSmartsuppChat() {
         try {
-          if (typeof window.smartsupp !== 'function') return false;
-
-          // Identify the visitor
+          if (typeof window.smartsupp !== 'function') return;
           smartsupp('name', order.customer.name || '');
           smartsupp('email', order.customer.email || '');
           smartsupp('phone', order.customer.phone || '');
-
-          // Open chat so team sees it immediately
+          smartsupp('chat:show');
           smartsupp('chat:open');
-
-          // Attach variables (best-effort)
-          try {
-            smartsupp('variables', {
-              order: {
-                id: order.id,
-                total: order.total,
-                itemsCount: order.items.length,
-                paymentMethod: order.paymentMethod
-              }
-            });
-          } catch (e) {}
-
-          // Try known commands to send a message (one of these should work depending on plan/widget version)
-          let sent = false;
-          try { smartsupp('message', summaryText); sent = true; } catch(e){}
-          try { smartsupp('chat:send', summaryText); sent = true; } catch(e){}
-
-          return sent;
+          smartsupp('chat:message', summaryText);
         } catch (err) {
-          console.warn('Smartsupp send error:', err);
-          return false;
+          console.warn('Smartsupp chat open/prefill error:', err);
         }
       }
-
-      // Calls are queued by loader, but we also retry a few times to be safe
-      let attempts = 0;
-      const maxAttempts = 6; // ~3s total
-      const interval = setInterval(function() {
-        attempts++;
-        if (trySend() || attempts >= maxAttempts) {
-          clearInterval(interval);
-        }
-      }, 500);
+      openAndPrefillSmartsuppChat();
+      setTimeout(openAndPrefillSmartsuppChat, 500);
+      setTimeout(openAndPrefillSmartsuppChat, 1500);
+      setTimeout(openAndPrefillSmartsuppChat, 3000);
+      [800, 1600, 2400].forEach(function(ms) {
+        setTimeout(function() {
+          try {
+            if (typeof window.smartsupp === 'function') smartsupp('chat:message', summaryText);
+          } catch (e) {}
+        }, ms);
+      });
     }
 
     // Prevent scroll-through on iOS by consuming touchmove on overlay
@@ -921,14 +952,10 @@
           total: total
         };
 
-        // 1) Render & display invoice to customer
-        renderInvoiceIntoModal(order);
+        // 1) Send order email first
+        sendOrderToEmailJS(order);
 
-        // 2) After invoice is shown, notify Smartsupp
-        // slight delay to ensure modal is visible first
-        setTimeout(function() { sendOrderToSmartsupp(order); }, 200);
-
-        // 3) Clear cart and update UI
+        // 2) Clear cart and update UI immediately
         localStorage.setItem('cart', JSON.stringify([]));
         var cartCountEl = document.querySelector('.cart-count');
         if (cartCountEl) cartCountEl.textContent = '0';
@@ -938,6 +965,10 @@
         if (cartItemsDiv) cartItemsDiv.innerHTML = '';
         if (cartTotalDiv) cartTotalDiv.style.display = 'none';
         if (emptyCartDiv) emptyCartDiv.style.display = 'block';
+
+        // 3) Show invoice immediately and open live chat with order pre-filled
+        renderInvoiceIntoModal(order);
+        openSmartsuppWithOrder(order);
 
       } catch (error) {
         console.error('Place order error:', error);

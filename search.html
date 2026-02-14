@@ -17,17 +17,61 @@
                 </div>
                 <ul class="nav-menu">
                     <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="engine-drivetrain.html" class="nav-link">Engine & Drivetrain</a></li>
-                    <li class="nav-item"><a href="suspension-handling.html" class="nav-link">Suspension & Handling</a></li>
-                    <li class="nav-item"><a href="brakes-wheels.html" class="nav-link">Brakes & Wheels</a></li>
-                    <li class="nav-item"><a href="exterior-aerodynamics.html" class="nav-link">Exterior & Aerodynamics</a></li>
-                    <li class="nav-item"><a href="interior-electronics.html" class="nav-link">Interior & Electronics</a></li>
-                    <li class="nav-item"><a href="lighting-electrical.html" class="nav-link">Lighting & Electrical</a></li>
-                    <li class="nav-item"><a href="accessories.html" class="nav-link">Accessories</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Parts <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="engine-drivetrain.html">Engine & Drivetrain</a>
+                            <a href="suspension-handling.html">Suspension & Handling</a>
+                            <a href="brakes-wheels.html">Brakes & Wheels</a>
+                            <a href="exterior-aerodynamics.html">Exterior & Aerodynamics</a>
+                            <a href="interior-electronics.html">Interior & Electronics</a>
+                            <a href="lighting-electrical.html">Lighting & Electrical</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Accessories <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="accessories.html">Interior & Exterior Accessories</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="reviews.html" class="nav-link">Reviews</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
                 </ul>
+                <div class="nav-actions">
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="hamburger" id="hamburger" aria-label="Menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
             </div>
         </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <a href="index.html" class="mobile-link">Home</a>
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-btn">Parts <i class="fas fa-chevron-down"></i></button>
+                    <div class="mobile-dropdown-content">
+                        <a href="engine-drivetrain.html">Engine & Drivetrain</a>
+                        <a href="suspension-handling.html">Suspension & Handling</a>
+                        <a href="brakes-wheels.html">Brakes & Wheels</a>
+                        <a href="exterior-aerodynamics.html">Exterior & Aerodynamics</a>
+                        <a href="interior-electronics.html">Interior & Electronics</a>
+                        <a href="lighting-electrical.html">Lighting & Electrical</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-btn">Accessories <i class="fas fa-chevron-down"></i></button>
+                    <div class="mobile-dropdown-content">
+                        <a href="accessories.html">Interior & Exterior Accessories</a>
+                    </div>
+                </div>
+                <a href="reviews.html" class="mobile-link">Reviews</a>
+                <a href="contact.html" class="mobile-link">Contact Us</a>
+            </div>
+        </div>
     </header>
     <main style="margin-top:100px;min-height:60vh;">
         <div class="container">
@@ -38,5 +82,16 @@
     <div id="searchProductDetailModal"></div>
     <script src="search-data.js"></script>
     <script src="search-results.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        var total = cart.reduce(function(s, i) { return s + (Number(i.qty) || 0); }, 0);
+        var el = document.querySelector('.cart-count');
+        if (el) el.textContent = total;
+        var h = document.getElementById('hamburger');
+        var m = document.getElementById('mobileMenu');
+        if (h && m) h.addEventListener('click', function() { m.classList.toggle('active'); });
+      });
+    </script>
 </body>
 </html>

@@ -1065,4 +1065,20 @@
     text-align: center;
     background-color: #f8f9fa;
   }
-  
+
+  /* Smartsupp live chat widget: keep visible above content, below modals */
+  #chat-application,
+  [id^="smartsupp"],
+  [id*="chat-"],
+  .smartsupp-bubble-iframe-container,
+  .smartsupp-widget,
+  [class*="smartsupp"],
+  iframe[src*="smartsuppchat"] {
+    z-index: 9990 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  body > div[style*="position: fixed"][style*="bottom"] iframe[src*="smartsupp"],
+  body > div[style*="position:fixed"][style*="bottom"] iframe[src*="smartsupp"] {
+    z-index: 9990 !important;
+  }

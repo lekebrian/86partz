@@ -193,20 +193,19 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     }
     if (!searchInput || !searchBtn) return;
-    // Only trigger search on click of the search icon/button
-    searchBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const q = searchInput.value.trim();
-        if (q.length < 2) return;
-        window.location.href = 'search.html?q=' + encodeURIComponent(q);
-    });
-    // Prevent page refresh on submit
-    if (searchInput.form) {
-        searchInput.form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const q = searchInput.value.trim();
-            if (q.length < 2) return;
-            window.location.href = 'search.html?q=' + encodeURIComponent(q);
-        });
+    var form = searchInput.form;
+    var goToSearch = function(e) {
+        var q = (searchInput.value || '').trim();
+        if (q.length < 2) {
+            if (e) e.preventDefault();
+            return;
+        }
+        if (e) e.preventDefault();
+        var url = 'search.html?q=' + encodeURIComponent(q);
+        window.location.href = url;
+    };
+    searchBtn.addEventListener('click', goToSearch);
+    if (form) {
+        form.addEventListener('submit', goToSearch);
     }
 });

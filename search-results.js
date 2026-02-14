@@ -2,9 +2,9 @@
 
 // Helper: Get all products from SEARCH_INDEX (search-data.js)
 function getAllProducts() {
-    if (window.SEARCH_INDEX && Array.isArray(window.SEARCH_INDEX)) {
-        return window.SEARCH_INDEX;
-    }
+    var idx = window.SEARCH_INDEX;
+    if (idx && Array.isArray(idx) && idx.length > 0) return idx;
+    if (idx && typeof idx.length === 'number' && idx.length > 0) return Array.prototype.slice.call(idx);
     return [];
 }
 
@@ -22,35 +22,27 @@ function matchesYear(str, year) {
     return false;
 }
 
-// Main search function
+// Main search function (same logic as search-logic.js: match name, description, year)
 function searchProducts(query) {
     const allProducts = getAllProducts();
-    console.log('SEARCH_INDEX loaded:', Array.isArray(window.SEARCH_INDEX), 'Count:', allProducts.length);
-    console.log('Search query:', query);
     if (!query || !allProducts.length) return [];
     query = query.trim();
     let year = null;
     if (/^\d{4}$/.test(query)) year = parseInt(query, 10);
     const q = query.toLowerCase();
-    // If searching for a year, prioritize year/range logic
     if (year) {
-        return allProducts.filter(p => {
-            const name = (p.name || '').toLowerCase();
-            // Only check for year in name/title
-            return matchesYear(name, year);
+        return allProducts.filter(function(p) {
+            var name = (p.name || p.title || '').toString().toLowerCase();
+            var desc = (p.description || '').toString().toLowerCase();
+            var prodYear = (p.year != null ? String(p.year) : '').toLowerCase();
+            return matchesYear(prodYear, year) || matchesYear(name, year) || matchesYear(desc, year);
         });
     }
-    // For non-year queries, match if query is a substring of any word in name/title only (case-insensitive)
-    const wordMatch = (text, q) => {
-        if (!text) return false;
-        return text.split(/\W+/).some(word => {
-            if (!word) return false;
-            return word.includes(q);
-        });
-    };
-    return allProducts.filter(p => {
-        const name = (p.name || '').toLowerCase();
-        return wordMatch(name, q);
+    return allProducts.filter(function(p) {
+        var name = (p.name || p.title || '').toString().toLowerCase();
+        var desc = (p.description || '').toString().toLowerCase();
+        var prodYear = (p.year != null ? String(p.year) : '').toLowerCase();
+        return name.indexOf(q) !== -1 || desc.indexOf(q) !== -1 || (prodYear && prodYear.indexOf(q) !== -1);
     });
 }
 
@@ -348,18 +340,44 @@ function renderSearchResults(results, query) {
                 // ...existing code...
 }
 
-// Get query from URL
+// Get query from URL (works with search.html?q= or /search?q=)
 function getQueryParam(name) {
-    const url = new URL(window.location.href);
-    return url.searchParams.get(name) || '';
+    var search = window.location.search || '';
+    if (!search && window.location.href.indexOf('?') !== -1) {
+        var idx = window.location.href.indexOf('?');
+        search = window.location.href.substring(idx);
+    }
+    try {
+        var url = new URL(window.location.href);
+        var val = url.searchParams.get(name);
+        if (val != null && val !== '') return String(val).trim();
+    } catch (e) {}
+    var match = search.match(new RegExp('[?&]' + name + '=([^&]*)'));
+    if (match) return decodeURIComponent(match[1].replace(/\+/g, ' ')).trim();
+    return '';
 }
 
 window.addEventListener('DOMContentLoaded', function() {
-    const q = getQueryParam('q');
+    const q = getQueryParam('q').trim();
+    const titleEl = document.getElementById('searchTitle');
+    const containerEl = document.getElementById('searchResultsContainer');
     if (!q) {
-        document.getElementById('searchTitle').textContent = 'No search query provided.';
+        titleEl.textContent = 'Your search was not found.';
+        containerEl.innerHTML = '<p style="margin:1rem 0 1.5rem;color:#555;font-size:1.05rem;">No search query was provided. Please search from the homepage.</p><a href="index.html" class="btn btn-primary">Back to home</a>';
         return;
     }
-    const results = searchProducts(q);
+    var allProducts = getAllProducts();
+    if (!allProducts.length) {
+        titleEl.textContent = 'Search unavailable';
+        containerEl.innerHTML = '<p style="margin:1rem 0 1.5rem;color:#555;">The product list could not be loaded. Please refresh the page or <a href="index.html">go back to the homepage</a> and try again.</p><a href="index.html" class="btn btn-primary">Back to home</a>';
+        return;
+    }
+    var results = searchProducts(q);
+    if (!results.length) {
+        titleEl.innerHTML = '<span style="font-size:1.1rem;font-weight:500;color:#b80000;">Your search was not found.</span>';
+        containerEl.innerHTML = '<p style="margin:1rem 0 1.5rem;color:#555;">No products match <strong>"' + q.replace(/</g, '&lt;') + '"</strong>. Try a different term or <a href="index.html">search from the homepage</a>.</p><a href="index.html" class="btn btn-primary">Back to home</a>';
+        return;
+    }
+    titleEl.innerHTML = '<span style="font-size:1.15rem;font-weight:500;color:#222;">Search Results for <span style="color:#b80000;">"' + q.replace(/</g, '&lt;') + '"</span></span>';
     renderSearchResults(results, q);
 });

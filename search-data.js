@@ -720,13 +720,13 @@ Ideal for anyone looking to maintain a factory look or replace worn or damaged p
     },
     {
       id: 502,
-      name: 'Authentic JDM BRZ tS Rear Wing',
-      price: 259,
+      name: '2022+ Toyota GR86 / Subaru BRZ Carbon Fiber Fenders',
+      price: 620,
       image: '32a.jpg',
-      images: ['32b.jpg', '32c.jpg'],
-      description: `Genuine JDM-spec Subaru BRZ tS rear wing, offering a sleek and functional upgrade for your build. This original piece is in excellent 9.5/10 condition with minimal signs of use.
+      images: ['32b.jpg'],
+      description: `Upgrade your 2022+ GR86 or BRZ with these premium carbon fiber fenders, designed to enhance both performance and aesthetics. Crafted from high-quality carbon fiber, these fenders offer a lightweight construction while maintaining exceptional strength and durability.
 
-A perfect addition for enthusiasts looking to enhance both the aesthetic and aerodynamic profile of their BRZ with authentic JDM styling.`
+These fenders are in like-new condition, having been used for less than 500km. They show no signs of wear and maintain a flawless finish, making them an excellent option for anyone looking for a near-brand-new upgrade at a great value.`
     },
     {
       id: 503,
