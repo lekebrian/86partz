@@ -111,15 +111,13 @@ Complete and ready for installation.`
     },
     {
       id: 309,
-      name: 'Performance Camshaft',
-      price: 1300,
-      image: '9.jpg',
-      
-      description: `Camshafts – Precision Performance for Your Build
-
-Engineered to optimize valve timing, increase airflow, and unlock hidden power in your engine. Whether you're building for the street or track, our camshafts deliver improved throttle response, higher RPM potential, and enhanced overall performance.
-
-Perfect for naturally aspirated or forced induction setups—reliability and performance you can trust.`
+      name: 'Mishimoto Oil Cooler (Low Mileage)',
+      price: 300,
+      image: '9a.jpg',
+      images: ['9b.jpg', '9c.jpg'],
+      description: `Upgrade your vehicle’s performance with this genuine Mishimoto oil cooler, designed to maintain optimal oil temperatures during spirited driving 
+      and demanding conditions. This unit has covered less than 5,000km and remains in excellent condition, offering reliable cooling efficiency and durability. 
+      It comes complete with all necessary brackets and bolts for a straightforward installation, making it a convenient, ready-to-fit upgrade for improved engine protection and consistent performance.`
     },
     {
       id: 310,
