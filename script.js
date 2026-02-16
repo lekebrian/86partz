@@ -588,3 +588,16 @@ document.addEventListener("keydown", (e) => {
     }
   }
 })
+
+// Instagram links: open in external context to avoid blank page in in-app browsers
+document.addEventListener("DOMContentLoaded", function() {
+  var igUrl = "https://www.instagram.com/86partz_official/"
+  document.querySelectorAll('a[href*="instagram.com"]').forEach(function(a) {
+    a.setAttribute("href", igUrl)
+    a.setAttribute("rel", "noopener noreferrer")
+    a.addEventListener("click", function(e) {
+      e.preventDefault()
+      window.open(igUrl, "_blank", "noopener,noreferrer")
+    })
+  })
+})
