@@ -341,10 +341,31 @@ Forged from premium materials and precision-machined for perfect fitment, these 
 
 document.addEventListener('DOMContentLoaded', function() {
   if (document.getElementById('categoryProducts')) {
-    window.CategoryProducts.renderProducts(1);
+    var params = new URLSearchParams(window.location.search);
+    var productIdParam = params.get('product');
+    var pathMatch = window.location.pathname.match(/(?:\/|^)(\d+)-[a-z0-9-]+$/);
+    var prodId = productIdParam ? parseInt(productIdParam, 10) : (pathMatch && pathMatch[1] ? parseInt(pathMatch[1], 10) : null);
+
+    var pageToShow = 1;
+    if (prodId) {
+      var idx = window.CategoryProducts.products.findIndex(function(p) { return p.id === prodId; });
+      if (idx >= 0) {
+        pageToShow = Math.floor(idx / window.CategoryProducts.productsPerPage) + 1;
+      }
+    }
+    window.CategoryProducts.currentPage = pageToShow;
+    window.CategoryProducts.renderProducts(pageToShow);
     window.CategoryProducts.setupPagination();
     window.CategoryProducts.setupDetailsModal();
-    const page1 = document.getElementById('page1');
-    if (page1) page1.classList.add('active');
+    var page1 = document.getElementById('page1');
+    var page2 = document.getElementById('page2');
+    if (page1) page1.classList.toggle('active', pageToShow === 1);
+    if (page2) page2.classList.toggle('active', pageToShow === 2);
+
+    if (prodId && !isNaN(prodId)) {
+      setTimeout(function() {
+        window.CategoryProducts.showProductDetail(prodId);
+      }, 200);
+    }
   }
 });
