@@ -345,16 +345,30 @@ Enhance your driving experience and elevate your vehicle's interior with this co
 
 document.addEventListener('DOMContentLoaded', function() {
   if (document.getElementById('categoryProducts')) {
-    window.CategoryProducts.renderProducts(1);
+    // Check for ?product=ID (shared links) or path-based routing
+    const params = new URLSearchParams(window.location.search);
+    const productIdParam = params.get('product');
+    const pathMatch = window.location.pathname.match(/(?:\/|^)(\d+)-[a-z0-9-]+$/);
+    const prodId = productIdParam ? parseInt(productIdParam, 10) : (pathMatch && pathMatch[1] ? parseInt(pathMatch[1], 10) : null);
+
+    let pageToShow = 1;
+    if (prodId) {
+      const idx = window.CategoryProducts.products.findIndex(function(p) { return p.id === prodId; });
+      if (idx >= 0) {
+        pageToShow = Math.floor(idx / window.CategoryProducts.productsPerPage) + 1;
+      }
+    }
+    window.CategoryProducts.currentPage = pageToShow;
+    window.CategoryProducts.renderProducts(pageToShow);
     window.CategoryProducts.setupPagination();
     window.CategoryProducts.setupDetailsModal();
     const page1 = document.getElementById('page1');
-    if (page1) page1.classList.add('active');
+    const page2 = document.getElementById('page2');
+    if (page1) page1.classList.toggle('active', pageToShow === 1);
+    if (page2) page2.classList.toggle('active', pageToShow === 2);
 
-    // Pretty URL: open product modal if /[id]-[slug] is in the path
-    const pathMatch = window.location.pathname.match(/(?:\/|^)(\d+)-[a-z0-9-]+$/);
-    if (pathMatch && pathMatch[1]) {
-      const prodId = parseInt(pathMatch[1]);
+    // Open product modal if we have a product ID from URL
+    if (prodId && !isNaN(prodId)) {
       setTimeout(function() {
         window.CategoryProducts.showProductDetail(prodId);
       }, 200);
