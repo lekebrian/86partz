@@ -63,11 +63,11 @@ Enhance your driving experience and elevate your vehicle's interior with this co
     },
     {
       id: 608,
-      name: '2020 Subaru BRZ Door Cards and Alcantara Dash Piece ',
-      price: 300,
+      name: 'Toyota 86/FR-S/BRZ original seats',
+      price: 600,
       image: '47a.jpg',
-      images: ['47b.jpg', '47c.jpg'],
-      description: `Elevate the interior of your BRZ with this exceptionally well-preserved set of 2020 Subaru BRZ door cards, complemented by a luxurious Alcantara dash piece. These components, removed from a BRZ, are in perfect condition, showing no signs of wear or issues, ensuring a seamless and high-quality upgrade for your vehicle's cabin. The Alcantara dash piece specifically adds a touch of sophisticated texture and premium feel to your dashboard, perfectly matching the sporty elegance of the BRZ interior. This complete package offers an ideal opportunity for enthusiasts to restore or enhance their vehicle's aesthetic with genuine, unblemished OEM-quality components, ready for immediate installation.`
+      images: ['47b.jpg'],
+      description: `These are original seats from a 2013 Toyota FR-S, maintained in excellent condition. They were used for approximately 20,000 miles before being replaced and remain in very good shape, showing minimal signs of wear. Suitable for buyers seeking authentic OEM seats with preserved comfort and quality.`
     },
     {
       id: 609,
