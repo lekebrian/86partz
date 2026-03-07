@@ -616,25 +616,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set active page button
     const pageBtn = document.getElementById('page' + initialPage);
     if (pageBtn) pageBtn.classList.add('active');
-    // After rendering, scroll to product if needed
+    // Scroll to product and highlight (no modal); user can click See Details to open modal
     if (openProductId) {
       setTimeout(() => {
-        const card = Array.from(document.querySelectorAll('.product-card')).find(card => {
-          const seeBtn = card.querySelector('.see-details-btn');
-          return seeBtn && String(seeBtn.getAttribute('data-id')) === String(openProductId);
-        });
-        if (card) {
-          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          card.classList.add('highlight-product');
-          setTimeout(() => card.classList.remove('highlight-product'), 2200);
+        if (window.productRouter) {
+          window.productRouter.highlightProductOnCurrentPage(openProductId);
         }
-        // Auto-open modal for pretty URL
-        window.CategoryProducts.showProductDetail(openProductId);
-      }, 200);
+      }, 250);
     }
   }
-  // Add highlight style for auto-scroll
-  const style = document.createElement('style');
-  style.innerHTML = `.highlight-product { box-shadow: 0 0 0 4px #b8000099, 0 4px 24px rgba(0,0,0,0.13); transition: box-shadow 0.3s; }`;
-  document.head.appendChild(style);
+  // Add highlight style for product-routing highlight (fallback)
+  if (!document.querySelector('#highlight-product-style')) {
+    const style = document.createElement('style');
+    style.id = 'highlight-product-style';
+    style.innerHTML = `.highlight-product { box-shadow: 0 0 0 4px #b8000099, 0 4px 24px rgba(0,0,0,0.13); transition: box-shadow 0.3s; }`;
+    document.head.appendChild(style);
+  }
 });

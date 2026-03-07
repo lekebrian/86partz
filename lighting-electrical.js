@@ -21,7 +21,7 @@ window.CategoryProducts = {
     {
       id: 702,
       name: 'DEPO Tri-Bar LED Tail Lights with Clear Side Markers',
-      price: 380,
+      price: 480,
       image: '52a.jpg',
       images: ['52b.jpg', '52c.jpg'],
       description: `Give your vehicle's rear end a sleek, modern update with these eye-catching DEPO Tri-Bar LED tail lights, thoughtfully paired with crystal-clear side markers. The lenses themselves are in fantastic shape, ensuring a crisp, bright output that will immediately refresh your car's look. You might notice a couple of incredibly tiny water spots on the very top edge of the chrome housing, but they're so minor they practically disappear once installed. This set offers a compelling and stylish way to stand out, bringing both a unique lighting signature and a clean, updated aesthetic to your vehicle.`
@@ -29,7 +29,7 @@ window.CategoryProducts = {
     {
       id: 703,
       name: 'VLAND Smoked Clear Sequential Taillights for FR-S, BRZ, and 86',
-      price: 355,
+      price: 455,
       image: '53a.jpg',
       images: ['53b.jpg', '53c.jpg'],
       description: `Update the rear look of your FR-S, BRZ, or 86 with a brand-new set of VLAND Smoked Clear Sequential Taillights. These lights are still in their original box, only opened briefly for pictures, meaning they're absolutely pristine and ready for installation.
@@ -39,13 +39,15 @@ Once in place, you'll immediately notice the full LED upgrade, providing brighte
     {
       id: 704,
       name: `
-Valenti Revo Jewel Sequential Taillights (Clear/Gold) for FR-S, BRZ, and 86`,
-      price: 375,
+Toyota GT86 / Subaru BRZ Clear Tri-Bar Taillights`,
+      price: 500,
       image: '54a.jpg',
       images: ['54b.jpg', '54c.jpg'],
-      description: `Transform the rear end of your FR-S, BRZ, or 86 with a set of Valenti Revo Jewel Sequential Taillights. These stunning clear and gold lights, though lightly used, perform flawlessly with no issues or dead LEDs. In fact, their lenses have just received a fresh clean and polish, ensuring they look exceptionally sharp.
+      description: `The Toyota GT86 / Subaru BRZ Clear Tri-Bar Taillights are a premium aftermarket lighting upgrade designed to enhance both the appearance and functionality of your vehicle. Featuring a distinctive clear tri-bar design, these taillights give the rear of the car a sharper, more modern aesthetic that stands out while maintaining a clean, performance-inspired look.
 
-You'll appreciate the full LED upgrade, delivering brighter and crisper illumination than standard lights. The integrated sequential turn signals offer a smooth, modern sweep, while the distinctive boomerang daytime running light provides an unmistakable signature, enhancing your car's presence both day and night. This set brings a truly high-end, custom look and reliable performance to your vehicle.`
+This set is in excellent condition and is a rare find, making it an ideal choice for enthusiasts looking to upgrade or replace their factory lights with something more unique. The taillights are fully functional with no cracks, no leaks, and all LEDs operating perfectly, ensuring reliable performance and durability.
+
+A built-in sequential indicator feature adds an extra layer of style and visibility, and it can easily be controlled using the integrated switch, allowing you to turn the sequential turn signal on or off depending on your preference.`
     },
     {
       id: 705,
@@ -359,20 +361,35 @@ You'll appreciate the full LED upgrade, delivering brighter and crisper illumina
 
 document.addEventListener('DOMContentLoaded', function() {
   if (document.getElementById('categoryProducts')) {
-    window.CategoryProducts.renderProducts(1);
+    // Check for ?product=ID (shared links) or path-based routing
+    const params = new URLSearchParams(window.location.search);
+    const productIdParam = params.get('product');
+    const pathMatch = window.location.pathname.match(/(?:\/|^)(\d+)-[a-z0-9-]+$/);
+    const prodId = productIdParam ? parseInt(productIdParam, 10) : (pathMatch && pathMatch[1] ? parseInt(pathMatch[1], 10) : null);
+
+    var pageToShow = 1;
+    if (prodId) {
+      var idx = window.CategoryProducts.products.findIndex(function(p) { return p.id === prodId; });
+      if (idx >= 0) {
+        pageToShow = Math.floor(idx / window.CategoryProducts.productsPerPage) + 1;
+      }
+    }
+    window.CategoryProducts.currentPage = pageToShow;
+    window.CategoryProducts.renderProducts(pageToShow);
     window.CategoryProducts.setupPagination();
     window.CategoryProducts.setupDetailsModal();
     const page1 = document.getElementById('page1');
-    if (page1) page1.classList.add('active');
+    const page2 = document.getElementById('page2');
+    if (page1) page1.classList.toggle('active', pageToShow === 1);
+    if (page2) page2.classList.toggle('active', pageToShow === 2);
 
-    // Pretty URL: open product modal if /[id]-[slug] is in the path
-    const pathMatch = window.location.pathname.match(/(?:\/|^)(\d+)-[a-z0-9-]+$/);
-    if (pathMatch && pathMatch[1]) {
-      const prodId = parseInt(pathMatch[1]);
-      // Wait for DOM and products to render, then show modal
+    // Scroll to product and highlight (no modal); user can click See Details to open modal
+    if (prodId && !isNaN(prodId)) {
       setTimeout(function() {
-        window.CategoryProducts.showProductDetail(prodId);
-      }, 200);
+        if (window.productRouter) {
+          window.productRouter.highlightProductOnCurrentPage(prodId);
+        }
+      }, 250);
     }
   }
 });

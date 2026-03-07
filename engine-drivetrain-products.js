@@ -362,10 +362,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (page1) page1.classList.toggle('active', pageToShow === 1);
     if (page2) page2.classList.toggle('active', pageToShow === 2);
 
+    // Scroll to product and highlight (no modal); user can click See Details to open modal
     if (prodId && !isNaN(prodId)) {
       setTimeout(function() {
-        window.CategoryProducts.showProductDetail(prodId);
-      }, 200);
+        if (window.productRouter) {
+          window.productRouter.highlightProductOnCurrentPage(prodId);
+        }
+      }, 250);
     }
   }
 });

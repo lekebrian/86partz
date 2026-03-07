@@ -122,6 +122,7 @@ class ProductRouter {
                     else if (product.id >= 501 && product.id <= 550) category = 'exterior-aerodynamics';
                     else if (product.id >= 551 && product.id <= 600) category = 'interior-electronics';
                     else if (product.id >= 601 && product.id <= 650) category = 'accessories';
+                    else if (product.id >= 701 && product.id <= 750) category = 'lighting-electrical';
                     else if (product.id >= 801 && product.id <= 900) category = 'general';
                     console.log(`Using ID-based categorization for product ${product.id}: ${category}`);
                 } else {
@@ -329,23 +330,35 @@ class ProductRouter {
         }
     }
 
-    // Generate shareable link for a product
+    // Generate shareable link for a product (always points to the category page to avoid 404)
     generateShareableLink(productId, productName = '') {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        const baseUrl = window.location.origin + window.location.pathname;
-        
-        // Create slug from product name if available
+        const product = this.findProductById(productId);
+        const categoryPages = {
+            'engine-drivetrain': 'engine-drivetrain.html',
+            'suspension-handling': 'suspension-handling.html',
+            'brakes-wheels': 'brakes-wheels.html',
+            'exterior-aerodynamics': 'exterior-aerodynamics.html',
+            'interior-electronics': 'interior-electronics.html',
+            'lighting-electrical': 'lighting-electrical.html',
+            'accessories': 'accessories.html',
+            'general': 'general.html',
+            'homepage': 'index.html'
+        };
+        const category = product && product.category ? product.category : this.getCurrentPageCategory();
+        const targetPage = categoryPages[category] || 'general.html';
+        // Preserve base path (e.g. /86partz/) and only change the page filename
+        const pathname = window.location.pathname || '/';
+        const basePath = pathname.replace(/[^/]*$/, '');
+        const targetUrl = window.location.origin + basePath + targetPage;
+
         let slug = '';
         if (productName) {
             slug = this.createSlug(productName);
         }
-        
-        // Return URL in format: ?product=ID&slug=SLUG
         if (slug) {
-            return `${baseUrl}?product=${productId}&slug=${slug}`;
-        } else {
-            return `${baseUrl}?product=${productId}`;
+            return `${targetUrl}?product=${productId}&slug=${encodeURIComponent(slug)}`;
         }
+        return `${targetUrl}?product=${productId}`;
     }
 
     // Create URL-friendly slug from product name
