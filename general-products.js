@@ -141,31 +141,15 @@ Known as RAYS’ most popular Gramlights design, the 57CR blends style, performa
     },
     {
       id: 806,
-      name: `OBX Stainless Steel Catback Exhaust – For 2013–2022 BRZ, 2013–2021 FR-S, 2012–2021 Toyota FT86 / GT86
+      name: `Tomei Expreme Ti Racing Titanium Cat-Back 
+      Exhaust System
 `,
-      price: 600,
+      price: 1400,
       image: '76a.jpg',
       images: ['76b.jpg', '76c.jpg'],
-      description: `
-Enhance both the sound and performance of your 86-platform car with the OBX Stainless Steel Catback Exhaust, engineered for a perfect fit on the Subaru BRZ (2013–2022), Scion FR-S (2013–2021), and Toyota FT86/GT86 (2012–2021). Crafted from high-quality stainless steel, this exhaust system offers a clean, aggressive tone while improving exhaust flow and reducing backpressure.
-
-Designed as a bolt-on upgrade, this catback exhaust delivers noticeable performance gains and a more engaging driving experience — all while maintaining daily drivability.
-
-Key Features:
-
-Direct-fit catback exhaust system for BRZ, FR-S, and GT86 platforms
-
-Constructed from polished stainless steel for durability and corrosion resistance
-
-Improved exhaust flow for increased power and throttle response
-
-Aggressive, refined tone without excessive drone
-
-Bolt-on installation using factory mounting points
-
-Ideal for street builds, daily drivers, and spirited weekend use
-
-Whether you're looking to improve performance or just want a more satisfying exhaust note, the OBX stainless catback offers a great balance of sound, looks, and value.`
+      description: `Enhance your Toyota 86 or Subaru BRZ with the Tomei Expreme Ti Racing Titanium Cat-Back 
+      Exhaust System. Built from high-quality titanium, this dual muffler setup is extremely lightweight—light enough to lift with one hand—while delivering improved exhaust flow, performance, and a deep, 
+      aggressive sound. Presented in as-new condition, it’s a perfect upgrade for both style and performance.`
     },
     {
       id: 807,
