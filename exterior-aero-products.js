@@ -14,13 +14,14 @@ Ideal for anyone looking to maintain a factory look or replace worn or damaged p
     },
     {
       id: 502,
-      name: '2022+ Toyota GR86 / Subaru BRZ Carbon Fiber Fenders',
-      price: 620,
+      name: 'Seibon Carbon TS Style Carbon Fiber Hood brz/86/frs',
+      price: 750,
       image: '32a.jpg',
       images: ['32b.jpg'],
-      description: `Upgrade your 2022+ GR86 or BRZ with these premium carbon fiber fenders, designed to enhance both performance and aesthetics. Crafted from high-quality carbon fiber, these fenders offer a lightweight construction while maintaining exceptional strength and durability.
-
-These fenders are in like-new condition, having been used for less than 500km. They show no signs of wear and maintain a flawless finish, making them an excellent option for anyone looking for a near-brand-new upgrade at a great value.`
+      description: `Upgrade the performance and aesthetics of your vehicle with the Seibon Carbon TS Style Carbon Fiber 
+      Hood, a premium aftermarket component designed specifically for the Subaru BRZ, Toyota 86, and Scion FR-S platforms. Crafted by 
+      Seibon Carbon, this TS Style hood is constructed from high-quality carbon fiber using advanced manufacturing processes to deliver exceptional strength while significantly reducing weight compared to the factory hood. The lightweight design not only enhances the vehicle’s performance by lowering overall weight but also improves heat dissipation and airflow within the engine bay, contributing to better thermal management during spirited driving. Its aggressive TS-style vented design adds a bold, race-inspired look that complements the sporty
+       lines of the BRZ, 86, and FR-S, instantly elevating the car’s appearance with a sleek carbon fiber finish.`
     },
     {
       id: 503,
